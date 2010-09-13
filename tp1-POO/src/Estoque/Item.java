@@ -1,330 +1,54 @@
 package Estoque;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Class Item
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
 public class Item {
-	// Fields
-	// 
-	private String nome;
-	// 
+ 
+	private String nome; 
 	private int codigo;
-	// 
-	private float precoCusto;
-	// 
+	private float precoCusto; 
 	private float margemLucro;
-	// 
 	private int quant;
-	// Methods
-	// Constructors
-	// Empty Constructor
-	public Item ( ) { }
-	// Accessor Methods
-	// Get the value of nome
-	// 
-	// @return the value of nome
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	private String getNome (  ) {
-		return nome;
+
+	public Item () { }
+
+	private String getNome () {
+		return this.nome;
 	}
-	// Set the value of nome
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
+
 	private void setNome ( String value  ) {
-		nome = value;
+		this.nome = value;
 	}
-	// Get the value of codigo
-	// 
-	// @return the value of codigo
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
+
 	private int getCodigo (  ) {
-		return codigo;
+		return this.codigo;
 	}
-	// Set the value of codigo
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
+
 	private void setCodigo ( int value  ) {
-		codigo = value;
+		this.codigo = value;
 	}
-	// Get the value of precoCusto
-	// 
-	// @return the value of precoCusto
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
+
 	private float getPrecoCusto (  ) {
-		return precoCusto;
+		return this.precoCusto;
 	}
-	// Set the value of precoCusto
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
+ 
 	private void setPrecoCusto ( float value  ) {
-		precoCusto = value;
+		this.precoCusto = value;
 	}
-	// Get the value of margemLucro
-	// 
-	// @return the value of margemLucro
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
+
 	private float getMargemLucro (  ) {
-		return margemLucro;
+		return this.margemLucro;
 	}
-	// Set the value of margemLucro
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
+ 
 	private void setMargemLucro ( float value  ) {
-		margemLucro = value;
+		this.margemLucro = value;
 	}
-	// Get the value of quant
-	// 
-	// @return the value of quant
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
+ 
 	private int getQuant (  ) {
-		return quant;
+		return this.quant;
 	}
-	// Set the value of quant
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
+
 	private void setQuant ( int value  ) {
-		quant = value;
+		this.quant = value;
 	}
-	// Operations
+
 }
 
