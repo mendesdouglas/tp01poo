@@ -1,96 +1,20 @@
 package Pessoas;
+ 
+public class Fornecedor extends Pessoa{
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Class Fornecedor
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-public class Fornecedor extends Pessoa {
-	// Fields
-	// 
 	private String cnpj;
-	// Methods
-	// Constructors
-	// Empty Constructor
-	public Fornecedor ( ) { }
-	// Accessor Methods
-	// Get the value of cnpj
-	// 
-	// @return the value of cnpj
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	private String getCnpj (  ) {
+
+	public Fornecedor(String cnpj){ 
+		this.cnpj = cnpj;
+	}
+	
+	private String getCnpj(  ) {
 		return cnpj;
 	}
-	// Set the value of cnpj
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	private void setCnpj ( String value  ) {
-		cnpj = value;
+ 
+	private void setCnpj(String cnpj){
+		this.cnpj = cnpj;
 	}
-	// Operations
+
 }
 
