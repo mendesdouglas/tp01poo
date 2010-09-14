@@ -9,7 +9,7 @@ public class Cliente extends Pessoa{
 		this.cpf = cpf;
 	}
 	
-	private String getCpf(  ){
+	private String getCpf(){
 		return this.cpf;
 	}
 	
