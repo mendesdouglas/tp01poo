@@ -1,268 +1,50 @@
 package Pessoas;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Class Pessoa
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
 public class Pessoa {
-	// Fields
-	// 
-	private String nome;
-	// 
+ 
+	private String nome; 
 	private int codigo;
-	// 
 	private String endereco;
-	// 
 	private String telefone;
-	// Methods
-	// Constructors
-	// Empty Constructor
-	public Pessoa ( ) { }
-	// Accessor Methods
-	// Get the value of nome
-	// 
-	// @return the value of nome
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	private String getNome (  ) {
-		return nome;
+
+	public Pessoa (String nome,int codigo,String endereco,String telefone) {
+		this.nome = nome; 
+		this.codigo = codigo;
+		this.endereco = endereco;
+		this.telefone = telefone;	
+		
 	}
-	// Set the value of nome
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	private void setNome ( String value  ) {
-		nome = value;
+
+	private String getNome () {
+		return this.nome;
 	}
-	// Get the value of codigo
-	// 
-	// @return the value of codigo
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	private int getCodigo (  ) {
-		return codigo;
+	 
+	private void setNome (String nome) {
+		this.nome = nome;
 	}
-	// Set the value of codigo
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	private void setCodigo ( int value  ) {
-		codigo = value;
+	 
+	private int getCodigo () {
+		return this.codigo;
 	}
-	// Get the value of endereco
-	// 
-	// @return the value of endereco
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	private String getEndereco (  ) {
-		return endereco;
+	
+	private void setCodigo (int codigo) {
+		this.codigo = codigo;
 	}
-	// Set the value of endereco
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	private void setEndereco ( String value  ) {
-		endereco = value;
+	 
+	private String getEndereco () {
+		return this.endereco;
 	}
-	// Get the value of telefone
-	// 
-	// @return the value of telefone
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	private String getTelefone (  ) {
-		return telefone;
+	 
+	private void setEndereco (String endereco) {
+		this.endereco = endereco;
 	}
-	// Set the value of telefone
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	private void setTelefone ( String value  ) {
-		telefone = value;
+	 
+	private String getTelefone () {
+		return this.telefone;
 	}
-	// Operations
+	 
+	private void setTelefone (String telefone) {
+		this.telefone = telefone;
+	}
 }
 
