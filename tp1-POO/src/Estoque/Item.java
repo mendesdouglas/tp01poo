@@ -8,30 +8,36 @@ public class Item {
 	private float margemLucro;
 	private int quant;
 
-	public Item () { }
+	public Item (String nome,int codigo,float precoCusto,float margemLucro,int quant) {
+		this.nome = nome;
+		this.codigo = codigo;
+		this.precoCusto = precoCusto;
+		this.margemLucro = margemLucro;
+		
+	}
 
 	private String getNome () {
 		return this.nome;
 	}
 
-	private void setNome ( String value  ) {
-		this.nome = value;
+	private void setNome ( String nome  ) {
+		this.nome = nome;
 	}
 
-	private int getCodigo (  ) {
+	private int getCodigo () {
 		return this.codigo;
 	}
-
-	private void setCodigo ( int value  ) {
-		this.codigo = value;
+	
+	private void setCodigo ( int codigo  ) {
+		this.codigo = codigo;
 	}
 
-	private float getPrecoCusto (  ) {
+	private float getPrecoCusto () {
 		return this.precoCusto;
 	}
  
-	private void setPrecoCusto ( float value  ) {
-		this.precoCusto = value;
+	private void setPrecoCusto ( float precoCusto  ) {
+		this.precoCusto = precoCusto;
 	}
 
 	private float getMargemLucro (  ) {
