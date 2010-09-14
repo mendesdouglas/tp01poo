@@ -1,7 +1,11 @@
 package Estoque;
- 
+
+import java.util.*;
+
 public class Pedido {
-private Arraylist<Item >listaItem;
+	
+private ArrayList<Item >listaItem;
+
 public Pedido ( ) { }
 	
 }
