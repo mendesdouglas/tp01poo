@@ -1,91 +1,20 @@
 package Pessoas;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Class Cliente
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-public class Cliente extends Pessoa {
-	// Fields
-	// 
+ 
+public class Cliente extends Pessoa{
+	
 	private String cpf;
-	// Methods
-	// Constructors
-	// Empty Constructor
-	public Cliente ( ) { }
-	// Accessor Methods
-	// Get the value of cpf
-	// 
-	// @return the value of cpf
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	private String getCpf (  ) {
-		return cpf;
+	
+	public Cliente(String cpf){
+		this.cpf = cpf;
 	}
-	// Set the value of cpf
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	// 
-	private void setCpf ( String value  ) {
-		cpf = value;
+	
+	private String getCpf(  ){
+		return this.cpf;
 	}
-	// Operations
+	
+	private void setCpf(String cpf){
+		this.cpf = cpf;
+	}
+	
 }
 
