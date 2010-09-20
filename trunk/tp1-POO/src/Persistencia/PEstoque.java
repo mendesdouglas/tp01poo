@@ -1,17 +1,33 @@
 package Persistencia;
 import java.util.*;
 import Estoque.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class PEstoque {
 	
 	ArrayList<Item> itens;
 	 
-	public PEstoque () {}
+	public PEstoque () {
+		this.itens = new ArrayList<Item>(); 
+	}
 	
 	/**
 	 * 
 	 */
-	public boolean save () {
+	public boolean save () throws IOException {
+
+		FileWriter fw = new FileWriter("estoque.dat",false);
+    	String str = "#codigo\tnome\tpreco custo\tmargem lucro\tquantidade\n";
+	    for (Item item : itens) {
+	    	str+=item.getCodigo()+"\t"+item.getNome()+"\t"+item.getPrecoCusto()+"\t"+item.getMargemLucro()+"\t"+item.getQuant()+"\n";
+		}
+		fw.write(str);
+		fw.close();
 		return true;
 	}
 	
@@ -49,7 +65,7 @@ public class PEstoque {
 	 * 
 	 */
 	public boolean cadastro (Item item) {
-		return true;
+		return this.itens.add(item);
 	}
 	/**
 	 * 
@@ -67,9 +83,9 @@ public class PEstoque {
 	 * 
 	 */
 	public void overview () {
-    	System.out.println("codigo\tnome\tpreco custo\tmargem lucro\tquantidade\n");
+    	System.out.println("codigo\tnome\tpreco custo\tmargem lucro\tquantidade");
 	    for (Item item : itens) {
-	    	System.out.println(item.getCodigo()+"\t"+item.getNome()+"\t"+item.getPrecoCusto()+"\t"+item.getMargemLucro()+"\t"+item.getQuant()+"\n");
+	    	System.out.println(item.getCodigo()+"\t"+item.getNome()+"\t"+item.getPrecoCusto()+"\t"+item.getMargemLucro()+"\t"+item.getQuant());
 		}
 	}
 }
