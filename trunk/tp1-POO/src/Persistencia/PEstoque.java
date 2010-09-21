@@ -10,11 +10,22 @@ import java.io.IOException;
 
 public class PEstoque {
 	
+	private static PEstoque EstoqueInstance;
 	ArrayList<Item> itens;
 	 
-	public PEstoque () {
+	private PEstoque () {
 		this.itens = new ArrayList<Item>(); 
 	}
+	 
+	public static PEstoque getInstance(){
+		if(EstoqueInstance == null) {
+			EstoqueInstance = new PEstoque();
+	    }
+	    return EstoqueInstance;
+	 }
+
+	
+
 	
 	/**
 	 * 
