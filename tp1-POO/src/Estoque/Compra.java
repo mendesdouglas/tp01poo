@@ -12,6 +12,7 @@ public class Compra {
 	public Compra (Fornecedor fornecedor) {
 		this.compras = new ArrayList<ItemCompra>();
 		this.fornecedor = fornecedor; 
+		this.compras = new ArrayList<ItemCompra>();
 	}
 	
 	public Fornecedor getFornecedor(){
