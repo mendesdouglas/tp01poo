@@ -1,7 +1,6 @@
 package Cui;
 import java.io.IOException;
-//import Estoque.*;
-import Persistencia.*;
+
 
 
 public class Main {
@@ -11,8 +10,6 @@ public class Main {
 	 * @throws IOException 
 	 */
 	public static void main(String[] args) throws IOException {
-		PEstoque estoque = PEstoque.getInstance();
-		estoque.save();
 		Menu.principal();
 	}
 	

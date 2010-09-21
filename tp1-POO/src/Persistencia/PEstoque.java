@@ -30,6 +30,7 @@ public class PEstoque {
 	    }
 	    return EstoqueInstance;
 	 }
+	
 	/**
 	 * 
 	 */
@@ -58,6 +59,7 @@ public class PEstoque {
 		fw.close();
 		return true;
 	}
+	
 	/**
 	 * 
 	 */
@@ -71,6 +73,7 @@ public class PEstoque {
 		fw.close();
 		return true;
 	}
+	
 	/**
 	 * 
 	 */
@@ -93,6 +96,7 @@ public class PEstoque {
 		}
 		br.close();		
 	}
+	
 	/**
 	 * 
 	 */
@@ -104,6 +108,7 @@ public class PEstoque {
 	    }
 		return null;
 	}
+	
 	/**
 	 * 
 	 */
@@ -115,6 +120,7 @@ public class PEstoque {
 	    }
 		return null;
 	}
+	
 	/**
 	 * 
 	 */
@@ -125,6 +131,7 @@ public class PEstoque {
 		}
 		return this.itens.add(item);
 	}
+	
 	/**
 	 * 
 	 */
