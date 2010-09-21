@@ -10,6 +10,7 @@ public class ItemCompra {
 		this.item = item;
 		this.precoCompra = precoCompra;
 		this.quant = quant;	
+		
 	}
 	
 	/**

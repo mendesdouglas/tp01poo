@@ -14,6 +14,7 @@ public class Pedido {
 	public Pedido (Cliente cliente) {
 		this.pedidos = new ArrayList<ItemPedido>();
 		this.cliente = cliente;
+		this.pedidos = new ArrayList<ItemPedido>();
 	}
 	
 	public boolean searchItemPedido (int codigo) {

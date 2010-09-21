@@ -5,7 +5,7 @@ public class ItemPedido {
 	private Item item;
 	private float precoPedido;
 	private int quant;
-	
+
 	public ItemPedido (Item item,int quant) {
 		this.item = item;
 		this.quant = quant;
@@ -51,7 +51,6 @@ public class ItemPedido {
 	public void setQuant (int quant) {
 		if (quant > 0){
 		this.quant = quant;
-		this.precoPedido = ((this.item.getPrecoCusto()*this.item.getMargemLucro())+this.item.getPrecoCusto());
 		}
 	}
 }
