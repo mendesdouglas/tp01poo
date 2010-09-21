@@ -13,7 +13,7 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		PEstoque estoque = PEstoque.getInstance();
 		estoque.getEstoque();
-		estoque.overview();
+		//estoque.overview();
 		estoque.save();
 		
 		Menu.principal();
