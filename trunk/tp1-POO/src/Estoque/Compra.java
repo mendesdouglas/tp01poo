@@ -40,26 +40,13 @@ public class Compra {
 		PEstoque estoque = PEstoque.getInstance();
 		Item item = estoque.searchItem (codigo);
 		if (item == null) {
-			System.out.println("Produto nao encontrado insira as informacoes de cadastro:");
-			System.out.println("Entre com um nome: ");
-			String nome = Console.readString();
-			int code;
-			do{
-				System.out.println("entre com um codigo valido: ");
-				code = Console.readInteger();
-			}while(estoque.searchItem(codigo)!= null);	
-			System.out.println("entre com o preço de custo: ");
-			float precoCusto = Console.readFloat();
-			System.out.println("entre com a margem de lucro: ");
-			float margemLucro = Console.readFloat();
-			System.out.println("entre com a quantidade: ");
-			int quantidade = Console.readInteger();
-			item = new Item(nome,code,precoCusto,margemLucro,quantidade);
+			Menu.cadastrarItem();
 		}
  		ItemCompra itemCompra = new ItemCompra(item,precoCompra,quant);
  		this.compras.add(itemCompra);
 		return true;
 	}
+
 	/**
 	 * 
 	 */

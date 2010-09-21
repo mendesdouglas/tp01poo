@@ -30,10 +30,6 @@ public class PEstoque {
 	    }
 	    return EstoqueInstance;
 	 }
-
-	
-
-	
 	/**
 	 * 
 	 */
