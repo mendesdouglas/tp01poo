@@ -35,6 +35,13 @@ public class PEstoque {
 	 * 
 	 */
 	public boolean save (Compra listaCompra) {
+		FileWriter fw = new FileWriter("Compras.dat",true);
+    	String str = "#codigo\tnome\tpreco custo\tmargem lucro\tquantidade\n";
+	    for (Compras item : itens) {
+	    	str+=item.getCodigo()+"\t"+item.getNome()+"\t"+item.getPrecoCusto()+"\t"+item.getMargemLucro()+"\t"+item.getQuant()+"\n";
+		}
+		fw.write(str);
+		fw.close();
 		return true;
 	}
 	/**
@@ -69,12 +76,22 @@ public class PEstoque {
 	 * 
 	 */
 	public Item searchItem (int codigo) {
+		for (Item item : itens) {
+			if (item.getNome().equals(nome)){
+				return item;
+			}
+	    }
 		return null;
 	}
 	/**
 	 * 
 	 */
 	public Item searchItem (String nome) {
+		for (Item item : itens) {
+			if (item.getNome().equals(nome)){
+				return item;
+			}
+	    }
 		return null;
 	}
 	/**
@@ -86,18 +103,6 @@ public class PEstoque {
 			return false;
 		}
 		return this.itens.add(item);
-	}
-	/**
-	 * 
-	 */
-	public boolean cadastro (Pedido pedido) {
-		return true;
-	}
-	/**
-	 * 
-	 */
-	public boolean cadastro (Compra compra) {
-		return true;
 	}
 	/**
 	 * 
