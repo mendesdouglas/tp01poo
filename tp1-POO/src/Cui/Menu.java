@@ -99,17 +99,7 @@ public class Menu {
 		fornecedor.cadastro(new Fornecedor(cnpj,nome,1,endereco,telefone));
 		fornecedor.save();
 		
-		System.out.println("Gostaria de cadastrar outro fornecedor?");
-		System.out.println("Digite (1) para SIM ou (2) para NAO: ");
-		int opt = Console.readInteger();
-		
-		switch (opt) {
-		case 1: cadastrarFornecedor();
-			break;
-		
-		default: cadastro();
-			break;
-		}
+		cadastro();
 		
 	}
 	
@@ -136,20 +126,11 @@ public class Menu {
 		
 		String endereco = ruaNumero+","+bairro;
 		PClientes cliente = new PClientes();
+		cliente.getCliente();
 		cliente.cadastro(new Cliente(cpf,nome,1,endereco,telefone));
-		
-		System.out.println("Gostaria de cadastrar outro cliente?");
-		System.out.println("Digite (1) para SIM ou (2) para NAO: ");
-		int opt = Console.readInteger();
 		cliente.save();
 		
-		switch (opt) {
-		case 1: cadastrarCliente();
-			break;
-		
-		default: cadastro();
-			break;
-		}
+		cadastro();
 	}
 	
 	public static void consulta() throws FileNotFoundException, IOException{

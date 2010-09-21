@@ -22,7 +22,7 @@ import Pessoas.Fornecedor;
 	 */
 	public boolean save () throws IOException {
 		FileWriter fw = new FileWriter("Fornecedores.dat",false);
-    	String str = "#cnpj\t\tnome\t\tcodigo\tendereco\t\ttelefone";
+    	String str = "#cnpj\t\tnome\t\tcodigo\tendereco\t\ttelefone\n";
 	    for (Fornecedor fornecedor : fornecedores) {
 	    	str+=fornecedor.getCnpj()+"\t"+fornecedor.getNome()+"\t"+fornecedor.getCodigo()+"\t"+fornecedor.getEndereco()+"\t"+fornecedor.getTelefone()+"\n";
 		}
@@ -34,13 +34,13 @@ import Pessoas.Fornecedor;
 	 * 
 	 */
 	public void getFornecedor () throws FileNotFoundException, IOException {
-		File file = new File("fornecedores.dat");
+		File file = new File("Fornecedores.dat");
 
 		if (! file.exists()) {
-		System.out.println("ERRO arquivo Nao Encontrado!");
+			file.createNewFile();
 		}
 
-		BufferedReader br = new BufferedReader(new FileReader("fornecedores.dat"));
+		BufferedReader br = new BufferedReader(new FileReader("Fornecedores.dat"));
 		String linha;
 		while( (linha = br.readLine()) != null ){
 			if(linha.startsWith("#")){ 
