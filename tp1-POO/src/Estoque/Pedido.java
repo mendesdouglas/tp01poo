@@ -1,17 +1,46 @@
 package Estoque;
 
 import java.util.*;
+
+import Persistencia.PEstoque;
 import Pessoas.Cliente;
 
 public class Pedido {
 
-		ArrayList<ItemPedido> pedidos;
-		Cliente cliente;
+	ArrayList<ItemPedido> pedidos;
+	Cliente cliente;
 		
 		
 	public Pedido (Cliente cliente) {
 		this.pedidos = new ArrayList<ItemPedido>();
 		this.cliente = cliente;
+	}
+	
+	public boolean searchItemPedido (int codigo) {
+		for (ItemPedido item : pedidos) {
+			if (item.getCodigoItem() == codigo){
+				return true; 
+			}
+	    }
+		return false;
+	}
+	/**
+	 * 
+	 */	
+	public boolean addItem(int codigo,int quant){
+		if (searchItemPedido(codigo)){
+			System.out.println("Produto já está na sua lista favor usar a opção de alterar!!");
+			return false;
+		}
+		PEstoque estoque = PEstoque.getInstance();
+		Item item = estoque.searchItem (codigo);
+		if (item == null) {
+			System.out.println("O codigo digitado é invalido,por favor insira um codigo válido");
+			return false;
+		}
+ 		ItemPedido itemPedido = new ItemPedido(item,quant);
+ 		this.pedidos.add(itemPedido);
+		return true;
 	}
 
 	/**
