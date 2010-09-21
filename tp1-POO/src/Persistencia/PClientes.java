@@ -14,7 +14,9 @@ public class PClientes {
 	private ArrayList<Cliente> compradores;
 	
 	
-	public PClientes ( ) { }
+	public PClientes ( ) {
+		compradores = new ArrayList<Cliente>();
+	}
 	/**
 	 * 
 	 */

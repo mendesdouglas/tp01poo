@@ -43,8 +43,7 @@ public class Menu {
 		System.out.println("Digite (4) para voltar ao menu principal.");
 		int opt;
 		opt=Console.readInteger();
-			//public float calculaMP (ItemCompra itemCompra) {
-
+		
 		switch (opt) {
 		
 		case 1:
@@ -132,7 +131,6 @@ public class Menu {
 		
 		String endereco = ruaNumero+","+bairro;
 		PClientes cliente = new PClientes();
-		cliente.getCliente();
 		cliente.cadastro(new Cliente(cpf,nome,1,endereco,telefone));
 		
 		System.out.println("Gostaria de cadastrar outro cliente?");
