@@ -5,6 +5,7 @@ import java.io.IOException;
 import Persistencia.*;
 import Pessoas.Cliente;
 import Pessoas.Fornecedor;
+import Estoque.*;
 
 public class Menu {
 	public static void principal() throws FileNotFoundException, IOException {
@@ -68,9 +69,49 @@ public class Menu {
 		}
 	}
 	//
-	public static void cadastrarItem() {
-		//TODO implementar - ISAC e AMANDA
+	public static void cadastrarItem() throws IOException {
+		
+		PEstoque estoque = PEstoque.getInstance();
+		System.out.println("Formulário de cadastro de itens");
+		System.out.println("Por favor, preencha corretamente os campos abaixo:\n");
+		
+		System.out.println("Item:");
+		String nome = Console.readString();
+		
+		System.out.println("preco de Custo:");
+		float precoCusto = Console.readFloat();
+		
+		System.out.println("Margem de lucro:");
+		float margemLucro = Console.readFloat();
+		
+		System.out.println("quantidade:");
+		int quant = Console.readInteger();
+		
+	System.out.println("Caso o código já exista, o sistema pedirá a que você insira um novo código repedidas vezes.");		
+	int codigoItem;
+	do {
+	System.out.println("código:");
+	codigoItem = Console.readInteger();
 	}
+	while(estoque.searchItem(codigoItem) != null);
+	
+	estoque.cadastro(new Item(nome,codigoItem,precoCusto,margemLucro,quant));
+	estoque.save();
+	System.out.println("Deseja cadastrar outro item?");
+	System.out.println("Digite (1) para SIM e (2) para NAO.");
+	int opt = Console.readInteger();
+	
+	switch (opt) {
+	case 1:
+		cadastrarItem();
+		break;
+
+	default:
+		cadastro();
+		break;
+	}
+}
+	
 	
 	public static void cadastrarFornecedor() throws FileNotFoundException, IOException {
 		PFornecedor fornecedor = PFornecedor.getInstance();;
@@ -169,7 +210,7 @@ public class Menu {
 	
 	public static void consulta() throws FileNotFoundException, IOException{
 		System.out.println("Escolha qual tipo de consulta deseja realizar:");
-		System.out.println("Digite (1) para pesquisar um item.");
+		System.out.println("Digite (1) para listar um item.");
 		System.out.println("Digite (2) para listar os fornecedores.");
 		System.out.println("Digite (3) para listar os clientes.");
 		System.out.println("Digite (4) para voltar ao menu principal.");
@@ -179,7 +220,7 @@ public class Menu {
 		switch (opt) {
 		
 		case 1:
-			pequisarItem();
+			listarItem();
 			break;
 			
 		case 2:
@@ -195,8 +236,13 @@ public class Menu {
 		}
 	}
 	
-	public static void pequisarItem() {
-		//TODO implementar - ISAC e AMANDA
+	public static void listarItem() throws FileNotFoundException, IOException {
+		
+		PEstoque estoqueControle = PEstoque.getInstance();
+		estoqueControle.overview();
+		
+		consulta();
+	
 	}
 	
 	public static void listarFornecedores() throws FileNotFoundException, IOException  {
