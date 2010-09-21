@@ -13,7 +13,9 @@ import Pessoas.Fornecedor;
 
 	ArrayList<Fornecedor> fornecedores;
 		
-	public PFornecedor ( ) { }
+	public PFornecedor ( ) {
+		fornecedores = new ArrayList<Fornecedor>();
+	}
 	
 	/**
 	 * 
