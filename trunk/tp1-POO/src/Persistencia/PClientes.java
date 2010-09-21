@@ -17,6 +17,13 @@ public class PClientes {
 	 
 	private PClientes () {
 		this.compradores = new ArrayList<Cliente>(); 
+		try {
+			getCliente();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	 
 	public static PClientes getInstance(){
@@ -43,7 +50,7 @@ public class PClientes {
 	 *  
 	 * 
 	 */
-	public void getCliente() throws FileNotFoundException, IOException {
+	private void getCliente() throws FileNotFoundException, IOException {
 		File file = new File("Clientes.dat");
 
 		if (! file.exists()) {
