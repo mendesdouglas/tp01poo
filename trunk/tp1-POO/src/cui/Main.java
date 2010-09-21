@@ -1,8 +1,9 @@
 package cui;
 import java.io.IOException;
-
 import Estoque.*;
 import Persistencia.*;
+import cui.*;
+
 
 public class Main {
 
@@ -12,6 +13,7 @@ public class Main {
 	 */
 	public static void main(String[] args) throws IOException {
 		PEstoque estoque = new PEstoque();
+		String teste;
 		estoque.cadastro(new Item("camisa",21,(float)5.00,(float)0.25,5));
 		estoque.cadastro(new Item("short",21,(float)5.00,(float)0.25,5));
 		estoque.cadastro(new Item("tenis",21,(float)5.00,(float)0.25,5));
