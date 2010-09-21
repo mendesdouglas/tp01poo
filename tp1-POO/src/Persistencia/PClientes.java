@@ -22,7 +22,7 @@ public class PClientes {
 	 */
 	public boolean save() throws IOException {
 		
-		FileWriter fw = new FileWriter("clientes.dat",false);
+		FileWriter fw = new FileWriter("Clientes.dat",false);
     	String str = "#cpf\tnome\t\tcodigo\tendereco\t\ttelefone";
 	    for (Cliente cliente : compradores) {
 	    	str+=cliente.getCpf()+"\t"+cliente.getNome()+"\t"+cliente.getCodigo()+"\t"+cliente.getEndereco()+"\t"+cliente.getTelefone()+"\n";
@@ -36,13 +36,13 @@ public class PClientes {
 	 * 
 	 */
 	public void getCliente() throws FileNotFoundException, IOException {
-		File file = new File("clientes.dat");
+		File file = new File("Clientes.dat");
 
 		if (! file.exists()) {
 		System.out.println("ERRO arquivo Nao Encontrado!");
 		}
 
-		BufferedReader br = new BufferedReader(new FileReader("clientes.dat"));
+		BufferedReader br = new BufferedReader(new FileReader("Clientes.dat"));
 		String linha;
 		while( (linha = br.readLine()) != null ){
 			if(linha.startsWith("#")){ 
@@ -57,21 +57,29 @@ public class PClientes {
 	 * 
 	 */
 	public Cliente searchCliente (int codigo) {
-		//TODO Implementar se necessário.
+		for (Cliente cliente : compradores) {
+			if (cliente.getCodigo() == codigo){
+				return cliente;
+			}
+	    }
 		return null;
 	}
 	/**
 	 * 
 	 */
 	public Cliente searchCliente (String nome) {
-		//TODO Implementar se necessário.
+		for (Cliente cliente : compradores) {
+			if (cliente.getNome() == nome){
+				return cliente;
+			}
+	    }
 		return null;
 	}
 	/**
 	 * 
 	 */
 	public boolean cadastro (Cliente cliente) {
-		if (this.compradores.contains(cliente)){
+		if (searchCliente(cliente.getCodigo()) != null) {
 			System.out.println("Cliente ja cadastrado.");
 			return false;
 		}
