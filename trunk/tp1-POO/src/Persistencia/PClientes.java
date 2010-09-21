@@ -107,7 +107,7 @@ public class PClientes {
 	public void overview () throws FileNotFoundException, IOException {
     	System.out.println("codigo\tnome\ttelefone\n");
     	for (Cliente cliente : compradores) {
-    		System.out.println(cliente.getCodigo()+"\t"+cliente.getNome()+"\t"+cliente.getTelefone()+"\n");
+    		System.out.println(cliente.getCodigo()+"\t"+cliente.getNome()+"\t"+cliente.getTelefone());
 		}
 	
 	}

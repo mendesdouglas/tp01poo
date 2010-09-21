@@ -71,6 +71,24 @@ public class Menu {
 	//
 	public static void cadastrarItem() throws IOException {
 		
+	cadastroItem();
+	
+	System.out.println("Deseja cadastrar outro item?");
+	System.out.println("Digite (1) para SIM e (2) para NAO.");
+	int opt = Console.readInteger();
+	
+	switch (opt) {
+	case 1:
+		cadastrarItem();
+		break;
+
+	default:
+		cadastro();
+		break;
+	}
+}
+
+	public static void cadastroItem() throws IOException {
 		PEstoque estoque = PEstoque.getInstance();
 		System.out.println("Formulário de cadastro de itens");
 		System.out.println("Por favor, preencha corretamente os campos abaixo:\n");
@@ -97,23 +115,30 @@ public class Menu {
 	
 	estoque.cadastro(new Item(nome,codigoItem,precoCusto,margemLucro,quant));
 	estoque.save();
-	System.out.println("Deseja cadastrar outro item?");
-	System.out.println("Digite (1) para SIM e (2) para NAO.");
-	int opt = Console.readInteger();
-	
-	switch (opt) {
-	case 1:
-		cadastrarItem();
-		break;
-
-	default:
-		cadastro();
-		break;
 	}
-}
 	
 	
 	public static void cadastrarFornecedor() throws FileNotFoundException, IOException {
+		
+		cadastroFornecedor();
+		
+		
+		System.out.println("Deseja cadastrar outro fornecedor?");
+		System.out.println("Digite (1) para SIM e (2) para NAO.");
+		int opt = Console.readInteger();
+		
+		switch (opt) {
+		case 1:
+			cadastrarFornecedor();
+			break;
+
+		default:
+			cadastro();
+			break;
+		}
+	}
+
+	public static void cadastroFornecedor() throws IOException {
 		PFornecedor fornecedor = PFornecedor.getInstance();;
 		System.out.println("Formulario de cadastro de fornecedores");
 		System.out.println("Por favor, preencha corretamente os campos abaixo:\n");
@@ -144,21 +169,6 @@ public class Menu {
 		String endereco = ruaNumero+","+bairro;
 		fornecedor.cadastro(new Fornecedor(cnpj,nome,codigo,endereco,telefone));
 		fornecedor.save();
-		
-		
-		System.out.println("Deseja cadastrar outro fornecedor?");
-		System.out.println("Digite (1) para SIM e (2) para NAO.");
-		int opt = Console.readInteger();
-		
-		switch (opt) {
-		case 1:
-			cadastrarFornecedor();
-			break;
-
-		default:
-			cadastro();
-			break;
-		}
 	}
 	
 	public static void cadastrarCliente() throws FileNotFoundException, IOException {

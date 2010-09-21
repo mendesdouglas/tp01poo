@@ -103,7 +103,7 @@ import Pessoas.Fornecedor;
 	public void overview () throws FileNotFoundException, IOException {
     	System.out.println("codigo\tnome\ttelefone\n");
 	    for (Fornecedor fornecedor : fornecedores) {
-	    	System.out.println(fornecedor.getCodigo()+"\t"+fornecedor.getNome()+"\t"+fornecedor.getTelefone()+"\n");
+	    	System.out.println(fornecedor.getCodigo()+"\t"+fornecedor.getNome()+"\t"+fornecedor.getTelefone());
 		}
 	}
 }
