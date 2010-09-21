@@ -1,5 +1,12 @@
 package Persistencia;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
+
 import Pessoas.Cliente;
 
 public class PClientes {
@@ -11,41 +18,73 @@ public class PClientes {
 	/**
 	 * 
 	 */
-	public boolean save() {
+	public boolean save() throws IOException {
+		
+		FileWriter fw = new FileWriter("clientes.dat",false);
+    	String str = "#cpf\tnome\t\tcodigo\tendereco\t\ttelefone";
+	    for (Cliente cliente : compradores) {
+	    	str+=cliente.getCpf()+"\t"+cliente.getNome()+"\t"+cliente.getCodigo()+"\t"+cliente.getEndereco()+"\t"+cliente.getTelefone()+"\n";
+		}
+		fw.write(str);
+		fw.close();
 		return true;
 	}
 	/**
+	 *  
 	 * 
 	 */
-	public void getCliente() {
-		
+	public void getCliente() throws FileNotFoundException, IOException {
+		File file = new File("clientes.dat");
+
+		if (! file.exists()) {
+		System.out.println("ERRO arquivo Nao Encontrado!");
+		}
+
+		BufferedReader br = new BufferedReader(new FileReader("clientes.dat"));
+		String linha;
+		while( (linha = br.readLine()) != null ){
+			if(linha.startsWith("#")){ 
+				continue;
+				}
+			String[] dados = linha.split("\t");
+			cadastro(new Cliente(dados[0],dados[1],Integer.parseInt(dados[2]),dados[3],dados[4]));
+		}
+		br.close();	
 	}
 	/**
 	 * 
 	 */
 	public Cliente searchCliente (int codigo) {
+		//TODO Implementar se necessário.
 		return null;
 	}
 	/**
 	 * 
 	 */
 	public Cliente searchCliente (String nome) {
+		//TODO Implementar se necessário.
 		return null;
 	}
 	/**
 	 * 
 	 */
 	public boolean cadastro (Cliente cliente) {
-		return true;
+		if (this.compradores.contains(cliente)){
+			System.out.println("Cliente ja cadastrado.");
+			return false;
+		}
+		return this.compradores.add(cliente);
 	}
 	/**
 	 * 
+	 * 
 	 */
-	public void overview () {
+	public void overview () throws FileNotFoundException, IOException {
     	System.out.println("codigo\tnome\ttelefone\n");
-	    for (Cliente cliente : compradores) {
-	    	System.out.println(cliente.getCodigo()+"\t"+cliente.getNome()+"\t"+cliente.getTelefone()+"\n");
+    	for (Cliente cliente : compradores) {
+    		System.out.println(cliente.getCodigo()+"\t"+cliente.getNome()+"\t"+cliente.getTelefone()+"\n");
 		}
+	
 	}
 }
 
