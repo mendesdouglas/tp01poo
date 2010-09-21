@@ -1,7 +1,7 @@
 package Estoque;
 import Pessoas.Fornecedor;
 import Persistencia.*;
-
+import Cui.*;
 import java.util.*;
 
 public class Compra {
@@ -20,24 +20,43 @@ public class Compra {
 	/**
 	 * 
 	 */
-	public boolean searchItemCompra (int codigo,float precoCompra,int quant) {
+	public boolean searchItemCompra (int codigo) {
 		for (ItemCompra item : compras) {
-			if (item.getCodigoItem() != codigo){
-				return false; 
+			if (item.getCodigoItem() == codigo){
+				return true; 
 			}
 	    }
-		Item item = PEstoque.searchItem (codigo);
- 		Item Compra itemCompra = new ItemCompra(Item item,float precoCompra,int quant);
-		return true;
+		return false;
 	}
 	/**
 	 * 
 	 */	
-	public boolean addItem(int codigo){
+	public boolean addItem(int codigo,float precoCompra,int quant){
 		if (searchItemCompra(codigo)){
+			System.out.println("Produto já está na sua lista favor usar a opção de alterar!!");
 			return false;
 		}
-		
+		PEstoque estoque = PEstoque.getInstance();
+		Item item = estoque.searchItem (codigo);
+		if (item == null) {
+			System.out.println("Produto nao encontrado insira as informacoes de cadastro:");
+			System.out.println("Entre com um nome: ");
+			String nome = Console.readString();
+			int code;
+			do{
+				System.out.println("entre com um codigo valido: ");
+				code = Console.readInteger();
+			}while(estoque.searchItem(codigo)!= null);	
+			System.out.println("entre com o preço de custo: ");
+			float precoCusto = Console.readFloat();
+			System.out.println("entre com a margem de lucro: ");
+			float margemLucro = Console.readFloat();
+			System.out.println("entre com a quantidade: ");
+			int quantidade = Console.readInteger();
+			item = new Item(nome,code,precoCusto,margemLucro,quantidade);
+		}
+ 		ItemCompra itemCompra = new ItemCompra(item,precoCompra,quant);
+ 		this.compras.add(itemCompra);
 		return true;
 	}
 	/**
