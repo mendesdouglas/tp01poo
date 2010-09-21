@@ -14,12 +14,13 @@ public class ItemCompra {
 	}
 	
 	/**
-	 * Get the value of precoCompra
-	 * @return the value of precoCompra
+	 * Get the value of item
+	 * @return the value of item
 	 */
-	public float getPrecoCompra () {
-		return this.precoCompra;
+	public int getCodigoItem () {
+		return this.item.getCodigo();
 	}
+	
 	/**
 	 * Get the value of precoCompra
 	 * @return the value of precoCompra
@@ -27,26 +28,21 @@ public class ItemCompra {
 	public float getPrecoCustoItem () {
 		return this.item.getPrecoCusto();
 	}
+	
+	/**
+	 * Get the value of precoCompra
+	 * @return the value of precoCompra
+	 */
+	public float getPrecoCompra () {
+		return this.precoCompra;
+	}
+
 	/**
 	 * Set the value of precoCompra
 	 */
 	public void setPrecoCompra ( float precoCompra  ) {
 		this.precoCompra = precoCompra;
 	}
-	
-	/**
-	 * Get the value of item
-	 * @return the value of item
-	 */
-	public int getCodigoItem () {
-		return this.item.getCodigo();
-	}
-	/**
-	 * Set the value of precoCompra
-	 */
-//	public void setItem ( Item item  ) {
-//		this.item = item;
-//	}
 	/**
 	 * Get the value of quant
 	 * @return the value of quant
