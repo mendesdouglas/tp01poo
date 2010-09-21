@@ -81,8 +81,6 @@ public class Menu {
 		System.out.println("Nome(Razao Social): ");
 		String nome = Console.readString();
 		
-		//TODO Código ??
-		
 		System.out.println("CNPJ: ");
 		String cnpj = Console.readString();
 		
@@ -95,11 +93,10 @@ public class Menu {
 		System.out.println("Telefone: ");
 		String telefone = Console.readString();
 		
-		System.out.println("Caso o código já exista, o sistema pedirá a insersão de um novo código repedidas vezes.");		
+		System.out.println("Caso o código já exista, o sistema pedirá a que você insira um novo código repedidas vezes.");		
 		int codigo;
 
 		do {
-
 			System.out.println("Código: ");
 			codigo = Console.readInteger();
 		}while(fornecedor.searchFornecedor(codigo) != null);
@@ -108,8 +105,20 @@ public class Menu {
 		fornecedor.cadastro(new Fornecedor(cnpj,nome,codigo,endereco,telefone));
 		fornecedor.save();
 		
-		cadastro();
 		
+		System.out.println("Deseja cadastrar outro fornecedor?");
+		System.out.println("Digite (1) para SIM e (2) para NAO.");
+		int opt = Console.readInteger();
+		
+		switch (opt) {
+		case 1:
+			cadastrarFornecedor();
+			break;
+
+		default:
+			cadastro();
+			break;
+		}
 	}
 	
 	public static void cadastrarCliente() throws FileNotFoundException, IOException {
@@ -145,7 +154,19 @@ public class Menu {
 		cliente.cadastro(new Cliente(cpf,nome,codigo,endereco,telefone));
 		cliente.save();
 		
-		cadastro();
+		System.out.println("Deseja cadastrar outro cliente?");
+		System.out.println("Digite (1) para SIM e (2) para NAO.");
+		int opt = Console.readInteger();
+		
+		switch (opt) {
+		case 1:
+			cadastrarCliente();
+			break;
+
+		default:
+			cadastro();
+			break;
+		}
 	}
 	
 	public static void consulta() throws FileNotFoundException, IOException{
@@ -182,6 +203,7 @@ public class Menu {
 	
 	public static void listarFornecedores() throws FileNotFoundException, IOException  {
 		PFornecedor fornecedorControle = PFornecedor.getInstance();
+		fornecedorControle.getFornecedor();
 		fornecedorControle.overview();
 		
 		consulta();
@@ -189,6 +211,7 @@ public class Menu {
 	
 	public static void listarClientes() throws FileNotFoundException, IOException {
 		PClientes clienteControle = PClientes.getInstance();
+		clienteControle.getCliente();
 		clienteControle.overview();
 		
 		consulta();
