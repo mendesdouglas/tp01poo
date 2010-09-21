@@ -6,7 +6,7 @@ public class Estoque {
 	/**
 	 * 
 	 */
-	public float calculaMP (ItemCompra itemCompra) {
+	public float calculaPMP (ItemCompra itemCompra) {
 		return (itemCompra.getPrecoCustoItem()+itemCompra.getPrecoCompra())/2;
 	}
 }

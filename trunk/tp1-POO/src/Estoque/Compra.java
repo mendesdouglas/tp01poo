@@ -1,5 +1,6 @@
 package Estoque;
 import Pessoas.Fornecedor;
+import Persistencia.*;
 
 import java.util.*;
 
@@ -15,6 +16,29 @@ public class Compra {
 	
 	public Fornecedor getFornecedor(){
 		return this.fornecedor;
+	}
+	/**
+	 * 
+	 */
+	public boolean searchItemCompra (int codigo,float precoCompra,int quant) {
+		for (ItemCompra item : compras) {
+			if (item.getCodigoItem() != codigo){
+				return false; 
+			}
+	    }
+		Item item = PEstoque.searchItem (codigo);
+ 		Item Compra itemCompra = new ItemCompra(Item item,float precoCompra,int quant);
+		return true;
+	}
+	/**
+	 * 
+	 */	
+	public boolean addItem(int codigo){
+		if (searchItemCompra(codigo)){
+			return false;
+		}
+		
+		return true;
 	}
 	/**
 	 * 

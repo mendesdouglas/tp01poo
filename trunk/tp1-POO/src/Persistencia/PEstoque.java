@@ -62,10 +62,10 @@ public class PEstoque {
 	 */
 	public void getEstoque () throws FileNotFoundException, IOException {
 
-		 File file = new File("Estoque.dat");
+		File file = new File("Estoque.dat");
 
 		if (! file.exists()) {
-		System.out.println("ERRO arquivo Nao Encontrado!!");
+		file.createNewFile();		
 		}
 		
 		BufferedReader br = new BufferedReader(new FileReader(file));
@@ -105,7 +105,7 @@ public class PEstoque {
 	 * 
 	 */
 	public boolean cadastro (Item item) {
-		if (this.itens.contains(item)){
+		if (searchItem(item.getCodigo())!=null){
 			System.out.println("Item ja existe");
 			return false;
 		}
