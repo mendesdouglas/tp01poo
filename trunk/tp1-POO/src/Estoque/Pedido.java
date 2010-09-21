@@ -10,6 +10,7 @@ public class Pedido {
 		
 		
 	public Pedido (Cliente cliente) {
+		this.pedidos = new ArrayList<ItemPedido>();
 		this.cliente = cliente;
 	}
 
@@ -22,7 +23,7 @@ public class Pedido {
 	    	subtotal=0;
 	    	System.out.println("codigo\tPreco unitario\tquant\tsubtotais\n");
 	    	subtotal = pedido.getPrecoPedido() *pedido.getQuant();
-	    	System.out.println(pedido.getItem().getCodigo()+"\t"+pedido.getPrecoPedido()+"\t"+pedido.getQuant()+"\t"+subtotal+"\n");
+	    	System.out.println(pedido.getCodigoItem()+"\t"+pedido.getPrecoPedido()+"\t"+pedido.getQuant()+"\t"+subtotal+"\n");
 	    	precoTotal+=subtotal;
 		}
 	    System.out.println("\n\t\t\ttotal geral: "+precoTotal+"\n");

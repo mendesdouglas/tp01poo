@@ -6,7 +6,8 @@ public class ItemCompra {
 	private float precoCompra;
 	private int quant;
 
-	public ItemCompra (float precoCompra,int quant){
+	public ItemCompra (Item item,float precoCompra,int quant){
+		this.item = item;
 		this.precoCompra = precoCompra;
 		this.quant = quant;	
 	}
@@ -19,6 +20,13 @@ public class ItemCompra {
 		return this.precoCompra;
 	}
 	/**
+	 * Get the value of precoCompra
+	 * @return the value of precoCompra
+	 */
+	public float getPrecoCustoItem () {
+		return this.item.getPrecoCusto();
+	}
+	/**
 	 * Set the value of precoCompra
 	 */
 	public void setPrecoCompra ( float precoCompra  ) {
@@ -29,15 +37,15 @@ public class ItemCompra {
 	 * Get the value of item
 	 * @return the value of item
 	 */
-	public Item getItem () {
-		return this.item;
+	public int getCodigoItem () {
+		return this.item.getCodigo();
 	}
 	/**
 	 * Set the value of precoCompra
 	 */
-	public void setItem ( Item item  ) {
-		this.item = item;
-	}
+//	public void setItem ( Item item  ) {
+//		this.item = item;
+//	}
 	/**
 	 * Get the value of quant
 	 * @return the value of quant
