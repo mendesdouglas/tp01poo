@@ -3,7 +3,7 @@ package Pessoas;
 public class Fornecedor extends Pessoa {
 	 
 	private String cnpj;
-	public Fornecedor (String cnpj,String nome,int codigo,String endereco,String telefone  ) {
+	public Fornecedor (String cnpj,String nome,int codigo,String endereco,String telefone) {
 		super (nome,codigo,endereco,telefone);
 		this.cnpj = cnpj;
 	}

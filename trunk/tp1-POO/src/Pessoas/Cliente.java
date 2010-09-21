@@ -9,10 +9,10 @@ public class Cliente extends Pessoa {
 		this.cpf = cpf;
 	}
 	
-	private String getCpf() {
+	public String getCpf() {
 		return this.cpf;
 	}
-	private void setCpf(String cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 }
