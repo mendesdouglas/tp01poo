@@ -1,4 +1,4 @@
-package cui;
+package Cui;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -43,7 +43,7 @@ public class Menu {
 		System.out.println("Digite (4) para voltar ao menu principal.");
 		int opt;
 		opt=Console.readInteger();
-			public float calculaMP (ItemCompra itemCompra) {
+			//public float calculaMP (ItemCompra itemCompra) {
 
 		switch (opt) {
 		
