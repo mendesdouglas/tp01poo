@@ -21,7 +21,7 @@ public class PEstoque {
 	 */
 	public boolean save () throws IOException {
 
-		FileWriter fw = new FileWriter("estoque.dat",false);
+		FileWriter fw = new FileWriter("Estoque.dat",false);
     	String str = "#codigo\tnome\tpreco custo\tmargem lucro\tquantidade\n";
 	    for (Item item : itens) {
 	    	str+=item.getCodigo()+"\t"+item.getNome()+"\t"+item.getPrecoCusto()+"\t"+item.getMargemLucro()+"\t"+item.getQuant()+"\n";
@@ -34,11 +34,11 @@ public class PEstoque {
 	/**
 	 * 
 	 */
-	public boolean save (Compra listaCompra) {
+	public boolean saveCompra (ArrayList<ItemCompra> listaCompra) throws IOException {
 		FileWriter fw = new FileWriter("Compras.dat",true);
-    	String str = "#codigo\tnome\tpreco custo\tmargem lucro\tquantidade\n";
-	    for (Compras item : itens) {
-	    	str+=item.getCodigo()+"\t"+item.getNome()+"\t"+item.getPrecoCusto()+"\t"+item.getMargemLucro()+"\t"+item.getQuant()+"\n";
+    	String str = "#codigo\tpreco compra\tquantidade\n";
+	    for (ItemCompra item : listaCompra) {
+	    	str+=item.getCodigoItem()+"\t"+item.getPrecoCompra()+"\t"+item.getQuant()+"\n";
 		}
 		fw.write(str);
 		fw.close();
@@ -47,7 +47,14 @@ public class PEstoque {
 	/**
 	 * 
 	 */
-	public boolean save (Pedido listaPedido) {
+	public boolean savePedido (ArrayList<ItemPedido> listaPedido) throws IOException {
+		FileWriter fw = new FileWriter("Pedidos.dat",true);
+    	String str = "#codigo\tpreco compra\tquantidade\n";
+	    for (ItemPedido item : listaPedido) {
+	    	str+=item.getCodigoItem()+"\t"+item.getQuant()+item.getPrecoPedido()+"\n";
+		}
+		fw.write(str);
+		fw.close();
 		return true;
 	}
 	/**
@@ -55,13 +62,13 @@ public class PEstoque {
 	 */
 	public void getEstoque () throws FileNotFoundException, IOException {
 
-		File file = new File("estoque.dat");
+		 File file = new File("Estoque.dat");
 
 		if (! file.exists()) {
 		System.out.println("ERRO arquivo Nao Encontrado!!");
 		}
-
-		BufferedReader br = new BufferedReader(new FileReader("estoque.dat"));
+		
+		BufferedReader br = new BufferedReader(new FileReader(file));
 		String linha;
 		while( (linha = br.readLine()) != null ){
 			if(linha.startsWith("#")){ 
@@ -77,7 +84,7 @@ public class PEstoque {
 	 */
 	public Item searchItem (int codigo) {
 		for (Item item : itens) {
-			if (item.getNome().equals(nome)){
+			if (item.getCodigo() == codigo){
 				return item;
 			}
 	    }

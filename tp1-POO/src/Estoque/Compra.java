@@ -9,6 +9,7 @@ public class Compra {
 	private Fornecedor fornecedor;
 
 	public Compra (Fornecedor fornecedor) {
+		this.compras = new ArrayList<ItemCompra>();
 		this.fornecedor = fornecedor; 
 	}
 	
@@ -22,12 +23,12 @@ public class Compra {
 		float subtotal,precoTotal=0;
 	    for (ItemCompra compra : compras) {
 	    	subtotal=0;
-	    	System.out.println("codigo\tPreco unitario\tquant\tsubtotais\n");
+	    	System.out.println("codigo\tPreco unitario\tquant\tsubtotais");
 	    	subtotal = compra.getPrecoCompra()*compra.getQuant();
-	    	System.out.println(compra.getItem().getCodigo()+"\t"+compra.getPrecoCompra()+"\t"+compra.getQuant()+"\t"+subtotal+"\n");
+	    	System.out.println(compra.getCodigoItem()+"\t"+compra.getPrecoCompra()+"\t"+compra.getQuant()+"\t"+subtotal);
 	    	precoTotal+=subtotal;
 		}
-	    System.out.println("\n\t\t\ttotal geral: "+precoTotal+"\n");
+	    System.out.println("\n\t\t\ttotal geral: "+precoTotal);
 	}
 }
 
