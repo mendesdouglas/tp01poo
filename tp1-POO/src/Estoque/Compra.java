@@ -56,7 +56,7 @@ public class Compra {
 		PEstoque estoque = PEstoque.getInstance();
 		Item item = estoque.searchItem (codigo);
 		if (item == null) {
-			Menu.cadastrarItem();
+			Menu.cadastroItem();
 		}
  		ItemCompra itemCompra = new ItemCompra(item,precoCompra,quant);
  		this.compras.add(itemCompra);
