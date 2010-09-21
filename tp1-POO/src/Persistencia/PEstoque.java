@@ -15,6 +15,13 @@ public class PEstoque {
 	 
 	private PEstoque () {
 		this.itens = new ArrayList<Item>(); 
+		try {
+			getEstoque();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	 
 	public static PEstoque getInstance(){
@@ -71,7 +78,7 @@ public class PEstoque {
 	/**
 	 * 
 	 */
-	public void getEstoque () throws FileNotFoundException, IOException {
+	private void getEstoque () throws FileNotFoundException, IOException {
 
 		File file = new File("Estoque.dat");
 

@@ -15,7 +15,14 @@ import Pessoas.Fornecedor;
 		ArrayList<Fornecedor> fornecedores;
 		 
 		private PFornecedor () {
-			this.fornecedores = new ArrayList<Fornecedor>(); 
+			this.fornecedores = new ArrayList<Fornecedor>();
+			try {
+				getFornecedor();
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 		 
 		public static PFornecedor getInstance(){
@@ -40,7 +47,7 @@ import Pessoas.Fornecedor;
 	/**
 	 * 
 	 */
-	public void getFornecedor () throws FileNotFoundException, IOException {
+	private void getFornecedor () throws FileNotFoundException, IOException {
 		File file = new File("Fornecedores.dat");
 
 		if (! file.exists()) {
