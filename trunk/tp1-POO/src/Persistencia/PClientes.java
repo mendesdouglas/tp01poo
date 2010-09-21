@@ -23,7 +23,7 @@ public class PClientes {
 	public boolean save() throws IOException {
 		
 		FileWriter fw = new FileWriter("Clientes.dat",false);
-    	String str = "#cpf\tnome\t\tcodigo\tendereco\t\ttelefone";
+    	String str = "#cpf\tnome\t\tcodigo\tendereco\t\ttelefone\n";
 	    for (Cliente cliente : compradores) {
 	    	str+=cliente.getCpf()+"\t"+cliente.getNome()+"\t"+cliente.getCodigo()+"\t"+cliente.getEndereco()+"\t"+cliente.getTelefone()+"\n";
 		}
@@ -39,7 +39,7 @@ public class PClientes {
 		File file = new File("Clientes.dat");
 
 		if (! file.exists()) {
-		System.out.println("ERRO arquivo Nao Encontrado!");
+			file.createNewFile();
 		}
 
 		BufferedReader br = new BufferedReader(new FileReader("Clientes.dat"));
