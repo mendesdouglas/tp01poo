@@ -14,6 +14,7 @@ public class Menu {
 		System.out.println("Bem Vindo! Escolha a sua opção:");
 		System.out.println("Digite (1) para cadastros, ou");
 		System.out.println("Digite (2) para consultas.");
+		System.out.println("Digite (3) para sair do sistema.");
 		System.out.println("Opção:");
 		int opt;
 		opt=Console.readInteger();
@@ -26,6 +27,10 @@ public class Menu {
 			
 		case 2: 
 			consulta();
+			break;
+			
+		case 3: 
+			System.exit(0);
 			break;
 			
 		default: 
@@ -92,6 +97,7 @@ public class Menu {
 		PFornecedor fornecedor = new PFornecedor();
 		fornecedor.getFornecedor();
 		fornecedor.cadastro(new Fornecedor(cnpj,nome,1,endereco,telefone));
+		fornecedor.save();
 		
 		System.out.println("Gostaria de cadastrar outro fornecedor?");
 		System.out.println("Digite (1) para SIM ou (2) para NAO: ");
@@ -105,7 +111,6 @@ public class Menu {
 			break;
 		}
 		
-		fornecedor.save();
 	}
 	
 	public static void cadastrarCliente() throws FileNotFoundException, IOException {
@@ -136,6 +141,7 @@ public class Menu {
 		System.out.println("Gostaria de cadastrar outro cliente?");
 		System.out.println("Digite (1) para SIM ou (2) para NAO: ");
 		int opt = Console.readInteger();
+		cliente.save();
 		
 		switch (opt) {
 		case 1: cadastrarCliente();
@@ -144,8 +150,6 @@ public class Menu {
 		default: cadastro();
 			break;
 		}
-		
-		cliente.save();
 	}
 	
 	public static void consulta() throws FileNotFoundException, IOException{

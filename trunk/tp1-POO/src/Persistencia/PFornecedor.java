@@ -21,7 +21,7 @@ import Pessoas.Fornecedor;
 	 * 
 	 */
 	public boolean save () throws IOException {
-		FileWriter fw = new FileWriter("fornecedores.dat",false);
+		FileWriter fw = new FileWriter("Fornecedores.dat",false);
     	String str = "#cnpj\t\tnome\t\tcodigo\tendereco\t\ttelefone";
 	    for (Fornecedor fornecedor : fornecedores) {
 	    	str+=fornecedor.getCnpj()+"\t"+fornecedor.getNome()+"\t"+fornecedor.getCodigo()+"\t"+fornecedor.getEndereco()+"\t"+fornecedor.getTelefone()+"\n";
@@ -55,19 +55,29 @@ import Pessoas.Fornecedor;
 	 * 
 	 */
 	public Fornecedor searchFornecedor(int codigo) {
+		for (Fornecedor fornecedor: fornecedores) {
+			if (fornecedor.getCodigo() == codigo){
+				return fornecedor;
+			}
+	    }
 		return null;
 	}
 	/**
 	 * 
 	 */
 	public Fornecedor searchFornecedor (String nome) {
+		for (Fornecedor fornecedor : fornecedores) {
+			if (fornecedor.getNome() == nome){
+				return fornecedor;
+			}
+	    }
 		return null;
 	}
 	/**
 	 * 
 	 */
 	public boolean cadastro (Fornecedor fornecedor) {
-		if (this.fornecedores.contains(fornecedor)){
+		if (searchFornecedor(fornecedor.getCodigo()) != null){
 			System.out.println("Fornecedor ja cadastrado.");
 			return false;
 		}
