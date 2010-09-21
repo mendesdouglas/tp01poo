@@ -73,6 +73,8 @@ public class Menu {
 	}
 	
 	public static void cadastrarFornecedor() throws FileNotFoundException, IOException {
+		PFornecedor fornecedor = PFornecedor.getInstance();
+		fornecedor.getFornecedor();
 		System.out.println("Formulario de cadastro de fornecedores");
 		System.out.println("Por favor, preencha corretamente os campos abaixo:\n");
 		
@@ -93,10 +95,17 @@ public class Menu {
 		System.out.println("Telefone: ");
 		String telefone = Console.readString();
 		
+		System.out.println("Caso o código já exista, o sistema pedirá a insersão de um novo código repedidas vezes.");		
+		int codigo;
+
+		do {
+
+			System.out.println("Código: ");
+			codigo = Console.readInteger();
+		}while(fornecedor.searchFornecedor(codigo) != null);
+		
 		String endereco = ruaNumero+","+bairro;
-		PFornecedor fornecedor = new PFornecedor();
-		fornecedor.getFornecedor();
-		fornecedor.cadastro(new Fornecedor(cnpj,nome,1,endereco,telefone));
+		fornecedor.cadastro(new Fornecedor(cnpj,nome,codigo,endereco,telefone));
 		fornecedor.save();
 		
 		cadastro();
@@ -104,13 +113,13 @@ public class Menu {
 	}
 	
 	public static void cadastrarCliente() throws FileNotFoundException, IOException {
+		PClientes cliente = PClientes.getInstance();
+		cliente.getCliente();
 		System.out.println("Formulario de cadastro de clientes");
 		System.out.println("Por favor, preencha corretamente os campos abaixo:\n");
 		
 		System.out.println("Nome Completo: ");
 		String nome = Console.readString();
-		
-		//TODO Código ??
 		
 		System.out.println("CPF: ");
 		String cpf = Console.readString();
@@ -124,10 +133,16 @@ public class Menu {
 		System.out.println("Telefone: ");
 		String telefone = Console.readString();
 		
-		String endereco = ruaNumero+","+bairro;
-		PClientes cliente = new PClientes();
-		cliente.getCliente();
-		cliente.cadastro(new Cliente(cpf,nome,1,endereco,telefone));
+		System.out.println("Caso o código já exista, o sistema pedirá a insersão de um novo código repedidas vezes.");
+		int codigo;
+
+		do {
+			System.out.println("Código: ");
+			codigo = Console.readInteger();
+		}while(cliente.searchCliente(codigo) != null);
+		
+		String endereco = ruaNumero+", "+bairro;
+		cliente.cadastro(new Cliente(cpf,nome,codigo,endereco,telefone));
 		cliente.save();
 		
 		cadastro();
@@ -166,13 +181,17 @@ public class Menu {
 	}
 	
 	public static void listarFornecedores() throws FileNotFoundException, IOException  {
-		PFornecedor fornecedorControle = new PFornecedor();
+		PFornecedor fornecedorControle = PFornecedor.getInstance();
 		fornecedorControle.overview();
+		
+		consulta();
 	}
 	
 	public static void listarClientes() throws FileNotFoundException, IOException {
-		PClientes clienteControle = new PClientes();
+		PClientes clienteControle = PClientes.getInstance();
 		clienteControle.overview();
+		
+		consulta();
 	}
 
 }

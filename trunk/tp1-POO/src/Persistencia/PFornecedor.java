@@ -11,18 +11,25 @@ import Pessoas.Fornecedor;
 
 	public class PFornecedor {
 
-	ArrayList<Fornecedor> fornecedores;
-		
-	public PFornecedor ( ) {
-		fornecedores = new ArrayList<Fornecedor>();
-	}
-	
+		private static PFornecedor FornecedorInstance;
+		ArrayList<Fornecedor> fornecedores;
+		 
+		private PFornecedor () {
+			this.fornecedores = new ArrayList<Fornecedor>(); 
+		}
+		 
+		public static PFornecedor getInstance(){
+			if(FornecedorInstance == null) {
+				FornecedorInstance = new PFornecedor();
+		    }
+		    return FornecedorInstance;
+		 }
 	/**
 	 * 
 	 */
 	public boolean save () throws IOException {
 		FileWriter fw = new FileWriter("Fornecedores.dat",false);
-    	String str = "#cnpj\t\tnome\t\tcodigo\tendereco\t\ttelefone\n";
+    	String str = "#cnpj\tnome\tcodigo\tendereco\ttelefone\n";
 	    for (Fornecedor fornecedor : fornecedores) {
 	    	str+=fornecedor.getCnpj()+"\t"+fornecedor.getNome()+"\t"+fornecedor.getCodigo()+"\t"+fornecedor.getEndereco()+"\t"+fornecedor.getTelefone()+"\n";
 		}

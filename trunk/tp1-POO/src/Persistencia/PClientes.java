@@ -11,19 +11,27 @@ import Pessoas.Cliente;
 
 public class PClientes {
 	
-	private ArrayList<Cliente> compradores;
-	
-	
-	public PClientes ( ) {
-		compradores = new ArrayList<Cliente>();
+
+	private static PClientes ClienteInstance;
+	ArrayList<Cliente> compradores;
+	 
+	private PClientes () {
+		this.compradores = new ArrayList<Cliente>(); 
 	}
+	 
+	public static PClientes getInstance(){
+		if(ClienteInstance == null) {
+			ClienteInstance = new PClientes();
+	    }
+	    return ClienteInstance;
+	 }
 	/**
 	 * 
 	 */
 	public boolean save() throws IOException {
 		
 		FileWriter fw = new FileWriter("Clientes.dat",false);
-    	String str = "#cpf\tnome\t\tcodigo\tendereco\t\ttelefone\n";
+    	String str = "#cpf\tnome\tcodigo\tendereco\ttelefone\n";
 	    for (Cliente cliente : compradores) {
 	    	str+=cliente.getCpf()+"\t"+cliente.getNome()+"\t"+cliente.getCodigo()+"\t"+cliente.getEndereco()+"\t"+cliente.getTelefone()+"\n";
 		}
