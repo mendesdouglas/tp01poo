@@ -46,8 +46,24 @@ public class PEstoque {
 	/**
 	 * 
 	 */
-	public void getEstoque () {
-		
+	public void getEstoque () throws FileNotFoundException, IOException {
+
+		File file = new File("estoque.dat");
+
+		if (! file.exists()) {
+		System.out.println("ERRO arquivo Nao Encontrado!!");
+		}
+
+		BufferedReader br = new BufferedReader(new FileReader("estoque.dat"));
+		String linha;
+		while( (linha = br.readLine()) != null ){
+			if(linha.startsWith("#")){ 
+				continue;
+				}
+			String[] dados = linha.split("\t");
+			cadastro(new Item(dados[1],Integer.parseInt(dados[0]),Float.parseFloat(dados[2]),Float.parseFloat(dados[3]),Integer.parseInt(dados[4])));
+		}
+		br.close();		
 	}
 	/**
 	 * 
@@ -65,6 +81,10 @@ public class PEstoque {
 	 * 
 	 */
 	public boolean cadastro (Item item) {
+		if (this.itens.contains(item)){
+			System.out.println("Item ja existe");
+			return false;
+		}
 		return this.itens.add(item);
 	}
 	/**

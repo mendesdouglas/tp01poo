@@ -17,7 +17,7 @@ public class PClientes {
 	/**
 	 * 
 	 */
-	static void getCliente() {
+	public void getCliente() {
 		
 	}
 	/**
