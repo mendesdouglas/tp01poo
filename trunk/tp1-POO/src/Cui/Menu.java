@@ -280,8 +280,14 @@ public class Menu {
 			System.out.println("digite o nome do item.");
 			String nome = Console.readString();
 			Item item = estoqueControle.searchItem(nome);
-			System.out.println("\nExibindo dados do item "+item.getNome());
-			System.out.println("\nCodigo: "+item.getCodigo()+"\nMargem Lucro: "+item.getMargemLucro()+"\nPreco Custo: "+item.getPrecoCusto()+"\nQuant: "+item.getQuant());
+			if(item != null){
+				System.out.println("\nExibindo dados do item "+item.getNome());
+				System.out.println("\nCodigo: "+item.getCodigo()+"\nMargem Lucro: "+item.getMargemLucro()+"\nPreco Custo: "+item.getPrecoCusto()+"\nQuant: "+item.getQuant());	
+			}else{
+				System.out.println("Item não encontrado, tente novamente por favor.");
+				listarItemEspecifico();
+			}
+			
 			consulta();
 			break;
 			
@@ -289,7 +295,13 @@ public class Menu {
 			System.out.println("digite o codigo do item.");
 			int codigo = Console.readInteger();
 			Item item2 = estoqueControle.searchItem(codigo);
-			System.out.println("\nPreco de venda do item "+item2.getNome()+":\t"+(item2.getPrecoCusto()*(item2.getMargemLucro()+1)));
+			if(item2 != null){
+				System.out.println("\nPreco de venda do item "+item2.getNome()+":\t"+(item2.getPrecoCusto()*(item2.getMargemLucro()+1)));	
+			}else{
+				System.out.println("Item não encontrado, tente novamente por favor.");
+				listarItemEspecifico();
+			}
+			
 			consulta();
 			break;
 			
