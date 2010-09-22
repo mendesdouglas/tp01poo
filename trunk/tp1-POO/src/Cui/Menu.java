@@ -172,6 +172,25 @@ public class Menu {
 	}
 	
 	public static void cadastrarCliente() throws FileNotFoundException, IOException {
+		
+		cadastroClientes();
+		
+		System.out.println("Deseja cadastrar outro cliente?");
+		System.out.println("Digite (1) para SIM e (2) para NAO.");
+		int opt = Console.readInteger();
+		
+		switch (opt) {
+		case 1:
+			cadastrarCliente();
+			break;
+
+		default:
+			cadastro();
+			break;
+		}
+	}
+
+	public static void cadastroClientes() throws IOException {
 		PClientes cliente = PClientes.getInstance();
 		System.out.println("Formulario de cadastro de clientes");
 		System.out.println("Por favor, preencha corretamente os campos abaixo:\n");
@@ -202,28 +221,15 @@ public class Menu {
 		String endereco = ruaNumero+", "+bairro;
 		cliente.cadastro(new Cliente(cpf,nome,codigo,endereco,telefone));
 		cliente.save();
-		
-		System.out.println("Deseja cadastrar outro cliente?");
-		System.out.println("Digite (1) para SIM e (2) para NAO.");
-		int opt = Console.readInteger();
-		
-		switch (opt) {
-		case 1:
-			cadastrarCliente();
-			break;
-
-		default:
-			cadastro();
-			break;
-		}
 	}
 	
 	public static void consulta() throws FileNotFoundException, IOException{
 		System.out.println("Escolha qual tipo de consulta deseja realizar:");
-		System.out.println("Digite (1) para listar um item.");
-		System.out.println("Digite (2) para listar os fornecedores.");
-		System.out.println("Digite (3) para listar os clientes.");
-		System.out.println("Digite (4) para voltar ao menu principal.");
+		System.out.println("Digite (1) para listar todos os itens do estoque.");
+		System.out.println("Digite (2) para listar informacoes de um item especificamente.");
+		System.out.println("Digite (3) para listar os fornecedores.");
+		System.out.println("Digite (4) para listar os clientes.");
+		System.out.println("Digite (5) para voltar ao menu principal.");
 		int opt;
 		opt=Console.readInteger();
 		
@@ -234,10 +240,14 @@ public class Menu {
 			break;
 			
 		case 2:
-			listarFornecedores();
+			listarItemEspecifico();
 			break;
 			
 		case 3:
+			listarFornecedores();
+			break;
+			
+		case 4:
 			listarClientes();
 			break;
 			
@@ -254,6 +264,42 @@ public class Menu {
 		consulta();
 	
 	}
+	
+	public static void listarItemEspecifico() throws FileNotFoundException, IOException {
+		
+		PEstoque estoqueControle = PEstoque.getInstance();
+		System.out.println("Escolha qual tipo de consulta deseja realizar:");
+		System.out.println("Digite (1) exibir informacoes de um item pesquisando pelo nome.");
+		System.out.println("Digite (2) exibir preco de um item pesquisando pelo codigo");
+		int opt;
+		opt=Console.readInteger();
+		
+		switch (opt) {
+		
+		case 1:
+			System.out.println("digite o nome do item.");
+			String nome = Console.readString();
+			Item item = estoqueControle.searchItem(nome);
+			System.out.println("\nExibindo dados do item "+item.getNome());
+			System.out.println("\nCodigo: "+item.getCodigo()+"\nMargem Lucro: "+item.getMargemLucro()+"\nPreco Custo: "+item.getPrecoCusto()+"\nQuant: "+item.getQuant());
+			consulta();
+			break;
+			
+		case 2:
+			System.out.println("digite o codigo do item.");
+			int codigo = Console.readInteger();
+			Item item2 = estoqueControle.searchItem(codigo);
+			System.out.println("\nPreco de venda do item "+item2.getNome()+":\t"+(item2.getPrecoCusto()*(item2.getMargemLucro()+1)));
+			consulta();
+			break;
+			
+		default: consulta();
+			break;
+		}
+	}
+		
+		
+
 	
 	public static void listarFornecedores() throws FileNotFoundException, IOException  {
 		PFornecedor fornecedorControle = PFornecedor.getInstance();

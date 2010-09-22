@@ -140,6 +140,7 @@ public class PEstoque {
 	    for (Item item : itens) {
 	    	System.out.println(item.getCodigo()+"\t"+item.getNome()+"\t"+item.getPrecoCusto()+"\t"+item.getMargemLucro()+"\t"+item.getQuant());
 		}
+	    System.out.println();
 	}
 }
 

@@ -109,6 +109,7 @@ public class PClientes {
     	for (Cliente cliente : compradores) {
     		System.out.println(cliente.getCodigo()+"\t"+cliente.getNome()+"\t"+cliente.getTelefone());
 		}
+    	System.out.println();
 	
 	}
 }

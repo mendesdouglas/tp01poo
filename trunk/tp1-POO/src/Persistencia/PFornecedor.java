@@ -105,6 +105,7 @@ import Pessoas.Fornecedor;
 	    for (Fornecedor fornecedor : fornecedores) {
 	    	System.out.println(fornecedor.getCodigo()+"\t"+fornecedor.getNome()+"\t"+fornecedor.getTelefone());
 		}
+	    System.out.println();
 	}
 }
 
