@@ -9,7 +9,6 @@ import Estoque.*;
 
 public class Menu {
 	public static void principal() throws FileNotFoundException, IOException {
-		
 		System.out.println("\t\tSJDR Confecções - Controle de Vendas e Estoque");
 		System.out.println("");
 		System.out.println("Bem Vindo! Escolha a sua opção:");
@@ -19,7 +18,6 @@ public class Menu {
 		System.out.println("Opção:");
 		int opt;
 		opt=Console.readInteger();
-		
 		switch (opt) {
 		
 		case 1: 
