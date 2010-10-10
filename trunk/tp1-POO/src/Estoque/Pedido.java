@@ -2,7 +2,7 @@ package Estoque;
 
 import java.util.*;
 
-import Persistencia.PEstoque;
+import Persistencia.PersistenciaEstoque;
 import Pessoas.Cliente;
 
 public class Pedido {
@@ -14,8 +14,7 @@ public class Pedido {
 	public Pedido (Cliente cliente) {
 		this.pedidos = new ArrayList<ItemPedido>();
 		this.cliente = cliente;
-		this.pedidos = new ArrayList<ItemPedido>();
-	}
+		}
 	
 	public boolean searchItemPedido (int codigo) {
 		for (ItemPedido item : pedidos) {
@@ -30,13 +29,11 @@ public class Pedido {
 	 */	
 	public boolean addItem(int codigo,int quant){
 		if (searchItemPedido(codigo)){
-			System.out.println("Produto já está na sua lista favor usar a opção de alterar!!");
 			return false;
 		}
-		PEstoque estoque = PEstoque.getInstance();
+		PersistenciaEstoque estoque = PersistenciaEstoque.getInstance();
 		Item item = estoque.searchItem (codigo);
 		if (item == null) {
-			System.out.println("O codigo digitado é invalido,por favor insira um codigo válido");
 			return false;
 		}
  		ItemPedido itemPedido = new ItemPedido(item,quant);
@@ -47,16 +44,21 @@ public class Pedido {
 	/**
 	 * 
 	 */
-	public void overview () {
+	public String overview () {
 		float subtotal,precoTotal=0;
-	    for (ItemPedido pedido : pedidos) {
-	    	subtotal=0;
-	    	System.out.println("codigo\tPreco unitario\tquant\tsubtotais\n");
-	    	subtotal = pedido.getPrecoPedido() *pedido.getQuant();
-	    	System.out.println(pedido.getCodigoItem()+"\t"+pedido.getPrecoPedido()+"\t"+pedido.getQuant()+"\t"+subtotal+"\n");
-	    	precoTotal+=subtotal;
+		if (this.pedidos.size() > 0){
+			String str = null;
+		    for (ItemPedido pedido : pedidos) {
+		    	subtotal=0;
+		    	str+="codigo\tPreco unitario\tquant\tsubtotais\n";
+		    	subtotal = pedido.getPrecoPedido() *pedido.getQuant();
+		    	str+=pedido.getCodigoItem()+"\t"+pedido.getPrecoPedido()+"\t"+pedido.getQuant()+"\t"+subtotal+"\n";
+		    	precoTotal+=subtotal;
+			}
+		    str+="\n\t\t\ttotal geral: "+precoTotal+"\n";
+		    return str;
 		}
-	    System.out.println("\n\t\t\ttotal geral: "+precoTotal+"\n");
+		else return null;
 		
 	}
 }

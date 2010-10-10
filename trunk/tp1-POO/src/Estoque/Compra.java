@@ -50,10 +50,9 @@ public class Compra {
 	 */	
 	public boolean addItem(int codigo,float precoCompra,int quant) throws IOException{
 		if (searchItemCompra(codigo)){
-			System.out.println("Produto já está na sua lista favor usar a opção de alterar!!");
 			return false;
 		}
-		PEstoque estoque = PEstoque.getInstance();
+		PersistenciaEstoque estoque = PersistenciaEstoque.getInstance();
 		Item item = estoque.searchItem (codigo);
 		if (item == null) {
 			Menu.cadastroItem();
@@ -101,16 +100,21 @@ public class Compra {
 	/**
 	 * 
 	 */
-	public void overview () {
+	public String overview () {
 		float subtotal,precoTotal=0;
-	    for (ItemCompra compra : compras) {
-	    	subtotal=0;
-	    	System.out.println("codigo\tPreco unitario\tquant\tsubtotais");
-	    	subtotal = compra.getPrecoCompra()*compra.getQuant();
-	    	System.out.println(compra.getCodigoItem()+"\t"+compra.getPrecoCompra()+"\t"+compra.getQuant()+"\t"+subtotal);
-	    	precoTotal+=subtotal;
+		if (this.compras.size() > 0){
+				String str = null;	
+		    for (ItemCompra compra : compras) {
+		    	subtotal=0;
+		    	str+="codigo\tPreco unitario\tquant\tsubtotais";
+		    	subtotal = compra.getPrecoCompra()*compra.getQuant();
+		    	str+=compra.getCodigoItem()+"\t"+compra.getPrecoCompra()+"\t"+compra.getQuant()+"\t"+subtotal;
+		    	precoTotal+=subtotal;
+			}
+		    str+="\n\t\t\ttotal geral: "+precoTotal;
+		    return str;
 		}
-	    System.out.println("\n\t\t\ttotal geral: "+precoTotal);
+		else return null;
 	}
 }
 

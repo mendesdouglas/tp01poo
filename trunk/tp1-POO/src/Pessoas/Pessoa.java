@@ -2,13 +2,15 @@ package Pessoas;
 
 public class Pessoa {
 	private String nome;
-	private int codigo;
 	private String endereco;
 	private String telefone;
 	
-	public Pessoa (String nome,int codigo,String endereco,String telefone ) {
+	public Pessoa (String nome) {
 		this.nome = nome;
-		this.codigo = codigo;
+		}
+	
+	public Pessoa (String nome,String endereco,String telefone ) {
+		this.nome = nome;
 		this.endereco = endereco;
 		this.telefone = telefone;
 	}
@@ -19,12 +21,7 @@ public class Pessoa {
 	public void setNome ( String nome  ) {
 		this.nome = nome;
 	}
-	public int getCodigo () {
-		return this.codigo;
-	}
-	public void setCodigo (int codigo) {
-		this.codigo = codigo;
-	}
+	
 	public String getEndereco () {
 		return this.endereco;
 	}

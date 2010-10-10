@@ -3,8 +3,14 @@ package Pessoas;
 public class Fornecedor extends Pessoa {
 	 
 	private String cnpj;
-	public Fornecedor (String cnpj,String nome,int codigo,String endereco,String telefone) {
-		super (nome,codigo,endereco,telefone);
+
+	public Fornecedor (String cnpj,String nome) {
+		super (nome);
+		this.cnpj = cnpj;
+	}
+	
+	public Fornecedor (String cnpj,String nome,String endereco,String telefone) {
+		super (nome,endereco,telefone);
 		this.cnpj = cnpj;
 	}
 	public String getCnpj (  ) {

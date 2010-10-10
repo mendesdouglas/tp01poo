@@ -19,12 +19,7 @@ public class ItemPedido {
 	public int getCodigoItem () {
 		return this.item.getCodigo();
 	}
-	/**
-	 * Set the value of item
-	 */
-//	public void setItem (Item item) {
-//		this.item = item;
-//	}
+	
 	/**
 	 * Get the value of precoPedido
 	 * @return the value of precoPedido
@@ -32,12 +27,7 @@ public class ItemPedido {
 	public float getPrecoPedido () {
 		return this.precoPedido;
 	}
-	/**
-	 * Set the value of precoPedido
-	 */
-//	public void setPrecoPedido (float precoPedido) {
-//		this.precoPedido = precoPedido;
-//	}
+
 	/**
 	 * Get the value of quant
 	 * @return the value of quant
@@ -48,10 +38,12 @@ public class ItemPedido {
 	/**
 	 * Set the value of quant
 	 */
-	public void setQuant (int quant) {
+	public boolean setQuant (int quant) {
 		if (quant > 0){
-		this.quant = quant;
+			this.quant = quant;
+			return true;	
 		}
+		return false;
 	}
 }
 
