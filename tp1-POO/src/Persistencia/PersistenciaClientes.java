@@ -9,13 +9,13 @@ import java.util.*;
 
 import Pessoas.Cliente;
 
-public class PClientes {
+public class PersistenciaClientes {
 	
 
-	private static PClientes ClienteInstance;
+	private static PersistenciaClientes ClienteInstance;
 	ArrayList<Cliente> compradores;
 	 
-	private PClientes () {
+	private PersistenciaClientes () {
 		this.compradores = new ArrayList<Cliente>(); 
 		try {
 			getCliente();
@@ -26,9 +26,9 @@ public class PClientes {
 		}
 	}
 	 
-	public static PClientes getInstance(){
+	public static PersistenciaClientes getInstance(){
 		if(ClienteInstance == null) {
-			ClienteInstance = new PClientes();
+			ClienteInstance = new PersistenciaClientes();
 	    }
 	    return ClienteInstance;
 	 }
@@ -38,9 +38,9 @@ public class PClientes {
 	public boolean save() throws IOException {
 		
 		FileWriter fw = new FileWriter("Clientes.dat",false);
-    	String str = "#cpf\tnome\tcodigo\tendereco\ttelefone\n";
+    	String str = "#cpf\tnome\tendereco\ttelefone\n";
 	    for (Cliente cliente : compradores) {
-	    	str+=cliente.getCpf()+"\t"+cliente.getNome()+"\t"+cliente.getCodigo()+"\t"+cliente.getEndereco()+"\t"+cliente.getTelefone()+"\n";
+	    	str+=cliente.getCpf()+"\t"+cliente.getNome()+"\t"+cliente.getEndereco()+"\t"+cliente.getTelefone()+"\n";
 		}
 		fw.write(str);
 		fw.close();
@@ -57,34 +57,24 @@ public class PClientes {
 			file.createNewFile();
 		}
 
-		BufferedReader br = new BufferedReader(new FileReader("Clientes.dat"));
+		BufferedReader br = new BufferedReader(new FileReader(file));
 		String linha;
 		while( (linha = br.readLine()) != null ){
 			if(linha.startsWith("#")){ 
 				continue;
 				}
 			String[] dados = linha.split("\t");
-			cadastro(new Cliente(dados[0],dados[1],Integer.parseInt(dados[2]),dados[3],dados[4]));
+			cadastro(new Cliente(dados[0],dados[1],dados[2],dados[3]));
 		}
 		br.close();	
 	}
+	
 	/**
 	 * 
 	 */
-	public Cliente searchCliente (int codigo) {
+	public Cliente searchCliente (String query) {
 		for (Cliente cliente : compradores) {
-			if (cliente.getCodigo() == codigo){
-				return cliente;
-			}
-	    }
-		return null;
-	}
-	/**
-	 * 
-	 */
-	public Cliente searchCliente (String nome) {
-		for (Cliente cliente : compradores) {
-			if (cliente.getNome() == nome){
+			if (cliente.getNome() == query || cliente.getCpf() == query){
 				return cliente;
 			}
 	    }
@@ -94,8 +84,7 @@ public class PClientes {
 	 * 
 	 */
 	public boolean cadastro (Cliente cliente) {
-		if (searchCliente(cliente.getCodigo()) != null) {
-			System.out.println("Cliente ja cadastrado.");
+		if (searchCliente(cliente.getCpf()) != null) {
 			return false;
 		}
 		return this.compradores.add(cliente);
@@ -104,13 +93,14 @@ public class PClientes {
 	 * 
 	 * 
 	 */
-	public void overview () throws FileNotFoundException, IOException {
-    	System.out.println("codigo\tnome\ttelefone\n");
-    	for (Cliente cliente : compradores) {
-    		System.out.println(cliente.getCodigo()+"\t"+cliente.getNome()+"\t"+cliente.getTelefone());
+	@SuppressWarnings("unchecked")
+	public ArrayList<Cliente> overview (){
+		if (this.compradores.size() > 0){
+			return (ArrayList<Cliente>) this.compradores.clone();
 		}
-    	System.out.println();
-	
+		else{
+			return null;
+		}
 	}
 }
 

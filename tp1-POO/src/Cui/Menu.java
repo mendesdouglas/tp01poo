@@ -1,6 +1,7 @@
 package Cui;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import Persistencia.*;
 import Pessoas.Cliente;
@@ -87,21 +88,63 @@ public class Menu {
 }
 
 	public static void cadastroItem() throws IOException {
-		PEstoque estoque = PEstoque.getInstance();
+		boolean permissao;
+		PersistenciaEstoque estoque = PersistenciaEstoque.getInstance();
 		System.out.println("Formulário de cadastro de itens");
 		System.out.println("Por favor, preencha corretamente os campos abaixo:\n");
 		
-		System.out.println("Item:");
-		String nome = Console.readString();
+		String nome;
+		do {
+			System.out.println("Nome:");
+			nome = Console.readString();
+			if(nome == null || nome.length() == 0){
+				System.out.println("O campo nome é obrigatório!! Por favor verifique o que foi digitado");
+				permissao=true;
+			}
+			else {
+				permissao=false;
+			}	
+		}while(permissao);
 		
-		System.out.println("preco de Custo:");
-		float precoCusto = Console.readFloat();
 		
-		System.out.println("Margem de lucro:");
-		float margemLucro = Console.readFloat();
+		float precoCusto;
+		do {
+			System.out.println("Preco de custo:");
+			precoCusto = Console.readFloat();
+			if(precoCusto <= 0){
+				System.out.println("O campo preço não pode ser menor ou igual a zero!! Por favor verifique o que foi digitado");
+				permissao=true;
+			}
+			else {
+				permissao=false;
+			}	
+		}while(permissao);
 		
-		System.out.println("quantidade:");
-		int quant = Console.readInteger();
+		float margemLucro;
+		do {
+			System.out.println("Margem de lucro (%):");
+			margemLucro = (Console.readFloat()/100);
+			if(margemLucro <= 0){
+				System.out.println("O campo Margem de Lucro não pode ser menor ou igual a zero!! Por favor verifique o que foi digitado");
+				permissao=true;
+			}
+			else {
+				permissao=false;
+			}	
+		}while(permissao);
+		
+		int quant;
+		do {
+			System.out.println("Quantidade:");
+			quant = Console.readInteger();
+			if(margemLucro < 0){
+				System.out.println("O campo Quantidade não pode ser menor que zero!! Por favor verifique o que foi digitado");
+				permissao=true;
+			}
+			else {
+				permissao=false;
+			}	
+		}while(permissao);
 		
 	System.out.println("Caso o código já exista, o sistema pedirá a que você insira um novo código repedidas vezes.");		
 	int codigoItem;
@@ -137,15 +180,36 @@ public class Menu {
 	}
 
 	public static void cadastroFornecedor() throws IOException {
-		PFornecedor fornecedor = PFornecedor.getInstance();
+		boolean permissao;
+		PersistenciaFornecedor fornecedor = PersistenciaFornecedor.getInstance();
 		System.out.println("Formulario de cadastro de fornecedores");
 		System.out.println("Por favor, preencha corretamente os campos abaixo:\n");
 		
-		System.out.println("Nome(Razao Social): ");
-		String nome = Console.readString();
+		String nome;
+		do {
+			System.out.println("Nome(Razao Social): ");
+			nome = Console.readString();
+			if(nome == null || nome.length() == 0){
+				System.out.println("O campo nome é obrigatório!!");
+				permissao=true;
+			}
+			else {
+				permissao=false;
+			}	
+		}while(permissao);
 		
-		System.out.println("CNPJ: ");
-		String cnpj = Console.readString();
+		String cnpj;
+		do {
+			System.out.println("Cnpj: ");
+			cnpj = Console.readString();
+			if(fornecedor.searchFornecedor(cnpj) != null){
+				System.out.println("Fornecedor já cadastrado! Verifique o cnpj digitado");
+				permissao=true;
+			}
+			else {
+				permissao=false;
+			}	
+		}while(permissao);
 		
 		System.out.println("Rua e Numero(Rua,Numero): ");
 		String ruaNumero = Console.readString();
@@ -156,16 +220,8 @@ public class Menu {
 		System.out.println("Telefone: ");
 		String telefone = Console.readString();
 		
-		System.out.println("Caso o código já exista, o sistema pedirá a que você insira um novo código repedidas vezes.");		
-		int codigo;
-
-		do {
-			System.out.println("Código: ");
-			codigo = Console.readInteger();
-		}while(fornecedor.searchFornecedor(codigo) != null);
-		
 		String endereco = ruaNumero+","+bairro;
-		fornecedor.cadastro(new Fornecedor(cnpj,nome,codigo,endereco,telefone));
+		fornecedor.cadastro(new Fornecedor(cnpj,nome,endereco,telefone));
 		fornecedor.save();
 	}
 	
@@ -189,15 +245,36 @@ public class Menu {
 	}
 
 	public static void cadastroClientes() throws IOException {
-		PClientes cliente = PClientes.getInstance();
+		boolean permissao;
+		PersistenciaClientes cliente = PersistenciaClientes.getInstance();
 		System.out.println("Formulario de cadastro de clientes");
 		System.out.println("Por favor, preencha corretamente os campos abaixo:\n");
 		
-		System.out.println("Nome Completo: ");
-		String nome = Console.readString();
-		
-		System.out.println("CPF: ");
-		String cpf = Console.readString();
+		String nome;
+		do {
+			System.out.println("Nome Completo: ");
+			nome = Console.readString();
+			if(nome == null || nome.length() == 0){
+				System.out.println("O campo nome é obrigatório!!");
+				permissao=true;
+			}
+			else {
+				permissao=false;
+			}	
+		}while(permissao);
+
+		String cpf;
+		do {
+			System.out.println("CPF: ");
+			cpf = Console.readString();
+			if(cliente.searchCliente(cpf) != null){
+				System.out.println("Cliente já cadastrado! Verifique o cpf digitado");
+				permissao=true;
+			}
+			else {
+				permissao=false;
+			}	
+		}while(permissao);
 		
 		System.out.println("Rua e Numero(Rua,Numero): ");
 		String ruaNumero = Console.readString();
@@ -207,17 +284,9 @@ public class Menu {
 		
 		System.out.println("Telefone: ");
 		String telefone = Console.readString();
-		
-		System.out.println("Caso o código já exista, o sistema pedirá a insersão de um novo código repedidas vezes.");
-		int codigo;
-
-		do {
-			System.out.println("Código: ");
-			codigo = Console.readInteger();
-		}while(cliente.searchCliente(codigo) != null);
-		
+				
 		String endereco = ruaNumero+", "+bairro;
-		cliente.cadastro(new Cliente(cpf,nome,codigo,endereco,telefone));
+		cliente.cadastro(new Cliente(cpf,nome,endereco,telefone));
 		cliente.save();
 	}
 	
@@ -256,16 +325,26 @@ public class Menu {
 	
 	public static void listarItem() throws FileNotFoundException, IOException {
 		
-		PEstoque estoqueControle = PEstoque.getInstance();
-		estoqueControle.overview();
-		
+		PersistenciaEstoque estoqueControle = PersistenciaEstoque.getInstance();
+		@SuppressWarnings("unchecked")
+		ArrayList<Item> itens = (ArrayList<Item>) estoqueControle.overview();
+		if (itens == null){
+			System.out.println("Não há itens cadastrados no sistema!\n");
+		}
+		else{
+    	System.out.println("codigo\tnome\tpreco custo\tmargem lucro\tquantidade");
+	    for (Item item : itens) {
+	    	System.out.println(item.getCodigo()+"\t"+item.getNome()+"\t"+item.getPrecoCusto()+"\t"+item.getMargemLucro()+"\t"+item.getQuant());
+		}
+	    System.out.println();
+		}
 		consulta();
 	
 	}
 	
 	public static void listarItemEspecifico() throws FileNotFoundException, IOException {
 		
-		PEstoque estoqueControle = PEstoque.getInstance();
+		PersistenciaEstoque estoqueControle = PersistenciaEstoque.getInstance();
 		System.out.println("Escolha qual tipo de consulta deseja realizar:");
 		System.out.println("Digite (1) exibir informacoes de um item pesquisando pelo nome.");
 		System.out.println("Digite (2) exibir preco de um item pesquisando pelo codigo");
@@ -300,17 +379,34 @@ public class Menu {
 
 	
 	public static void listarFornecedores() throws FileNotFoundException, IOException  {
-		PFornecedor fornecedorControle = PFornecedor.getInstance();
-		fornecedorControle.overview();
-		
+		PersistenciaFornecedor fornecedorControle = PersistenciaFornecedor.getInstance();
+		ArrayList<Fornecedor> fornecedores = fornecedorControle.overview();	
+		if (fornecedores == null){
+			System.out.println("Não há fornecedores cadastrados no sistema!\n");
+		}
+		else{
+	    	System.out.println("codigo\tnome\ttelefone\n");
+		    for (Fornecedor fornecedor : fornecedores) {
+		    	System.out.println(fornecedor.getCnpj()+"\t"+fornecedor.getNome()+"\t"+fornecedor.getTelefone());
+			}
+		    System.out.println();
+		    } 
 		consulta();
 	}
 	
 	public static void listarClientes() throws FileNotFoundException, IOException {
-		PClientes clienteControle = PClientes.getInstance();
-		clienteControle.overview();
-		
-		consulta();
+		PersistenciaClientes clienteControle = PersistenciaClientes.getInstance();
+		ArrayList<Cliente> compradores = clienteControle.overview();
+		if (compradores == null){
+			System.out.println("Não há clientes cadastrados no sistema!\n");
+		}
+		else{
+    	System.out.println("Cpf\tNome\tEndereco\tTelefone\n");
+    	for (Cliente cliente : compradores) {
+    		System.out.println(cliente.getCpf()+"\t"+cliente.getNome()+"\t"+cliente.getEndereco()+"\t"+cliente.getTelefone());
+		}
+    	System.out.println();
+		}
+		consulta();	
 	}
-
 }

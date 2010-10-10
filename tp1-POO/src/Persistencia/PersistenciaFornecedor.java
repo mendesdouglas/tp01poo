@@ -9,12 +9,12 @@ import java.util.*;
 
 import Pessoas.Fornecedor;
 
-	public class PFornecedor {
+	public class PersistenciaFornecedor {
 
-		private static PFornecedor FornecedorInstance;
+		private static PersistenciaFornecedor FornecedorInstance;
 		ArrayList<Fornecedor> fornecedores;
 		 
-		private PFornecedor () {
+		private PersistenciaFornecedor () {
 			this.fornecedores = new ArrayList<Fornecedor>();
 			try {
 				getFornecedor();
@@ -25,9 +25,9 @@ import Pessoas.Fornecedor;
 			}
 		}
 		 
-		public static PFornecedor getInstance(){
+		public static PersistenciaFornecedor getInstance(){
 			if(FornecedorInstance == null) {
-				FornecedorInstance = new PFornecedor();
+				FornecedorInstance = new PersistenciaFornecedor();
 		    }
 		    return FornecedorInstance;
 		 }
@@ -38,7 +38,7 @@ import Pessoas.Fornecedor;
 		FileWriter fw = new FileWriter("Fornecedores.dat",false);
     	String str = "#cnpj\tnome\tcodigo\tendereco\ttelefone\n";
 	    for (Fornecedor fornecedor : fornecedores) {
-	    	str+=fornecedor.getCnpj()+"\t"+fornecedor.getNome()+"\t"+fornecedor.getCodigo()+"\t"+fornecedor.getEndereco()+"\t"+fornecedor.getTelefone()+"\n";
+	    	str+=fornecedor.getCnpj()+"\t"+fornecedor.getNome()+"\t"+fornecedor.getEndereco()+"\t"+fornecedor.getTelefone()+"\n";
 		}
 		fw.write(str);
 		fw.close();
@@ -61,27 +61,16 @@ import Pessoas.Fornecedor;
 				continue;
 				}
 			String[] dados = linha.split("\t");
-			cadastro(new Fornecedor(dados[0],dados[1],Integer.parseInt(dados[2]),dados[3],dados[4]));
+			cadastro(new Fornecedor(dados[0],dados[1],dados[2],dados[3]));
 		}
 		br.close();
 	}
 	/**
 	 * 
 	 */
-	public Fornecedor searchFornecedor(int codigo) {
-		for (Fornecedor fornecedor: fornecedores) {
-			if (fornecedor.getCodigo() == codigo){
-				return fornecedor;
-			}
-	    }
-		return null;
-	}
-	/**
-	 * 
-	 */
-	public Fornecedor searchFornecedor (String nome) {
+	public Fornecedor searchFornecedor (String query) {
 		for (Fornecedor fornecedor : fornecedores) {
-			if (fornecedor.getNome() == nome){
+			if (fornecedor.getNome() == query || fornecedor.getCnpj() == query){
 				return fornecedor;
 			}
 	    }
@@ -91,8 +80,7 @@ import Pessoas.Fornecedor;
 	 * 
 	 */
 	public boolean cadastro (Fornecedor fornecedor) {
-		if (searchFornecedor(fornecedor.getCodigo()) != null){
-			System.out.println("Fornecedor ja cadastrado.");
+		if (searchFornecedor(fornecedor.getCnpj()) != null){
 			return false;
 		}
 		return this.fornecedores.add(fornecedor);
@@ -100,12 +88,13 @@ import Pessoas.Fornecedor;
 	/**
 	 * 
 	 */
-	public void overview () throws FileNotFoundException, IOException {
-    	System.out.println("codigo\tnome\ttelefone\n");
-	    for (Fornecedor fornecedor : fornecedores) {
-	    	System.out.println(fornecedor.getCodigo()+"\t"+fornecedor.getNome()+"\t"+fornecedor.getTelefone());
+	@SuppressWarnings("unchecked")
+	public ArrayList<Fornecedor> overview () {
+		if (this.fornecedores.size() > 0){
+			return (ArrayList<Fornecedor>) this.fornecedores.clone();
 		}
-	    System.out.println();
+		else{
+			return null;
+		}
 	}
 }
-

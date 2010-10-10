@@ -8,12 +8,12 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class PEstoque {
+public class PersistenciaEstoque {
 	
-	private static PEstoque EstoqueInstance;
+	private static PersistenciaEstoque EstoqueInstance;
 	ArrayList<Item> itens;
 	 
-	private PEstoque () {
+	private PersistenciaEstoque () {
 		this.itens = new ArrayList<Item>(); 
 		try {
 			getEstoque();
@@ -24,9 +24,9 @@ public class PEstoque {
 		}
 	}
 	 
-	public static PEstoque getInstance(){
+	public static PersistenciaEstoque getInstance(){
 		if(EstoqueInstance == null) {
-			EstoqueInstance = new PEstoque();
+			EstoqueInstance = new PersistenciaEstoque();
 	    }
 	    return EstoqueInstance;
 	 }
@@ -135,12 +135,13 @@ public class PEstoque {
 	/**
 	 * 
 	 */
-	public void overview () {
-    	System.out.println("codigo\tnome\tpreco custo\tmargem lucro\tquantidade");
-	    for (Item item : itens) {
-	    	System.out.println(item.getCodigo()+"\t"+item.getNome()+"\t"+item.getPrecoCusto()+"\t"+item.getMargemLucro()+"\t"+item.getQuant());
+	public Object overview () {
+		if (this.itens.size() > 0){
+			return this.itens.clone();
 		}
-	    System.out.println();
+		else{
+			return null;
+		}
 	}
 }
 
