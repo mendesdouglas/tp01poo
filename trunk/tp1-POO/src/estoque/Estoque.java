@@ -6,7 +6,7 @@ public class Estoque {
 	/**
 	 * 
 	 */
-	public float calculaPMP (ItemCompra itemCompra) {
+	public static float calculaPrecoMedioPonderado (ItemCompra itemCompra) {
 		return (itemCompra.getPrecoCustoItem()+itemCompra.getPrecoCompra())/2;
 	}
 }
