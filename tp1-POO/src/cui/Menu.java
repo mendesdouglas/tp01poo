@@ -10,6 +10,10 @@ import pessoas.Fornecedor;
 import estoque.*;
 
 
+/**
+ * @author isac
+ *
+ */
 public class Menu {
 	
 	public static void principal() throws FileNotFoundException, IOException {
@@ -260,7 +264,7 @@ public class Menu {
 
 	public static Cliente cadastroClientes() throws IOException {
 		boolean permissao;
-		PersistenciaClientes pcliente = PersistenciaClientes.getInstance();
+		PersistenciaCliente pcliente = PersistenciaCliente.getInstance();
 		System.out.println("Formulario de cadastro de clientes");
 		System.out.println("Por favor, preencha corretamente os campos abaixo:\n");
 		
@@ -349,8 +353,7 @@ public class Menu {
 
 	private static void listaItem() {
 		PersistenciaEstoque estoqueControle = PersistenciaEstoque.getInstance();
-		@SuppressWarnings("unchecked")
-		ArrayList<Item> itens = (ArrayList<Item>) estoqueControle.overview();
+		ArrayList<Item> itens = estoqueControle.overview();
 		if (itens == null){
 			System.out.println("Não há itens cadastrados no sistema!\n");
 		}
@@ -369,6 +372,7 @@ public class Menu {
 		System.out.println("Escolha qual tipo de consulta deseja realizar:");
 		System.out.println("Digite (1) exibir informacoes de um item pesquisando pelo nome.");
 		System.out.println("Digite (2) exibir preco de um item pesquisando pelo codigo");
+		System.out.println("Digite (3) para voltar ao menu anterior");
 		int opt;
 		opt=Console.readInteger();
 		
@@ -413,7 +417,7 @@ public class Menu {
 	}
 	
 	private static void listarClientes() throws FileNotFoundException, IOException {
-		PersistenciaClientes clienteControle = PersistenciaClientes.getInstance();
+		PersistenciaCliente clienteControle = PersistenciaCliente.getInstance();
 		ArrayList<Cliente> compradores = clienteControle.overview();
 		if (compradores == null){
 			System.out.println("Não há clientes cadastrados no sistema!\n");
@@ -428,12 +432,114 @@ public class Menu {
 		consulta();	
 	}
 	
-	private static void iniciarCompra(){
+	private static void iniciarCompra() throws IOException{
+		PersistenciaFornecedor pfornecedor = PersistenciaFornecedor.getInstance();
+		PersistenciaEstoque pestoque = PersistenciaEstoque.getInstance();
+		System.out.println("Para iniciar um novo pedido digite o cnpj ou o nome do fornecedor:");
+		String query = Console.readString();
+		Fornecedor fornecedor= pfornecedor.searchFornecedor(query);
+		if (fornecedor == null){
+			do{
+				System.out.println("Fornecedor não encontrado em nossos registros:");
+				System.out.println("Digite (1) Para uma nova pesquisa");
+				System.out.println("Digite (2) Para cadastrar o novo fornecedor");
+				int opt = Console.readInteger();
+				switch(opt){
+					case 1:
+						System.out.println("Digite o cnpj ou o nome do fornecedor:");
+						query = Console.readString();
+						fornecedor= pfornecedor.searchFornecedor(query);
+						break;
+					
+					case 2:
+						fornecedor = Menu.cadastroFornecedor();
+						break;
+					} 
+				}while (fornecedor == null);
+			}
+		
+		Compra compra = new Compra(fornecedor);
+		boolean finalizado = false;
+		int codigo;
+		int quant;
+		
+		while (finalizado == false){
+			listarCompra(compra);
+			System.out.println("Movimentação de Compras");
+			System.out.println("Digite (1) Para adicionar um item");
+			System.out.println("Digite (2) Para editar uma linha da Compra");
+			System.out.println("Digite (3) Para remover uma linha da Compra");
+			System.out.println("Digite (4) Para listar os itens do estoque");
+			System.out.println("Digite (5) Para finalizar o pedido");
+			int opt = Console.readInteger();
+			switch(opt){
+			case 1:
+				System.out.println("Digite o codigo item que deseja adicionar:");
+				codigo = Console.readInteger();
+				while (codigo <= 0){
+					System.out.println("codigo nao pode ser zero!");
+					System.out.println("Digite o codigo item que deseja adicionar:");
+					quant = Console.readInteger();
+				}
+				System.out.println("Digite a quantidade de itens :");
+				quant = Console.readInteger();
+				while (quant <= 0){
+					System.out.println("quantidade nao pode ser menor ou igual a zero!");
+					System.out.println("Digite a quantidade de itens :");
+					quant = Console.readInteger();
+				}
+				
+				System.out.println("Digite o Preço de Compra do ITem :");
+				float preco = Console.readFloat();
+				while (preco <= 0){
+					System.out.println("Preço de compra não pode ser menor ou igual a zero!");
+					System.out.println("Digite o Preço de Compra do ITem :");
+					preco = Console.readFloat();
+				}
+				
+				if(compra.addItem(codigo,preco, quant) == false ){
+					System.out.println("houve um erro! Verifique o codigo do item");
+				}
+				break;
+			
+			case 2:
+				System.out.println("Digite a linha que deseja editar:");
+				int linha = Console.readInteger();
+				System.out.println("Digite a nova quantidade do produto:");
+				quant = Console.readInteger();
+				if(compra.setQuantidade(linha, quant)== false){
+					System.out.println("Linha nao existe!");
+				}
+				System.out.println("Digite o novo preço de compra do produto:");
+				preco = Console.readFloat();
+				if(compra.setQuantidade(linha, quant)== false){
+					System.out.println("Linha nao existe!");
+				}
+				break;
+			case 3:	
+				System.out.println("Digite a linha que deseja remover:");
+				linha = Console.readInteger();
+				if(compra.removeLinha(linha) == false ){
+					System.out.println("nao foi possivel remover a linha "+linha+"!");
+				}
+			case 4:
+				System.out.println("Situacao atual do estoque:\n");
+				listaItem();
+				break;
+			case 5:
+				pestoque.finalizarCompra(compra);
+				finalizado= true;
+				break;
+			default:
+				listarCompra(compra);
+			} 	
+		}
+		principal();
 		
 	}
 
 	private static void iniciarPedido() throws IOException{
-		PersistenciaClientes pclientes = PersistenciaClientes.getInstance();
+		PersistenciaCliente pclientes = PersistenciaCliente.getInstance();
 		PersistenciaEstoque pestoque = PersistenciaEstoque.getInstance();
 		System.out.println("Para iniciar um novo pedido digite o cpf ou o nome do cliente:");
 		String query = Console.readString();
@@ -540,4 +646,20 @@ public class Menu {
 		}
 	}	
 	
+	private static void listarCompra(Compra compra){
+		float subtotal,precoTotal=0;
+		ArrayList<ItemCompra> compras = compra.overview();
+		System.out.println("Situacao atual da compra:\n");			
+    	System.out.println("Compra referente ao fornecedor "+compra.getNomeFornecedor()+"\n");
+		if (compras != null){
+	    	System.out.println("Linha\tCódigo\tNome\tPreco_Compra\tQuant\tSubtotais\n");
+			for (int i = 0; i < compras.size(); i++) {
+		    	subtotal=0;
+		    	subtotal = compras.get(i).getPrecoCompra() * compras.get(i).getQuant();
+		    	System.out.println(i+"\t"+compras.get(i).getCodigoItem()+"\t"+compras.get(i).getNomeItem()+"\t"+compras.get(i).getPrecoCompra()+"\t"+compras.get(i).getQuant()+"\t"+subtotal+"\n");
+		    	precoTotal+=subtotal;
+			}
+		    System.out.println("\n\t\t\ttotal geral: "+precoTotal+"\n");
+		}
+	}	
 }	

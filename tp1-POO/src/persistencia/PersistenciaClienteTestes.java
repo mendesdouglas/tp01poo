@@ -9,18 +9,18 @@ import org.junit.Test;
 import pessoas.Cliente;
 
 
-public class PersistenciaClientesTestes {
+public class PersistenciaClienteTestes {
 
 	@Test
 	public void testCadastro() {
-		PersistenciaClientes persistenciaClienteTeste = PersistenciaClientes.getInstance();
+		PersistenciaCliente persistenciaClienteTeste = PersistenciaCliente.getInstance();
 		Cliente clienteTeste = new Cliente("063507306-40", "Luiz Carlos Oliveira","bla","bla");
 		assertEquals(true,persistenciaClienteTeste.cadastro(clienteTeste));
 	}
 	
 	@Test
 	public void testSave() throws IOException {
-		PersistenciaClientes persistenciaClienteTeste = PersistenciaClientes.getInstance();
+		PersistenciaCliente persistenciaClienteTeste = PersistenciaCliente.getInstance();
 		assertEquals(true, persistenciaClienteTeste.save());
 	}
 

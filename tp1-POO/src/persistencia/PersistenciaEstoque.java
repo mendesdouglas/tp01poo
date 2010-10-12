@@ -52,9 +52,11 @@ public class PersistenciaEstoque {
 	/**
 	 * 
 	 */
-	public boolean saveCompra (ArrayList<ItemCompra> listaCompra) throws IOException {
+	public boolean saveCompra (Compra compra) throws IOException {
+		ArrayList<ItemCompra> listaCompra = compra.overview(); 
 		FileWriter fw = new FileWriter("Compras.dat",true);
-    	String str = "#codigo\tpreco compra\tquantidade\n";
+		String str = "Compra oriunda do FOrnecedor: "+compra.getNomeFornecedor()+" Na Data de: "+compra.getDataCompra(null)+"\n";
+    	str = "#codigo\tpreco_compra\tquantidade\n";
 	    for (ItemCompra item : listaCompra) {
 	    	str+=item.getCodigoItem()+"\t"+item.getPrecoCompra()+"\t"+item.getQuant()+"\n";
 		}
@@ -162,6 +164,20 @@ public class PersistenciaEstoque {
 	    }
 		this.save();
 		this.savePedido(pedido);
+	}
+	
+	public void finalizarCompra(Compra compra) throws IOException {
+		ArrayList<ItemCompra> listaCompra = compra.overview();
+		if (listaCompra.size() == 0){
+			return;
+		}
+	    for (ItemCompra item : listaCompra) {
+	    	Item itemReferencia = this.searchItem(item.getCodigoItem());
+	    	itemReferencia.setQuant(itemReferencia.getQuant() + item.getQuant());
+	    	itemReferencia.setPrecoCusto(Estoque.calculaPrecoMedioPonderado(item));
+	    }
+		this.save();
+		this.saveCompra(compra);
 	}
 }
 

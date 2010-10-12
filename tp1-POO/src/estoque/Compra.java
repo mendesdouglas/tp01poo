@@ -1,6 +1,7 @@
 package estoque;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import persistencia.*;
@@ -20,10 +21,13 @@ public class Compra {
 		this.fornecedor = fornecedor;
 	}
 	
-	public Fornecedor getFornecedor(){
-		return this.fornecedor;
+	public String getNomeFornecedor(){
+		return this.fornecedor.getNome();
 	}
-	
+
+	public String getCnpjFornecedor(){
+		return this.fornecedor.getCnpj();
+	}
 	/**
 	 * @return the dataCompra
 	 */
@@ -31,6 +35,42 @@ public class Compra {
 		return this.dataCompra;
 	}
 
+	public boolean setQuantidade(int index,int quant){
+		if (index < this.compras.size()){
+			if(quant > 0){
+				this.compras.get(index).setQuant(quant);
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	
+	public boolean setPrecoCompra(int index,float preco){
+		if (index < this.compras.size()){
+			if(preco > 0){
+				this.compras.get(index).setPrecoCompra(preco);
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean removeLinha(int index){
+		if (index < compras.size()){
+			return this.compras.remove(index) != null;
+		}
+		else return false;
+	}
+	
+	public String getDataCompra(String formato){
+		  if (formato == null || formato.length() == 0){
+			  formato = "dd/MM/yyyy";
+		  }
+		  SimpleDateFormat sdf1= new SimpleDateFormat(formato);
+		  return sdf1.format(this.dataCompra);
+	}
+	
 	/**
 	 * 
 	 */
@@ -66,7 +106,7 @@ public class Compra {
 		PersistenciaEstoque estoque = PersistenciaEstoque.getInstance();
 		Item item = estoque.searchItem (codigo);
 		if (item == null) {
-			Menu.cadastroItem();
+			item = Menu.cadastroItem();
 		}
  		ItemCompra itemCompra = new ItemCompra(item,precoCompra,quant);
  		this.compras.add(itemCompra);
@@ -111,19 +151,10 @@ public class Compra {
 	/**
 	 * 
 	 */
-	public String overview () {
-		float subtotal,precoTotal=0;
-		if (this.compras.size() > 0){
-				String str = null;	
-		    for (ItemCompra compra : compras) {
-		    	subtotal=0;
-		    	str+="codigo\tPreco unitario\tquant\tsubtotais";
-		    	subtotal = compra.getPrecoCompra()*compra.getQuant();
-		    	str+=compra.getCodigoItem()+"\t"+compra.getPrecoCompra()+"\t"+compra.getQuant()+"\t"+subtotal;
-		    	precoTotal+=subtotal;
-			}
-		    str+="\n\t\t\ttotal geral: "+precoTotal;
-		    return str;
+	@SuppressWarnings("unchecked")
+	public ArrayList<ItemCompra> overview () {
+		if (this.compras.size() > 0){	
+				return (ArrayList<ItemCompra>) this.compras.clone();
 		}
 		else return null;
 	}

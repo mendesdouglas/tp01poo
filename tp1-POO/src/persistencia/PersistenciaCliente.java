@@ -10,13 +10,13 @@ import java.util.*;
 import pessoas.Cliente;
 
 
-public class PersistenciaClientes {
+public class PersistenciaCliente {
 	
 
-	private static PersistenciaClientes ClienteInstance;
+	private static PersistenciaCliente ClienteInstance;
 	ArrayList<Cliente> compradores;
 	 
-	private PersistenciaClientes () {
+	private PersistenciaCliente () {
 		this.compradores = new ArrayList<Cliente>(); 
 		try {
 			getCliente();
@@ -27,9 +27,9 @@ public class PersistenciaClientes {
 		}
 	}
 	 
-	public static PersistenciaClientes getInstance(){
+	public static PersistenciaCliente getInstance(){
 		if(ClienteInstance == null) {
-			ClienteInstance = new PersistenciaClientes();
+			ClienteInstance = new PersistenciaCliente();
 	    }
 	    return ClienteInstance;
 	 }

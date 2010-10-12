@@ -22,6 +22,14 @@ public class ItemCompra {
 	}
 	
 	/**
+	 * Get the value of item
+	 * @return the value of item
+	 */
+	public String getNomeItem () {
+		return this.item.getNome();
+	}
+	
+	/**
 	 * Get the value of precoCompra
 	 * @return the value of precoCompra
 	 */
