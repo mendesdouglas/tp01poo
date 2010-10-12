@@ -1,4 +1,4 @@
-package Cui;
+package cui;
 
 import java.io.*;
 import java.util.*;

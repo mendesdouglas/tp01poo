@@ -1,17 +1,19 @@
-package Cui;
+package cui;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import Persistencia.*;
-import Pessoas.Cliente;
-import Pessoas.Fornecedor;
-import Estoque.*;
+import persistencia.*;
+import pessoas.Cliente;
+import pessoas.Fornecedor;
+
+import estoque.*;
+
 
 public class Menu {
 	
 	public static void principal() throws FileNotFoundException, IOException {
-		System.out.println("\t\tSJDR Confecções - Controle de Vendas e Estoque\t"+Console.date2str(null, null));
+		System.out.println("\t\tSJDR Confecções - Controle de Vendas e estoque\t"+Console.date2str(null, null));
 		System.out.println("");
 		System.out.println("Bem Vindo! Escolha a sua opção:");
 		System.out.println("Digite (1) para cadastros, ou");
