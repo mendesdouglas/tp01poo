@@ -1,5 +1,6 @@
 package Estoque;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import Persistencia.PersistenciaEstoque;
@@ -7,14 +8,60 @@ import Pessoas.Cliente;
 
 public class Pedido {
 
-	ArrayList<ItemPedido> pedidos;
-	Cliente cliente;
+	private ArrayList<ItemPedido> pedidos;
+	private Cliente cliente;
+	private Date dataPedido;
 		
 		
 	public Pedido (Cliente cliente) {
 		this.pedidos = new ArrayList<ItemPedido>();
+		this.dataPedido = new Date();
 		this.cliente = cliente;
 		}
+	
+	public String getNomeCliente(){
+		return this.cliente.getNome();
+	}
+	
+	public String getCpfCliente(){
+		return this.cliente.getCpf();
+	}
+	
+	public Date getDataPedido(){
+		return this.dataPedido;
+	}
+	
+	public String getDataPedido(String formato){
+		  if (formato == null || formato.length() == 0){
+			  formato = "dd/MM/yyyy";
+		  }
+		  SimpleDateFormat sdf1= new SimpleDateFormat(formato);
+		  return sdf1.format(this.dataPedido);
+	}
+	
+	public boolean setQuantidade(int index,int quant){
+		if (index < pedidos.size()){
+			if(this.pedidos.get(index).getQuantItem() >= quant){
+				this.pedidos.get(index).setQuant(quant);
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public int getCodigoItem(int index){
+		if (index < pedidos.size()){
+			return this.pedidos.get(index).getCodigoItem();
+		}
+		else return -1;
+	}
+	
+	public boolean delItem(int index){
+		if (index < pedidos.size()){
+			return this.pedidos.remove(index) != null;
+		}
+		else return false;
+	}
 	
 	public boolean searchItemPedido (int codigo) {
 		for (ItemPedido item : pedidos) {
@@ -36,6 +83,9 @@ public class Pedido {
 		if (item == null) {
 			return false;
 		}
+		if (item.getQuant() < quant){
+			return false;
+		}
  		ItemPedido itemPedido = new ItemPedido(item,quant);
  		this.pedidos.add(itemPedido);
 		return true;
@@ -44,22 +94,14 @@ public class Pedido {
 	/**
 	 * 
 	 */
-	public String overview () {
-		float subtotal,precoTotal=0;
+	@SuppressWarnings("unchecked")
+	public ArrayList<ItemPedido> overview () {
 		if (this.pedidos.size() > 0){
-			String str = null;
-		    for (ItemPedido pedido : pedidos) {
-		    	subtotal=0;
-		    	str+="codigo\tPreco unitario\tquant\tsubtotais\n";
-		    	subtotal = pedido.getPrecoPedido() *pedido.getQuant();
-		    	str+=pedido.getCodigoItem()+"\t"+pedido.getPrecoPedido()+"\t"+pedido.getQuant()+"\t"+subtotal+"\n";
-		    	precoTotal+=subtotal;
-			}
-		    str+="\n\t\t\ttotal geral: "+precoTotal+"\n";
-		    return str;
+			return (ArrayList<ItemPedido>) this.pedidos.clone();
 		}
 		else return null;
 		
 	}
+
 }
 

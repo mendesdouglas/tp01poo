@@ -19,7 +19,14 @@ public class ItemPedido {
 	public int getCodigoItem () {
 		return this.item.getCodigo();
 	}
+	/**
+	 * Get the value of precoPedido
+	 * @return the value of precoPedido
+	 */
 	
+	public String getNomeItem () {
+		return this.item.getNome();
+	}
 	/**
 	 * Get the value of precoPedido
 	 * @return the value of precoPedido
@@ -35,6 +42,14 @@ public class ItemPedido {
 	public int getQuant () {
 		return this.quant;
 	}
+
+	/**
+	 * Get the value of quant
+	 * @return the value of quant
+	 */
+	public int getQuantItem () {
+		return this.item.getQuant();
+	}	
 	/**
 	 * Set the value of quant
 	 */

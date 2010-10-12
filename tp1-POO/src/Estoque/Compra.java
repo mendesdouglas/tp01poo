@@ -10,16 +10,25 @@ public class Compra {
 	
 	private ArrayList<ItemCompra> compras;
 	private Fornecedor fornecedor;
+	private Date dataCompra;
 
 	public Compra (Fornecedor fornecedor) {
 		this.compras = new ArrayList<ItemCompra>();
-		this.fornecedor = fornecedor; 
+		this.dataCompra = new Date();
+		this.fornecedor = fornecedor;
 	}
 	
 	public Fornecedor getFornecedor(){
 		return this.fornecedor;
 	}
 	
+	/**
+	 * @return the dataCompra
+	 */
+	public Date getDataCompra() {
+		return this.dataCompra;
+	}
+
 	/**
 	 * 
 	 */

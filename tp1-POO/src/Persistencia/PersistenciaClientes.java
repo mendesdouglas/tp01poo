@@ -64,7 +64,12 @@ public class PersistenciaClientes {
 				continue;
 				}
 			String[] dados = linha.split("\t");
+			if(dados.length == 2){
+				cadastro(new Cliente(dados[0],dados[1]));
+			}
+			if(dados.length == 4){
 			cadastro(new Cliente(dados[0],dados[1],dados[2],dados[3]));
+			}
 		}
 		br.close();	
 	}
@@ -74,7 +79,7 @@ public class PersistenciaClientes {
 	 */
 	public Cliente searchCliente (String query) {
 		for (Cliente cliente : compradores) {
-			if (cliente.getNome() == query || cliente.getCpf() == query){
+			if (cliente.getNome().equals(query)|| cliente.getCpf().equals(query)){
 				return cliente;
 			}
 	    }
