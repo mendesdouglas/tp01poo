@@ -9,13 +9,16 @@ import Pessoas.Fornecedor;
 import Estoque.*;
 
 public class Menu {
+	
 	public static void principal() throws FileNotFoundException, IOException {
-		System.out.println("\t\tSJDR Confecções - Controle de Vendas e Estoque");
+		System.out.println("\t\tSJDR Confecções - Controle de Vendas e Estoque\t"+Console.date2str(null, null));
 		System.out.println("");
 		System.out.println("Bem Vindo! Escolha a sua opção:");
 		System.out.println("Digite (1) para cadastros, ou");
 		System.out.println("Digite (2) para consultas.");
-		System.out.println("Digite (3) para sair do sistema.");
+		System.out.println("Digite (3) para iniciar uma compra.");
+		System.out.println("Digite (4) para iniciar um pedido.");
+		System.out.println("Digite (5) para sair do sistema.");
 		System.out.println("Opção:");
 		int opt;
 		opt=Console.readInteger();
@@ -28,8 +31,16 @@ public class Menu {
 		case 2: 
 			consulta();
 			break;
-			
+		
 		case 3: 
+			iniciarCompra();
+			break;
+			
+		case 4: 
+			iniciarPedido();
+			break;
+			
+		case 5: 
 			System.exit(0);
 			break;
 			
@@ -40,7 +51,7 @@ public class Menu {
 		}
 	}
 	
-	public static void cadastro() throws FileNotFoundException, IOException {
+	private static void cadastro() throws FileNotFoundException, IOException {
 		System.out.println("Escolha qual tipo de cadastro deseja realizar:");
 		System.out.println("Digite (1) para cadastrar um novo item.");
 		System.out.println("Digite (2) para cadastrar um novo fornecedor.");
@@ -67,8 +78,8 @@ public class Menu {
 			break;
 		}
 	}
-	//
-	public static void cadastrarItem() throws IOException {
+
+	private static void cadastrarItem() throws IOException {
 		
 	cadastroItem();
 	
@@ -87,7 +98,7 @@ public class Menu {
 	}
 }
 
-	public static void cadastroItem() throws IOException {
+	public static Item cadastroItem() throws IOException {
 		boolean permissao;
 		PersistenciaEstoque estoque = PersistenciaEstoque.getInstance();
 		System.out.println("Formulário de cadastro de itens");
@@ -146,20 +157,19 @@ public class Menu {
 			}	
 		}while(permissao);
 		
-	System.out.println("Caso o código já exista, o sistema pedirá a que você insira um novo código repedidas vezes.");		
-	int codigoItem;
-	do {
-	System.out.println("código:");
-	codigoItem = Console.readInteger();
+		System.out.println("Caso o código já exista, o sistema pedirá a que você insira um novo código repedidas vezes.");		
+		int codigoItem;
+		do {
+			System.out.println("código:");
+			codigoItem = Console.readInteger();
+		}while(estoque.searchItem(codigoItem) != null);
+		Item item = new Item(nome,codigoItem,precoCusto,margemLucro,quant);
+		estoque.cadastro(item);
+		estoque.save();
+		return item;
 	}
-	while(estoque.searchItem(codigoItem) != null);
 	
-	estoque.cadastro(new Item(nome,codigoItem,precoCusto,margemLucro,quant));
-	estoque.save();
-	}
-	
-	
-	public static void cadastrarFornecedor() throws FileNotFoundException, IOException {
+	private static void cadastrarFornecedor() throws FileNotFoundException, IOException {
 		
 		cadastroFornecedor();
 		
@@ -179,9 +189,9 @@ public class Menu {
 		}
 	}
 
-	public static void cadastroFornecedor() throws IOException {
+	public static Fornecedor cadastroFornecedor() throws IOException {
 		boolean permissao;
-		PersistenciaFornecedor fornecedor = PersistenciaFornecedor.getInstance();
+		PersistenciaFornecedor pfornecedor = PersistenciaFornecedor.getInstance();
 		System.out.println("Formulario de cadastro de fornecedores");
 		System.out.println("Por favor, preencha corretamente os campos abaixo:\n");
 		
@@ -202,7 +212,7 @@ public class Menu {
 		do {
 			System.out.println("Cnpj: ");
 			cnpj = Console.readString();
-			if(fornecedor.searchFornecedor(cnpj) != null){
+			if(pfornecedor.searchFornecedor(cnpj) != null){
 				System.out.println("Fornecedor já cadastrado! Verifique o cnpj digitado");
 				permissao=true;
 			}
@@ -221,11 +231,13 @@ public class Menu {
 		String telefone = Console.readString();
 		
 		String endereco = ruaNumero+","+bairro;
-		fornecedor.cadastro(new Fornecedor(cnpj,nome,endereco,telefone));
-		fornecedor.save();
+		Fornecedor fornecedor = new Fornecedor(cnpj,nome,endereco,telefone);
+		pfornecedor.cadastro(fornecedor);
+		pfornecedor.save();
+		return fornecedor;
 	}
 	
-	public static void cadastrarCliente() throws FileNotFoundException, IOException {
+	private static void cadastrarCliente() throws FileNotFoundException, IOException {
 		
 		cadastroClientes();
 		
@@ -244,9 +256,9 @@ public class Menu {
 		}
 	}
 
-	public static void cadastroClientes() throws IOException {
+	public static Cliente cadastroClientes() throws IOException {
 		boolean permissao;
-		PersistenciaClientes cliente = PersistenciaClientes.getInstance();
+		PersistenciaClientes pcliente = PersistenciaClientes.getInstance();
 		System.out.println("Formulario de cadastro de clientes");
 		System.out.println("Por favor, preencha corretamente os campos abaixo:\n");
 		
@@ -267,7 +279,7 @@ public class Menu {
 		do {
 			System.out.println("CPF: ");
 			cpf = Console.readString();
-			if(cliente.searchCliente(cpf) != null){
+			if(pcliente.searchCliente(cpf) != null){
 				System.out.println("Cliente já cadastrado! Verifique o cpf digitado");
 				permissao=true;
 			}
@@ -286,11 +298,14 @@ public class Menu {
 		String telefone = Console.readString();
 				
 		String endereco = ruaNumero+", "+bairro;
-		cliente.cadastro(new Cliente(cpf,nome,endereco,telefone));
-		cliente.save();
+		
+		Cliente cliente = new Cliente(cpf,nome,endereco,telefone);
+		pcliente.cadastro(cliente);
+		pcliente.save();
+		return cliente;
 	}
 	
-	public static void consulta() throws FileNotFoundException, IOException{
+	private static void consulta() throws FileNotFoundException, IOException{
 		System.out.println("Escolha qual tipo de consulta deseja realizar:");
 		System.out.println("Digite (1) para listar todos os itens do estoque.");
 		System.out.println("Digite (2) para listar informacoes de um item especificamente.");
@@ -323,8 +338,14 @@ public class Menu {
 		}
 	}
 	
-	public static void listarItem() throws FileNotFoundException, IOException {
+	private static void listarItem() throws FileNotFoundException, IOException {
 		
+		listaItem();
+		consulta();
+	
+	}
+
+	private static void listaItem() {
 		PersistenciaEstoque estoqueControle = PersistenciaEstoque.getInstance();
 		@SuppressWarnings("unchecked")
 		ArrayList<Item> itens = (ArrayList<Item>) estoqueControle.overview();
@@ -338,11 +359,9 @@ public class Menu {
 		}
 	    System.out.println();
 		}
-		consulta();
-	
 	}
 	
-	public static void listarItemEspecifico() throws FileNotFoundException, IOException {
+	private static void listarItemEspecifico() throws FileNotFoundException, IOException {
 		
 		PersistenciaEstoque estoqueControle = PersistenciaEstoque.getInstance();
 		System.out.println("Escolha qual tipo de consulta deseja realizar:");
@@ -375,10 +394,7 @@ public class Menu {
 		}
 	}
 		
-		
-
-	
-	public static void listarFornecedores() throws FileNotFoundException, IOException  {
+	private static void listarFornecedores() throws FileNotFoundException, IOException  {
 		PersistenciaFornecedor fornecedorControle = PersistenciaFornecedor.getInstance();
 		ArrayList<Fornecedor> fornecedores = fornecedorControle.overview();	
 		if (fornecedores == null){
@@ -394,7 +410,7 @@ public class Menu {
 		consulta();
 	}
 	
-	public static void listarClientes() throws FileNotFoundException, IOException {
+	private static void listarClientes() throws FileNotFoundException, IOException {
 		PersistenciaClientes clienteControle = PersistenciaClientes.getInstance();
 		ArrayList<Cliente> compradores = clienteControle.overview();
 		if (compradores == null){
@@ -409,4 +425,117 @@ public class Menu {
 		}
 		consulta();	
 	}
-}
+	
+	private static void iniciarCompra(){
+		
+	}
+
+	private static void iniciarPedido() throws IOException{
+		PersistenciaClientes pclientes = PersistenciaClientes.getInstance();
+		PersistenciaEstoque pestoque = PersistenciaEstoque.getInstance();
+		System.out.println("Para iniciar um novo pedido digite o cpf ou o nome do cliente:");
+		String query = Console.readString();
+		Cliente cliente = pclientes.searchCliente(query);
+		if (cliente == null){
+			do{
+				System.out.println("Cliente não encontrado em nossos registros:");
+				System.out.println("Digite (1) Para uma nova pesquisa");
+				System.out.println("Digite (2) Para cadastrar o novo cliente");
+				int opt = Console.readInteger();
+				switch(opt){
+					case 1:
+						System.out.println("Digite o cpf ou o nome do cliente:");
+						query = Console.readString();
+						cliente = pclientes.searchCliente(query);
+						break;
+					
+					case 2:
+						cliente = Menu.cadastroClientes();
+						break;
+					} 
+				}while (cliente == null);
+			}
+		
+		Pedido pedido = new Pedido(cliente);
+		boolean finalizado = false;
+		int codigo;
+		int quant;
+		
+		while (finalizado == false){
+			listarPedido(pedido);
+			System.out.println("Movimentação de pedidos");
+			System.out.println("Digite (1) Para adicionar um item");
+			System.out.println("Digite (2) Para editar uma linha do pedido");
+			System.out.println("Digite (3) Para remover uma linha do pedido");
+			System.out.println("Digite (4) Para listar os itens do estoque");
+			System.out.println("Digite (5) Para finalizar o pedido");
+			int opt = Console.readInteger();
+			switch(opt){
+			case 1:
+				System.out.println("Digite o codigo item que deseja adicionar:");
+				codigo = Console.readInteger();
+				while (codigo <= 0){
+					System.out.println("codigo nao pode ser zero!");
+					System.out.println("Digite o codigo item que deseja adicionar:");
+					quant = Console.readInteger();
+				}
+				System.out.println("Digite a quantidade de itens :");
+				quant = Console.readInteger();
+				while (quant <= 0){
+					System.out.println("quantidade nao pode ser menor ou igual a zero!");
+					System.out.println("Digite a quantidade de itens :");
+					quant = Console.readInteger();
+				}
+				if(pedido.addItem(codigo, quant) == false ){
+					System.out.println("houve um erro! Verifique o codigo do item ou a quantidade e repita a operacao");
+				}
+				break;
+			
+			case 2:
+				System.out.println("Digite a linha que deseja editar:");
+				int linha = Console.readInteger();
+				System.out.println("Digite a nova quantidade do produto:");
+				quant = Console.readInteger();
+				if(pedido.setQuantidade(linha, quant)== false){
+					System.out.println("Quantidade informada nao esta disponivel!");
+				}
+				break;
+			case 3:	
+				System.out.println("Digite a linha que deseja remover:");
+				linha = Console.readInteger();
+				if(pedido.delItem(linha) == false ){
+					System.out.println("nao foi possivel remover a linha "+linha+"!");
+				}
+			case 4:
+				System.out.println("Situacao atual do estoque:\n");
+				listaItem();
+				break;
+			case 5:
+				pestoque.finalizarPedido(pedido);
+				finalizado= true;
+				break;
+			default:
+				listarPedido(pedido);
+			} 	
+		}
+		principal();
+	}
+	
+	private static void listarPedido(Pedido pedido){
+		float subtotal,precoTotal=0;
+		ArrayList<ItemPedido> pedidos = pedido.overview();
+		System.out.println("Situacao atual do pedido:\n");			
+    	System.out.println("Pedido referente ao cliente "+pedido.getNomeCliente()+"\n");
+		if (pedidos != null){
+	    	System.out.println("Linha\tCódigo\tNome\tPreco Unitario\tQuant\tSubtotais\n");
+			for (int i = 0; i < pedidos.size(); i++) {
+		    	subtotal=0;
+		    	subtotal = pedidos.get(i).getPrecoPedido() * pedidos.get(i).getQuant();
+		    	System.out.println(i+"\t"+pedidos.get(i).getCodigoItem()+"\t"+pedidos.get(i).getNomeItem()+"\t"+pedidos.get(i).getPrecoPedido()+"\t"+pedidos.get(i).getQuant()+"\t"+subtotal+"\n");
+		    	precoTotal+=subtotal;
+			}
+		    System.out.println("\n\t\t\ttotal geral: "+precoTotal+"\n");
+		}
+	}	
+	
+}	

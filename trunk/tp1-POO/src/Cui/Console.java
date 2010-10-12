@@ -1,6 +1,8 @@
 package Cui;
 
 import java.io.*;
+import java.util.*;
+import java.text.*;
 
 public final class Console {
 
@@ -118,5 +120,29 @@ public final class Console {
          return "";
       }
   }
+  
+  public static Date str2date(String stx,String formato){
+	  if (formato == null || formato.length() == 0){
+		  formato = "dd/MM/yyyy";
+	  }
+	  SimpleDateFormat sdf1= new SimpleDateFormat(formato);
+	  Date dataUsuario;
+	try {
+		dataUsuario = sdf1.parse(stx);
+	} catch (ParseException e) {
+		return null;	
+	}
+	  return dataUsuario;
+  }
 
+  public static String date2str(Date data,String formato){
+	  if (formato == null || formato.length() == 0){
+		  formato = "dd/MM/yyyy";
+	  }
+	  if (data == null){
+		  data = new Date();
+	  }
+	  SimpleDateFormat sdf1= new SimpleDateFormat(formato);
+	  return sdf1.format(data); 
+  }
 }

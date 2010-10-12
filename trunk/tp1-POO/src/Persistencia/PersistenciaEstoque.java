@@ -1,6 +1,8 @@
 package Persistencia;
 import java.util.*;
+
 import Estoque.*;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -63,11 +65,13 @@ public class PersistenciaEstoque {
 	/**
 	 * 
 	 */
-	public boolean savePedido (ArrayList<ItemPedido> listaPedido) throws IOException {
+	public boolean savePedido (Pedido pedido) throws IOException {
+		ArrayList<ItemPedido> listaPedido = pedido.overview();
 		FileWriter fw = new FileWriter("Pedidos.dat",true);
-    	String str = "#codigo\tpreco compra\tquantidade\n";
+		String str = "#Data do pedido:"+pedido.getDataPedido(null)+" Para o cliente: "+pedido.getNomeCliente()+"\n";
+    	str += "#codigo\tpreco_compra\tquantidade\n";
 	    for (ItemPedido item : listaPedido) {
-	    	str+=item.getCodigoItem()+"\t"+item.getQuant()+item.getPrecoPedido()+"\n";
+	    	str+=item.getCodigoItem()+"\t"+item.getQuant()+"\t"+item.getPrecoPedido()+"\n";
 		}
 		fw.write(str);
 		fw.close();
@@ -132,16 +136,31 @@ public class PersistenciaEstoque {
 		return this.itens.add(item);
 	}
 	
+	
 	/**
 	 * 
 	 */
-	public Object overview () {
+	@SuppressWarnings("unchecked")
+	public ArrayList<Item> overview () {
 		if (this.itens.size() > 0){
-			return this.itens.clone();
+			return (ArrayList<Item>) this.itens.clone();
 		}
 		else{
 			return null;
 		}
+	}
+
+	public void finalizarPedido(Pedido pedido) throws IOException {
+		ArrayList<ItemPedido> listaPedido = pedido.overview();
+		if (listaPedido.size() == 0){
+			return;
+		}
+	    for (ItemPedido item : listaPedido) {
+	    	Item itemReferencia = this.searchItem(item.getCodigoItem());
+	    	itemReferencia.setQuant(itemReferencia.getQuant()-item.getQuant());
+	    }
+		this.save();
+		this.savePedido(pedido);
 	}
 }
 
