@@ -25,6 +25,14 @@ public class ItemCompra {
 	 * Get the value of item
 	 * @return the value of item
 	 */
+	public int getQuantItem () {
+		return this.item.getQuant();
+	}
+	
+	/**
+	 * Get the value of item
+	 * @return the value of item
+	 */
 	public String getNomeItem () {
 		return this.item.getNome();
 	}
