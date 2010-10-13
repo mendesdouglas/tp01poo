@@ -14,7 +14,7 @@ public class PersistenciaClienteTestes {
 	@Test
 	public void testCadastro() throws IOException {
 		PersistenciaCliente persistenciaClienteTeste = PersistenciaCliente.getInstance();
-		Cliente clienteTeste = new Cliente("063507306-40", "Luiz Carlos Oliveira","bla","bla");
+		Cliente clienteTeste = new Cliente("063507306-40","Luiz Carlos Oliveira","bla","bla");
 		assertEquals(true,persistenciaClienteTeste.cadastro(clienteTeste));
 		persistenciaClienteTeste.removerCliente("Luiz Carlos Oliveira");
 		
