@@ -2,29 +2,26 @@ package cui;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-
 import persistencia.*;
 import pessoas.Cliente;
 import pessoas.Fornecedor;
 
 import estoque.*;
-
-
 /**
- * @author isac
+ * 
  *
  */
 public class Menu {
 	
 	public static void principal() throws FileNotFoundException, IOException {
-		System.out.println("\t\tSJDR Confecções - Controle de Vendas e estoque\t"+Console.date2str(null, null));
-		System.out.println("");
+		System.out.println("\t\tSJDR Confecções - Controle de Vendas e estoque®\t"+Console.date2str(null, null)+"\n");
 		System.out.println("Bem Vindo! Escolha a sua opção:");
-		System.out.println("Digite (1) para cadastros, ou");
+		System.out.println("Digite (1) para cadastros.");
 		System.out.println("Digite (2) para consultas.");
 		System.out.println("Digite (3) para iniciar uma compra.");
 		System.out.println("Digite (4) para iniciar um pedido.");
 		System.out.println("Digite (5) para sair do sistema.");
+		System.out.println("©2010-2010 Turma do barulho");
 		System.out.println("Opção:");
 		int opt;
 		opt=Console.readInteger();
@@ -476,11 +473,25 @@ public class Menu {
 			case 1:
 				System.out.println("Digite o codigo item que deseja adicionar:");
 				codigo = Console.readInteger();
-				while (codigo <= 0){
-					System.out.println("codigo nao pode ser zero!");
-					System.out.println("Digite o codigo item que deseja adicionar:");
-					quant = Console.readInteger();
+				if(pestoque.searchItem(codigo) == null){
+				do{
+					System.out.println("Código nao encontrado em nosos registros!");
+					System.out.println("Digite (1) Para uma nova pesquisa");
+					System.out.println("Digite (2) Para cadastrar o novo item");
+					int opcao = Console.readInteger();
+					switch(opcao){
+						case 1:
+							System.out.println("Digite o codigo item que deseja adicionar:");
+							codigo= Console.readInteger();
+							break;
+						
+						case 2:
+							Menu.cadastroItem();
+							break;
+						} 
+					}while (pestoque.searchItem(codigo) == null);
 				}
+				
 				System.out.println("Digite a quantidade de itens :");
 				quant = Console.readInteger();
 				while (quant <= 0){
@@ -497,7 +508,7 @@ public class Menu {
 					preco = Console.readFloat();
 				}
 				
-				if(compra.addItem(codigo,preco, quant) == false ){
+				if(compra.addItem(pestoque.searchItem(codigo),preco, quant) == false ){
 					System.out.println("houve um erro! Verifique o codigo do item");
 				}
 				break;
@@ -583,9 +594,9 @@ public class Menu {
 				System.out.println("Digite o codigo item que deseja adicionar:");
 				codigo = Console.readInteger();
 				while (codigo <= 0){
-					System.out.println("codigo nao pode ser zero!");
+					System.out.println("codigo nao pode ser menor ou igual a zero!");
 					System.out.println("Digite o codigo item que deseja adicionar:");
-					quant = Console.readInteger();
+					codigo = Console.readInteger();
 				}
 				System.out.println("Digite a quantidade de itens :");
 				quant = Console.readInteger();
@@ -635,7 +646,7 @@ public class Menu {
 		System.out.println("Situacao atual do pedido:\n");			
     	System.out.println("Pedido referente ao cliente "+pedido.getNomeCliente()+"\n");
 		if (pedidos != null){
-	    	System.out.println("Linha\tCódigo\tNome\tPreco Unitario\tQuant\tSubtotais\n");
+	    	System.out.println("Linha\tCódigo\tNome\tPreco_Unitario\tQuant\tSubtotais\n");
 			for (int i = 0; i < pedidos.size(); i++) {
 		    	subtotal=0;
 		    	subtotal = pedidos.get(i).getPrecoPedido() * pedidos.get(i).getQuant();
