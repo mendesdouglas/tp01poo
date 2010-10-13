@@ -67,22 +67,51 @@ public class PedidoTest {
 
 	@Test
 	public void testDelItem() {
-		fail("Not yet implemented");
+		Pedido pedido = populaPedido();
+		assertEquals(true,pedido.delItem(0));
+		assertEquals(false,pedido.delItem(10));
 	}
 
 	@Test
 	public void testSearchItemPedido() {
-		fail("Not yet implemented");
+		Pedido pedido = populaPedido();
+		//codigo valido
+		assertEquals(true,pedido.searchItemPedido(1212));
+		//codigo invalido
+		assertEquals(false,pedido.searchItemPedido(6666));		
 	}
 
 	@Test
 	public void testAddItem() {
-		fail("Not yet implemented");
+		Pedido pedido = populaPedido();
+		Item item0 = new Item("camisa",1212,(float)9.80,(float)0.35,9);
+		Item item1 = new Item("top",1216,(float)9.80,(float)0.35,9);
+		//adicionando item que ja esta no pedido
+		assertEquals(false,pedido.addItem(item0,4));
+		//adicionando item valido,mas com uma quantidade errada
+		assertEquals(false,pedido.addItem(item1,17));
+		//adicionando item valido com quantidade valida
+		assertEquals(true,pedido.addItem(item1,4));
 	}
 
 	@Test
 	public void testOverview() {
-		fail("Not yet implemented");
+		Cliente cliente = new Cliente("123123","testecliente","endereco","33717171");
+		Pedido pedido = new Pedido(cliente);
+		
+		assertEquals(null,pedido.overview());
+		
+		Item item0 = new Item("camisa",1212,(float)9.80,(float)0.35,9);
+		Item item1 = new Item("blusa",1213,(float)9.80,(float)0.35,9);
+		Item item2 = new Item("calça",1214,(float)9.80,(float)0.35,9);
+		Item item3 = new Item("tenis",1215,(float)9.80,(float)0.35,9);
+		pedido.addItem(item0,4);
+		pedido.addItem(item1,4);
+		pedido.addItem(item2,4);
+		pedido.addItem(item3,4);
+		
+		assertNotNull(pedido.overview());
+		
 	}
 
 }
