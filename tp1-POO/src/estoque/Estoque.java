@@ -7,7 +7,8 @@ public class Estoque {
 	 * 
 	 */
 	public static float calculaPrecoMedioPonderado (ItemCompra itemCompra) {
-		return (itemCompra.getPrecoCustoItem()+itemCompra.getPrecoCompra())/2;
+		float result = ((itemCompra.getQuantItem()*itemCompra.getPrecoCustoItem())+(itemCompra.getQuant()*itemCompra.getPrecoCompra()))/(itemCompra.getQuantItem()+itemCompra.getQuant());
+		return result;
 	}
 }
 
