@@ -91,6 +91,18 @@ public class Pedido {
  		this.pedidos.add(itemPedido);
 		return true;
 	}
+	
+	public boolean addItem(Item item,int quant){
+		if (searchItemPedido(item.getCodigo()) || item == null){
+			return false;
+		}
+		if (item.getQuant() < quant){
+			return false;
+		}
+ 		ItemPedido itemPedido = new ItemPedido(item,quant);
+ 		this.pedidos.add(itemPedido);
+		return true;
+	}
 
 	/**
 	 * 
