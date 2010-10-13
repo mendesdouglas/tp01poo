@@ -2,18 +2,22 @@ package persistencia;
 
 import static org.junit.Assert.*;
 
+import java.io.IOException;
+
 import org.junit.Test;
 
 public class PersistenciaEstoqueTest {
 
 	@Test
-	public void testSave() {
-		fail("Not yet implemented");
+	public void testSave() throws IOException {
+		PersistenciaEstoque persistenciaEstoqueTeste = PersistenciaEstoque.getInstance();
+		assertEquals(true,persistenciaEstoqueTeste.save());
 	}
 
 	@Test
 	public void testSaveCompra() {
-		fail("Not yet implemented");
+		PersistenciaEstoque persistenciaEstoqueTeste = PersistenciaEstoque.getInstance();
+		assertEquals(true,persistenciaEstoqueTeste.saveCompra(compra);
 	}
 
 	@Test
