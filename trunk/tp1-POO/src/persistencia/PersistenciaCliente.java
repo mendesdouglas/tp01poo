@@ -51,7 +51,8 @@ public class PersistenciaCliente {
 	 *  
 	 * 
 	 */
-	private void getCliente() throws FileNotFoundException, IOException {
+	public void getCliente() throws FileNotFoundException, IOException {
+		this.compradores.clear();
 		File file = new File("Clientes.dat");
 
 		if (! file.exists()) {
@@ -96,14 +97,20 @@ public class PersistenciaCliente {
 		return this.compradores.add(cliente);
 	}
 	
-	public boolean removerCliente(String query){
+	public boolean removerCliente(String query) throws IOException{
 		Cliente cliente = this.searchCliente(query);
 		if (cliente ==null){
 			return false;
 		}
 		else {
-			return this.compradores.remove(cliente);
+			this.compradores.remove(cliente);
+			this.save();
+			return true;
 		}
+	}
+	
+	public void purge(){
+		this.compradores.clear();
 	}
 	/**
 	 * 

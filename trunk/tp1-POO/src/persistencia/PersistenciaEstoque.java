@@ -128,6 +128,27 @@ public class PersistenciaEstoque {
 		return null;
 	}
 	
+	public boolean delItem(int codigo) throws IOException{
+		Item item = this.searchItem(codigo);
+		if(item != null){
+			this.itens.remove(item);
+			this.save();
+			return true;
+			
+		}
+		return false;
+	}
+	
+	public boolean delItem(String nome) throws IOException{
+		Item item = this.searchItem(nome);
+		if(item != null){
+			this.itens.remove(item);
+			this.save();
+			return true;
+			
+		}
+		return false;
+	}
 	/**
 	 * 
 	 */
@@ -137,6 +158,10 @@ public class PersistenciaEstoque {
 			return false;
 		}
 		return this.itens.add(item);
+	}
+	
+	public void purge(){
+		this.itens.clear();
 	}
 	
 	

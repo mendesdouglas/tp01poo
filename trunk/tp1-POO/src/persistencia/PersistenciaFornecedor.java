@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
+import pessoas.Cliente;
 import pessoas.Fornecedor;
 
 
@@ -91,6 +92,23 @@ import pessoas.Fornecedor;
 		}
 		return this.fornecedores.add(fornecedor);
 	}
+	
+	public boolean removerFornecedor(String query) throws IOException{
+		Fornecedor fornecedor = this.searchFornecedor(query);
+		if (fornecedor ==null){
+			return false;
+		}
+		else {
+			this.fornecedores.remove(fornecedor);
+			this.save();
+			return true;
+		}
+	}
+	
+	public void purge(){
+		this.fornecedores.clear();
+	}
+	
 	/**
 	 * 
 	 */
