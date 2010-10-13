@@ -39,7 +39,7 @@ public class PersistenciaEstoque {
 	 */
 	public boolean save () throws IOException {
 
-		FileWriter fw = new FileWriter("estoque.dat",false);
+		FileWriter fw = new FileWriter("Estoque.dat",false);
     	String str = "#codigo\tnome\tpreco custo\tmargem lucro\tquantidade\n";
 	    for (Item item : itens) {
 	    	str+=item.getCodigo()+"\t"+item.getNome()+"\t"+item.getPrecoCusto()+"\t"+item.getMargemLucro()+"\t"+item.getQuant()+"\n";
@@ -55,7 +55,7 @@ public class PersistenciaEstoque {
 	public boolean saveCompra (Compra compra) throws IOException {
 		ArrayList<ItemCompra> listaCompra = compra.overview(); 
 		FileWriter fw = new FileWriter("Compras.dat",true);
-		String str = "Compra oriunda do FOrnecedor: "+compra.getNomeFornecedor()+" Na Data de: "+compra.getDataCompra(null)+"\n";
+		String str ="Data da compra: "+compra.getDataCompra(null)+" Do Fornecedor: "+compra.getNomeFornecedor()+"\n";
     	str = "#codigo\tpreco_compra\tquantidade\n";
 	    for (ItemCompra item : listaCompra) {
 	    	str+=item.getCodigoItem()+"\t"+item.getPrecoCompra()+"\t"+item.getQuant()+"\n";
@@ -86,7 +86,7 @@ public class PersistenciaEstoque {
 	 */
 	private void getEstoque () throws FileNotFoundException, IOException {
 
-		File file = new File("estoque.dat");
+		File file = new File("Estoque.dat");
 
 		if (! file.exists()) {
 		file.createNewFile();		

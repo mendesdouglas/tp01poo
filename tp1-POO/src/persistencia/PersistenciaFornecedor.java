@@ -62,7 +62,12 @@ import pessoas.Fornecedor;
 				continue;
 				}
 			String[] dados = linha.split("\t");
-			cadastro(new Fornecedor(dados[0],dados[1],dados[2],dados[3]));
+			if (dados.length == 2){
+				cadastro(new Fornecedor(dados[0],dados[1]));
+			}
+			if (dados.length == 4){
+				cadastro(new Fornecedor(dados[0],dados[1],dados[2],dados[3]));
+			}
 		}
 		br.close();
 	}
@@ -71,7 +76,7 @@ import pessoas.Fornecedor;
 	 */
 	public Fornecedor searchFornecedor (String query) {
 		for (Fornecedor fornecedor : fornecedores) {
-			if (fornecedor.getNome() == query || fornecedor.getCnpj() == query){
+			if (fornecedor.getNome().equals(query) || fornecedor.getCnpj().equals(query)){
 				return fornecedor;
 			}
 	    }
