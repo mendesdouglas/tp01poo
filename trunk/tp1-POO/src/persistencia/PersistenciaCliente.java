@@ -95,6 +95,16 @@ public class PersistenciaCliente {
 		}
 		return this.compradores.add(cliente);
 	}
+	
+	public boolean removerCliente(String query){
+		Cliente cliente = this.searchCliente(query);
+		if (cliente ==null){
+			return false;
+		}
+		else {
+			return this.compradores.remove(cliente);
+		}
+	}
 	/**
 	 * 
 	 * 
