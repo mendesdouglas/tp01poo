@@ -57,6 +57,10 @@ public class PersistenciaEstoque {
 		FileWriter fw = new FileWriter("Compras.dat",true);
 		String str ="Data da compra: "+compra.getDataCompra(null)+" Do Fornecedor: "+compra.getNomeFornecedor()+"\n";
     	str = "#codigo\tpreco_compra\tquantidade\n";
+    	if (listaCompra == null) {
+    		fw.close();
+    		return false;
+    	}
 	    for (ItemCompra item : listaCompra) {
 	    	str+=item.getCodigoItem()+"\t"+item.getPrecoCompra()+"\t"+item.getQuant()+"\n";
 		}
@@ -73,6 +77,10 @@ public class PersistenciaEstoque {
 		FileWriter fw = new FileWriter("Pedidos.dat",true);
 		String str = "#Data do pedido:"+pedido.getDataPedido(null)+" Para o cliente: "+pedido.getNomeCliente()+"\n";
     	str += "#codigo\tpreco_compra\tquantidade\n";
+    	if (listaPedido == null) {
+    		fw.close();
+    		return false;
+    	}
 	    for (ItemPedido item : listaPedido) {
 	    	str+=item.getCodigoItem()+"\t"+item.getQuant()+"\t"+item.getPrecoPedido()+"\n";
 		}
@@ -154,7 +162,6 @@ public class PersistenciaEstoque {
 	 */
 	public boolean cadastro (Item item) {
 		if (searchItem(item.getCodigo())!=null){
-			System.out.println("Item ja existe");
 			return false;
 		}
 		return this.itens.add(item);
