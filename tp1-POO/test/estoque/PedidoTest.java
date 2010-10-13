@@ -2,11 +2,7 @@ package estoque;
 
 import static org.junit.Assert.*;
 
-import java.util.Date;
-
 import org.junit.Test;
-
-import cui.Console;
 
 import pessoas.Cliente;
 
@@ -26,29 +22,6 @@ public class PedidoTest {
 		return pedido;
 	}
 	
-	@Test
-	public void testGetNomeCliente() {
-		Pedido pedido = populaPedido();
-		assertEquals("testecliente",pedido.getNomeCliente());
-	}
-	@Test
-	public void testGetCpfCliente() {
-		Pedido pedido = populaPedido();
-		assertEquals("123123",pedido.getCpfCliente());
-	}
-
-	@Test
-	public void testGetDataPedido() {
-		Pedido pedido = populaPedido();
-		assertEquals(new Date(),pedido.getDataPedido());
-	}
-
-	@Test
-	public void testGetDataPedidoString() {
-		Pedido pedido = populaPedido();
-		assertEquals(Console.date2str(null, null),pedido.getDataPedido(null));
-	}
-
 	@Test
 	public void testSetQuantidade() {
 		Pedido pedido = populaPedido();
