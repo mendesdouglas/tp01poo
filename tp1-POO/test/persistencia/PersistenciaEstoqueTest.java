@@ -68,7 +68,7 @@ public class PersistenciaEstoqueTest {
 	}
 
 	@Test
-	public void testCadastro() {
+	public void testCadastro() throws IOException {
 		PersistenciaEstoque persistenciaEstoqueTeste = PersistenciaEstoque.getInstance();
 		//adicionando item novo
 		assertEquals(true,persistenciaEstoqueTeste.cadastro(new Item("camisa",1212,(float)9.80,(float)0.35,9)));
@@ -79,7 +79,15 @@ public class PersistenciaEstoqueTest {
 
 	@Test
 	public void testOverview() {
-		fail("Not yet implemented");
+		PersistenciaEstoque persistenciaEstoqueTeste = PersistenciaEstoque.getInstance();
+		persistenciaEstoqueTeste.purge();
+		//overview sem itens na lista
+		assertEquals(null,persistenciaEstoqueTeste.overview());
+		
+		Item ItemTeste = new Item("camisa",1212,(float)9.80,(float)0.35,9);
+		persistenciaEstoqueTeste.cadastro(ItemTeste);
+		//overview Com itens na lista
+		assertNotNull(persistenciaEstoqueTeste.overview());
 	}
 
 }
