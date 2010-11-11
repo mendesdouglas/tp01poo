@@ -64,8 +64,11 @@ public class PersistenciaEstoque {
 			stat = conn.createStatement();
 			rs = stat.executeQuery("select * from Item where codigo="+codigo);
 			Item item = new Item(rs.getString("nome"),rs.getInt("codigo"),rs.getFloat("precoCusto"),rs.getFloat("margemLucro"),rs.getInt("quant"));
+			rs.close();
+			stat.close();
 			return item;
 		} catch (SQLException e) {
+			e.printStackTrace();
 			return null;
 		}
 	}
@@ -80,8 +83,11 @@ public class PersistenciaEstoque {
 			stat = conn.createStatement();
 			rs = stat.executeQuery("select * from Item where nome="+nome);
 			Item item = new Item(rs.getString("nome"),rs.getInt("codigo"),rs.getFloat("precoCusto"),rs.getFloat("margemLucro"),rs.getInt("quant"));
+			rs.close();
+			stat.close();
 			return item;
 		} catch (SQLException e) {
+			e.printStackTrace();
 			return null;
 		}
 	}
@@ -91,8 +97,10 @@ public class PersistenciaEstoque {
 		try {
 			stat = conn.createStatement();
 			stat.executeUpdate("delete from Item where codigo="+codigo);
+			stat.close();
 			return true;
 		} catch (SQLException e) {
+			e.printStackTrace();
 			return false;
 		}
 	}
@@ -102,8 +110,10 @@ public class PersistenciaEstoque {
 		try {
 			stat = conn.createStatement();
 			stat.executeUpdate("delete from Item where nome="+nome);
+			stat.close();
 			return true;
 		} catch (SQLException e) {
+			e.printStackTrace();
 			return false;
 		}
 	}
@@ -112,18 +122,16 @@ public class PersistenciaEstoque {
 	 */
 	public boolean cadastro (Item item) {
 		Statement stat;
-		ResultSet rs;
+		//ResultSet rs;
 		try {
 			stat = conn.createStatement();
-			rs = stat.executeQuery("select * from Item where codigo="+item.getCodigo());
-			if ( ! rs.wasNull()){
-				return false;
-			}
-			
+			//rs = stat.executeQuery("select * from Item where codigo="+item.getCodigo());
 			stat.executeUpdate("insert into Item (nome,codigo,precoCusto,margemLucro,quant) " +
 					"values('"+item.getNome()+"','"+item.getCodigo()+"','"+item.getPrecoCusto()+"','"+item.getMargemLucro()+"','"+item.getQuant()+"')");
+			stat.close();
 			return true;
 		} catch (SQLException e) {
+			e.printStackTrace();
 			return false;
 		}
 	}
@@ -133,7 +141,9 @@ public class PersistenciaEstoque {
 		try {
 			stat = conn.createStatement();
 			stat.executeUpdate("delete from Item");
+			stat.close();
 		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 	}
 	
@@ -148,15 +158,15 @@ public class PersistenciaEstoque {
 		try {
 			stat = conn.createStatement();
 			rs = stat.executeQuery("select * from Item");
-			if (rs.wasNull()){
-				return null;
-			}
 			while (rs.next()){
 				Item item = new Item(rs.getString("nome"),rs.getInt("codigo"),rs.getFloat("precoCusto"),rs.getFloat("margemLucro"),rs.getInt("quant"));
 				itens.add(item);	
 			}
+			rs.close();
+			stat.close();
 			return itens;
 		} catch (SQLException e) {
+			e.printStackTrace();
 			return null;
 		}
 	}

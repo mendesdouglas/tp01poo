@@ -47,10 +47,13 @@ public class PersistenciaCliente {
 		ResultSet rs;
 		try {
 			stat = conn.createStatement();
-			rs = stat.executeQuery("select * from Cliente where cpf = "+query+" or name = "+query);
+			rs = stat.executeQuery("select * from Cliente where cpf = "+query+" or nome = "+query);
 			Cliente cliente = new Cliente(rs.getString("cpf"),rs.getString("nome"),rs.getString("endereco"),rs.getString("telefone"));
+			rs.close();
+			stat.close();
 			return cliente;
 		} catch (SQLException e) {
+			e.printStackTrace();
 			return null;
 		}
 	}
@@ -59,18 +62,16 @@ public class PersistenciaCliente {
 	 */
 	public boolean cadastro (Cliente cliente) {
 		Statement stat;
-		ResultSet rs;
+		//ResultSet rs;
 		try {
 			stat = conn.createStatement();
-			rs = stat.executeQuery("select * from Cliente where cpf = "+cliente.getCpf()+" or name ="+ cliente.getNome());
-			if ( ! rs.wasNull()){
-				return false;
-			}
-			
+			//rs = stat.executeQuery("select * from Cliente where cpf = "+cliente.getCpf()+" or name ="+ cliente.getNome());
 			stat.executeUpdate("insert into Cliente (cpf,nome,endereco,telefone) " +
 					"values('"+cliente.getCpf()+"','"+cliente.getNome()+"','"+cliente.getEndereco()+"','"+cliente.getTelefone()+"')");
+			stat.close();
 			return true;
 		} catch (SQLException e) {
+			e.printStackTrace();
 			return false;
 		}
 	}
@@ -80,8 +81,10 @@ public class PersistenciaCliente {
 		try {
 			stat = conn.createStatement();
 			stat.executeUpdate("delete from Cliente wehre cpf = "+query+" or nome = "+query);
+			stat.close();
 			return true;
 		} catch (SQLException e) {
+			e.printStackTrace();
 			return false;
 		}
 	}
@@ -91,7 +94,9 @@ public class PersistenciaCliente {
 		try {
 			stat = conn.createStatement();
 			stat.executeUpdate("delete from Cliente");
+			stat.close();
 		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 	}
 	/**
@@ -105,15 +110,15 @@ public class PersistenciaCliente {
 		try {
 			stat = conn.createStatement();
 			rs = stat.executeQuery("select * from Cliente");
-			if (rs.wasNull()){
-				return null;
-			}
 			while (rs.next()){
 				Cliente cliente = new Cliente(rs.getString("cpf"),rs.getString("nome"),rs.getString("endereco"),rs.getString("telefone"));
 				clientes.add(cliente);	
 			}
+			rs.close();
+			stat.close();
 			return clientes;
 		} catch (SQLException e) {
+			e.printStackTrace();
 			return null;
 		}
 	}

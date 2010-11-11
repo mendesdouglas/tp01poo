@@ -44,10 +44,13 @@ import pessoas.Fornecedor;
 		ResultSet rs;
 		try {
 			stat = conn.createStatement();
-			rs = stat.executeQuery("select * from Fornecedor where cnpj = query or name = query");
+			rs = stat.executeQuery("select * from Fornecedor where cnpj = "+query+" or nome = "+query);
 			Fornecedor fornecedor = new Fornecedor(rs.getString("cnpj"),rs.getString("nome"),rs.getString("endereco"),rs.getString("telefone"));
+			rs.close();
+			stat.close();
 			return fornecedor;
 		} catch (SQLException e) {
+			e.printStackTrace();
 			return null;
 		}
 	}
@@ -56,18 +59,16 @@ import pessoas.Fornecedor;
 	 */
 	public boolean cadastro (Fornecedor fornecedor) {
 		Statement stat;
-		ResultSet rs;
+		//ResultSet rs;
 		try {
 			stat = conn.createStatement();
-			rs = stat.executeQuery("select * from Fornecedor where cnpj = "+fornecedor.getCnpj()+" or name ="+fornecedor.getNome());
-			if ( ! rs.wasNull()){
-				return false;
-			}
-			
+			//rs = stat.executeQuery("select * from Fornecedor where cnpj = "+fornecedor.getCnpj()+" or name ="+fornecedor.getNome());
 			stat.executeUpdate("insert into Fornecedor (cnpj,nome,endereco,telefone) " +
 					"values('"+fornecedor.getCnpj()+"','"+fornecedor.getNome()+"','"+fornecedor.getEndereco()+"','"+fornecedor.getTelefone()+"')");
+			stat.close();
 			return true;
 		} catch (SQLException e) {
+			e.printStackTrace();
 			return false;
 		}
 	}
@@ -77,8 +78,10 @@ import pessoas.Fornecedor;
 		try {
 			stat = conn.createStatement();
 			stat.executeUpdate("delete from Fornecedor wehre cpf = "+query+" or nome = "+query);
+			stat.close();
 			return true;
 		} catch (SQLException e) {
+			e.printStackTrace();
 			return false;
 		}
 	}
@@ -88,7 +91,9 @@ import pessoas.Fornecedor;
 		try {
 			stat = conn.createStatement();
 			stat.executeUpdate("delete from Fornecedor");
+			stat.close();
 		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 	}
 	
@@ -102,15 +107,15 @@ import pessoas.Fornecedor;
 		try {
 			stat = conn.createStatement();
 			rs = stat.executeQuery("select * from Fornecedor");
-			if (rs.wasNull()){
-				return null;
-			}
 			while (rs.next()){
 				Fornecedor fornecedor = new Fornecedor(rs.getString("cnpj"),rs.getString("nome"),rs.getString("endereco"),rs.getString("telefone"));
 				fornecedores.add(fornecedor);	
 			}
+			rs.close();
+			stat.close();
 			return fornecedores;
 		} catch (SQLException e) {
+			e.printStackTrace();
 			return null;
 		}
 	}
