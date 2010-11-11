@@ -2,7 +2,7 @@ package cui;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import persistencia.*;
+import persistenciaDB.*;
 import pessoas.Cliente;
 import pessoas.Fornecedor;
 
