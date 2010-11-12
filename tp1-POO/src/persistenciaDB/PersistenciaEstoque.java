@@ -37,14 +37,50 @@ public class PersistenciaEstoque {
 	 * 
 	 */
 	public boolean saveCompra (Compra compra){
-		return true;
+		Statement stat;
+		ArrayList<ItemCompra> itens = compra.overview();
+		if (itens == null || itens.size() == 0){
+			return false;
+		}
+		try {
+			stat = conn.createStatement();
+			stat.executeUpdate("insert into Compra (codFornecedor,data)" +
+					"values('"+compra.getCnpjFornecedor()+"','"+compra.getDataCompra(null)+"')");
+			for (ItemCompra itemCompra : itens) {
+			stat.executeUpdate("insert into ItemCompra (CompraID,codItem,precoCompra,quant) " +
+					"values((select last_insert_rowid() from Compra),'"+itemCompra.getCodigoItem()+"','"+itemCompra.getPrecoCompra()+"','"+itemCompra.getQuant()+"')");
+			}
+			stat.close();
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 	
 	/**
 	 * 
 	 */
 	public boolean savePedido (Pedido pedido){
-		return true;
+		Statement stat;
+		ArrayList<ItemPedido> itens = pedido.overview();
+		if (itens == null || itens.size() == 0){
+			return false;
+		}
+		try {
+			stat = conn.createStatement();
+			stat.executeUpdate("insert into Pedido (codCliente,data)" +
+					"values('"+pedido.getCpfCliente()+"','"+pedido.getDataPedido(null)+"')");
+			for (ItemPedido itemPedido : itens) {
+			stat.executeUpdate("insert into ItemPedido (pedidoID,codItem,precoPedido,quant) " +
+					"values((select last_insert_rowid() from Pedido),'"+itemPedido.getCodigoItem()+"','"+itemPedido.getPrecoPedido()+"','"+itemPedido.getQuant()+"')");
+			}
+			stat.close();
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 	
 	/**
@@ -60,10 +96,13 @@ public class PersistenciaEstoque {
 	public Item searchItem (int codigo) {
 		Statement stat;
 		ResultSet rs;
+		Item item = null;
 		try {
 			stat = conn.createStatement();
 			rs = stat.executeQuery("select * from Item where codigo="+codigo);
-			Item item = new Item(rs.getString("nome"),rs.getInt("codigo"),rs.getFloat("precoCusto"),rs.getFloat("margemLucro"),rs.getInt("quant"));
+			if (rs.next()) {
+				item = new Item(rs.getString("nome"),rs.getInt("codigo"),rs.getFloat("precoCusto"),rs.getFloat("margemLucro"),rs.getInt("quant"));
+			}
 			rs.close();
 			stat.close();
 			return item;
@@ -79,10 +118,13 @@ public class PersistenciaEstoque {
 	public Item searchItem (String nome) {
 		Statement stat;
 		ResultSet rs;
+		Item item = null;
 		try {
 			stat = conn.createStatement();
 			rs = stat.executeQuery("select * from Item where nome="+nome);
-			Item item = new Item(rs.getString("nome"),rs.getInt("codigo"),rs.getFloat("precoCusto"),rs.getFloat("margemLucro"),rs.getInt("quant"));
+			if (rs.next()) {
+				item = new Item(rs.getString("nome"),rs.getInt("codigo"),rs.getFloat("precoCusto"),rs.getFloat("margemLucro"),rs.getInt("quant"));
+			}
 			rs.close();
 			stat.close();
 			return item;
@@ -125,7 +167,6 @@ public class PersistenciaEstoque {
 		//ResultSet rs;
 		try {
 			stat = conn.createStatement();
-			//rs = stat.executeQuery("select * from Item where codigo="+item.getCodigo());
 			stat.executeUpdate("insert into Item (nome,codigo,precoCusto,margemLucro,quant) " +
 					"values('"+item.getNome()+"','"+item.getCodigo()+"','"+item.getPrecoCusto()+"','"+item.getMargemLucro()+"','"+item.getQuant()+"')");
 			stat.close();
@@ -173,7 +214,7 @@ public class PersistenciaEstoque {
 
 	public void finalizarPedido(Pedido pedido) throws IOException {
 		ArrayList<ItemPedido> listaPedido = pedido.overview();
-		if (listaPedido.size() == 0){
+		if (listaPedido == null || listaPedido.size() == 0){
 			return;
 		}
 	    for (ItemPedido item : listaPedido) {
@@ -186,7 +227,7 @@ public class PersistenciaEstoque {
 	
 	public void finalizarCompra(Compra compra) throws IOException {
 		ArrayList<ItemCompra> listaCompra = compra.overview();
-		if (listaCompra.size() == 0){
+		if (listaCompra == null || listaCompra.size() == 0){
 			return;
 		}
 	    for (ItemCompra item : listaCompra) {
@@ -194,7 +235,6 @@ public class PersistenciaEstoque {
 	    	itemReferencia.setQuant(itemReferencia.getQuant() + item.getQuant());
 	    	itemReferencia.setPrecoCusto(Estoque.calculaPrecoMedioPonderado(item));
 	    }
-		this.save();
 		this.saveCompra(compra);
 	}
 }

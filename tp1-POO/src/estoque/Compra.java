@@ -41,6 +41,17 @@ public class Compra {
 	/**
 	 * 
 	 */
+	public String getDataCompra(String formato){
+		  if (formato == null || formato.length() == 0){
+			  formato = "dd/MM/yyyy";
+		  }
+		  SimpleDateFormat sdf1= new SimpleDateFormat(formato);
+		  return sdf1.format(this.dataCompra);
+	}
+	
+	/**
+	 * 
+	 */
 	public boolean setQuantidade(int index,int quant){
 		if (index < this.compras.size()){
 			if(quant > 0){
@@ -74,16 +85,7 @@ public class Compra {
 		else return false;
 	}
 	
-	/**
-	 * 
-	 */
-	public String getDataCompra(String formato){
-		  if (formato == null || formato.length() == 0){
-			  formato = "dd/MM/yyyy";
-		  }
-		  SimpleDateFormat sdf1= new SimpleDateFormat(formato);
-		  return sdf1.format(this.dataCompra);
-	}
+
 	
 	/**
 	 * 

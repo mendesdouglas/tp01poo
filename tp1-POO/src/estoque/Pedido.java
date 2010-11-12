@@ -2,8 +2,6 @@ package estoque;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
-
-import persistencia.PersistenciaEstoque;
 import pessoas.Cliente;
 
 
@@ -75,22 +73,6 @@ public class Pedido {
 	/**
 	 * 
 	 */	
-	public boolean addItem(int codigo,int quant){
-		if (searchItemPedido(codigo)){
-			return false;
-		}
-		PersistenciaEstoque estoque = PersistenciaEstoque.getInstance();
-		Item item = estoque.searchItem (codigo);
-		if (item == null) {
-			return false;
-		}
-		if (item.getQuant() < quant){
-			return false;
-		}
- 		ItemPedido itemPedido = new ItemPedido(item,quant);
- 		this.pedidos.add(itemPedido);
-		return true;
-	}
 	
 	public boolean addItem(Item item,int quant){
 		if (searchItemPedido(item.getCodigo()) || item == null){

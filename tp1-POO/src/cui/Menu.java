@@ -475,7 +475,7 @@ public class Menu {
 				codigo = Console.readInteger();
 				if(pestoque.searchItem(codigo) == null){
 				do{
-					System.out.println("Código nao encontrado em nosos registros!");
+					System.out.println("Código nao encontrado em nossos registros!");
 					System.out.println("Digite (1) Para uma nova pesquisa");
 					System.out.println("Digite (2) Para cadastrar o novo item");
 					int opcao = Console.readInteger();
@@ -504,7 +504,7 @@ public class Menu {
 				float preco = Console.readFloat();
 				while (preco <= 0){
 					System.out.println("Preço de compra não pode ser menor ou igual a zero!");
-					System.out.println("Digite o Preço de Compra do ITem :");
+					System.out.println("Digite o Preço de Compra do Item :");
 					preco = Console.readFloat();
 				}
 				
@@ -593,10 +593,12 @@ public class Menu {
 			case 1:
 				System.out.println("Digite o codigo item que deseja adicionar:");
 				codigo = Console.readInteger();
-				while (codigo <= 0){
+				Item item = pestoque.searchItem(codigo);
+				while (item == null){
 					System.out.println("codigo nao pode ser menor ou igual a zero!");
 					System.out.println("Digite o codigo item que deseja adicionar:");
 					codigo = Console.readInteger();
+					item = pestoque.searchItem(codigo);
 				}
 				System.out.println("Digite a quantidade de itens :");
 				quant = Console.readInteger();
@@ -605,7 +607,7 @@ public class Menu {
 					System.out.println("Digite a quantidade de itens :");
 					quant = Console.readInteger();
 				}
-				if(pedido.addItem(codigo, quant) == false ){
+				if(pedido.addItem(item, quant) == false ){
 					System.out.println("houve um erro! Verifique o codigo do item ou a quantidade e repita a operacao");
 				}
 				break;
