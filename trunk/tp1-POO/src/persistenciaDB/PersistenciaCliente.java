@@ -45,10 +45,13 @@ public class PersistenciaCliente {
 	public Cliente searchCliente (String query) {
 		Statement stat;
 		ResultSet rs;
+		Cliente cliente = null;
 		try {
 			stat = conn.createStatement();
 			rs = stat.executeQuery("select * from Cliente where cpf = "+query+" or nome = "+query);
-			Cliente cliente = new Cliente(rs.getString("cpf"),rs.getString("nome"),rs.getString("endereco"),rs.getString("telefone"));
+			if (rs.next()) {
+				cliente = new Cliente(rs.getString("cpf"),rs.getString("nome"),rs.getString("endereco"),rs.getString("telefone"));
+			}
 			rs.close();
 			stat.close();
 			return cliente;
@@ -65,7 +68,6 @@ public class PersistenciaCliente {
 		//ResultSet rs;
 		try {
 			stat = conn.createStatement();
-			//rs = stat.executeQuery("select * from Cliente where cpf = "+cliente.getCpf()+" or name ="+ cliente.getNome());
 			stat.executeUpdate("insert into Cliente (cpf,nome,endereco,telefone) " +
 					"values('"+cliente.getCpf()+"','"+cliente.getNome()+"','"+cliente.getEndereco()+"','"+cliente.getTelefone()+"')");
 			stat.close();

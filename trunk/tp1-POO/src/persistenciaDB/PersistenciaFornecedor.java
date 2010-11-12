@@ -42,10 +42,13 @@ import pessoas.Fornecedor;
 	public Fornecedor searchFornecedor (String query) {
 		Statement stat;
 		ResultSet rs;
+		Fornecedor fornecedor = null;
 		try {
 			stat = conn.createStatement();
 			rs = stat.executeQuery("select * from Fornecedor where cnpj = "+query+" or nome = "+query);
-			Fornecedor fornecedor = new Fornecedor(rs.getString("cnpj"),rs.getString("nome"),rs.getString("endereco"),rs.getString("telefone"));
+			if (rs.next()) {
+			  fornecedor = new Fornecedor(rs.getString("cnpj"),rs.getString("nome"),rs.getString("endereco"),rs.getString("telefone"));
+			}
 			rs.close();
 			stat.close();
 			return fornecedor;
@@ -62,7 +65,6 @@ import pessoas.Fornecedor;
 		//ResultSet rs;
 		try {
 			stat = conn.createStatement();
-			//rs = stat.executeQuery("select * from Fornecedor where cnpj = "+fornecedor.getCnpj()+" or name ="+fornecedor.getNome());
 			stat.executeUpdate("insert into Fornecedor (cnpj,nome,endereco,telefone) " +
 					"values('"+fornecedor.getCnpj()+"','"+fornecedor.getNome()+"','"+fornecedor.getEndereco()+"','"+fornecedor.getTelefone()+"')");
 			stat.close();
