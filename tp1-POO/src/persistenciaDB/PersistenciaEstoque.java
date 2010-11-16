@@ -48,7 +48,7 @@ public class PersistenciaEstoque {
 					"values('"+compra.getCnpjFornecedor()+"','"+compra.getDataCompra(null)+"')");
 			for (ItemCompra itemCompra : itens) {
 			stat.executeUpdate("insert into ItemCompra (CompraID,codItem,precoCompra,quant) " +
-					"values((select last_insert_rowid() from Compra),'"+itemCompra.getCodigoItem()+"','"+itemCompra.getPrecoCompra()+"','"+itemCompra.getQuant()+"')");
+					"values((select max(id) from Compra),'"+itemCompra.getCodigoItem()+"','"+itemCompra.getPrecoCompra()+"','"+itemCompra.getQuant()+"')");
 			}
 			stat.close();
 			return true;
@@ -73,7 +73,7 @@ public class PersistenciaEstoque {
 					"values('"+pedido.getCpfCliente()+"','"+pedido.getDataPedido(null)+"')");
 			for (ItemPedido itemPedido : itens) {
 			stat.executeUpdate("insert into ItemPedido (pedidoID,codItem,precoPedido,quant) " +
-					"values((select last_insert_rowid() from Pedido),'"+itemPedido.getCodigoItem()+"','"+itemPedido.getPrecoPedido()+"','"+itemPedido.getQuant()+"')");
+					"values((select max(id) from Pedido),'"+itemPedido.getCodigoItem()+"','"+itemPedido.getPrecoPedido()+"','"+itemPedido.getQuant()+"')");
 			}
 			stat.close();
 			return true;

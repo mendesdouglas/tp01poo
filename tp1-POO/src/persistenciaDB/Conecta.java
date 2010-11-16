@@ -17,11 +17,13 @@ public class Conecta {
 	
 	private Conecta () {
 		this.databaseName = "database.sqlite";
-		this.host = "";
-		this.username = "";
-		this.passwd = "";
+		//this.databaseName = "banco_sistema"; 
+		this.host = "localhost";
+		this.username = "aluno";
+		this.passwd = "aluno";
 		try {
 			this.connectSqlite(this.databaseName);
+			//this.connectMysql(host, databaseName, username, passwd);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {

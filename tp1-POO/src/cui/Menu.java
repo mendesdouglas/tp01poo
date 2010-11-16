@@ -500,7 +500,7 @@ public class Menu {
 					quant = Console.readInteger();
 				}
 				
-				System.out.println("Digite o Preço de Compra do ITem :");
+				System.out.println("Digite o Preço de Compra do Item :");
 				float preco = Console.readFloat();
 				while (preco <= 0){
 					System.out.println("Preço de compra não pode ser menor ou igual a zero!");

@@ -3,6 +3,8 @@ package estoque;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+
+
 import pessoas.Fornecedor;
 
 public class Compra {
@@ -10,6 +12,7 @@ public class Compra {
 	private ArrayList<ItemCompra> compras;
 	private Fornecedor fornecedor;
 	private Date dataCompra;
+		
 
 	public Compra (Fornecedor fornecedor) {
 		this.compras = new ArrayList<ItemCompra>();
