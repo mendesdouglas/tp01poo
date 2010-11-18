@@ -7,5 +7,6 @@
 	<classpathentry kind="lib" path="mysql-connector-java-5.1.13-bin.jar"/>
 	<classpathentry kind="lib" path="sqlitejdbc-v056.jar"/>
 	<classpathentry kind="lib" path="swing-layout-1.0.3.jar"/>
+	<classpathentry kind="lib" path="looks-2.1.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
