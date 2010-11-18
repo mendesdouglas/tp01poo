@@ -1,10 +1,9 @@
-package cui;
+package persistenciaDB;
 
 import java.sql.*;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import persistenciaDB.Conecta;
 
 public class AccessControl {
 
