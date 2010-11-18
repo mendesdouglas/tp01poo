@@ -526,10 +526,16 @@ public class Menu {
 		consulta();	
 	}
 	
+	/**
+	 * Interface responsável pelo início de uma compra criando uma nova instance da classe Compra 
+	 * atribuindo à mesma um fornecedor e vários itens, podendo cadastrá-los em caso de não existência dos mesmos
+	 * 
+	 * @throws IOException
+	 */
 	private static void iniciarCompra() throws IOException{
 		PersistenciaFornecedor pfornecedor = PersistenciaFornecedor.getInstance();
 		PersistenciaEstoque pestoque = PersistenciaEstoque.getInstance();
-		System.out.println("Para iniciar um novo pedido digite o cnpj ou o nome do fornecedor:");
+		System.out.println("Para iniciar uma nova compra digite o cnpj ou o nome do fornecedor:");
 		String query = Console.readString();
 		Fornecedor fornecedor= pfornecedor.searchFornecedor(query);
 		if (fornecedor == null){
@@ -646,6 +652,12 @@ public class Menu {
 		
 	}
 
+	/**
+	 * Interface responsável pelo início de um pedido criando uma nova instance da classe Pedido 
+	 * atribuindo à mesma um cliente e vários itens, podendo cadastrá-los em caso de não existência dos mesmos.
+	 * 
+	 * @throws IOException
+	 */
 	private static void iniciarPedido() throws IOException{
 		PersistenciaCliente pclientes = PersistenciaCliente.getInstance();
 		PersistenciaEstoque pestoque = PersistenciaEstoque.getInstance();
@@ -739,6 +751,11 @@ public class Menu {
 		principal();
 	}
 	
+	/**
+	 * Lista os itens de um pedido ainda em aberto.
+	 * 
+	 * @param pedido Objeto da classe Pedido o qual contém a lista de itens a ser impressa.
+	 */
 	private static void listarPedido(Pedido pedido){
 		float subtotal,precoTotal=0;
 		ArrayList<ItemPedido> pedidos = pedido.overview();
@@ -755,6 +772,12 @@ public class Menu {
 		    System.out.println("\n\t\t\ttotal geral: "+precoTotal+"\n");
 		}
 	}	
+	
+	/**
+	 * Lista os itens de uma compra ainda em aberto.
+	 * 
+	 * @param compra Objeto da classe Compra o qual contém a lista de itens a ser impressa.
+	 */
 	
 	private static void listarCompra(Compra compra){
 		float subtotal,precoTotal=0;

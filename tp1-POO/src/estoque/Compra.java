@@ -48,7 +48,9 @@ public class Compra {
 	}
 	
 	/**
-	 * ????
+	 * ???
+	 * @param formato
+	 * @return
 	 */
 	public String getDataCompra(String formato){
 		  if (formato == null || formato.length() == 0){
@@ -119,6 +121,8 @@ public class Compra {
 	
 	/**
 	 * ???
+	 * @param codigo
+	 * @return
 	 */
 	@SuppressWarnings("unused")
 	private ItemCompra search(int codigo){
