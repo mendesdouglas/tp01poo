@@ -8,10 +8,22 @@ import pessoas.Fornecedor;
 
 import estoque.*;
 /**
+ * Interface que oferece interação do usuário com o sistema.
  * 
+ * @author luizcpo
+ * @author isacsandin
+ * @author amandaufsj
  *
  */
 public class Menu {
+	
+	/**
+	 * Menu principal do sistema de controle.
+	 * 
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 * 
+	 */
 	
 	public static void principal() throws FileNotFoundException, IOException {
 		System.out.println("\t\tSJDR Confecções - Controle de Vendas e estoque®\t"+Console.date2str(null, null)+"\n");
@@ -54,6 +66,13 @@ public class Menu {
 		}
 	}
 	
+	/**
+	 * Menu principal de cadastros.
+	 * 
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
+	
 	private static void cadastro() throws FileNotFoundException, IOException {
 		System.out.println("Escolha qual tipo de cadastro deseja realizar:");
 		System.out.println("Digite (1) para cadastrar um novo item.");
@@ -81,6 +100,12 @@ public class Menu {
 			break;
 		}
 	}
+	
+	/**
+	 * Interface que permite utilizarmos o cadastro de itens em outros módulos, aliada ao método cadastroItem().
+	 * 
+	 * @throws IOException
+	 */
 
 	private static void cadastrarItem() throws IOException {
 		
@@ -100,6 +125,13 @@ public class Menu {
 		break;
 	}
 }
+	
+	/**
+	 * Formulário de cadastro de itens.
+	 * 
+	 * @return Um objeto do tipo item com os atributos coletados deste formulário.
+	 * @throws IOException
+	 */
 
 	public static Item cadastroItem() throws IOException {
 		boolean permissao;
@@ -172,6 +204,13 @@ public class Menu {
 		return item;
 	}
 	
+	/**
+	 * Interface que permite utilizarmos o cadastro de fornecedores em outros módulos, aliada ao método cadastroFornecedor().
+	 * 
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
+	
 	private static void cadastrarFornecedor() throws FileNotFoundException, IOException {
 		
 		cadastroFornecedor();
@@ -192,6 +231,13 @@ public class Menu {
 		}
 	}
 
+	/**
+	 * Formulário de cadastro de fornecedores.
+	 * 
+	 * @return Um objeto do tipo fornecedor com os atributos coletados deste formulário.
+	 * @throws IOException
+	 */
+	
 	public static Fornecedor cadastroFornecedor() throws IOException {
 		boolean permissao;
 		PersistenciaFornecedor pfornecedor = PersistenciaFornecedor.getInstance();
@@ -240,6 +286,13 @@ public class Menu {
 		return fornecedor;
 	}
 	
+	/**
+	 * Interface que permite utilizarmos o cadastro de clientes em outros módulos, aliada ao método cadastroClientes().
+	 * 
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
+	
 	private static void cadastrarCliente() throws FileNotFoundException, IOException {
 		
 		cadastroClientes();
@@ -259,6 +312,13 @@ public class Menu {
 		}
 	}
 
+	/**
+	 * Formulário de cadastro de clientes.
+	 * 
+	 * @return Um objeto do tipo cliente com os atributos coletados deste formulário.
+	 * @throws IOException
+	 */
+	
 	public static Cliente cadastroClientes() throws IOException {
 		boolean permissao;
 		PersistenciaCliente pcliente = PersistenciaCliente.getInstance();
@@ -308,6 +368,13 @@ public class Menu {
 		return cliente;
 	}
 	
+	/**
+	 * Menu principal de consulta.
+	 * 
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
+	
 	private static void consulta() throws FileNotFoundException, IOException{
 		System.out.println("Escolha qual tipo de consulta deseja realizar:");
 		System.out.println("Digite (1) para listar todos os itens do estoque.");
@@ -341,12 +408,23 @@ public class Menu {
 		}
 	}
 	
+	/**
+	 * Interface responsável por tornar possível a utilização da consulta em outros módulos, aliada ao método listaItem().
+	 * 
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
+	
 	private static void listarItem() throws FileNotFoundException, IOException {
 		
 		listaItem();
 		consulta();
 	
 	}
+	
+	/**
+	 * Recebe do método overview() uma cópia da lista de itens e a imprime para o usuário.
+	 */
 
 	private static void listaItem() {
 		PersistenciaEstoque estoqueControle = PersistenciaEstoque.getInstance();
@@ -363,6 +441,12 @@ public class Menu {
 		}
 	}
 	
+	/**
+	 * Procura e imprime informações sobre a situação de um item específico do estoque  oferecendo busca-lo por nome ou código.
+	 * 
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	private static void listarItemEspecifico() throws FileNotFoundException, IOException {
 		
 		PersistenciaEstoque estoqueControle = PersistenciaEstoque.getInstance();
@@ -396,7 +480,13 @@ public class Menu {
 			break;
 		}
 	}
-		
+
+	/**
+	 * Recebe uma cópia da lista de fornecedores do método overview() imprimindo a para o usuário.
+	 * 
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	private static void listarFornecedores() throws FileNotFoundException, IOException  {
 		PersistenciaFornecedor fornecedorControle = PersistenciaFornecedor.getInstance();
 		ArrayList<Fornecedor> fornecedores = fornecedorControle.overview();	
@@ -413,6 +503,13 @@ public class Menu {
 		consulta();
 	}
 	
+	
+	/**
+	 * Recebe uma cópia da lista de clientes do método overview() imprimindo a para o usuário.
+	 * 
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	private static void listarClientes() throws FileNotFoundException, IOException {
 		PersistenciaCliente clienteControle = PersistenciaCliente.getInstance();
 		ArrayList<Cliente> compradores = clienteControle.overview();
