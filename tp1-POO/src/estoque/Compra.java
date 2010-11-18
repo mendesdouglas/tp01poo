@@ -21,28 +21,34 @@ public class Compra {
 	}
 	
 	/**
+	 * Retorno o nome do fornecedor relacionado à compra em questão.
 	 * 
+	 * @return Nome do fornecedor.
 	 */
 	public String getNomeFornecedor(){
 		return this.fornecedor.getNome();
 	}
 	
 	/**
+	 * Retorno o CNPJ do fornecedor relacionado à compra em questão.
 	 * 
+	 * @return CNPJ do fornecedor.
 	 */
 	public String getCnpjFornecedor(){
 		return this.fornecedor.getCnpj();
 	}
 	
 	/**
-	 * @return the dataCompra
+	 * Retorna a data em que a compra se deu.
+	 * 
+	 * @return Data da compra.
 	 */
 	public Date getDataCompra() {
 		return this.dataCompra;
 	}
 	
 	/**
-	 * 
+	 * ????
 	 */
 	public String getDataCompra(String formato){
 		  if (formato == null || formato.length() == 0){
@@ -53,7 +59,9 @@ public class Compra {
 	}
 	
 	/**
+	 * Altera a quantidade de um item numa determinada compra em aberto.
 	 * 
+	 * @return Verdadeiro ou Falso em caso de sucesso ou fracasso.
 	 */
 	public boolean setQuantidade(int index,int quant){
 		if (index < this.compras.size()){
@@ -66,6 +74,9 @@ public class Compra {
 	}
 	
 	/**
+	 * Altera o preço de custo de um item numa determinada compra em aberto.
+	 * 
+	 * @return Verdadeiro ou Falso em caso de sucesso ou fracasso.
 	 * 
 	 */
 	public boolean setPrecoCompra(int index,float preco){
@@ -79,7 +90,9 @@ public class Compra {
 	}
 	
 	/**
+	 * Remove uma linha da compra em aberto.
 	 * 
+	 * @return Verdadeiro ou Falso em caso de sucesso ou fracasso.
 	 */
 	public boolean removeLinha(int index){
 		if (index < compras.size()){
@@ -91,7 +104,9 @@ public class Compra {
 
 	
 	/**
+	 * Verifica se um determinado item já consta na lista de compra em aberto.
 	 * 
+	 * @return Verdadeiro em caso de existência e Falso em outro caso. 
 	 */
 	public boolean searchItemCompra (int codigo) {
 		for (ItemCompra item : compras) {
@@ -103,7 +118,7 @@ public class Compra {
 	}
 	
 	/**
-	 * 
+	 * ???
 	 */
 	@SuppressWarnings("unused")
 	private ItemCompra search(int codigo){
@@ -116,6 +131,9 @@ public class Compra {
 	}
 	
 	/**
+	 * Adiciona um item à lista de compra.
+	 * 
+	 * @return Verdadeiro se adicionar com sucesso ou Falso do contrário.
 	 * @throws IOException 
 	 * 
 	 */	
@@ -128,7 +146,9 @@ public class Compra {
 	}
 	
 	/**
+	 * Retorna uma lista dos items da compra em aberto.
 	 * 
+	 * @return Um objeto do tipo ArrayList de ItemCompra.
 	 */
 	@SuppressWarnings("unchecked")
 	public ArrayList<ItemCompra> overview () {
