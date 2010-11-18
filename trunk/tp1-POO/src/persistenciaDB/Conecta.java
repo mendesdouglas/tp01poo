@@ -16,7 +16,7 @@ public class Conecta {
 	
 	
 	private Conecta () {
-		this.databaseName = "database.sqlite";
+		this.databaseName = "databaseData/database.sqlite";
 		//this.databaseName = "banco_sistema"; 
 		this.host = "localhost";
 		this.username = "aluno";
