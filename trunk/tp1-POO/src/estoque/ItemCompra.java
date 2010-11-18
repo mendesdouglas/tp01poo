@@ -14,60 +14,71 @@ public class ItemCompra {
 	}
 	
 	/**
-	 * Get the value of item
-	 * @return the value of item
+	 * Recupera o código de um itemCompra.
+	 * 
+	 * @return O código de um itemCompra.
 	 */
 	public int getCodigoItem () {
 		return this.item.getCodigo();
 	}
 	
 	/**
-	 * Get the value of item
-	 * @return the value of item
+	 * Recupera a quantidade de um de um itemCompra numa compra em aberto.
+	 * 
+	 * @return A quantidade de um itemCompra numa compra em aberto.
 	 */
 	public int getQuantItem () {
 		return this.item.getQuant();
 	}
 	
 	/**
-	 * Get the value of item
-	 * @return the value of item
+	 * Recupera o nome de um itemCompra.
+	 * 
+	 * @return O nome de um itemCompra.
 	 */
 	public String getNomeItem () {
 		return this.item.getNome();
 	}
 	
 	/**
-	 * Get the value of precoCompra
-	 * @return the value of precoCompra
+	 * Recupera o valor do preço de custo de um itemCompra.
+	 * 
+	 * @return O preço de custo de um itemCompra.
 	 */
 	public float getPrecoCustoItem () {
 		return this.item.getPrecoCusto();
 	}
 	
 	/**
-	 * Get the value of precoCompra
-	 * @return the value of precoCompra
+	 * Recupera o valor do preço de compra de um itemCompra.
+	 * 
+	 * @return O preço de compra de um itemCompra.
 	 */
 	public float getPrecoCompra () {
 		return this.precoCompra;
 	}
 
 	/**
-	 * Set the value of precoCompra
+	 * Altera o valor do preço de compra de um itemCompra.
+	 * 
+	 * @param precoCompra ????
 	 */
 	public void setPrecoCompra ( float precoCompra  ) {
 		this.precoCompra = precoCompra;
 	}
+	
 	/**
-	 * Get the value of quant
-	 * @return the value of quant
+	 * Recupera a quantidade de um itemCompra numa compra em aberto.
+	 * 
+	 * @return A quantidade de um itemCompra numa compra ainda em aberto.
 	 */
 	public int getQuant () {
 		return this.quant;
 	}
 	/**
-	 * Set the value of quant
+	 * Altera a quantidade de um itemCompra numa compra ainda em aberto.
+	 * 
+	 * @param quant Inteiro com a nova quantidade a ser alterada.
 	 */
 	public void setQuant ( int quant  ) {
 		this.quant = quant;

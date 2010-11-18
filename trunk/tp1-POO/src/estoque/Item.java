@@ -15,68 +15,79 @@ public class Item {
 		this.margemLucro = margemLucro;
 		this.quant = quant;	
 	}
+	
 	/**
-	 * Get the value of nome
-	 * @return the value of nome
+	 * Recupera o nome do Item
+	 * @return O nome do Item.
 	 */
 	public String getNome () {
 		return this.nome;
 	}
+	
 	/**
-	 * Set the value of nome
+	 * Altera o nome de um Item.
 	 */
 	public void setNome (String nome) {
 		this.nome = nome;
 	}
+	
 	/**
-	 * Get the value of codigo
-	 * @return the value of codigo
+	 * Recupera o código de um Item.
+	 * @return O código de um Item.
 	 */
 	public int getCodigo () {
 		return this.codigo;
 	}
+	
 	/**
-	 * Set the value of codigo
+	 * Altera o código de um item.
 	 */
 	public void setCodigo (int codigo) {
 		this.codigo = codigo;
 	}
+	
 	/**
-	 * Get the value of precoCusto
+	 * Recupera o valor do preço de custo de um item.
 	 * 
-	 * @return the value of precoCusto
+	 * @return O preço de custo de um Item.
 	 */
 	public float getPrecoCusto (  ) {
 		return this.precoCusto;
 	}
+	
 	/**
-	 * Set the value of precoCusto
+	 * Altera o preço de custo de um Item.
 	 */
 	public void setPrecoCusto (float precoCusto) {
 		this.precoCusto = precoCusto;
 	}
+	
 	/**
-	 * Get the value of margemLucro
-	 * @return the value of margemLucro
+	 * Recupera a margem de lucro de um Item.
+	 * 
+	 * @return A margem de lucro de um Item.
 	 */
 	public float getMargemLucro () {
 		return this.margemLucro;
 	}
 	/**
-	 * Set the value of margemLucro
+	 * Altera a margem de lucro de um dado Item.
 	 */
 	public void setMargemLucro (float margemLucro) {
 		this.margemLucro = margemLucro;
 	}
+	
 	/**
-	 * Get the value of quant
-	 * @return the value of quant 
+	 * Retorna a quantidade de um item no estoque.
+	 * 
+	 * @return A quantidade de um dado item. 
 	 */
 	public int getQuant () {
 		return this.quant;
 	}
+	
 	/**
-	 * Set the value of quant
+	 * Altera a quantidade de um item no estoque.
 	 */
 	public void setQuant (int quant) {
 		this.quant = quant;
