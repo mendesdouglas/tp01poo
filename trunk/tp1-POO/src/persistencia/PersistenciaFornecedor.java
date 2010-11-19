@@ -1,10 +1,11 @@
-package persistenciaDB;
+package persistencia;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.*;
-import persistenciaDB.Conecta;
+
+import persistencia.Conecta;
 import pessoas.Fornecedor;
 
 

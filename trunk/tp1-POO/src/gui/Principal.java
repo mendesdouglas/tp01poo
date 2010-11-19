@@ -35,7 +35,7 @@ import javax.swing.WindowConstants;
 
 import org.jdesktop.layout.GroupLayout;
 
-import persistenciaDB.AccessControl;
+import persistencia.AccessControl;
 
 /**
  *AccessControl
