@@ -17,10 +17,10 @@ import tp1poo_fase2.Principal;
  *
  * @author felipe
  */
-public class Cliente extends javax.swing.JFrame {
+public class ConsultaCliente extends javax.swing.JFrame {
     Principal principal;
     /** Creates new form Cliente */
-    public Cliente(Principal Principal) {
+    public ConsultaCliente(Principal principal) {
         initComponents();
 		this.principal = principal;
     }
@@ -34,6 +34,7 @@ public class Cliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jFPesquisa = new javax.swing.JFormattedTextField();
@@ -85,9 +86,21 @@ public class Cliente extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(jRNome);
         jRNome.setText("Nome");
+        jRNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRNomeActionPerformed(evt);
+            }
+        });
 
+        buttonGroup1.add(jRCPF);
         jRCPF.setText("CPF");
+        jRCPF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRCPFActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -162,7 +175,7 @@ public class Cliente extends javax.swing.JFrame {
         jPCPFLayout.setVerticalGroup(
             jPCPFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPCPFLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(23, 23, 23)
                 .addGroup(jPCPFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLCPF)
                     .addComponent(jFNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -196,6 +209,11 @@ public class Cliente extends javax.swing.JFrame {
         jFNTelefone.setForeground(new java.awt.Color(58, 57, 59));
 
         jBNomeCliente.setText("OK");
+        jBNomeCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBNomeClienteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPCNomeLayout = new javax.swing.GroupLayout(jPCNome);
         jPCNome.setLayout(jPCNomeLayout);
@@ -241,10 +259,10 @@ public class Cliente extends javax.swing.JFrame {
                 .addGroup(jPCNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jFNTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
             .addGroup(jPCNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPCNomeLayout.createSequentialGroup()
-                    .addContainerGap(211, Short.MAX_VALUE)
+                    .addContainerGap(213, Short.MAX_VALUE)
                     .addComponent(jBNomeCliente)
                     .addContainerGap()))
         );
@@ -266,7 +284,7 @@ public class Cliente extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(294, Short.MAX_VALUE))
@@ -337,8 +355,23 @@ public class Cliente extends javax.swing.JFrame {
 
 	private void jBCPFClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCPFClienteActionPerformed
 		principal.setEnabled(true);
-		this.disable();
+		this.dispose();
 	}//GEN-LAST:event_jBCPFClienteActionPerformed
+
+	private void jBNomeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNomeClienteActionPerformed
+		principal.setEnabled(true);
+		this.dispose();
+	}//GEN-LAST:event_jBNomeClienteActionPerformed
+
+	private void jRCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRCPFActionPerformed
+		jPCNome.setVisible(false);
+		jPCPF.setVisible(true);
+	}//GEN-LAST:event_jRCPFActionPerformed
+
+	private void jRNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRNomeActionPerformed
+		jPCPF.setVisible(false);
+		jPCNome.setVisible(true);
+	}//GEN-LAST:event_jRNomeActionPerformed
 
     /**
     * @param args the command line arguments
@@ -346,6 +379,7 @@ public class Cliente extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jBCBusca;
     private javax.swing.JButton jBCPFCliente;
     private javax.swing.JButton jBNomeCliente;
