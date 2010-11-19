@@ -1,7 +1,7 @@
 package cui;
 import java.io.IOException;
 
-import persistenciaDB.AccessControl;
+import persistencia.AccessControl;
 
 
 

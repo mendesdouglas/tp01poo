@@ -1,4 +1,4 @@
-package persistenciaDB;
+package persistencia;
 
 import java.sql.*;
 import java.math.BigInteger;
