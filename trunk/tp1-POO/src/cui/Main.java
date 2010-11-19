@@ -2,6 +2,7 @@ package cui;
 import java.io.IOException;
 
 import persistencia.AccessControl;
+import persistencia.Log;
 
 
 
@@ -19,7 +20,11 @@ public class Main {
 		String passwd = Console.readString();
 				
 		if (AccessControl.login(username, passwd,true)){
-			System.out.println("\nAutentication sucessfull for user "+username+"\n");
+			Log log = Log.getLoginstance(null);
+			log.info("Autentication sucessfull for user "+username);
+			log.error("erro!");
+			log.warn("warning");
+			log.fatal("fatal");
 			Menu.principal();
 		} 
 		else{

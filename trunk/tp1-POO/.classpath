@@ -9,5 +9,6 @@
 	<classpathentry kind="lib" path="libs/mysql-connector-java-5.1.13-bin.jar"/>
 	<classpathentry kind="lib" path="libs/sqlitejdbc-v056.jar"/>
 	<classpathentry kind="lib" path="libs/swing-layout-1.0.3.jar"/>
+	<classpathentry kind="lib" path="libs/log4j-1.2.16.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
