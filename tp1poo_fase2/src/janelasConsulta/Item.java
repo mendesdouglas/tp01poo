@@ -304,26 +304,26 @@ public class Item extends javax.swing.JFrame {
 }//GEN-LAST:event_jFPesquisaFocusLost
 
     private void jBCBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCBuscaActionPerformed
-        String busca = jFPesquisa.getText();
-        if(busca == null || busca.length() == 0){
-            JOptionPane.showMessageDialog(null, "Pesquisa Inválida");
-        } else{
-            Item item = new Item();
-            item = PersistenciaItem.getInstance().seach();
-            if(jRCodigo.isSelected() == true){
-                jFNome.setText(item.getNome());
-                jFMargemLucro.setText(item);
-                jFPrecoCusto.setText(item);
-                jFQuantidade.setText(item);
-            } else{
-                if(jRNome.isSelected() == true){
-                    jFCodigo.setText(item.getCodigo());
-                    jFNMargemLucro.setText(item);
-                    jFNPrecoCusto.setText(item);
-                    jFNQuantidade.setText(item);
-                }
-            }
-        }
+//        String busca = jFPesquisa.getText();
+//        if(busca == null || busca.length() == 0){
+//            JOptionPane.showMessageDialog(null, "Pesquisa Inválida");
+//        } else{
+//            Item item = new Item();
+//            item = PersistenciaItem.getInstance().seach();
+//            if(jRCodigo.isSelected() == true){
+//                jFNome.setText(item.getNome());
+//                jFMargemLucro.setText(item);
+//                jFPrecoCusto.setText(item);
+//                jFQuantidade.setText(item);
+//            } else{
+//                if(jRNome.isSelected() == true){
+//                    jFCodigo.setText(item.getCodigo());
+//                    jFNMargemLucro.setText(item);
+//                    jFNPrecoCusto.setText(item);
+//                    jFNQuantidade.setText(item);
+//                }
+//            }
+//        }
 }//GEN-LAST:event_jBCBuscaActionPerformed
 
     /**

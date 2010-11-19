@@ -304,26 +304,26 @@ public class Fornecedor extends javax.swing.JFrame {
 }//GEN-LAST:event_jFPesquisaFocusLost
 
     private void jBBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscaActionPerformed
-        String busca = jFPesquisa.getText();
-        if(busca == null || busca.length() == 0){
-            JOptionPane.showMessageDialog(null, "Pesquisa Inválida");
-        } else{
-            Fornecedor fornecedor = new Fornecedor();
-            fornecedor = PersistenciaFornecedor.getInstance().seach();
-            if(jRCNPJ.isSelected() == true){
-                jFNome.setText(fornecedor.getNome());
-                jFEndereco.setText(fornecedor.getEndereco());
-                jFCodigo.setText(forncedor.getCodigo());
-                jFTelefone.setText(fornecedor.getTelefone());
-            } else{
-                if(jRNome.isSelected() == true){
-                    jFCNPJ.setText(fornecedor.getCnpj());
-                    jFNEndereco.setText(fornecedor.getEndereco());
-                    jFNCodigo.setText(forncedor.getCodigo());
-                    jFNTelefone.setText(fornecedor.getTelefone());
-                }
-            }
-        }
+//        String busca = jFPesquisa.getText();
+//        if(busca == null || busca.length() == 0){
+//            JOptionPane.showMessageDialog(null, "Pesquisa Inválida");
+//        } else{
+//            Fornecedor fornecedor = new Fornecedor();
+//            fornecedor = PersistenciaFornecedor.getInstance().seach();
+//            if(jRCNPJ.isSelected() == true){
+//                jFNome.setText(fornecedor.getNome());
+//                jFEndereco.setText(fornecedor.getEndereco());
+//                jFCodigo.setText(forncedor.getCodigo());
+//                jFTelefone.setText(fornecedor.getTelefone());
+//            } else{
+//                if(jRNome.isSelected() == true){
+//                    jFCNPJ.setText(fornecedor.getCnpj());
+//                    jFNEndereco.setText(fornecedor.getEndereco());
+//                    jFNCodigo.setText(forncedor.getCodigo());
+//                    jFNTelefone.setText(fornecedor.getTelefone());
+//                }
+//            }
+//        }
 }//GEN-LAST:event_jBBuscaActionPerformed
 
     /**
