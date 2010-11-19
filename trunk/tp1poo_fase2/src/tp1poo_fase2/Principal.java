@@ -12,6 +12,7 @@
 package tp1poo_fase2;
 
 import janelasCadastro.*;
+import janelasConsulta.*;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dialog.ModalExclusionType;
@@ -324,15 +325,21 @@ public class Principal extends javax.swing.JFrame {
 	}//GEN-LAST:event_menuItemCadastrosItensActionPerformed
 
 	private void menuItemConsultasClientesActionPerformed(ActionEvent evt) {//GEN-FIRST:event_menuItemConsultasClientesActionPerformed
-		// TODO add your handling code here:
+		ConsultaCliente  consultaCliente = new ConsultaCliente(this);
+		consultaCliente.setVisible(true);
+		this.setEnabled(false);
 	}//GEN-LAST:event_menuItemConsultasClientesActionPerformed
 
 	private void menuItemConsultasFornecedoresActionPerformed(ActionEvent evt) {//GEN-FIRST:event_menuItemConsultasFornecedoresActionPerformed
-		// TODO add your handling code here:
+		ConsultaFornecedor  consultaFornecedor = new ConsultaFornecedor(this);
+		consultaFornecedor.setVisible(true);
+		this.setEnabled(false);
 	}//GEN-LAST:event_menuItemConsultasFornecedoresActionPerformed
 
 	private void menuItemConsultasItensActionPerformed(ActionEvent evt) {//GEN-FIRST:event_menuItemConsultasItensActionPerformed
-		// TODO add your handling code here:
+		ConsultaItem  consultaItem = new ConsultaItem(this);
+		consultaItem.setVisible(true);
+		this.setEnabled(false);
 	}//GEN-LAST:event_menuItemConsultasItensActionPerformed
 
 	private void menuItemMovimentoComprasActionPerformed(ActionEvent evt) {//GEN-FIRST:event_menuItemMovimentoComprasActionPerformed

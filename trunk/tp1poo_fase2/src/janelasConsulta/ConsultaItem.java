@@ -11,15 +11,19 @@
 
 package janelasConsulta;
 
+import tp1poo_fase2.Principal;
+
 /**
  *
  * @author felipe
  */
-public class Item extends javax.swing.JFrame {
+public class ConsultaItem extends javax.swing.JFrame {
 
+	Principal principal;
     /** Creates new form Item */
-    public Item() {
+    public ConsultaItem(Principal principal) {
         initComponents();
+		this.principal = principal;
     }
 
     /** This method is called from within the constructor to
@@ -31,6 +35,7 @@ public class Item extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -48,6 +53,7 @@ public class Item extends javax.swing.JFrame {
         jFPrecoCusto = new javax.swing.JFormattedTextField();
         jFNome = new javax.swing.JFormattedTextField();
         jFQuantidade = new javax.swing.JFormattedTextField();
+        jBItemCodigo = new javax.swing.JButton();
         jPCNome = new javax.swing.JPanel();
         jLNPrecoCusto = new javax.swing.JLabel();
         jLNMargemLucro = new javax.swing.JLabel();
@@ -57,6 +63,7 @@ public class Item extends javax.swing.JFrame {
         jFNPrecoCusto = new javax.swing.JFormattedTextField();
         jFCodigo = new javax.swing.JFormattedTextField();
         jFNQuantidade = new javax.swing.JFormattedTextField();
+        jBItemNome = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,9 +88,21 @@ public class Item extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(jRNome);
         jRNome.setText("Nome");
+        jRNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRNomeActionPerformed(evt);
+            }
+        });
 
+        buttonGroup1.add(jRCodigo);
         jRCodigo.setText("Código");
+        jRCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRCodigoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -112,7 +131,7 @@ public class Item extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPCodigo.setBorder(javax.swing.BorderFactory.createTitledBorder("CPF"));
+        jPCodigo.setBorder(javax.swing.BorderFactory.createTitledBorder("Código"));
 
         jLPrecoCusto.setText("Preço de Custo");
 
@@ -123,6 +142,13 @@ public class Item extends javax.swing.JFrame {
         jLNome.setText("Nome");
 
         jFQuantidade.setForeground(new java.awt.Color(58, 57, 59));
+
+        jBItemCodigo.setText("OK");
+        jBItemCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBItemCodigoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPCodigoLayout = new javax.swing.GroupLayout(jPCodigo);
         jPCodigo.setLayout(jPCodigoLayout);
@@ -143,6 +169,11 @@ public class Item extends javax.swing.JFrame {
                         .addComponent(jFMargemLucro, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jFPrecoCusto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)))
                 .addGap(37, 37, 37))
+            .addGroup(jPCodigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPCodigoLayout.createSequentialGroup()
+                    .addContainerGap(434, Short.MAX_VALUE)
+                    .addComponent(jBItemCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
         );
         jPCodigoLayout.setVerticalGroup(
             jPCodigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,7 +194,12 @@ public class Item extends javax.swing.JFrame {
                 .addGroup(jPCodigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jFQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLQuantidade))
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
+            .addGroup(jPCodigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPCodigoLayout.createSequentialGroup()
+                    .addContainerGap(200, Short.MAX_VALUE)
+                    .addComponent(jBItemCodigo)
+                    .addContainerGap()))
         );
 
         jPCNome.setBorder(javax.swing.BorderFactory.createTitledBorder("Nome"));
@@ -178,6 +214,13 @@ public class Item extends javax.swing.JFrame {
 
         jFNQuantidade.setForeground(new java.awt.Color(58, 57, 59));
 
+        jBItemNome.setText("OK");
+        jBItemNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBItemNomeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPCNomeLayout = new javax.swing.GroupLayout(jPCNome);
         jPCNome.setLayout(jPCNomeLayout);
         jPCNomeLayout.setHorizontalGroup(
@@ -185,22 +228,27 @@ public class Item extends javax.swing.JFrame {
             .addGroup(jPCNomeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPCNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLNPrecoCusto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
-                    .addComponent(jLCodigo)
-                    .addComponent(jLNMargemLucro)
-                    .addComponent(jLNQuantidade))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPCNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jFNQuantidade, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
-                    .addComponent(jFCodigo)
-                    .addComponent(jFNPrecoCusto, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
-                    .addComponent(jFNMargemLucro))
-                .addContainerGap(218, Short.MAX_VALUE))
+                    .addGroup(jPCNomeLayout.createSequentialGroup()
+                        .addGroup(jPCNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLNPrecoCusto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                            .addComponent(jLCodigo)
+                            .addComponent(jLNMargemLucro)
+                            .addComponent(jLNQuantidade))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPCNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jFNQuantidade, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                            .addComponent(jFCodigo)
+                            .addComponent(jFNPrecoCusto, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                            .addComponent(jFNMargemLucro))
+                        .addContainerGap(218, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPCNomeLayout.createSequentialGroup()
+                        .addComponent(jBItemNome, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         jPCNomeLayout.setVerticalGroup(
             jPCNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPCNomeLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(23, 23, 23)
                 .addGroup(jPCNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLCodigo)
                     .addComponent(jFCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -216,7 +264,9 @@ public class Item extends javax.swing.JFrame {
                 .addGroup(jPCNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jFNQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLNQuantidade))
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(jBItemNome)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -242,11 +292,11 @@ public class Item extends javax.swing.JFrame {
                 .addContainerGap(297, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                    .addContainerGap(138, Short.MAX_VALUE)
+                    .addContainerGap(136, Short.MAX_VALUE)
                     .addComponent(jPCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                    .addContainerGap(135, Short.MAX_VALUE)
+                    .addContainerGap(133, Short.MAX_VALUE)
                     .addComponent(jPCNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
@@ -326,19 +376,36 @@ public class Item extends javax.swing.JFrame {
 //        }
 }//GEN-LAST:event_jBCBuscaActionPerformed
 
+	private void jBItemNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBItemNomeActionPerformed
+		principal.setEnabled(true);
+		this.dispose();
+	}//GEN-LAST:event_jBItemNomeActionPerformed
+
+	private void jBItemCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBItemCodigoActionPerformed
+		principal.setEnabled(true);
+		this.dispose();
+	}//GEN-LAST:event_jBItemCodigoActionPerformed
+
+	private void jRCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRCodigoActionPerformed
+		jPCNome.setVisible(false);
+		jPCodigo.setVisible(true);
+	}//GEN-LAST:event_jRCodigoActionPerformed
+
+	private void jRNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRNomeActionPerformed
+		jPCodigo.setVisible(false);
+		jPCNome.setVisible(true);
+	}//GEN-LAST:event_jRNomeActionPerformed
+
     /**
     * @param args the command line arguments
     */
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Item().setVisible(true);
-            }
-        });
-    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jBCBusca;
+    private javax.swing.JButton jBItemCodigo;
+    private javax.swing.JButton jBItemNome;
     private javax.swing.JFormattedTextField jFCodigo;
     private javax.swing.JFormattedTextField jFMargemLucro;
     private javax.swing.JFormattedTextField jFNMargemLucro;
