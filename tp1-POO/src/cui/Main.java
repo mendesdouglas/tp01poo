@@ -9,7 +9,11 @@ import persistencia.Log;
 public class Main {
 
 	/**
-	 * 
+	 * Realiza o login no sistema, a partir da entrada do nome de usuário e da senha
+	 * e registra em um arquivo de log esse acesso.
+	 * @author Isac
+	 * @param args
+	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
 		//AccessControl.RemoverUsuario("admin2","senha");

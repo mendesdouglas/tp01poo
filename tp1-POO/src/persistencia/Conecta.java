@@ -4,9 +4,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+
 @SuppressWarnings("unused")
+
 public class Conecta {
-	
+
 	private static Conecta connection;
 	public Connection conn;
 	private String databaseName;

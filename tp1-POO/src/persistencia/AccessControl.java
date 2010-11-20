@@ -6,6 +6,14 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class AccessControl {
+	/**
+	 * método para o login no sistema
+	 * @author 
+	 * @param username
+	 * @param passwd
+	 * @param adminRequired
+	 * @return
+	 */
 
 	public static boolean login(String username,String passwd,boolean adminRequired){
 		ResultSet rs;
@@ -27,7 +35,14 @@ public class AccessControl {
 		}
 	}
 	
-	
+	/**
+	 * Cadastra um usuário 
+	 * 
+	 * @param username
+	 * @param passwd
+	 * @param admin
+	 * @return
+	 */
 	public static boolean cadastroUsuario(String username,String passwd,Boolean admin){
 		ResultSet rs;
 		try {
@@ -44,6 +59,13 @@ public class AccessControl {
 		return false;
 	}
 	
+	/**
+	 * 
+	 * 
+	 * @param username
+	 * @param passwd
+	 * @return
+	 */
 	public static boolean RemoverUsuario(String username,String passwd){
 		ResultSet rs;
 		try {
@@ -64,6 +86,11 @@ public class AccessControl {
 		}
 		return false;
 	}
+	/**
+	 * 
+	 * @param username
+	 * @return
+	 */
 	public static boolean isAdmin(String username){
 		ResultSet rs;
 		try {
@@ -81,7 +108,12 @@ public class AccessControl {
 		}
 		
 	}
-	
+	/**
+	 * 
+	 * 
+	 * @param senha
+	 * @return
+	 */
 	public static String processa(String senha){
 		String sen = "";
 		MessageDigest md = null;
