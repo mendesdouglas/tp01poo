@@ -18,7 +18,7 @@ import janelasPrincipal.Principal;
  * @author felipe
  */
 public class ConsultaCliente extends javax.swing.JFrame {
-    Principal principal;
+    private Principal principal;
     /** Creates new form Cliente */
     public ConsultaCliente(Principal principal) {
         initComponents();

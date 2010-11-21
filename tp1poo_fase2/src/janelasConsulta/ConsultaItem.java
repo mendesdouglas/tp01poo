@@ -19,7 +19,7 @@ import janelasPrincipal.Principal;
  */
 public class ConsultaItem extends javax.swing.JFrame {
 
-	Principal principal;
+	private Principal principal;
     /** Creates new form Item */
     public ConsultaItem(Principal principal) {
         initComponents();
