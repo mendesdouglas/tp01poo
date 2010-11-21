@@ -9,12 +9,12 @@
  * Created on 07/11/2010, 20:05:53
  */
 
-package janelasPrincipal;
+package gui;
 
-import janelasCadastro.*;
-import janelasConsulta.*;
-import janelasMovimento.FrameMovimentoCompra;
-import janelasMovimento.FrameMovimentoPedido;
+import gui.*;
+//import janelasConsulta.*;
+//import janelasMovimento.FrameMovimentoCompra;
+//import janelasMovimento.FrameMovimentoPedido;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dialog.ModalExclusionType;
