@@ -107,7 +107,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(143, Short.MAX_VALUE)
+                .addContainerGap(152, Short.MAX_VALUE)
                 .addComponent(jRCPF)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jRNome)
@@ -259,7 +259,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
                 .addGroup(jPCNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jFNTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
             .addGroup(jPCNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPCNomeLayout.createSequentialGroup()
                     .addContainerGap(213, Short.MAX_VALUE)
@@ -287,14 +287,14 @@ public class ConsultaCliente extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(294, Short.MAX_VALUE))
+                .addContainerGap(296, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(119, Short.MAX_VALUE)
+                    .addContainerGap(129, Short.MAX_VALUE)
                     .addComponent(jPCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(120, Short.MAX_VALUE)
+                    .addContainerGap(122, Short.MAX_VALUE)
                     .addComponent(jPCNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
@@ -353,16 +353,6 @@ public class ConsultaCliente extends javax.swing.JFrame {
 //        }
 }//GEN-LAST:event_jBCBuscaActionPerformed
 
-	private void jBCPFClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCPFClienteActionPerformed
-		principal.setEnabled(true);
-		this.dispose();
-	}//GEN-LAST:event_jBCPFClienteActionPerformed
-
-	private void jBNomeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNomeClienteActionPerformed
-		principal.setEnabled(true);
-		this.dispose();
-	}//GEN-LAST:event_jBNomeClienteActionPerformed
-
 	private void jRCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRCPFActionPerformed
 		jPCNome.setVisible(false);
 		jPCPF.setVisible(true);
@@ -372,6 +362,16 @@ public class ConsultaCliente extends javax.swing.JFrame {
 		jPCPF.setVisible(false);
 		jPCNome.setVisible(true);
 	}//GEN-LAST:event_jRNomeActionPerformed
+
+	private void jBNomeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNomeClienteActionPerformed
+		principal.setEnabled(true);
+		this.dispose();
+}//GEN-LAST:event_jBNomeClienteActionPerformed
+
+	private void jBCPFClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCPFClienteActionPerformed
+		principal.setEnabled(true);
+		this.dispose();
+}//GEN-LAST:event_jBCPFClienteActionPerformed
 
     /**
     * @param args the command line arguments
