@@ -109,17 +109,17 @@
                       <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
-                      <EmptySpace pref="293" max="32767" attributes="0"/>
+                      <EmptySpace pref="297" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="119" max="32767" attributes="0"/>
+                          <EmptySpace pref="122" max="32767" attributes="0"/>
                           <Component id="ConsultaFornecedorPanelCnpj" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="116" max="32767" attributes="0"/>
+                          <EmptySpace pref="118" max="32767" attributes="0"/>
                           <Component id="ConsultaFornecedorPanelNome" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -140,7 +140,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="126" max="32767" attributes="0"/>
+                          <EmptySpace pref="145" max="32767" attributes="0"/>
                           <Component id="jRCNPJ" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jRNome" min="-2" max="-2" attributes="0"/>
@@ -201,7 +201,6 @@
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="buttonGroup1"/>
                     </Property>
-                    <Property name="selected" type="boolean" value="true"/>
                     <Property name="text" type="java.lang.String" value="CNPJ"/>
                   </Properties>
                   <Events>
@@ -228,7 +227,9 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="ConsultaFornecedorBotaoOk" min="-2" pref="64" max="-2" attributes="0"/>
+                                  <Component id="ConsultaFornecedorCnpjBotaoListar" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="333" max="32767" attributes="0"/>
+                                  <Component id="ConsultaFornecedorCnpjBotaoOk" min="-2" pref="64" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -238,15 +239,15 @@
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="ConsultaFornecedorTextNome" alignment="0" pref="406" max="32767" attributes="1"/>
-                                      <Component id="ConsultaFornecedorTextEndereco" alignment="0" pref="406" max="32767" attributes="1"/>
+                                      <Component id="ConsultaFornecedorTextNome" alignment="0" pref="414" max="32767" attributes="1"/>
+                                      <Component id="ConsultaFornecedorTextEndereco" alignment="0" pref="414" max="32767" attributes="1"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLTelefone" min="-2" max="-2" attributes="1"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="ConsultaFornecedorTextTel" pref="176" max="32767" attributes="0"/>
+                                  <Component id="ConsultaFornecedorTextTel" pref="186" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" pref="240" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -256,7 +257,7 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLNome" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="ConsultaFornecedorTextNome" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -272,7 +273,10 @@
                               <Component id="jLTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="ConsultaFornecedorBotaoOk" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="ConsultaFornecedorCnpjBotaoOk" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="ConsultaFornecedorCnpjBotaoListar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -305,12 +309,20 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="ConsultaFornecedorBotaoOk">
+                <Component class="javax.swing.JButton" name="ConsultaFornecedorCnpjBotaoOk">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="OK"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsultaFornecedorBotaoOkActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsultaFornecedorCnpjBotaoOkActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="ConsultaFornecedorCnpjBotaoListar">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Listar Todos"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsultaFornecedorCnpjBotaoListarActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -330,22 +342,30 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLCNPJ" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="1"/>
-                              <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="1"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLCNPJ" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="1"/>
+                                      <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="1"/>
+                                  </Group>
+                                  <EmptySpace pref="26" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jFCNPJ" min="-2" pref="152" max="-2" attributes="1"/>
+                                      <Component id="jFNEndereco" min="-2" pref="396" max="-2" attributes="1"/>
+                                      <Component id="jFNTelefone" alignment="0" min="-2" pref="152" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace pref="16" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="ConsultaFornecedorNomeBotaListar" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="409" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace pref="22" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jFCNPJ" min="-2" pref="152" max="-2" attributes="1"/>
-                              <Component id="jFNEndereco" min="-2" pref="396" max="-2" attributes="1"/>
-                              <Component id="jFNTelefone" alignment="0" min="-2" pref="152" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace pref="434" max="32767" attributes="0"/>
-                              <Component id="jBFornecedorCNPJ1" min="-2" pref="64" max="-2" attributes="0"/>
+                              <Component id="ConsultaFornecedorNomeBotaoOk" min="-2" pref="64" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -364,17 +384,19 @@
                               <Component id="jFNEndereco" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="59" max="32767" attributes="0"/>
+                          <EmptySpace pref="61" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jFNTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="ConsultaFornecedorNomeBotaListar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="216" max="32767" attributes="0"/>
-                              <Component id="jBFornecedorCNPJ1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="218" max="32767" attributes="0"/>
+                              <Component id="ConsultaFornecedorNomeBotaoOk" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -408,12 +430,20 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jBFornecedorCNPJ1">
+                <Component class="javax.swing.JButton" name="ConsultaFornecedorNomeBotaoOk">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="OK"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBFornecedorCNPJ1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsultaFornecedorNomeBotaoOkActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="ConsultaFornecedorNomeBotaListar">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Listar Todos"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsultaFornecedorNomeBotaListarActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
