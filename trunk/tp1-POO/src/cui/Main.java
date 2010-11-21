@@ -1,7 +1,10 @@
 package cui;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import persistencia.AccessControl;
+import persistencia.Conecta;
 import persistencia.Log;
 
 
@@ -14,10 +17,12 @@ public class Main {
 	 * @author Isac
 	 * @param args
 	 * @throws IOException
+	 * @throws SQLException 
 	 */
-	public static void main(String[] args) throws IOException {
-		//AccessControl.RemoverUsuario("admin2","senha");
-		//AccessControl.cadastroUsuario("admin","senha", true);
+	public static void main(String[] args) throws IOException, SQLException {
+		//AccessControl.cadastroUsuario("admin","admin", true);
+		//AccessControl.cadastroUsuario("vendedor","vendedor",false);
+		//AccessControl.cadastroUsuario("comprador","comprador",false);
 		System.out.println("Informe seu nome de usuario:");
 		String username = Console.readString();
 		System.out.println("Informe sua senha");

@@ -55,7 +55,7 @@ public class Log {
 	 * @return retorna uma instância do Logger para que esta seja usada no sistema,caso haja problemas na abertura do arquivo um ponteiro nulo é retornado
 	 */
 	public static Log getLoginstance(String nomeArquivo){
-		if( loginstance== null) {
+		if( loginstance == null) {
 			try {
 				loginstance = new Log(nomeArquivo);
 			} catch (IOException e) {
