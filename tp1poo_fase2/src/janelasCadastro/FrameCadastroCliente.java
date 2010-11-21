@@ -286,7 +286,7 @@ public class FrameCadastroCliente extends javax.swing.JFrame {
 }//GEN-LAST:event_BotaoOkActionPerformed
 
 	private void BotaoLimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoLimparCamposActionPerformed
-		// TODO add your handling code here:
+
 }//GEN-LAST:event_BotaoLimparCamposActionPerformed
 
 	private void BotaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCancelarActionPerformed
