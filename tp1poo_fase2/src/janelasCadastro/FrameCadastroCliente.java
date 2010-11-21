@@ -264,11 +264,18 @@ public class FrameCadastroCliente extends javax.swing.JFrame {
 }//GEN-LAST:event_CadastroClienteBotaoOkActionPerformed
 
 	private void CadastroClienteBotaoLimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroClienteBotaoLimparCamposActionPerformed
-
+		CadastroClienteTextNome.setText("");
+		CadastroClienteTextCpf.setText("");
+		CadastroClienteTextDtaNasc.setText("");
+		CadastroClienteTextBairro.setText("");
+		CadastroClienteTextNumero.setText("");
+		CadastroClienteTextRua.setText("");
+		CadastroClienteTextTelefone.setText("");
 }//GEN-LAST:event_CadastroClienteBotaoLimparCamposActionPerformed
 
 	private void CadastroClienteBotaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroClienteBotaoCancelarActionPerformed
-		// TODO add your handling code here:
+		this.principal.setEnabled(true);
+		this.dispose();
 	}//GEN-LAST:event_CadastroClienteBotaoCancelarActionPerformed
 
 	private void CadastroClienteBotaoOutroCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroClienteBotaoOutroCadastroActionPerformed
