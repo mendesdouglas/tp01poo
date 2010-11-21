@@ -326,7 +326,7 @@ this.dispose();
 	private void FrameMovimentoPedidoTextFieldCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FrameMovimentoPedidoTextFieldCodigoActionPerformed
 	FrameMovimentoPedidoTextFieldCodigo.setText("");
 	
-	// TODO add your handling code here:
+	
 	}//GEN-LAST:event_FrameMovimentoPedidoTextFieldCodigoActionPerformed
 
 	private void FrameMovimentoPedidoTextFieldPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FrameMovimentoPedidoTextFieldPrecoActionPerformed
