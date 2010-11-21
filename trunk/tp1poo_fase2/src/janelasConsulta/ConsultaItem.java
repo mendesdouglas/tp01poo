@@ -97,6 +97,7 @@ public class ConsultaItem extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(jRCodigo);
+        jRCodigo.setSelected(true);
         jRCodigo.setText("Código");
         jRCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,7 +198,7 @@ public class ConsultaItem extends javax.swing.JFrame {
                 .addContainerGap(74, Short.MAX_VALUE))
             .addGroup(jPCodigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPCodigoLayout.createSequentialGroup()
-                    .addContainerGap(200, Short.MAX_VALUE)
+                    .addContainerGap(202, Short.MAX_VALUE)
                     .addComponent(jBItemCodigo)
                     .addContainerGap()))
         );
@@ -248,7 +249,7 @@ public class ConsultaItem extends javax.swing.JFrame {
         jPCNomeLayout.setVerticalGroup(
             jPCNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPCNomeLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(25, 25, 25)
                 .addGroup(jPCNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLCodigo)
                     .addComponent(jFCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -292,11 +293,11 @@ public class ConsultaItem extends javax.swing.JFrame {
                 .addContainerGap(297, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                    .addContainerGap(136, Short.MAX_VALUE)
+                    .addContainerGap(134, Short.MAX_VALUE)
                     .addComponent(jPCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                    .addContainerGap(133, Short.MAX_VALUE)
+                    .addContainerGap(131, Short.MAX_VALUE)
                     .addComponent(jPCNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
