@@ -13,6 +13,7 @@ package janelasPrincipal;
 
 import janelasCadastro.*;
 import janelasConsulta.*;
+import janelasMovimento.FrameMovimentoCompra;
 import janelasMovimento.FrameMovimentoPedido;
 import java.awt.Color;
 import java.awt.Cursor;
@@ -339,7 +340,9 @@ public class Principal extends javax.swing.JFrame {
 	}//GEN-LAST:event_menuItemConsultasItensActionPerformed
 
 	private void menuItemMovimentoComprasActionPerformed(ActionEvent evt) {//GEN-FIRST:event_menuItemMovimentoComprasActionPerformed
-		// TODO add your handling code here:
+		FrameMovimentoCompra compra = new FrameMovimentoCompra(this);
+		compra.setVisible(true);
+		this.setEnabled(false);
 	}//GEN-LAST:event_menuItemMovimentoComprasActionPerformed
 
 	private void menuItemMovimentoVendasActionPerformed(ActionEvent evt) {//GEN-FIRST:event_menuItemMovimentoVendasActionPerformed
