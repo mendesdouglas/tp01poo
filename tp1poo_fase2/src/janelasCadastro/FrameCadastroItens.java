@@ -109,6 +109,11 @@ public class FrameCadastroItens extends javax.swing.JFrame {
         jLabel5.setText("Cadastro de Itens:");
 
         CadastroItemBotaoOutroCadastro.setText("Outro Cadastro?");
+        CadastroItemBotaoOutroCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CadastroItemBotaoOutroCadastroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -127,9 +132,7 @@ public class FrameCadastroItens extends javax.swing.JFrame {
                                     .addComponent(jLabel2))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(CadastroItemTextPrecoCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(CadastroItemTextPrecoCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(CadastroItemTextLucro)
                                     .addComponent(CadastroItemTextQuantidade, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
                                     .addComponent(CadastroItemTextCodigo))
@@ -216,9 +219,9 @@ public class FrameCadastroItens extends javax.swing.JFrame {
             .addGap(0, 609, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 4, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 5, Short.MAX_VALUE)))
         );
 
         pack();
@@ -253,6 +256,11 @@ public class FrameCadastroItens extends javax.swing.JFrame {
 		CadastroItemTextPrecoCusto.setText("");
 		CadastroItemTextQuantidade.setText("");
 	}//GEN-LAST:event_CadastroItemBotaoLimparActionPerformed
+
+	private void CadastroItemBotaoOutroCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroItemBotaoOutroCadastroActionPerformed
+		this.principal.setEnabled(true);
+		this.dispose();
+	}//GEN-LAST:event_CadastroItemBotaoOutroCadastroActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

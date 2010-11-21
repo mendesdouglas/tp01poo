@@ -37,9 +37,9 @@
           <EmptySpace min="0" pref="609" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="4" max="32767" attributes="0"/>
                   <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="5" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -65,10 +65,7 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="CadastroItemTextPrecoCusto" min="-2" pref="185" max="-2" attributes="1"/>
-                                      </Group>
+                                      <Component id="CadastroItemTextPrecoCusto" alignment="0" min="-2" pref="185" max="-2" attributes="1"/>
                                       <Component id="CadastroItemTextLucro" alignment="0" max="32767" attributes="1"/>
                                       <Component id="CadastroItemTextQuantidade" alignment="0" pref="164" max="32767" attributes="1"/>
                                       <Component id="CadastroItemTextCodigo" alignment="0" max="32767" attributes="1"/>
@@ -247,6 +244,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Outro Cadastro?"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CadastroItemBotaoOutroCadastroActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator1">
         </Component>
