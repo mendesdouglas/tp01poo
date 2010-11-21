@@ -12,6 +12,7 @@
 package janelasPrincipal;
 
 import janelasCadastro.*;
+import janelasMovimento.FrameMovimentoPedido;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dialog.ModalExclusionType;
@@ -333,7 +334,9 @@ public class Principal extends javax.swing.JFrame {
 	}//GEN-LAST:event_menuItemMovimentoComprasActionPerformed
 
 	private void menuItemMovimentoVendasActionPerformed(ActionEvent evt) {//GEN-FIRST:event_menuItemMovimentoVendasActionPerformed
-		// TODO add your handling code here:
+		FrameMovimentoPedido movimentoPedido = new FrameMovimentoPedido(this);
+		movimentoPedido.setVisible(true);
+		this.setEnabled(false);
 	}//GEN-LAST:event_menuItemMovimentoVendasActionPerformed
 
 	private void menuItemAjudaDocumentacaoActionPerformed(ActionEvent evt) {//GEN-FIRST:event_menuItemAjudaDocumentacaoActionPerformed

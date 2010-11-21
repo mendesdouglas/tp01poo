@@ -308,7 +308,8 @@ private Principal principal;
     }// </editor-fold>//GEN-END:initComponents
 
     private void FrameMovimentoPedidoButtonAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FrameMovimentoPedidoButtonAdicionarActionPerformed
-        // TODO add your handling code here:
+		this.principal.setEnabled(true);
+		this.dispose();
     }//GEN-LAST:event_FrameMovimentoPedidoButtonAdicionarActionPerformed
 
     private void FrameMovimentoPedidoButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FrameMovimentoPedidoButtonSairActionPerformed
