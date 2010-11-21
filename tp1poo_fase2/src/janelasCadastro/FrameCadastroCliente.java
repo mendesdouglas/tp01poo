@@ -22,8 +22,9 @@ public class FrameCadastroCliente extends javax.swing.JFrame {
 
 	private Principal principal;
     /** Creates new form FrameCadastroFornecedores */
-    public FrameCadastroCliente() {
+    public FrameCadastroCliente(Principal principal) {
         initComponents();
+		this.principal = principal;
     }
 
     /** This method is called from within the constructor to
