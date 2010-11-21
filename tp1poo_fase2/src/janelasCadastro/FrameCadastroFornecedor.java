@@ -123,6 +123,11 @@ public class FrameCadastroFornecedor extends javax.swing.JFrame {
         jLabel3.setText("Cadastro de Fornecedores:");
 
         jButton4.setText("Outro Cadastro?");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -292,6 +297,11 @@ public class FrameCadastroFornecedor extends javax.swing.JFrame {
 	private void nascimento2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nascimento2ActionPerformed
 		nascimento2.setText("");
 	}//GEN-LAST:event_nascimento2ActionPerformed
+
+	private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+		this.principal.setEnabled(true);
+		this.dispose();
+	}//GEN-LAST:event_jButton4ActionPerformed
 
     /**
     * @param args the command line arguments
