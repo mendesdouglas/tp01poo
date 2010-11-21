@@ -9,7 +9,7 @@
  * Created on 19/11/2010, 17:36:10
  */
 
-package movimento;
+package janelasMovimento;
 import janelasPrincipal.*;
 
 /**
