@@ -2,24 +2,19 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
-/*
- * CadastroCLientesFrame.java
- *
- * Created on 19/11/2010, 15:12:15
- */
-
 package janelasCadastro;
 
+import tp1poo_fase2.Principal;
 /**
  *
  * @author isac
  */
 public class FrameCadastroFornecedor extends javax.swing.JFrame {
-
+	Principal principal;
     /** Creates new form CadastroCLientesFrame */
-    public FrameCadastroFornecedor() {
+    public FrameCadastroFornecedor(Principal principal) {
         initComponents();
+		this.principal = principal;
     }
 
     /** This method is called from within the constructor to
@@ -79,6 +74,11 @@ public class FrameCadastroFornecedor extends javax.swing.JFrame {
         jLabel9.setText("Telefone:");
 
         jButton1.setText("Ok");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Cancelar");
 
@@ -105,7 +105,7 @@ public class FrameCadastroFornecedor extends javax.swing.JFrame {
                 .addGap(40, 40, 40))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(152, 152, 152)
@@ -113,7 +113,7 @@ public class FrameCadastroFornecedor extends javax.swing.JFrame {
                 .addContainerGap(179, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
@@ -128,7 +128,7 @@ public class FrameCadastroFornecedor extends javax.swing.JFrame {
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6)
                             .addComponent(id1, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
                             .addComponent(nascimento1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -137,7 +137,7 @@ public class FrameCadastroFornecedor extends javax.swing.JFrame {
                 .addGap(37, 37, 37))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jSeparator3, javax.swing.GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(87, 87, 87)
@@ -148,7 +148,7 @@ public class FrameCadastroFornecedor extends javax.swing.JFrame {
                 .addComponent(jButton4)
                 .addGap(18, 18, 18)
                 .addComponent(jButton3)
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addContainerGap(134, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,6 +223,11 @@ public class FrameCadastroFornecedor extends javax.swing.JFrame {
 	private void nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeActionPerformed
 		// TODO add your handling code here:
 }//GEN-LAST:event_nomeActionPerformed
+
+	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+		this.principal.setEnabled(true);
+		this.dispose();
+	}//GEN-LAST:event_jButton1ActionPerformed
 
     /**
     * @param args the command line arguments

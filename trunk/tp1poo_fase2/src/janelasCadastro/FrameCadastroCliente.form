@@ -72,8 +72,8 @@
                                               <Group type="102" alignment="1" attributes="0">
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="id1" alignment="0" pref="318" max="32767" attributes="1"/>
-                                                      <Component id="jTextField1" alignment="0" pref="318" max="32767" attributes="1"/>
+                                                      <Component id="id1" alignment="0" pref="325" max="32767" attributes="1"/>
+                                                      <Component id="jTextField1" alignment="0" pref="325" max="32767" attributes="1"/>
                                                   </Group>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -83,9 +83,9 @@
                                                               <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                                                               <Component id="nascimento1" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
                                                           </Group>
-                                                          <EmptySpace pref="41" max="32767" attributes="0"/>
+                                                          <EmptySpace pref="48" max="32767" attributes="0"/>
                                                       </Group>
-                                                      <Component id="nascimento2" alignment="0" pref="126" max="32767" attributes="0"/>
+                                                      <Component id="nascimento2" alignment="0" pref="133" max="32767" attributes="0"/>
                                                   </Group>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
@@ -113,14 +113,14 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jSeparator2" alignment="0" pref="484" max="32767" attributes="0"/>
-                              <Component id="jSeparator1" alignment="1" pref="484" max="32767" attributes="0"/>
+                              <Component id="jSeparator2" alignment="0" pref="498" max="32767" attributes="0"/>
+                              <Component id="jSeparator1" alignment="1" pref="498" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
                                   <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="157" max="32767" attributes="0"/>
+                                  <EmptySpace pref="139" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="jSeparator3" alignment="1" pref="484" max="32767" attributes="0"/>
+                              <Component id="jSeparator3" alignment="1" pref="498" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -196,7 +196,7 @@
                   </Group>
                   <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                   <Component id="jSeparator3" min="-2" pref="10" max="-2" attributes="0"/>
-                  <EmptySpace pref="36" max="32767" attributes="0"/>
+                  <EmptySpace pref="17" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="BotaoOk" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="BotaoCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
