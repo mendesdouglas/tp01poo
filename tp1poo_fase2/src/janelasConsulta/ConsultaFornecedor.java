@@ -43,23 +43,19 @@ public class ConsultaFornecedor extends javax.swing.JFrame {
         jRNome = new javax.swing.JRadioButton();
         jRCNPJ = new javax.swing.JRadioButton();
         jSeparator1 = new javax.swing.JSeparator();
-        JpCNPJ = new javax.swing.JPanel();
-        jLCodigo = new javax.swing.JLabel();
+        ConsultaFornecedorPanelCnpj = new javax.swing.JPanel();
         jLEndereco = new javax.swing.JLabel();
         jLTelefone = new javax.swing.JLabel();
         jLNome = new javax.swing.JLabel();
-        jFEndereco = new javax.swing.JFormattedTextField();
-        jFCodigo = new javax.swing.JFormattedTextField();
-        jFNome = new javax.swing.JFormattedTextField();
-        jFTelefone = new javax.swing.JFormattedTextField();
-        jBFornecedorNome = new javax.swing.JButton();
-        jPCNome = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        ConsultaFornecedorTextEndereco = new javax.swing.JFormattedTextField();
+        ConsultaFornecedorTextNome = new javax.swing.JFormattedTextField();
+        ConsultaFornecedorTextTel = new javax.swing.JFormattedTextField();
+        ConsultaFornecedorBotaoOk = new javax.swing.JButton();
+        ConsultaFornecedorPanelNome = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLCNPJ = new javax.swing.JLabel();
         jFNEndereco = new javax.swing.JFormattedTextField();
-        jFNCodigo = new javax.swing.JFormattedTextField();
         jFCNPJ = new javax.swing.JFormattedTextField();
         jFNTelefone = new javax.swing.JFormattedTextField();
         jBFornecedorCNPJ1 = new javax.swing.JButton();
@@ -96,6 +92,7 @@ public class ConsultaFornecedor extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(jRCNPJ);
+        jRCNPJ.setSelected(true);
         jRCNPJ.setText("CNPJ");
         jRCNPJ.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,9 +127,7 @@ public class ConsultaFornecedor extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        JpCNPJ.setBorder(javax.swing.BorderFactory.createTitledBorder("CPNJ"));
-
-        jLCodigo.setText("Código:");
+        ConsultaFornecedorPanelCnpj.setBorder(javax.swing.BorderFactory.createTitledBorder("CPNJ"));
 
         jLEndereco.setText("Endereço");
 
@@ -140,66 +135,61 @@ public class ConsultaFornecedor extends javax.swing.JFrame {
 
         jLNome.setText("Nome");
 
-        jFTelefone.setForeground(new java.awt.Color(58, 57, 59));
+        ConsultaFornecedorTextTel.setForeground(new java.awt.Color(58, 57, 59));
 
-        jBFornecedorNome.setText("OK");
-        jBFornecedorNome.addActionListener(new java.awt.event.ActionListener() {
+        ConsultaFornecedorBotaoOk.setText("OK");
+        ConsultaFornecedorBotaoOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBFornecedorNomeActionPerformed(evt);
+                ConsultaFornecedorBotaoOkActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout JpCNPJLayout = new javax.swing.GroupLayout(JpCNPJ);
-        JpCNPJ.setLayout(JpCNPJLayout);
-        JpCNPJLayout.setHorizontalGroup(
-            JpCNPJLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JpCNPJLayout.createSequentialGroup()
+        javax.swing.GroupLayout ConsultaFornecedorPanelCnpjLayout = new javax.swing.GroupLayout(ConsultaFornecedorPanelCnpj);
+        ConsultaFornecedorPanelCnpj.setLayout(ConsultaFornecedorPanelCnpjLayout);
+        ConsultaFornecedorPanelCnpjLayout.setHorizontalGroup(
+            ConsultaFornecedorPanelCnpjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ConsultaFornecedorPanelCnpjLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(JpCNPJLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JpCNPJLayout.createSequentialGroup()
-                        .addGroup(JpCNPJLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLCodigo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
-                            .addComponent(jLNome)
+                .addGroup(ConsultaFornecedorPanelCnpjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaFornecedorPanelCnpjLayout.createSequentialGroup()
+                        .addComponent(ConsultaFornecedorBotaoOk, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(ConsultaFornecedorPanelCnpjLayout.createSequentialGroup()
+                        .addGroup(ConsultaFornecedorPanelCnpjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLEndereco)
-                            .addComponent(jLTelefone))
+                            .addComponent(jLNome))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(JpCNPJLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jFTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jFEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jFCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jFNome, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE))
-                        .addGap(37, 37, 37))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JpCNPJLayout.createSequentialGroup()
-                        .addComponent(jBFornecedorNome, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addGroup(ConsultaFornecedorPanelCnpjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ConsultaFornecedorTextNome, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)
+                            .addComponent(ConsultaFornecedorTextEndereco, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .addGroup(ConsultaFornecedorPanelCnpjLayout.createSequentialGroup()
+                        .addComponent(jLTelefone)
+                        .addGap(18, 18, 18)
+                        .addComponent(ConsultaFornecedorTextTel, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                        .addGap(240, 240, 240))))
         );
-        JpCNPJLayout.setVerticalGroup(
-            JpCNPJLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JpCNPJLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(JpCNPJLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        ConsultaFornecedorPanelCnpjLayout.setVerticalGroup(
+            ConsultaFornecedorPanelCnpjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ConsultaFornecedorPanelCnpjLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(ConsultaFornecedorPanelCnpjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLNome)
-                    .addComponent(jFNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(JpCNPJLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLCodigo))
-                .addGap(8, 8, 8)
-                .addGroup(JpCNPJLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLEndereco))
-                .addGap(18, 18, 18)
-                .addGroup(JpCNPJLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsultaFornecedorTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50)
+                .addGroup(ConsultaFornecedorPanelCnpjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLEndereco)
+                    .addComponent(ConsultaFornecedorTextEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addGroup(ConsultaFornecedorPanelCnpjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ConsultaFornecedorTextTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLTelefone))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addComponent(jBFornecedorNome)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ConsultaFornecedorBotaoOk)
                 .addContainerGap())
         );
 
-        jPCNome.setBorder(javax.swing.BorderFactory.createTitledBorder("Nome"));
-
-        jLabel5.setText("Código:");
+        ConsultaFornecedorPanelNome.setBorder(javax.swing.BorderFactory.createTitledBorder("Nome"));
 
         jLabel6.setText("Endereço");
 
@@ -216,53 +206,46 @@ public class ConsultaFornecedor extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPCNomeLayout = new javax.swing.GroupLayout(jPCNome);
-        jPCNome.setLayout(jPCNomeLayout);
-        jPCNomeLayout.setHorizontalGroup(
-            jPCNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPCNomeLayout.createSequentialGroup()
+        javax.swing.GroupLayout ConsultaFornecedorPanelNomeLayout = new javax.swing.GroupLayout(ConsultaFornecedorPanelNome);
+        ConsultaFornecedorPanelNome.setLayout(ConsultaFornecedorPanelNomeLayout);
+        ConsultaFornecedorPanelNomeLayout.setHorizontalGroup(
+            ConsultaFornecedorPanelNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ConsultaFornecedorPanelNomeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPCNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+                .addGroup(ConsultaFornecedorPanelNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLCNPJ)
                     .addComponent(jLabel6)
                     .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPCNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jFNTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFNEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPCNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jFCNPJ, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jFNCodigo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)))
-                .addContainerGap(149, Short.MAX_VALUE))
-            .addGroup(jPCNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPCNomeLayout.createSequentialGroup()
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addGroup(ConsultaFornecedorPanelNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jFCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jFNEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jFNTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(ConsultaFornecedorPanelNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaFornecedorPanelNomeLayout.createSequentialGroup()
                     .addContainerGap(434, Short.MAX_VALUE)
                     .addComponent(jBFornecedorCNPJ1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap()))
         );
-        jPCNomeLayout.setVerticalGroup(
-            jPCNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPCNomeLayout.createSequentialGroup()
+        ConsultaFornecedorPanelNomeLayout.setVerticalGroup(
+            ConsultaFornecedorPanelNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ConsultaFornecedorPanelNomeLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(jPCNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(ConsultaFornecedorPanelNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLCNPJ)
                     .addComponent(jFCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPCNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFNCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(8, 8, 8)
-                .addGroup(jPCNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(47, 47, 47)
+                .addGroup(ConsultaFornecedorPanelNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jFNEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addGap(18, 18, 18)
-                .addGroup(jPCNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFNTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addContainerGap(78, Short.MAX_VALUE))
-            .addGroup(jPCNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPCNomeLayout.createSequentialGroup()
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addGroup(ConsultaFornecedorPanelNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jFNTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47))
+            .addGroup(ConsultaFornecedorPanelNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaFornecedorPanelNomeLayout.createSequentialGroup()
                     .addContainerGap(204, Short.MAX_VALUE)
                     .addComponent(jBFornecedorCNPJ1)
                     .addContainerGap()))
@@ -278,9 +261,9 @@ public class ConsultaFornecedor extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(JpCNPJ, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(ConsultaFornecedorPanelCnpj, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPCNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(ConsultaFornecedorPanelNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -291,12 +274,12 @@ public class ConsultaFornecedor extends javax.swing.JFrame {
                 .addContainerGap(297, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                    .addContainerGap(128, Short.MAX_VALUE)
-                    .addComponent(JpCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap(126, Short.MAX_VALUE)
+                    .addComponent(ConsultaFornecedorPanelCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                     .addContainerGap(132, Short.MAX_VALUE)
-                    .addComponent(jPCNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(ConsultaFornecedorPanelNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -375,10 +358,10 @@ public class ConsultaFornecedor extends javax.swing.JFrame {
 //        }
 }//GEN-LAST:event_jBBuscaActionPerformed
 
-	private void jBFornecedorNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFornecedorNomeActionPerformed
+	private void ConsultaFornecedorBotaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaFornecedorBotaoOkActionPerformed
 		principal.setEnabled(true);
 		this.dispose();
-	}//GEN-LAST:event_jBFornecedorNomeActionPerformed
+	}//GEN-LAST:event_ConsultaFornecedorBotaoOkActionPerformed
 
 	private void jBFornecedorCNPJ1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFornecedorCNPJ1ActionPerformed
 		principal.setEnabled(true);
@@ -386,13 +369,13 @@ public class ConsultaFornecedor extends javax.swing.JFrame {
 	}//GEN-LAST:event_jBFornecedorCNPJ1ActionPerformed
 
 	private void jRCNPJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRCNPJActionPerformed
-		JpCNPJ.setVisible(false);
-		jPCNome.setVisible(true);
+		ConsultaFornecedorPanelCnpj.setVisible(false);
+		ConsultaFornecedorPanelNome.setVisible(true);
 	}//GEN-LAST:event_jRCNPJActionPerformed
 
 	private void jRNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRNomeActionPerformed
-		jPCNome.setVisible(false);
-		JpCNPJ.setVisible(true);
+		ConsultaFornecedorPanelNome.setVisible(false);
+		ConsultaFornecedorPanelCnpj.setVisible(true);
 	}//GEN-LAST:event_jRNomeActionPerformed
 
     /**
@@ -401,29 +384,25 @@ public class ConsultaFornecedor extends javax.swing.JFrame {
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel JpCNPJ;
+    private javax.swing.JButton ConsultaFornecedorBotaoOk;
+    private javax.swing.JPanel ConsultaFornecedorPanelCnpj;
+    private javax.swing.JPanel ConsultaFornecedorPanelNome;
+    private javax.swing.JFormattedTextField ConsultaFornecedorTextEndereco;
+    private javax.swing.JFormattedTextField ConsultaFornecedorTextNome;
+    private javax.swing.JFormattedTextField ConsultaFornecedorTextTel;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jBBusca;
     private javax.swing.JButton jBFornecedorCNPJ1;
-    private javax.swing.JButton jBFornecedorNome;
     private javax.swing.JFormattedTextField jFCNPJ;
-    private javax.swing.JFormattedTextField jFCodigo;
-    private javax.swing.JFormattedTextField jFEndereco;
-    private javax.swing.JFormattedTextField jFNCodigo;
     private javax.swing.JFormattedTextField jFNEndereco;
     private javax.swing.JFormattedTextField jFNTelefone;
-    private javax.swing.JFormattedTextField jFNome;
     private javax.swing.JFormattedTextField jFPesquisa;
-    private javax.swing.JFormattedTextField jFTelefone;
     private javax.swing.JLabel jLCNPJ;
-    private javax.swing.JLabel jLCodigo;
     private javax.swing.JLabel jLEndereco;
     private javax.swing.JLabel jLNome;
     private javax.swing.JLabel jLTelefone;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPCNome;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
