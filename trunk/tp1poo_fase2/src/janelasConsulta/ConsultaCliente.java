@@ -11,7 +11,7 @@
 
 package janelasConsulta;
 
-import tp1poo_fase2.Principal;
+import janelasPrincipal.Principal;
 
 /**
  *
