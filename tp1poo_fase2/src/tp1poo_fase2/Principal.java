@@ -309,19 +309,21 @@ public class Principal extends javax.swing.JFrame {
 	}//GEN-LAST:event_menuItemArquivoSairActionPerformed
 
 	private void menuItemCadastrosClientesActionPerformed(ActionEvent evt) {//GEN-FIRST:event_menuItemCadastrosClientesActionPerformed
-		FrameCadastroCLientes cadastroClientes = new FrameCadastroCLientes();
+		FrameCadastroCliente cadastroClientes = new FrameCadastroCliente();
 		cadastroClientes.setVisible(true);
 		this.setEnabled(false);
 	}//GEN-LAST:event_menuItemCadastrosClientesActionPerformed
 
 	private void menuItemCadastrosFornecedoresActionPerformed(ActionEvent evt) {//GEN-FIRST:event_menuItemCadastrosFornecedoresActionPerformed
-		FrameCadastroFornecedores cadastroFornecedores = new FrameCadastroFornecedores(this);
+		FrameCadastroFornecedor cadastroFornecedores = new FrameCadastroFornecedor();
 		cadastroFornecedores.setVisible(true);
 		this.setEnabled(false);
 	}//GEN-LAST:event_menuItemCadastrosFornecedoresActionPerformed
 
 	private void menuItemCadastrosItensActionPerformed(ActionEvent evt) {//GEN-FIRST:event_menuItemCadastrosItensActionPerformed
-		// TODO add your handling code here:
+		FrameCadastroItens cadastroItens = new FrameCadastroItens();
+		cadastroItens.setVisible(true);
+		this.setEnabled(false);
 	}//GEN-LAST:event_menuItemCadastrosItensActionPerformed
 
 	private void menuItemConsultasClientesActionPerformed(ActionEvent evt) {//GEN-FIRST:event_menuItemConsultasClientesActionPerformed
