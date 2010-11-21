@@ -10,7 +10,7 @@
  */
 
 package movimento;
-import tp1poo_fase2.*;
+import janelasPrincipal.*;
 
 /**
  *

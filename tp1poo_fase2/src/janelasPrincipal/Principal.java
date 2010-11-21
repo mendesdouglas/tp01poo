@@ -9,7 +9,7 @@
  * Created on 07/11/2010, 20:05:53
  */
 
-package tp1poo_fase2;
+package janelasPrincipal;
 
 import janelasCadastro.*;
 import java.awt.Color;
