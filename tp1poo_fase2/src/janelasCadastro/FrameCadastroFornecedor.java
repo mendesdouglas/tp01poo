@@ -63,6 +63,12 @@ public class FrameCadastroFornecedor extends javax.swing.JFrame {
 
         jLabel2.setText("CNPJ*:");
 
+        cpf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cpfActionPerformed(evt);
+            }
+        });
+
         jLabel5.setText("Endereço:");
 
         jLabel6.setText("Rua:");
@@ -72,6 +78,30 @@ public class FrameCadastroFornecedor extends javax.swing.JFrame {
         jLabel8.setText("Número:");
 
         jLabel9.setText("Telefone:");
+
+        id1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                id1ActionPerformed(evt);
+            }
+        });
+
+        nascimento1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nascimento1ActionPerformed(evt);
+            }
+        });
+
+        nascimento2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nascimento2ActionPerformed(evt);
+            }
+        });
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Ok");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -83,6 +113,11 @@ public class FrameCadastroFornecedor extends javax.swing.JFrame {
         jButton2.setText("Cancelar");
 
         jButton3.setText("Limpar Campos");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 18));
         jLabel3.setText("Cadastro de Fornecedores:");
@@ -221,13 +256,42 @@ public class FrameCadastroFornecedor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 	private void nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeActionPerformed
-		// TODO add your handling code here:
+		nome.setText("");
 }//GEN-LAST:event_nomeActionPerformed
 
 	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 		this.principal.setEnabled(true);
 		this.dispose();
 	}//GEN-LAST:event_jButton1ActionPerformed
+
+	private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+		nome.setText("");
+		cpf.setText("");
+		id1.setText("");
+		nascimento1.setText("");
+		jTextField1.setText("");
+		nascimento2.setText("");
+	}//GEN-LAST:event_jButton3ActionPerformed
+
+	private void cpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpfActionPerformed
+		cpf.setText("");
+	}//GEN-LAST:event_cpfActionPerformed
+
+	private void id1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id1ActionPerformed
+		id1.setText("");
+	}//GEN-LAST:event_id1ActionPerformed
+
+	private void nascimento1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nascimento1ActionPerformed
+		nascimento1.setText("");
+	}//GEN-LAST:event_nascimento1ActionPerformed
+
+	private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+		jTextField1.setText("");
+	}//GEN-LAST:event_jTextField1ActionPerformed
+
+	private void nascimento2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nascimento2ActionPerformed
+		nascimento2.setText("");
+	}//GEN-LAST:event_nascimento2ActionPerformed
 
     /**
     * @param args the command line arguments
