@@ -9,9 +9,9 @@
  * Created on 19/11/2010, 15:14:37
  */
 
-package janelasConsulta;
+package gui;
 
-import janelasPrincipal.Principal;
+import gui.Principal;
 
 /**
  *

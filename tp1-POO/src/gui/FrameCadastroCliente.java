@@ -9,9 +9,9 @@
  * Created on 19/11/2010, 15:16:12
  */
 
-package janelasCadastro;
+package gui;
 
-import janelasPrincipal.Principal;
+import gui.Principal;
 
 
 /**
