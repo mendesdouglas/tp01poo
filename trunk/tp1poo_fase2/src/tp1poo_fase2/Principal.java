@@ -12,26 +12,18 @@
 package tp1poo_fase2;
 
 import janelasCadastro.*;
-import janelasConsulta.*;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dialog.ModalExclusionType;
 import java.awt.Dimension;
-import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
-import java.io.File;
-import java.net.URL;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -321,27 +313,19 @@ public class Principal extends javax.swing.JFrame {
 	}//GEN-LAST:event_menuItemCadastrosFornecedoresActionPerformed
 
 	private void menuItemCadastrosItensActionPerformed(ActionEvent evt) {//GEN-FIRST:event_menuItemCadastrosItensActionPerformed
-		FrameCadastroItens cadastroItens = new FrameCadastroItens(this);
-		cadastroItens.setVisible(true);
-		this.setEnabled(false);
+		// TODO add your handling code here:
 	}//GEN-LAST:event_menuItemCadastrosItensActionPerformed
 
 	private void menuItemConsultasClientesActionPerformed(ActionEvent evt) {//GEN-FIRST:event_menuItemConsultasClientesActionPerformed
-		ConsultaCliente  consultaCliente = new ConsultaCliente(this);
-		consultaCliente.setVisible(true);
-		this.setEnabled(false);
+		// TODO add your handling code here:
 	}//GEN-LAST:event_menuItemConsultasClientesActionPerformed
 
 	private void menuItemConsultasFornecedoresActionPerformed(ActionEvent evt) {//GEN-FIRST:event_menuItemConsultasFornecedoresActionPerformed
-		ConsultaFornecedor  consultaFornecedor = new ConsultaFornecedor(this);
-		consultaFornecedor.setVisible(true);
-		this.setEnabled(false);
+		// TODO add your handling code here:
 	}//GEN-LAST:event_menuItemConsultasFornecedoresActionPerformed
 
 	private void menuItemConsultasItensActionPerformed(ActionEvent evt) {//GEN-FIRST:event_menuItemConsultasItensActionPerformed
-		ConsultaItem  consultaItem = new ConsultaItem(this);
-		consultaItem.setVisible(true);
-		this.setEnabled(false);
+		// TODO add your handling code here:
 	}//GEN-LAST:event_menuItemConsultasItensActionPerformed
 
 	private void menuItemMovimentoComprasActionPerformed(ActionEvent evt) {//GEN-FIRST:event_menuItemMovimentoComprasActionPerformed
