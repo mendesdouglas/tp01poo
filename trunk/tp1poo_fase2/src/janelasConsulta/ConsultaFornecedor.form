@@ -109,17 +109,17 @@
                       <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
-                      <EmptySpace pref="295" max="32767" attributes="0"/>
+                      <EmptySpace pref="293" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="124" max="32767" attributes="0"/>
+                          <EmptySpace pref="119" max="32767" attributes="0"/>
                           <Component id="ConsultaFornecedorPanelCnpj" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="120" max="32767" attributes="0"/>
+                          <EmptySpace pref="116" max="32767" attributes="0"/>
                           <Component id="ConsultaFornecedorPanelNome" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -140,7 +140,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="145" max="32767" attributes="0"/>
+                          <EmptySpace pref="126" max="32767" attributes="0"/>
                           <Component id="jRCNPJ" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jRNome" min="-2" max="-2" attributes="0"/>
@@ -238,15 +238,15 @@
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="ConsultaFornecedorTextNome" alignment="0" pref="414" max="32767" attributes="1"/>
-                                      <Component id="ConsultaFornecedorTextEndereco" alignment="0" pref="414" max="32767" attributes="1"/>
+                                      <Component id="ConsultaFornecedorTextNome" alignment="0" pref="406" max="32767" attributes="1"/>
+                                      <Component id="ConsultaFornecedorTextEndereco" alignment="0" pref="406" max="32767" attributes="1"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLTelefone" min="-2" max="-2" attributes="1"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="ConsultaFornecedorTextTel" pref="186" max="32767" attributes="0"/>
+                                  <Component id="ConsultaFornecedorTextTel" pref="176" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" pref="240" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -334,7 +334,7 @@
                               <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="1"/>
                               <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="1"/>
                           </Group>
-                          <EmptySpace pref="30" max="32767" attributes="0"/>
+                          <EmptySpace pref="22" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jFCNPJ" min="-2" pref="152" max="-2" attributes="1"/>
                               <Component id="jFNEndereco" min="-2" pref="396" max="-2" attributes="1"/>
@@ -373,7 +373,7 @@
                       </Group>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="214" max="32767" attributes="0"/>
+                              <EmptySpace pref="216" max="32767" attributes="0"/>
                               <Component id="jBFornecedorCNPJ1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>

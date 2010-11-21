@@ -23,6 +23,8 @@ public class ConsultaFornecedor extends javax.swing.JFrame {
     public ConsultaFornecedor(Principal principal) {
         initComponents();
 		this.principal = principal;
+		ConsultaFornecedorPanelCnpj.setVisible(false);
+		ConsultaFornecedorPanelNome.setVisible(false);
     }
 
     /** This method is called from within the constructor to
@@ -369,13 +371,13 @@ public class ConsultaFornecedor extends javax.swing.JFrame {
 	}//GEN-LAST:event_jBFornecedorCNPJ1ActionPerformed
 
 	private void jRCNPJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRCNPJActionPerformed
-		ConsultaFornecedorPanelCnpj.setVisible(false);
-		ConsultaFornecedorPanelNome.setVisible(true);
+		ConsultaFornecedorPanelCnpj.setVisible(true);
+		ConsultaFornecedorPanelNome.setVisible(false);
 	}//GEN-LAST:event_jRCNPJActionPerformed
 
 	private void jRNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRNomeActionPerformed
-		ConsultaFornecedorPanelNome.setVisible(false);
-		ConsultaFornecedorPanelCnpj.setVisible(true);
+		ConsultaFornecedorPanelNome.setVisible(true);
+		ConsultaFornecedorPanelCnpj.setVisible(false);
 	}//GEN-LAST:event_jRNomeActionPerformed
 
     /**

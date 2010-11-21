@@ -24,6 +24,8 @@ public class ConsultaItem extends javax.swing.JFrame {
     public ConsultaItem(Principal principal) {
         initComponents();
 		this.principal = principal;
+		jPCNome.setVisible(false);
+		jPCodigo.setVisible(false);
     }
 
     /** This method is called from within the constructor to
