@@ -24,11 +24,10 @@ public class Main {
 		String passwd = Console.readString();
 				
 		if (AccessControl.login(username, passwd,true)){
-			Log log = Log.getLoginstance(null);
-			log.info("Autentication sucessfull for user "+username);
-			log.error("erro!");
-			log.warn("warning");
-			log.fatal("fatal");
+			Log.getLoginstance(null).info("info");
+			Log.getLoginstance(null).error("erro!");
+			Log.getLoginstance(null).warn("warning");
+			Log.getLoginstance(null).fatal("fatal");
 			Menu.principal();
 		} 
 		else{
