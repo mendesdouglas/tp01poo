@@ -111,6 +111,11 @@ public class FrameCadastroFornecedor extends javax.swing.JFrame {
         });
 
         jButton2.setText("Cancelar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Limpar Campos");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -302,6 +307,11 @@ public class FrameCadastroFornecedor extends javax.swing.JFrame {
 		this.principal.setEnabled(true);
 		this.dispose();
 	}//GEN-LAST:event_jButton4ActionPerformed
+
+	private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+		this.principal.setEnabled(true);
+		this.dispose();
+	}//GEN-LAST:event_jButton2ActionPerformed
 
     /**
     * @param args the command line arguments
