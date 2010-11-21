@@ -80,17 +80,17 @@
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
-                  <EmptySpace pref="292" max="32767" attributes="0"/>
+                  <EmptySpace pref="290" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="114" max="32767" attributes="0"/>
+                      <EmptySpace pref="109" max="32767" attributes="0"/>
                       <Component id="ConsultaClientePanelCpf" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="112" max="32767" attributes="0"/>
+                      <EmptySpace pref="108" max="32767" attributes="0"/>
                       <Component id="ConsultaClientePanelNome" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -111,7 +111,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="143" max="32767" attributes="0"/>
+                      <EmptySpace pref="129" max="32767" attributes="0"/>
                       <Component id="ConsultaClienteOpcaoCpf" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="ConsultaClienteOpcaoNome" min="-2" max="-2" attributes="0"/>
@@ -187,7 +187,7 @@
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="CPF"/>
+                <TitledBorder title="Cpf"/>
               </Border>
             </Property>
           </Properties>
@@ -205,8 +205,8 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="ConsultaClienteTextNome" alignment="1" pref="406" max="32767" attributes="1"/>
-                                  <Component id="ConsultaClienteTextEndereco" alignment="0" pref="406" max="32767" attributes="1"/>
+                                  <Component id="ConsultaClienteTextNome" alignment="1" pref="398" max="32767" attributes="1"/>
+                                  <Component id="ConsultaClienteTextEndereco" alignment="0" pref="398" max="32767" attributes="1"/>
                               </Group>
                           </Group>
                           <Component id="jBCPFCliente" alignment="1" min="-2" pref="64" max="-2" attributes="0"/>
@@ -301,7 +301,7 @@
                           <Component id="jLCPF1" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="1"/>
                       </Group>
-                      <EmptySpace pref="26" max="32767" attributes="0"/>
+                      <EmptySpace pref="18" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jFNTelefone" alignment="0" min="-2" pref="179" max="-2" attributes="1"/>
                           <Component id="jFCPF" alignment="0" min="-2" pref="182" max="-2" attributes="1"/>
@@ -340,7 +340,7 @@
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="219" max="32767" attributes="0"/>
+                          <EmptySpace pref="221" max="32767" attributes="0"/>
                           <Component id="ConsultaClienteBotaoOk" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
