@@ -40,7 +40,8 @@ public class ConsultaItem extends javax.swing.JFrame {
 		ConsultaItemNomeTextCodigo.setEditable(false);
 		ConsultaItemNomeTextNMargemLucro.setEditable(false);
 		ConsultaItemNomeTextNPrecoCusto.setEditable(false);
-		ConsultaItemNomeTextNQuantidade.setEditable(false);		
+		ConsultaItemNomeTextNQuantidade.setEditable(false);	
+		ConsultaItemBotaoBusca.setEnabled(false);
     }
 
     /** This method is called from within the constructor to
@@ -57,7 +58,7 @@ public class ConsultaItem extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         ConsultaItemTextPesquisa = new javax.swing.JFormattedTextField();
-        jBCBusca = new javax.swing.JButton();
+        ConsultaItemBotaoBusca = new javax.swing.JButton();
         ConsultaItemOpcaoNome = new javax.swing.JRadioButton();
         ConsultaItemOpcaoCodigo = new javax.swing.JRadioButton();
         jSeparator1 = new javax.swing.JSeparator();
@@ -100,8 +101,8 @@ public class ConsultaItem extends javax.swing.JFrame {
             }
         });
 
-        jBCBusca.setText("Buscar");
-        jBCBusca.addActionListener(new java.awt.event.ActionListener() {
+        ConsultaItemBotaoBusca.setText("Buscar");
+        ConsultaItemBotaoBusca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBCBuscaActionPerformed(evt);
             }
@@ -135,7 +136,7 @@ public class ConsultaItem extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ConsultaItemTextPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jBCBusca)
+                .addComponent(ConsultaItemBotaoBusca)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -144,7 +145,7 @@ public class ConsultaItem extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ConsultaItemTextPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBCBusca)
+                    .addComponent(ConsultaItemBotaoBusca)
                     .addComponent(ConsultaItemOpcaoNome)
                     .addComponent(ConsultaItemOpcaoCodigo))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -162,7 +163,7 @@ public class ConsultaItem extends javax.swing.JFrame {
 
         ConsultaItemCodigoTextQuantidade.setForeground(new java.awt.Color(58, 57, 59));
 
-        ConsultaItemCodigoBotaoOk.setText("OK");
+        ConsultaItemCodigoBotaoOk.setText("Fechar");
         ConsultaItemCodigoBotaoOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConsultaItemCodigoBotaoOkActionPerformed(evt);
@@ -247,7 +248,7 @@ public class ConsultaItem extends javax.swing.JFrame {
 
         ConsultaItemNomeTextNQuantidade.setForeground(new java.awt.Color(58, 57, 59));
 
-        ConsultaItemNomeBotaoOk.setText("OK");
+        ConsultaItemNomeBotaoOk.setText("Fechar");
         ConsultaItemNomeBotaoOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConsultaItemNomeBotaoOkActionPerformed(evt);
@@ -398,7 +399,7 @@ public class ConsultaItem extends javax.swing.JFrame {
 }*///GEN-LAST:event_jFPesquisaFocusLost
 
     private void jBCBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCBuscaActionPerformed
-        String busca = null;
+    	String busca = null;
         busca = ConsultaItemTextPesquisa.getText();
         if(busca == null || busca.length() == 0){
             JOptionPane.showMessageDialog(null, "Pesquisa Inválida");
@@ -445,11 +446,21 @@ public class ConsultaItem extends javax.swing.JFrame {
 	private void jRCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRCodigoActionPerformed
 		ConsultaItemPanelNome.setVisible(false);
 		ConsultaItemPanelCodigo.setVisible(true);
+		ConsultaItemCodigoTextNome.setText("");
+		ConsultaItemCodigoTextMargemLucro.setText("");
+		ConsultaItemCodigoTextPrecoCusto.setText("");
+		ConsultaItemCodigoTextQuantidade.setText("");
+		ConsultaItemBotaoBusca.setEnabled(true);
 	}//GEN-LAST:event_jRCodigoActionPerformed
 
 	private void jRNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRNomeActionPerformed
 		ConsultaItemPanelCodigo.setVisible(false);
 		ConsultaItemPanelNome.setVisible(true);
+		ConsultaItemNomeTextCodigo.setText("");
+		ConsultaItemNomeTextNMargemLucro.setText("");
+		ConsultaItemNomeTextNPrecoCusto.setText("");
+		ConsultaItemNomeTextNQuantidade.setText("");
+		ConsultaItemBotaoBusca.setEnabled(true);
 	}//GEN-LAST:event_jRNomeActionPerformed
 
 	private void ConsultaItemCodigoBotaoListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaItemCodigoBotaoListarActionPerformed
@@ -475,7 +486,7 @@ public class ConsultaItem extends javax.swing.JFrame {
     private javax.swing.JButton ConsultaItemNomeBotaoListar;
     private javax.swing.JButton ConsultaItemNomeBotaoOk;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jBCBusca;
+    private javax.swing.JButton ConsultaItemBotaoBusca;
     private javax.swing.JFormattedTextField ConsultaItemNomeTextCodigo;
     private javax.swing.JFormattedTextField ConsultaItemCodigoTextMargemLucro;
     private javax.swing.JFormattedTextField ConsultaItemNomeTextNMargemLucro;
