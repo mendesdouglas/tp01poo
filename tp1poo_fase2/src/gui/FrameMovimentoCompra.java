@@ -10,7 +10,7 @@
  */
 
 package gui;
-import janelasPrincipal.*;
+
 
 /**
  *
