@@ -11,6 +11,8 @@
 
 package gui;
 
+import estoque.Item;
+import persistencia.PersistenciaEstoque;
 import gui.Principal;
 /**
  *
@@ -34,84 +36,73 @@ public class FrameCadastroItens extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        CadastroItemTextNome = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        CadastroItemTextPrecoCusto = new javax.swing.JTextField();
-        CadastroItemTextQuantidade = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        CadastroItemTextCodigo = new javax.swing.JTextField();
-        CadastroItemTextLucro = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        CadastroItemBotaoOk = new javax.swing.JButton();
-        CadastroItemBotaoCancel = new javax.swing.JButton();
-        CadastroItemBotaoLimpar = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        CadastroItemBotaoOutroCadastro = new javax.swing.JButton();
+        nome = new javax.swing.JTextField();
+        labelNome = new javax.swing.JLabel();
+        labelPrecoCusto = new javax.swing.JLabel();
+        precoCusto = new javax.swing.JTextField();
+        quantidade = new javax.swing.JTextField();
+        labelQuantidade = new javax.swing.JLabel();
+        labelCodigo = new javax.swing.JLabel();
+        codigo = new javax.swing.JTextField();
+        lucro = new javax.swing.JTextField();
+        labelLucro = new javax.swing.JLabel();
+        botaoVerificarDisponibilidade = new javax.swing.JButton();
+        botaoOk = new javax.swing.JButton();
+        botaoCancel = new javax.swing.JButton();
+        botaoLimpar = new javax.swing.JButton();
+        labelTitulo = new javax.swing.JLabel();
+        botaoOutroCadastro = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
+        labelWarning = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        CadastroItemTextNome.addActionListener(new java.awt.event.ActionListener() {
+        labelNome.setText("Nome - Descrição*:");
+
+        labelPrecoCusto.setText("Preço de Custo*: R$");
+
+        labelQuantidade.setText("Quantidade*:");
+
+        labelCodigo.setText("Código*:");
+
+        labelLucro.setText("Margem de Lucro*:");
+
+        botaoVerificarDisponibilidade.setText("Verificar Disponibilidade");
+        botaoVerificarDisponibilidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CadastroItemTextNomeActionPerformed(evt);
+                botaoVerificarDisponibilidadeActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Nome - Descrição*:");
-
-        jLabel2.setText("Preço de Custo*: R$");
-
-        jLabel4.setText("Quantidade*:");
-
-        jLabel10.setText("Código*:");
-
-        CadastroItemTextCodigo.addActionListener(new java.awt.event.ActionListener() {
+        botaoOk.setText("Ok");
+        botaoOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CadastroItemTextCodigoActionPerformed(evt);
+                botaoOkActionPerformed(evt);
             }
         });
 
-        jLabel3.setText("Margem de Lucro*:");
-
-        jButton1.setText("Verificar Disponibilidade");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botaoCancel.setText("Cancelar");
+        botaoCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botaoCancelActionPerformed(evt);
             }
         });
 
-        CadastroItemBotaoOk.setText("Ok");
-        CadastroItemBotaoOk.addActionListener(new java.awt.event.ActionListener() {
+        botaoLimpar.setText("Limpar Campos");
+        botaoLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CadastroItemBotaoOkActionPerformed(evt);
+                botaoLimparActionPerformed(evt);
             }
         });
 
-        CadastroItemBotaoCancel.setText("Cancelar");
-        CadastroItemBotaoCancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CadastroItemBotaoCancelActionPerformed(evt);
-            }
-        });
+        labelTitulo.setFont(new java.awt.Font("Ubuntu", 1, 18));
+        labelTitulo.setText("Cadastro de Itens:");
 
-        CadastroItemBotaoLimpar.setText("Limpar Campos");
-        CadastroItemBotaoLimpar.addActionListener(new java.awt.event.ActionListener() {
+        botaoOutroCadastro.setText("Outro Cadastro?");
+        botaoOutroCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CadastroItemBotaoLimparActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 18));
-        jLabel5.setText("Cadastro de Itens:");
-
-        CadastroItemBotaoOutroCadastro.setText("Outro Cadastro?");
-        CadastroItemBotaoOutroCadastro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CadastroItemBotaoOutroCadastroActionPerformed(evt);
+                botaoOutroCadastroActionPerformed(evt);
             }
         });
 
@@ -120,86 +111,91 @@ public class FrameCadastroItens extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(111, 111, 111)
+                        .addComponent(labelWarning, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(labelNome)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2))
+                                    .addComponent(labelCodigo)
+                                    .addComponent(labelQuantidade)
+                                    .addComponent(labelLucro)
+                                    .addComponent(labelPrecoCusto))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(CadastroItemTextPrecoCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(CadastroItemTextLucro)
-                                    .addComponent(CadastroItemTextQuantidade, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
-                                    .addComponent(CadastroItemTextCodigo))
+                                    .addComponent(precoCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lucro)
+                                    .addComponent(quantidade, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
+                                    .addComponent(codigo))
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton1))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(4, 4, 4)
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(CadastroItemTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(botaoVerificarDisponibilidade))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(217, 217, 217)
-                        .addComponent(jLabel5))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(labelTitulo))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 549, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(116, 116, 116)
-                        .addComponent(CadastroItemBotaoOk, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botaoOk, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(CadastroItemBotaoCancel)
+                        .addComponent(botaoCancel)
                         .addGap(18, 18, 18)
-                        .addComponent(CadastroItemBotaoOutroCadastro)
+                        .addComponent(botaoOutroCadastro)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(CadastroItemBotaoLimpar)))
+                        .addComponent(botaoLimpar)))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addComponent(jLabel5)
+                .addComponent(labelTitulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CadastroItemTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelNome))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(CadastroItemTextPrecoCusto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel2))
+                        .addComponent(precoCusto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(labelPrecoCusto))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(54, 54, 54)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(CadastroItemTextQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(quantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(36, 36, 36)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(CadastroItemTextLucro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
+                            .addComponent(lucro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelLucro))
                         .addGap(42, 42, 42)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(CadastroItemTextCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1)
-                            .addComponent(jLabel10))))
-                .addGap(58, 58, 58)
+                            .addComponent(codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botaoVerificarDisponibilidade)
+                            .addComponent(labelCodigo))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelWarning, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(69, 69, 69)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CadastroItemBotaoOk)
-                    .addComponent(CadastroItemBotaoLimpar)
-                    .addComponent(CadastroItemBotaoCancel)
-                    .addComponent(CadastroItemBotaoOutroCadastro))
+                    .addComponent(botaoOk)
+                    .addComponent(botaoLimpar)
+                    .addComponent(botaoCancel)
+                    .addComponent(botaoOutroCadastro))
                 .addContainerGap(72, Short.MAX_VALUE))
         );
 
@@ -219,70 +215,76 @@ public class FrameCadastroItens extends javax.swing.JFrame {
             .addGap(0, 609, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 4, Short.MAX_VALUE)
+                    .addGap(0, 13, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 5, Short.MAX_VALUE)))
+                    .addGap(0, 14, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-	private void CadastroItemTextNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroItemTextNomeActionPerformed
-		// TODO add your handling code here:
-}//GEN-LAST:event_CadastroItemTextNomeActionPerformed
+	private void botaoVerificarDisponibilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVerificarDisponibilidadeActionPerformed
 
-	private void CadastroItemTextCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroItemTextCodigoActionPerformed
-		// TODO add your handling code here:
-}//GEN-LAST:event_CadastroItemTextCodigoActionPerformed
+		try{
+			int cod = Integer.parseInt(codigo.getText());
+			labelWarning.setText("");
+			Item item = PersistenciaEstoque.getInstance().searchItem(cod);
+			if(item != null){
+				labelWarning.setText("Código já existente, por favor, tente novamente.");
+			}else{
+				labelWarning.setText("Código válido.");
+			}
+		}catch (NumberFormatException e) {
+			labelWarning.setText("O código digitado precisa ser numérico.");
+		}
+		
+	}//GEN-LAST:event_botaoVerificarDisponibilidadeActionPerformed
 
-	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-		// TODO add your handling code here:
-}//GEN-LAST:event_jButton1ActionPerformed
-
-	private void CadastroItemBotaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroItemBotaoOkActionPerformed
+	private void botaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoOkActionPerformed
 		this.principal.setEnabled(true);
 		this.dispose();
-}//GEN-LAST:event_CadastroItemBotaoOkActionPerformed
+	}//GEN-LAST:event_botaoOkActionPerformed
 
-	private void CadastroItemBotaoCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroItemBotaoCancelActionPerformed
+	private void botaoCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelActionPerformed
 		this.principal.setEnabled(true);
 		this.dispose();
-	}//GEN-LAST:event_CadastroItemBotaoCancelActionPerformed
+	}//GEN-LAST:event_botaoCancelActionPerformed
 
-	private void CadastroItemBotaoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroItemBotaoLimparActionPerformed
-		CadastroItemTextCodigo.setText("");
-		CadastroItemTextLucro.setText("");
-		CadastroItemTextNome.setText("");
-		CadastroItemTextPrecoCusto.setText("");
-		CadastroItemTextQuantidade.setText("");
-	}//GEN-LAST:event_CadastroItemBotaoLimparActionPerformed
+	private void botaoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparActionPerformed
+		codigo.setText("");
+		lucro.setText("");
+		nome.setText("");
+		precoCusto.setText("");
+		quantidade.setText("");
+	}//GEN-LAST:event_botaoLimparActionPerformed
 
-	private void CadastroItemBotaoOutroCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroItemBotaoOutroCadastroActionPerformed
+	private void botaoOutroCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoOutroCadastroActionPerformed
 		this.principal.setEnabled(true);
 		this.dispose();
-	}//GEN-LAST:event_CadastroItemBotaoOutroCadastroActionPerformed
+	}//GEN-LAST:event_botaoOutroCadastroActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CadastroItemBotaoCancel;
-    private javax.swing.JButton CadastroItemBotaoLimpar;
-    private javax.swing.JButton CadastroItemBotaoOk;
-    private javax.swing.JButton CadastroItemBotaoOutroCadastro;
-    private javax.swing.JTextField CadastroItemTextCodigo;
-    private javax.swing.JTextField CadastroItemTextLucro;
-    private javax.swing.JTextField CadastroItemTextNome;
-    private javax.swing.JTextField CadastroItemTextPrecoCusto;
-    private javax.swing.JTextField CadastroItemTextQuantidade;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JButton botaoCancel;
+    private javax.swing.JButton botaoLimpar;
+    private javax.swing.JButton botaoOk;
+    private javax.swing.JButton botaoOutroCadastro;
+    private javax.swing.JButton botaoVerificarDisponibilidade;
+    private javax.swing.JTextField codigo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel labelCodigo;
+    private javax.swing.JLabel labelLucro;
+    private javax.swing.JLabel labelNome;
+    private javax.swing.JLabel labelPrecoCusto;
+    private javax.swing.JLabel labelQuantidade;
+    private javax.swing.JLabel labelTitulo;
+    private javax.swing.JLabel labelWarning;
+    private javax.swing.JTextField lucro;
+    private javax.swing.JTextField nome;
+    private javax.swing.JTextField precoCusto;
+    private javax.swing.JTextField quantidade;
     // End of variables declaration//GEN-END:variables
 
 }

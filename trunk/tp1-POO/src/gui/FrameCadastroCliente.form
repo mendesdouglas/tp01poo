@@ -67,66 +67,63 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelEndereco" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                               <Group type="102" alignment="1" attributes="0">
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="CadastroClienteTextRua" alignment="0" pref="325" max="32767" attributes="1"/>
-                                                      <Component id="CadastroClienteTextBairro" alignment="0" pref="325" max="32767" attributes="1"/>
+                                                      <Component id="labelEnderecoBeirro" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="enderecoRua" alignment="0" pref="318" max="32767" attributes="1"/>
+                                                      <Component id="enderecoBairro" alignment="0" pref="318" max="32767" attributes="1"/>
                                                   </Group>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Group type="102" alignment="0" attributes="0">
                                                           <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="CadastroClienteTextNumero" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
+                                                              <Component id="labelEnderecoTelefone" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="labelEnderecoNumero" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="enderecoNumero" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
                                                           </Group>
-                                                          <EmptySpace pref="48" max="32767" attributes="0"/>
+                                                          <EmptySpace pref="41" max="32767" attributes="0"/>
                                                       </Group>
-                                                      <Component id="CadastroClienteTextTelefone" alignment="0" pref="133" max="32767" attributes="0"/>
+                                                      <Component id="enderecoTelefone" alignment="0" pref="126" max="32767" attributes="0"/>
                                                   </Group>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="labelNome" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="labelCpf" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="CadastroClienteTextNome" min="-2" pref="397" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                                  <Component id="CadastroClienteTextCpf" min="-2" pref="171" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                                  <Component id="CadastroClienteTextDtaNasc" min="-2" pref="125" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="cpf" alignment="0" min="-2" pref="171" max="-2" attributes="0"/>
+                                                      <Component id="nome" alignment="0" min="-2" pref="397" max="-2" attributes="0"/>
+                                                  </Group>
                                               </Group>
                                           </Group>
                                       </Group>
-                                      <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="labelEnderecoRua" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jSeparator2" alignment="0" pref="498" max="32767" attributes="0"/>
-                              <Component id="jSeparator1" alignment="1" pref="498" max="32767" attributes="0"/>
+                              <Component id="jSeparator2" alignment="0" pref="484" max="32767" attributes="0"/>
+                              <Component id="jSeparator1" alignment="1" pref="484" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
-                                  <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="139" max="32767" attributes="0"/>
+                                  <Component id="labelTitulo" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="157" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="jSeparator3" alignment="1" pref="498" max="32767" attributes="0"/>
+                              <Component id="jSeparator3" alignment="1" pref="484" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
-                          <Component id="CadastroClienteBotaoOk" min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="BotaoOk" min="-2" pref="33" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="CadastroClienteBotaoCancelar" min="-2" max="-2" attributes="0"/>
+                          <Component id="BotaoCancelar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="CadastroClienteBotaoOutroCadastro" min="-2" max="-2" attributes="0"/>
+                          <Component id="BotaoOutroCadastro" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="CadastroClienteBotaoLimparCampos" min="-2" max="-2" attributes="0"/>
+                          <Component id="BotaoLimparCampos" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -137,61 +134,59 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                  <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelTitulo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <Component id="CadastroClienteTextNome" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelNome" min="-2" max="-2" attributes="0"/>
+                      <Component id="nome" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="CadastroClienteTextDtaNasc" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="CadastroClienteTextCpf" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelCpf" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cpf" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
                   <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelEndereco" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelEnderecoRua" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="CadastroClienteTextRua" min="-2" max="-2" attributes="0"/>
+                          <Component id="enderecoRua" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelEnderecoNumero" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="CadastroClienteTextNumero" min="-2" max="-2" attributes="0"/>
+                          <Component id="enderecoNumero" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelEnderecoBeirro" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="CadastroClienteTextBairro" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="CadastroClienteTextTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="enderecoBairro" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="enderecoTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelEnderecoTelefone" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                   <Component id="jSeparator3" min="-2" pref="10" max="-2" attributes="0"/>
-                  <EmptySpace pref="44" max="32767" attributes="0"/>
+                  <EmptySpace pref="52" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="CadastroClienteBotaoOk" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="CadastroClienteBotaoCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="CadastroClienteBotaoOutroCadastro" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="CadastroClienteBotaoLimparCampos" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="BotaoOk" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="BotaoCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="BotaoOutroCadastro" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="BotaoLimparCampos" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
@@ -199,100 +194,93 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="CadastroClienteTextNome">
+        <Component class="javax.swing.JTextField" name="nome">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CadastroClienteTextNomeActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nomeActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="labelNome">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nome*:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel2">
+        <Component class="javax.swing.JLabel" name="labelCpf">
           <Properties>
             <Property name="text" type="java.lang.String" value="CPF*:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="CadastroClienteTextCpf">
+        <Component class="javax.swing.JTextField" name="cpf">
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Data Nascimento:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="CadastroClienteTextDtaNasc">
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel5">
+        <Component class="javax.swing.JLabel" name="labelEndereco">
           <Properties>
             <Property name="text" type="java.lang.String" value="Endere&#xe7;o:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel6">
+        <Component class="javax.swing.JLabel" name="labelEnderecoRua">
           <Properties>
             <Property name="text" type="java.lang.String" value="Rua:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel7">
+        <Component class="javax.swing.JLabel" name="labelEnderecoBeirro">
           <Properties>
             <Property name="text" type="java.lang.String" value="Bairro:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel8">
+        <Component class="javax.swing.JLabel" name="labelEnderecoNumero">
           <Properties>
             <Property name="text" type="java.lang.String" value="N&#xfa;mero:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel9">
+        <Component class="javax.swing.JLabel" name="labelEnderecoTelefone">
           <Properties>
             <Property name="text" type="java.lang.String" value="Telefone:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="CadastroClienteTextRua">
+        <Component class="javax.swing.JTextField" name="enderecoRua">
         </Component>
-        <Component class="javax.swing.JTextField" name="CadastroClienteTextNumero">
+        <Component class="javax.swing.JTextField" name="enderecoNumero">
         </Component>
-        <Component class="javax.swing.JTextField" name="CadastroClienteTextTelefone">
+        <Component class="javax.swing.JTextField" name="enderecoTelefone">
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator1">
         </Component>
-        <Component class="javax.swing.JTextField" name="CadastroClienteTextBairro">
+        <Component class="javax.swing.JTextField" name="enderecoBairro">
         </Component>
-        <Component class="javax.swing.JButton" name="CadastroClienteBotaoCancelar">
+        <Component class="javax.swing.JButton" name="BotaoCancelar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CadastroClienteBotaoCancelarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoCancelarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="CadastroClienteBotaoOk">
+        <Component class="javax.swing.JButton" name="BotaoOk">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ok"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CadastroClienteBotaoOkActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoOkActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="CadastroClienteBotaoLimparCampos">
+        <Component class="javax.swing.JButton" name="BotaoLimparCampos">
           <Properties>
             <Property name="text" type="java.lang.String" value="Limpar Campos"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CadastroClienteBotaoLimparCamposActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoLimparCamposActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="CadastroClienteBotaoOutroCadastro">
+        <Component class="javax.swing.JButton" name="BotaoOutroCadastro">
           <Properties>
             <Property name="text" type="java.lang.String" value="Outro Cadastro?"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CadastroClienteBotaoOutroCadastroActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoOutroCadastroActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator2">
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel10">
+        <Component class="javax.swing.JLabel" name="labelTitulo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Ubuntu" size="18" style="1"/>
