@@ -67,7 +67,7 @@ public class AccessControl {
 			Statement stat = Conecta.getConnection().conn.createStatement();
 			rs = stat.executeQuery("select * from Users where name='"+username+"'");
 			if (rs.next()){
-				Log.getLoginstance(null).error("Tentativa de cadstro de usuário já existente "+username);
+				Log.getLoginstance(null).error("Tentativa de cadastro de usuário já existente "+username);
 				return false;
 			}
 			stat.executeUpdate("insert into Users (name,passwd,admin) values ('"+username+"','"+processa(passwd)+"','"+admin.toString()+"')");
