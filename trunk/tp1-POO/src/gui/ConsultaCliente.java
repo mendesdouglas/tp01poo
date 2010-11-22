@@ -36,6 +36,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
 		ConsultaClienteNomeTextCpf.setEditable(false);
 		ConsultaClienteNomeTextEndereco.setEditable(false);
 		ConsultaClienteNomeTextTelefone.setEditable(false);	
+		ConsultaClienteBotaoBusca.setEnabled(false);
     }
 
     /** This method is called from within the constructor to
@@ -150,7 +151,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
 
         ConsultaClienteCpfTextTelefone.setForeground(new java.awt.Color(58, 57, 59));
 
-        ConsultaClienteCpfBotaoOk.setText("OK");
+        ConsultaClienteCpfBotaoOk.setText("Fechar");
         ConsultaClienteCpfBotaoOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConsultaClienteCpfBotaoOkActionPerformed(evt);
@@ -221,7 +222,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
 
         ConsultaClienteNomeTextTelefone.setForeground(new java.awt.Color(58, 57, 59));
 
-        ConsultaClienteNomeBotaoOk.setText("OK");
+        ConsultaClienteNomeBotaoOk.setText("Fechar");
         ConsultaClienteNomeBotaoOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConsultaClienteNomeBotaoOkActionPerformed(evt);
@@ -389,6 +390,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
 		ConsultaClienteCpfTextEndereco.setText("");
 		ConsultaClienteCpfTextNome.setText("");
 		ConsultaClienteCpfTextTelefone.setText("");
+		ConsultaClienteBotaoBusca.setEnabled(true);
 	}//GEN-LAST:event_ConsultaClienteOpcaoCpfActionPerformed
 
 	private void ConsultaClienteOpcaoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaClienteOpcaoNomeActionPerformed
@@ -397,6 +399,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
 		ConsultaClienteNomeTextCpf.setText("");
 		ConsultaClienteNomeTextEndereco.setText("");
 		ConsultaClienteNomeTextTelefone.setText("");
+		ConsultaClienteBotaoBusca.setEnabled(true);
 	}//GEN-LAST:event_ConsultaClienteOpcaoNomeActionPerformed
 
 	private void ConsultaClienteNomeBotaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaClienteNomeBotaoOkActionPerformed
