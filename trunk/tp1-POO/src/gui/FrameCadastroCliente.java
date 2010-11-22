@@ -11,6 +11,7 @@
 
 package gui;
 
+import pessoas.Cliente;
 import gui.Principal;
 
 
@@ -38,16 +39,16 @@ public class FrameCadastroCliente extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         CadastroClienteTextNome = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        labelNome = new javax.swing.JLabel();
+        labelCpf = new javax.swing.JLabel();
         CadastroClienteTextCpf = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        labelDadaNascimento = new javax.swing.JLabel();
         CadastroClienteTextDtaNasc = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        labelEndereco = new javax.swing.JLabel();
+        labelEnderecoRua = new javax.swing.JLabel();
+        labelEnderecoBairro = new javax.swing.JLabel();
+        labelEnderecoNumero = new javax.swing.JLabel();
+        labelEnderecoTelefone = new javax.swing.JLabel();
         CadastroClienteTextRua = new javax.swing.JTextField();
         CadastroClienteTextNumero = new javax.swing.JTextField();
         CadastroClienteTextTelefone = new javax.swing.JTextField();
@@ -58,7 +59,7 @@ public class FrameCadastroCliente extends javax.swing.JFrame {
         CadastroClienteBotaoLimparCampos = new javax.swing.JButton();
         CadastroClienteBotaoOutroCadastro = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
-        jLabel10 = new javax.swing.JLabel();
+        labelTitulo = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -74,21 +75,21 @@ public class FrameCadastroCliente extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Nome*:");
+        labelNome.setText("Nome*:");
 
-        jLabel2.setText("CPF*:");
+        labelCpf.setText("CPF*:");
 
-        jLabel4.setText("Data Nascimento:");
+        labelDadaNascimento.setText("Data Nascimento:");
 
-        jLabel5.setText("Endereço:");
+        labelEndereco.setText("Endereço:");
 
-        jLabel6.setText("Rua:");
+        labelEnderecoRua.setText("Rua:");
 
-        jLabel7.setText("Bairro:");
+        labelEnderecoBairro.setText("Bairro:");
 
-        jLabel8.setText("Número:");
+        labelEnderecoNumero.setText("Número:");
 
-        jLabel9.setText("Telefone:");
+        labelEnderecoTelefone.setText("Telefone:");
 
         CadastroClienteBotaoCancelar.setText("Cancelar");
         CadastroClienteBotaoCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -118,8 +119,8 @@ public class FrameCadastroCliente extends javax.swing.JFrame {
             }
         });
 
-        jLabel10.setFont(new java.awt.Font("Ubuntu", 1, 18));
-        jLabel10.setText("Cadastro de Clientes:");
+        labelTitulo.setFont(new java.awt.Font("Ubuntu", 1, 18));
+        labelTitulo.setText("Cadastro de Clientes:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -133,41 +134,41 @@ public class FrameCadastroCliente extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel5)
+                                        .addComponent(labelEndereco)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel7)
+                                                    .addComponent(labelEnderecoBairro)
                                                     .addComponent(CadastroClienteTextRua, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
                                                     .addComponent(CadastroClienteTextBairro, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                            .addComponent(jLabel9)
-                                                            .addComponent(jLabel8)
+                                                            .addComponent(labelEnderecoTelefone)
+                                                            .addComponent(labelEnderecoNumero)
                                                             .addComponent(CadastroClienteTextNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE))
                                                     .addComponent(CadastroClienteTextTelefone, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)))
                                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel1)
+                                                .addComponent(labelNome)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(CadastroClienteTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGap(34, 34, 34)
                                                 .addComponent(CadastroClienteTextCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel4)
+                                                .addComponent(labelDadaNascimento)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(CadastroClienteTextDtaNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel2))
+                                    .addComponent(labelEnderecoRua)
+                                    .addComponent(labelCpf))
                                 .addGap(28, 28, 28))
                             .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(142, 142, 142)
-                                .addComponent(jLabel10)
+                                .addComponent(labelTitulo)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE))
                             .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -185,44 +186,44 @@ public class FrameCadastroCliente extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jLabel10)
+                .addComponent(labelTitulo)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                    .addComponent(labelNome)
                     .addComponent(CadastroClienteTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(labelCpf)
                     .addComponent(CadastroClienteTextDtaNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
+                    .addComponent(labelDadaNascimento)
                     .addComponent(CadastroClienteTextCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(84, 84, 84)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
+                        .addComponent(labelEndereco)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel6)
+                        .addComponent(labelEnderecoRua)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(CadastroClienteTextRua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
+                        .addComponent(labelEnderecoNumero)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(CadastroClienteTextNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(3, 3, 3)
-                        .addComponent(jLabel7)
+                        .addComponent(labelEnderecoBairro)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(CadastroClienteTextBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(CadastroClienteTextTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(9, 9, 9)
-                        .addComponent(jLabel9)))
+                        .addComponent(labelEnderecoTelefone)))
                 .addGap(54, 54, 54)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
@@ -260,6 +261,8 @@ public class FrameCadastroCliente extends javax.swing.JFrame {
 
 	private void CadastroClienteBotaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroClienteBotaoOkActionPerformed
 		this.principal.setEnabled(true);
+		//Cliente cliente = new Cliente(CadastroClienteTextCpf.getText(),
+			//	CadastroClienteTextNome.getText(), endereco, telefone)
 		this.dispose();
 	}//GEN-LAST:event_CadastroClienteBotaoOkActionPerformed
 
@@ -306,15 +309,15 @@ public class FrameCadastroCliente extends javax.swing.JFrame {
     private javax.swing.JTextField CadastroClienteTextNumero;
     private javax.swing.JTextField CadastroClienteTextRua;
     private javax.swing.JTextField CadastroClienteTextTelefone;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel labelNome;
+    private javax.swing.JLabel labelTitulo;
+    private javax.swing.JLabel labelCpf;
+    private javax.swing.JLabel labelDadaNascimento;
+    private javax.swing.JLabel labelEndereco;
+    private javax.swing.JLabel labelEnderecoRua;
+    private javax.swing.JLabel labelEnderecoBairro;
+    private javax.swing.JLabel labelEnderecoNumero;
+    private javax.swing.JLabel labelEnderecoTelefone;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
