@@ -256,12 +256,12 @@ public class FrameCadastroCliente extends javax.swing.JFrame {
 
 	private void CadastroClienteTextNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroClienteTextNomeActionPerformed
 		// TODO add your handling code here:
-}//GEN-LAST:event_CadastroClienteTextNomeActionPerformed
+	}//GEN-LAST:event_CadastroClienteTextNomeActionPerformed
 
 	private void CadastroClienteBotaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroClienteBotaoOkActionPerformed
 		this.principal.setEnabled(true);
 		this.dispose();
-}//GEN-LAST:event_CadastroClienteBotaoOkActionPerformed
+	}//GEN-LAST:event_CadastroClienteBotaoOkActionPerformed
 
 	private void CadastroClienteBotaoLimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroClienteBotaoLimparCamposActionPerformed
 		CadastroClienteTextNome.setText("");
@@ -271,7 +271,7 @@ public class FrameCadastroCliente extends javax.swing.JFrame {
 		CadastroClienteTextNumero.setText("");
 		CadastroClienteTextRua.setText("");
 		CadastroClienteTextTelefone.setText("");
-}//GEN-LAST:event_CadastroClienteBotaoLimparCamposActionPerformed
+	}//GEN-LAST:event_CadastroClienteBotaoLimparCamposActionPerformed
 
 	private void CadastroClienteBotaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroClienteBotaoCancelarActionPerformed
 		this.principal.setEnabled(true);
