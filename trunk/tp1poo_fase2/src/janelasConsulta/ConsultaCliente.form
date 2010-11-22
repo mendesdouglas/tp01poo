@@ -80,17 +80,17 @@
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
-                  <EmptySpace pref="294" max="32767" attributes="0"/>
+                  <EmptySpace pref="290" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="112" max="32767" attributes="0"/>
+                      <EmptySpace pref="105" max="32767" attributes="0"/>
                       <Component id="ConsultaClientePanelCpf" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="110" max="32767" attributes="0"/>
+                      <EmptySpace pref="103" max="32767" attributes="0"/>
                       <Component id="ConsultaClientePanelNome" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -111,7 +111,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="143" max="32767" attributes="0"/>
+                      <EmptySpace pref="129" max="32767" attributes="0"/>
                       <Component id="ConsultaClienteOpcaoCpf" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="ConsultaClienteOpcaoNome" min="-2" max="-2" attributes="0"/>
@@ -204,13 +204,13 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="ConsultaClienteTextNome" alignment="1" pref="406" max="32767" attributes="1"/>
-                                  <Component id="ConsultaClienteTextEndereco" alignment="0" pref="406" max="32767" attributes="1"/>
+                                  <Component id="ConsultaClienteTextNome" alignment="1" pref="398" max="32767" attributes="1"/>
+                                  <Component id="ConsultaClienteTextEndereco" alignment="0" pref="398" max="32767" attributes="1"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="ConsultaClienteCpfBotaoListar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="332" max="32767" attributes="0"/>
+                              <EmptySpace pref="324" max="32767" attributes="0"/>
                               <Component id="ConsultaClienteCpfBotaoOk" min="-2" pref="64" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -317,19 +317,16 @@
                                   <Component id="jLCPF1" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="1"/>
                               </Group>
-                              <EmptySpace pref="22" max="32767" attributes="0"/>
+                              <EmptySpace pref="18" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jFNTelefone" alignment="0" min="-2" pref="179" max="-2" attributes="1"/>
                                   <Component id="jFCPF" alignment="0" min="-2" pref="182" max="-2" attributes="1"/>
                                   <Component id="jFNEndereco" min="-2" pref="392" max="-2" attributes="1"/>
                               </Group>
-                              <EmptySpace pref="16" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="ConsultaClienteNomeBotaoListar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="401" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="ConsultaClienteNomeBotaoListar" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
@@ -364,7 +361,7 @@
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="223" max="32767" attributes="0"/>
+                          <EmptySpace pref="226" max="32767" attributes="0"/>
                           <Component id="ConsultaClienteNomeBotaoOk" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
