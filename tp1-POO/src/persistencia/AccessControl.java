@@ -5,6 +5,9 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import exceptions.PasswordsDontMatchException;
+import exceptions.UserNotFoundException;
+
 public class AccessControl {
 	
 	/**
@@ -14,9 +17,11 @@ public class AccessControl {
 	 * @param adminRquired true se privilégios administrativos são requeridos, senao false
 	 * @return true se usuário existe ou é administrador(no caso de ser requerido)
 	 * @return false se usuário não existe ou nao é administrador(no caso de ser requerido)
+	 * @throws UserNotFoundException Caso o usuário nao exista no banco 
+	 * @throws PasswordsDontMatchException  caso a senha informada nao bata com a senha armazenada no banco
 	 * @exception SQLException no caso de erro na conexão
 	 */
-	public static boolean login(String username,String passwd,boolean adminRequired){
+	public static boolean login(String username,String passwd,boolean adminRequired) throws UserNotFoundException, PasswordsDontMatchException{
 		ResultSet rs;
 		try {
 			Statement stat = Conecta.getConnection().conn.createStatement();
@@ -28,8 +33,7 @@ public class AccessControl {
 						return true;
 					}
 					else{
-						Log.getLoginstance(null).error("Senha informada está errada");
-						return false;
+						throw new PasswordsDontMatchException(passwd);
 					}		
 				}
 				else{
@@ -38,13 +42,12 @@ public class AccessControl {
 						return true;
 					}
 					else{
-						Log.getLoginstance(null).error("Senha informada está errada");
-						return false;
+						throw new PasswordsDontMatchException(passwd);
 					}
 				}
 			}
 			else{
-				return false;
+				throw new UserNotFoundException(username);
 			}
 		} catch (SQLException e) {
 			Log.getLoginstance(null).error(e.getMessage());
@@ -85,9 +88,10 @@ public class AccessControl {
 	 * @param passwd Senha do usuário
 	 * @return true no caso da remoção ocorrer com sucesso
 	 * @return false caso da remoção não ocorrer com sucesso
+	 * @throws UserNotFoundException caso o usuário não estaja cadastrado
 	 * @exception SQLException no caso de erro na conexão
 	 */
-	public static boolean RemoverUsuario(String username,String passwd){
+	public static boolean RemoverUsuario(String username,String passwd) throws UserNotFoundException{
 		ResultSet rs;
 		try {
 			Statement stat = Conecta.getConnection().conn.createStatement();
@@ -99,8 +103,7 @@ public class AccessControl {
 					return true;
 				}
 				else{
-					Log.getLoginstance(null).error("Usuário "+username+" nao pode ser removido pois não existe");
-					return false;
+					throw new UserNotFoundException(username);
 				}
 			}
 		} catch (SQLException e) {

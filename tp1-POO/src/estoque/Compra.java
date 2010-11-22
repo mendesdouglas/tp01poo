@@ -145,8 +145,8 @@ public class Compra {
 		if (searchItemCompra(item.getCodigo()) || item == null){
 			return false;
 		}
- 		ItemCompra itemCompra = new ItemCompra(item,precoCompra,quant);
- 		return this.compras.add(itemCompra);
+		ItemCompra itemCompra = new ItemCompra(item,precoCompra,quant);
+		return this.compras.add(itemCompra);
 	}
 	
 	/**
