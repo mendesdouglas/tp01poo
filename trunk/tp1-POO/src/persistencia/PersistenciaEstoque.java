@@ -99,7 +99,7 @@ public class PersistenciaEstoque {
 		Item item = null;
 		try {
 			stat = conn.createStatement();
-			rs = stat.executeQuery("select * from Item where codigo="+codigo);
+			rs = stat.executeQuery("select * from Item where codigo='"+codigo+"'");
 			if (rs.next()) {
 				item = new Item(rs.getString("nome"),rs.getInt("codigo"),rs.getFloat("precoCusto"),rs.getFloat("margemLucro"),rs.getInt("quant"));
 			}
@@ -121,7 +121,7 @@ public class PersistenciaEstoque {
 		Item item = null;
 		try {
 			stat = conn.createStatement();
-			rs = stat.executeQuery("select * from Item where nome="+nome);
+			rs = stat.executeQuery("select * from Item where nome='"+nome+"'");
 			if (rs.next()) {
 				item = new Item(rs.getString("nome"),rs.getInt("codigo"),rs.getFloat("precoCusto"),rs.getFloat("margemLucro"),rs.getInt("quant"));
 			}
@@ -238,4 +238,3 @@ public class PersistenciaEstoque {
 		this.saveCompra(compra);
 	}
 }
-

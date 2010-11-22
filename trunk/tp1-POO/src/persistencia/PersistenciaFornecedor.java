@@ -46,7 +46,7 @@ import pessoas.Fornecedor;
 		Fornecedor fornecedor = null;
 		try {
 			stat = conn.createStatement();
-			rs = stat.executeQuery("select * from Fornecedor where cnpj = "+query+" or nome = "+query);
+			rs = stat.executeQuery("select * from Fornecedor where cnpj = '"+query+"'"+" or nome = '"+query+"'");
 			if (rs.next()) {
 			  fornecedor = new Fornecedor(rs.getString("cnpj"),rs.getString("nome"),rs.getString("endereco"),rs.getString("telefone"));
 			}
