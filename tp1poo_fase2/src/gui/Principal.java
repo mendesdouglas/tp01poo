@@ -9,14 +9,20 @@
  * Created on 07/11/2010, 20:05:53
  */
 
-package janelasPrincipal;
+package gui;
 
+import gui.ConsultaCliente;
+import gui.ConsultaFornecedor;
+import gui.ConsultaItem;
+import gui.FrameCadastroFornecedor;
+import gui.FrameCadastroCliente;
+import gui.FrameCadastroItens;
 import janelasCadastro.*;
 import janelasConsulta.*;
-import janelasMovimento.FrameMovimentoCompra;
-import janelasMovimento.FrameMovimentoPedido;
-import janelasMovimento.FrameMovimentoPreCompra;
-import janelasMovimento.FrameMovimentoPrePedido;
+import gui.FrameMovimentoCompra;
+import gui.FrameMovimentoPedido;
+import gui.FrameMovimentoPreCompra;
+import gui.FrameMovimentoPrePedido;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dialog.ModalExclusionType;

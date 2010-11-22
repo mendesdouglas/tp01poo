@@ -9,10 +9,8 @@
  * Created on 19/11/2010, 15:14:37
  */
 
-package janelasConsulta;
+package gui;
 
-import janelasMovimento.FrameMovimentoPreCompra;
-import janelasPrincipal.Principal;
 import java.awt.Component;
 
 /**

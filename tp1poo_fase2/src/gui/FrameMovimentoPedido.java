@@ -1,4 +1,4 @@
-package janelasMovimento;
+package gui;
 import janelasPrincipal.*;
 /*
  * To change this template, choose Tools | Templates
