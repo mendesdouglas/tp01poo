@@ -342,6 +342,8 @@ public class Principal extends javax.swing.JFrame {
 		this.setEnabled(false);
 	}//GEN-LAST:event_menuItemConsultasClientesActionPerformed
 
+
+	
 	private void menuItemConsultasFornecedoresActionPerformed(ActionEvent evt) {//GEN-FIRST:event_menuItemConsultasFornecedoresActionPerformed
 		ConsultaFornecedor consultaFornecedor = new ConsultaFornecedor(this);
 		consultaFornecedor.setVisible(true);

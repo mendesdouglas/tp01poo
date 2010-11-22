@@ -75,7 +75,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
         ConsultaClienteNomeBotaoOk = new javax.swing.JButton();
         ConsultaClienteNomeBotaoListar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setPreferredSize(new java.awt.Dimension(514, 401));
 
@@ -417,7 +417,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
 		listar.setVisible(true);
 		this.setEnabled(false);
 	}//GEN-LAST:event_ConsultaClienteCpfBotaoListarActionPerformed
-
+	
 	private void ConsultaClienteNomeBotaoListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaClienteNomeBotaoListarActionPerformed
 		ConsultaListar listar = new ConsultaListar(this);
 		listar.setVisible(true);
