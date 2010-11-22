@@ -78,6 +78,7 @@ public class Principal extends javax.swing.JFrame {
         menuPrincipalCadastros = new JMenu();
         menuItemCadastrosClientes = new JMenuItem();
         menuItemCadastrosFornecedores = new JMenuItem();
+        menuItemCadastrosUsuarios = new JMenuItem();
         menuItemCadastrosItens = new JMenuItem();
         menuPrincipalConsultas = new JMenu();
         menuItemConsultasClientes = new JMenuItem();
@@ -201,6 +202,14 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         menuPrincipalCadastros.add(menuItemCadastrosFornecedores);
+        
+        menuItemCadastrosUsuarios.setText("Usuarios");
+        menuItemCadastrosUsuarios.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                menuItemCadastrosUsuariosActionPerformed(evt);
+            }
+        });
+        menuPrincipalCadastros.add(menuItemCadastrosUsuarios);
 
         menuItemCadastrosItens.setText("Itens");
         menuItemCadastrosItens.addActionListener(new ActionListener() {
@@ -314,6 +323,12 @@ public class Principal extends javax.swing.JFrame {
 		cadastroFornecedores.setVisible(true);
 		this.setEnabled(false);
 	}//GEN-LAST:event_menuItemCadastrosFornecedoresActionPerformed
+	
+	private void menuItemCadastrosUsuariosActionPerformed(ActionEvent evt) {//GEN-FIRST:event_menuItemCadastrosFornecedoresActionPerformed
+		FrameCadastroUsuario cadastroUsuario = new FrameCadastroUsuario(this);
+		cadastroUsuario.setVisible(true);
+		this.setEnabled(false);
+	}
 
 	private void menuItemCadastrosItensActionPerformed(ActionEvent evt) {//GEN-FIRST:event_menuItemCadastrosItensActionPerformed
 		FrameCadastroItens cadastroItens = new FrameCadastroItens(this);
@@ -392,6 +407,7 @@ public class Principal extends javax.swing.JFrame {
     private JMenuItem menuItemArquivoSair;
     private JMenuItem menuItemCadastrosClientes;
     private JMenuItem menuItemCadastrosFornecedores;
+    private JMenuItem menuItemCadastrosUsuarios;
     private JMenuItem menuItemCadastrosItens;
     private JMenuItem menuItemConsultasClientes;
     private JMenuItem menuItemConsultasFornecedores;
