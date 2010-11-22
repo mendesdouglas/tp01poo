@@ -9,10 +9,9 @@
  * Created on 21/11/2010, 21:03:59
  */
 
-package janelasMovimento;
+package gui;
 
-import janelasConsulta.ConsultaCliente;
-import janelasPrincipal.Principal;
+import gui.ConsultaCliente;
 
 /**
  *

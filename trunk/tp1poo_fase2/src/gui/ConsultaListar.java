@@ -7,7 +7,7 @@
  * Created on 21/11/2010, 17:58:45
  */
 
-package janelasConsulta;
+package gui;
 
 import javax.swing.JFrame;
 

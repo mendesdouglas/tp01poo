@@ -9,9 +9,7 @@
  * Created on 19/11/2010, 15:16:12
  */
 
-package janelasCadastro;
-
-import janelasPrincipal.Principal;
+package gui;
 
 
 /**
@@ -225,7 +223,7 @@ public class FrameCadastroCliente extends javax.swing.JFrame {
                         .addComponent(jLabel9)))
                 .addGap(54, 54, 54)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CadastroClienteBotaoOk)
                     .addComponent(CadastroClienteBotaoCancelar)
