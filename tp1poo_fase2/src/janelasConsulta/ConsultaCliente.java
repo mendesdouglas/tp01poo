@@ -11,14 +11,16 @@
 
 package janelasConsulta;
 
+import janelasMovimento.FrameMovimentoPrePedido;
 import janelasPrincipal.Principal;
+import java.awt.Component;
 
 /**
  *
  * @author felipe
  */
 public class ConsultaCliente extends javax.swing.JFrame {
-    private Principal principal;
+    private Component principal;
     /** Creates new form Cliente */
     public ConsultaCliente(Principal principal) {
         initComponents();
@@ -26,6 +28,13 @@ public class ConsultaCliente extends javax.swing.JFrame {
 		ConsultaClientePanelCpf.setVisible(false);
 		ConsultaClientePanelNome.setVisible(false);
     }
+
+	public ConsultaCliente(FrameMovimentoPrePedido principal) {
+		initComponents();
+		this.principal = principal;
+		ConsultaClientePanelCpf.setVisible(false);
+		ConsultaClientePanelNome.setVisible(false);
+	}
 
     /** This method is called from within the constructor to
      * initialize the form.
