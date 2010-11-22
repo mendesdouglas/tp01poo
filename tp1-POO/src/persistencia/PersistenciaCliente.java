@@ -48,7 +48,7 @@ public class PersistenciaCliente {
 		Cliente cliente = null;
 		try {
 			stat = conn.createStatement();
-			rs = stat.executeQuery("select * from Cliente where cpf = "+query+" or nome = "+query);
+			rs = stat.executeQuery("select * from Cliente where cpf = '"+query+"' or nome = '"+query+"'");
 			if (rs.next()) {
 				cliente = new Cliente(rs.getString("cpf"),rs.getString("nome"),rs.getString("endereco"),rs.getString("telefone"));
 			}
@@ -125,4 +125,3 @@ public class PersistenciaCliente {
 		}
 	}
 }
-

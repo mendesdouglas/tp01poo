@@ -11,6 +11,11 @@
 
 package gui;
 
+import javax.swing.JOptionPane;
+
+import persistencia.PersistenciaCliente;
+import persistencia.PersistenciaFornecedor;
+import pessoas.Fornecedor;
 import gui.Principal;
 
 /**
@@ -25,6 +30,13 @@ public class ConsultaFornecedor extends javax.swing.JFrame {
 		this.principal = principal;
 		ConsultaFornecedorPanelCnpj.setVisible(false);
 		ConsultaFornecedorPanelNome.setVisible(false);
+		ConsultaFornecedorTextPesquisa.setText("");
+		ConsultaFornecedorCnpjTextNome.setEditable(false);
+		ConsultaFornecedorCnpjTextEndereco.setEditable(false);
+		ConsultaFornecedorCnpjTextTelefone.setEditable(false);
+		ConsultaFornecedorNomeTextCnpj.setEditable(false);
+		ConsultaFornecedorNomeTextEndereco.setEditable(false);
+		ConsultaFornecedorNomeTextTelefone.setEditable(false);	
     }
 
     /** This method is called from within the constructor to
@@ -40,27 +52,27 @@ public class ConsultaFornecedor extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jFPesquisa = new javax.swing.JFormattedTextField();
+        ConsultaFornecedorTextPesquisa = new javax.swing.JFormattedTextField();
         jBBusca = new javax.swing.JButton();
-        jRNome = new javax.swing.JRadioButton();
-        jRCNPJ = new javax.swing.JRadioButton();
+        ConsultaFornecedorOpcaoNome = new javax.swing.JRadioButton();
+        ConsultaFornecedorOpcaoCnpj = new javax.swing.JRadioButton();
         jSeparator1 = new javax.swing.JSeparator();
         ConsultaFornecedorPanelCnpj = new javax.swing.JPanel();
         jLEndereco = new javax.swing.JLabel();
         jLTelefone = new javax.swing.JLabel();
         jLNome = new javax.swing.JLabel();
-        ConsultaFornecedorTextEndereco = new javax.swing.JFormattedTextField();
-        ConsultaFornecedorTextNome = new javax.swing.JFormattedTextField();
-        ConsultaFornecedorTextTel = new javax.swing.JFormattedTextField();
+        ConsultaFornecedorCnpjTextEndereco = new javax.swing.JFormattedTextField();
+        ConsultaFornecedorCnpjTextNome = new javax.swing.JFormattedTextField();
+        ConsultaFornecedorCnpjTextTelefone = new javax.swing.JFormattedTextField();
         ConsultaFornecedorCnpjBotaoOk = new javax.swing.JButton();
         ConsultaFornecedorCnpjBotaoListar = new javax.swing.JButton();
         ConsultaFornecedorPanelNome = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLCNPJ = new javax.swing.JLabel();
-        jFNEndereco = new javax.swing.JFormattedTextField();
-        jFCNPJ = new javax.swing.JFormattedTextField();
-        jFNTelefone = new javax.swing.JFormattedTextField();
+        ConsultaFornecedorNomeTextEndereco = new javax.swing.JFormattedTextField();
+        ConsultaFornecedorNomeTextCnpj = new javax.swing.JFormattedTextField();
+        ConsultaFornecedorNomeTextTelefone = new javax.swing.JFormattedTextField();
         ConsultaFornecedorNomeBotaoOk = new javax.swing.JButton();
         ConsultaFornecedorNomeBotaListar = new javax.swing.JButton();
 
@@ -70,13 +82,13 @@ public class ConsultaFornecedor extends javax.swing.JFrame {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Fornecedor"));
 
-        jFPesquisa.setText("Pesquisa");
-        jFPesquisa.addFocusListener(new java.awt.event.FocusAdapter() {
+        ConsultaFornecedorTextPesquisa.setText("Pesquisa");
+        ConsultaFornecedorTextPesquisa.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jFPesquisaFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jFPesquisaFocusLost(evt);
+//				jFPesquisaFocusLost(evt);
             }
         });
 
@@ -87,17 +99,17 @@ public class ConsultaFornecedor extends javax.swing.JFrame {
             }
         });
 
-        buttonGroup1.add(jRNome);
-        jRNome.setText("Nome");
-        jRNome.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(ConsultaFornecedorOpcaoNome);
+        ConsultaFornecedorOpcaoNome.setText("Nome");
+        ConsultaFornecedorOpcaoNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRNomeActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(jRCNPJ);
-        jRCNPJ.setText("CNPJ");
-        jRCNPJ.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(ConsultaFornecedorOpcaoCnpj);
+        ConsultaFornecedorOpcaoCnpj.setText("CNPJ");
+        ConsultaFornecedorOpcaoCnpj.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRCNPJActionPerformed(evt);
             }
@@ -109,11 +121,11 @@ public class ConsultaFornecedor extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(145, Short.MAX_VALUE)
-                .addComponent(jRCNPJ)
+                .addComponent(ConsultaFornecedorOpcaoCnpj)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRNome)
+                .addComponent(ConsultaFornecedorOpcaoNome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ConsultaFornecedorTextPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jBBusca)
                 .addContainerGap())
@@ -123,10 +135,10 @@ public class ConsultaFornecedor extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsultaFornecedorTextPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBBusca)
-                    .addComponent(jRNome)
-                    .addComponent(jRCNPJ))
+                    .addComponent(ConsultaFornecedorOpcaoNome)
+                    .addComponent(ConsultaFornecedorOpcaoCnpj))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -138,7 +150,7 @@ public class ConsultaFornecedor extends javax.swing.JFrame {
 
         jLNome.setText("Nome");
 
-        ConsultaFornecedorTextTel.setForeground(new java.awt.Color(58, 57, 59));
+        ConsultaFornecedorCnpjTextTelefone.setForeground(new java.awt.Color(58, 57, 59));
 
         ConsultaFornecedorCnpjBotaoOk.setText("OK");
         ConsultaFornecedorCnpjBotaoOk.addActionListener(new java.awt.event.ActionListener() {
@@ -172,13 +184,13 @@ public class ConsultaFornecedor extends javax.swing.JFrame {
                             .addComponent(jLNome))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(ConsultaFornecedorPanelCnpjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ConsultaFornecedorTextNome, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)
-                            .addComponent(ConsultaFornecedorTextEndereco, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE))
+                            .addComponent(ConsultaFornecedorCnpjTextNome, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)
+                            .addComponent(ConsultaFornecedorCnpjTextEndereco, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE))
                         .addContainerGap())
                     .addGroup(ConsultaFornecedorPanelCnpjLayout.createSequentialGroup()
                         .addComponent(jLTelefone)
                         .addGap(18, 18, 18)
-                        .addComponent(ConsultaFornecedorTextTel, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                        .addComponent(ConsultaFornecedorCnpjTextTelefone, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
                         .addGap(240, 240, 240))))
         );
         ConsultaFornecedorPanelCnpjLayout.setVerticalGroup(
@@ -187,14 +199,14 @@ public class ConsultaFornecedor extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(ConsultaFornecedorPanelCnpjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLNome)
-                    .addComponent(ConsultaFornecedorTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ConsultaFornecedorCnpjTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50)
                 .addGroup(ConsultaFornecedorPanelCnpjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLEndereco)
-                    .addComponent(ConsultaFornecedorTextEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ConsultaFornecedorCnpjTextEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addGroup(ConsultaFornecedorPanelCnpjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ConsultaFornecedorTextTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsultaFornecedorCnpjTextTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLTelefone))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ConsultaFornecedorPanelCnpjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -211,7 +223,7 @@ public class ConsultaFornecedor extends javax.swing.JFrame {
 
         jLCNPJ.setText("CNPJ");
 
-        jFNTelefone.setForeground(new java.awt.Color(58, 57, 59));
+        ConsultaFornecedorNomeTextTelefone.setForeground(new java.awt.Color(58, 57, 59));
 
         ConsultaFornecedorNomeBotaoOk.setText("OK");
         ConsultaFornecedorNomeBotaoOk.addActionListener(new java.awt.event.ActionListener() {
@@ -241,9 +253,9 @@ public class ConsultaFornecedor extends javax.swing.JFrame {
                             .addComponent(jLabel7))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                         .addGroup(ConsultaFornecedorPanelNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jFCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jFNEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jFNTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(ConsultaFornecedorNomeTextCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ConsultaFornecedorNomeTextEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ConsultaFornecedorNomeTextTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(16, Short.MAX_VALUE))
                     .addGroup(ConsultaFornecedorPanelNomeLayout.createSequentialGroup()
                         .addComponent(ConsultaFornecedorNomeBotaListar)
@@ -260,15 +272,15 @@ public class ConsultaFornecedor extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(ConsultaFornecedorPanelNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLCNPJ)
-                    .addComponent(jFCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ConsultaFornecedorNomeTextCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addGroup(ConsultaFornecedorPanelNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFNEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsultaFornecedorNomeTextEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addGroup(ConsultaFornecedorPanelNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jFNTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ConsultaFornecedorNomeTextTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ConsultaFornecedorNomeBotaListar)
                 .addGap(6, 6, 6))
@@ -356,34 +368,43 @@ public class ConsultaFornecedor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jFPesquisaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFPesquisaFocusGained
-        jFPesquisa.setText("");
+        ConsultaFornecedorTextPesquisa.setText("");
 }//GEN-LAST:event_jFPesquisaFocusGained
 
-    private void jFPesquisaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFPesquisaFocusLost
-        jFPesquisa.setText("Pesquisa");
-}//GEN-LAST:event_jFPesquisaFocusLost
+//    private void jFPesquisaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFPesquisaFocusLost
+//        ConsultaFornecedorTextPesquisa.setText("Pesquisa");
+//}//GEN-LAST:event_jFPesquisaFocusLost
 
     private void jBBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscaActionPerformed
-//        String busca = jFPesquisa.getText();
-//        if(busca == null || busca.length() == 0){
-//            JOptionPane.showMessageDialog(null, "Pesquisa Inválida");
-//        } else{
-//            Fornecedor fornecedor = new Fornecedor();
-//            fornecedor = PersistenciaFornecedor.getInstance().seach();
-//            if(jRCNPJ.isSelected() == true){
-//                jFNome.setText(fornecedor.getNome());
-//                jFEndereco.setText(fornecedor.getEndereco());
-//                jFCodigo.setText(forncedor.getCodigo());
-//                jFTelefone.setText(fornecedor.getTelefone());
-//            } else{
-//                if(jRNome.isSelected() == true){
-//                    jFCNPJ.setText(fornecedor.getCnpj());
-//                    jFNEndereco.setText(fornecedor.getEndereco());
-//                    jFNCodigo.setText(forncedor.getCodigo());
-//                    jFNTelefone.setText(fornecedor.getTelefone());
-//                }
-//            }
-//        }
+        String busca = null;
+        busca = ConsultaFornecedorTextPesquisa.getText();
+        if(busca == null || busca.length() == 0){
+            JOptionPane.showMessageDialog(null, "Pesquisa Inválida");
+        } else{   	
+            if(ConsultaFornecedorOpcaoCnpj .isSelected() == true){
+            	Fornecedor fornecedor = PersistenciaFornecedor.getInstance().searchFornecedor(busca);
+            	if(fornecedor == null){
+            		JOptionPane.showMessageDialog(null, "Não Encontrado");
+            	}
+            	else{
+	            	ConsultaFornecedorCnpjTextNome.setText(fornecedor.getNome());
+	                ConsultaFornecedorCnpjTextEndereco.setText(fornecedor.getEndereco());
+	                ConsultaFornecedorCnpjTextTelefone.setText(fornecedor.getTelefone());
+            	} 
+             }else{
+                if(ConsultaFornecedorOpcaoNome.isSelected() == true){
+                	Fornecedor fornecedor = PersistenciaFornecedor.getInstance().searchFornecedor(busca);
+                	if(fornecedor == null){
+                		JOptionPane.showMessageDialog(null, "Não Encontrado");
+                	}
+                	else{
+	                	ConsultaFornecedorNomeTextCnpj .setText(fornecedor.getCnpj());
+	                    ConsultaFornecedorNomeTextEndereco.setText(fornecedor.getEndereco());
+	                    ConsultaFornecedorNomeTextTelefone.setText(fornecedor.getTelefone());
+                	}    
+                }
+            }     
+        }	
 }//GEN-LAST:event_jBBuscaActionPerformed
 
 	private void ConsultaFornecedorCnpjBotaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaFornecedorCnpjBotaoOkActionPerformed
@@ -399,6 +420,9 @@ public class ConsultaFornecedor extends javax.swing.JFrame {
 	private void jRCNPJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRCNPJActionPerformed
 		ConsultaFornecedorPanelCnpj.setVisible(true);
 		ConsultaFornecedorPanelNome.setVisible(false);
+		ConsultaFornecedorNomeTextCnpj.setText("");
+		ConsultaFornecedorNomeTextEndereco.setText("");
+		ConsultaFornecedorNomeTextTelefone.setText("");
 	}//GEN-LAST:event_jRCNPJActionPerformed
 
 	private void jRNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRNomeActionPerformed
@@ -430,15 +454,15 @@ public class ConsultaFornecedor extends javax.swing.JFrame {
     private javax.swing.JButton ConsultaFornecedorNomeBotaoOk;
     private javax.swing.JPanel ConsultaFornecedorPanelCnpj;
     private javax.swing.JPanel ConsultaFornecedorPanelNome;
-    private javax.swing.JFormattedTextField ConsultaFornecedorTextEndereco;
-    private javax.swing.JFormattedTextField ConsultaFornecedorTextNome;
-    private javax.swing.JFormattedTextField ConsultaFornecedorTextTel;
+    private javax.swing.JFormattedTextField ConsultaFornecedorCnpjTextEndereco;
+    private javax.swing.JFormattedTextField ConsultaFornecedorCnpjTextNome;
+    private javax.swing.JFormattedTextField ConsultaFornecedorCnpjTextTelefone;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jBBusca;
-    private javax.swing.JFormattedTextField jFCNPJ;
-    private javax.swing.JFormattedTextField jFNEndereco;
-    private javax.swing.JFormattedTextField jFNTelefone;
-    private javax.swing.JFormattedTextField jFPesquisa;
+    private javax.swing.JFormattedTextField ConsultaFornecedorNomeTextCnpj;
+    private javax.swing.JFormattedTextField ConsultaFornecedorNomeTextEndereco;
+    private javax.swing.JFormattedTextField ConsultaFornecedorNomeTextTelefone;
+    private javax.swing.JFormattedTextField ConsultaFornecedorTextPesquisa;
     private javax.swing.JLabel jLCNPJ;
     private javax.swing.JLabel jLEndereco;
     private javax.swing.JLabel jLNome;
@@ -448,8 +472,8 @@ public class ConsultaFornecedor extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JRadioButton jRCNPJ;
-    private javax.swing.JRadioButton jRNome;
+    private javax.swing.JRadioButton ConsultaFornecedorOpcaoCnpj;
+    private javax.swing.JRadioButton ConsultaFornecedorOpcaoNome;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 

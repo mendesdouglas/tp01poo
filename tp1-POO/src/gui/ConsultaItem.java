@@ -11,6 +11,12 @@
 
 package gui;
 
+import javax.swing.JOptionPane;
+
+import estoque.Item;
+
+import persistencia.PersistenciaEstoque;
+
 import gui.Principal;
 
 /**
@@ -24,8 +30,17 @@ public class ConsultaItem extends javax.swing.JFrame {
     public ConsultaItem(Principal principal) {
         initComponents();
 		this.principal = principal;
-		jPCNome.setVisible(false);
-		jPCodigo.setVisible(false);
+		ConsultaItemPanelNome.setVisible(false);
+		ConsultaItemPanelCodigo.setVisible(false);
+		ConsultaItemTextPesquisa.setText("");
+		ConsultaItemCodigoTextMargemLucro.setEditable(false);
+		ConsultaItemCodigoTextNome.setEditable(false);
+		ConsultaItemCodigoTextPrecoCusto.setEditable(false);
+		ConsultaItemCodigoTextQuantidade.setEditable(false);
+		ConsultaItemNomeTextCodigo.setEditable(false);
+		ConsultaItemNomeTextNMargemLucro.setEditable(false);
+		ConsultaItemNomeTextNPrecoCusto.setEditable(false);
+		ConsultaItemNomeTextNQuantidade.setEditable(false);		
     }
 
     /** This method is called from within the constructor to
@@ -41,47 +56,47 @@ public class ConsultaItem extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jFPesquisa = new javax.swing.JFormattedTextField();
+        ConsultaItemTextPesquisa = new javax.swing.JFormattedTextField();
         jBCBusca = new javax.swing.JButton();
-        jRNome = new javax.swing.JRadioButton();
-        jRCodigo = new javax.swing.JRadioButton();
+        ConsultaItemOpcaoNome = new javax.swing.JRadioButton();
+        ConsultaItemOpcaoCodigo = new javax.swing.JRadioButton();
         jSeparator1 = new javax.swing.JSeparator();
-        jPCodigo = new javax.swing.JPanel();
+        ConsultaItemPanelCodigo = new javax.swing.JPanel();
         jLPrecoCusto = new javax.swing.JLabel();
         jLMargemLucro = new javax.swing.JLabel();
         jLQuantidade = new javax.swing.JLabel();
         jLNome = new javax.swing.JLabel();
-        jFMargemLucro = new javax.swing.JFormattedTextField();
-        jFPrecoCusto = new javax.swing.JFormattedTextField();
-        jFNome = new javax.swing.JFormattedTextField();
-        jFQuantidade = new javax.swing.JFormattedTextField();
+        ConsultaItemCodigoTextMargemLucro = new javax.swing.JFormattedTextField();
+        ConsultaItemCodigoTextPrecoCusto = new javax.swing.JFormattedTextField();
+        ConsultaItemCodigoTextNome = new javax.swing.JFormattedTextField();
+        ConsultaItemCodigoTextQuantidade = new javax.swing.JFormattedTextField();
         ConsultaItemCodigoBotaoOk = new javax.swing.JButton();
         ConsultaItemCodigoBotaoListar = new javax.swing.JButton();
-        jPCNome = new javax.swing.JPanel();
+        ConsultaItemPanelNome = new javax.swing.JPanel();
         jLNPrecoCusto = new javax.swing.JLabel();
         jLNMargemLucro = new javax.swing.JLabel();
         jLNQuantidade = new javax.swing.JLabel();
         jLCodigo = new javax.swing.JLabel();
-        jFNMargemLucro = new javax.swing.JFormattedTextField();
-        jFNPrecoCusto = new javax.swing.JFormattedTextField();
-        jFCodigo = new javax.swing.JFormattedTextField();
-        jFNQuantidade = new javax.swing.JFormattedTextField();
+        ConsultaItemNomeTextNMargemLucro = new javax.swing.JFormattedTextField();
+        ConsultaItemNomeTextNPrecoCusto = new javax.swing.JFormattedTextField();
+        ConsultaItemNomeTextCodigo = new javax.swing.JFormattedTextField();
+        ConsultaItemNomeTextNQuantidade = new javax.swing.JFormattedTextField();
         ConsultaItemNomeBotaoOk = new javax.swing.JButton();
         ConsultaItemNomeBotaoListar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel2.setPreferredSize(new java.awt.Dimension(514, 401));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Item"));
 
-        jFPesquisa.setText("Pesquisa");
-        jFPesquisa.addFocusListener(new java.awt.event.FocusAdapter() {
+        ConsultaItemTextPesquisa.setText("Pesquisa");
+        ConsultaItemTextPesquisa.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jFPesquisaFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jFPesquisaFocusLost(evt);
+                //jFPesquisaFocusLost(evt);
             }
         });
 
@@ -92,17 +107,17 @@ public class ConsultaItem extends javax.swing.JFrame {
             }
         });
 
-        buttonGroup1.add(jRNome);
-        jRNome.setText("Nome");
-        jRNome.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(ConsultaItemOpcaoNome);
+        ConsultaItemOpcaoNome.setText("Nome");
+        ConsultaItemOpcaoNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRNomeActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(jRCodigo);
-        jRCodigo.setText("Código");
-        jRCodigo.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(ConsultaItemOpcaoCodigo);
+        ConsultaItemOpcaoCodigo.setText("Código");
+        ConsultaItemOpcaoCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRCodigoActionPerformed(evt);
             }
@@ -114,11 +129,11 @@ public class ConsultaItem extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(131, Short.MAX_VALUE)
-                .addComponent(jRCodigo)
+                .addComponent(ConsultaItemOpcaoCodigo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRNome)
+                .addComponent(ConsultaItemOpcaoNome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ConsultaItemTextPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jBCBusca)
                 .addContainerGap())
@@ -128,14 +143,14 @@ public class ConsultaItem extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsultaItemTextPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBCBusca)
-                    .addComponent(jRNome)
-                    .addComponent(jRCodigo))
+                    .addComponent(ConsultaItemOpcaoNome)
+                    .addComponent(ConsultaItemOpcaoCodigo))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPCodigo.setBorder(javax.swing.BorderFactory.createTitledBorder("Código"));
+        ConsultaItemPanelCodigo.setBorder(javax.swing.BorderFactory.createTitledBorder("Código"));
 
         jLPrecoCusto.setText("Preço de Custo");
 
@@ -145,7 +160,7 @@ public class ConsultaItem extends javax.swing.JFrame {
 
         jLNome.setText("Nome");
 
-        jFQuantidade.setForeground(new java.awt.Color(58, 57, 59));
+        ConsultaItemCodigoTextQuantidade.setForeground(new java.awt.Color(58, 57, 59));
 
         ConsultaItemCodigoBotaoOk.setText("OK");
         ConsultaItemCodigoBotaoOk.addActionListener(new java.awt.event.ActionListener() {
@@ -161,8 +176,8 @@ public class ConsultaItem extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPCodigoLayout = new javax.swing.GroupLayout(jPCodigo);
-        jPCodigo.setLayout(jPCodigoLayout);
+        javax.swing.GroupLayout jPCodigoLayout = new javax.swing.GroupLayout(ConsultaItemPanelCodigo);
+        ConsultaItemPanelCodigo.setLayout(jPCodigoLayout);
         jPCodigoLayout.setHorizontalGroup(
             jPCodigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPCodigoLayout.createSequentialGroup()
@@ -176,11 +191,11 @@ public class ConsultaItem extends javax.swing.JFrame {
                             .addComponent(jLQuantidade))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPCodigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jFQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jFNome, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
+                            .addComponent(ConsultaItemCodigoTextQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ConsultaItemCodigoTextNome, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
                             .addGroup(jPCodigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jFMargemLucro, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jFPrecoCusto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)))
+                                .addComponent(ConsultaItemCodigoTextMargemLucro, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(ConsultaItemCodigoTextPrecoCusto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)))
                         .addGap(37, 37, 37))
                     .addGroup(jPCodigoLayout.createSequentialGroup()
                         .addComponent(ConsultaItemCodigoBotaoListar)
@@ -197,18 +212,18 @@ public class ConsultaItem extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(jPCodigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLNome)
-                    .addComponent(jFNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ConsultaItemCodigoTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPCodigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFPrecoCusto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsultaItemCodigoTextPrecoCusto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLPrecoCusto))
                 .addGap(8, 8, 8)
                 .addGroup(jPCodigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFMargemLucro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsultaItemCodigoTextMargemLucro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLMargemLucro))
                 .addGap(18, 18, 18)
                 .addGroup(jPCodigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsultaItemCodigoTextQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLQuantidade))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(ConsultaItemCodigoBotaoListar)
@@ -220,7 +235,7 @@ public class ConsultaItem extends javax.swing.JFrame {
                     .addContainerGap()))
         );
 
-        jPCNome.setBorder(javax.swing.BorderFactory.createTitledBorder("Nome"));
+        ConsultaItemPanelNome.setBorder(javax.swing.BorderFactory.createTitledBorder("Nome"));
 
         jLNPrecoCusto.setText("Preço de Custo");
 
@@ -230,7 +245,7 @@ public class ConsultaItem extends javax.swing.JFrame {
 
         jLCodigo.setText("Código");
 
-        jFNQuantidade.setForeground(new java.awt.Color(58, 57, 59));
+        ConsultaItemNomeTextNQuantidade.setForeground(new java.awt.Color(58, 57, 59));
 
         ConsultaItemNomeBotaoOk.setText("OK");
         ConsultaItemNomeBotaoOk.addActionListener(new java.awt.event.ActionListener() {
@@ -246,8 +261,8 @@ public class ConsultaItem extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPCNomeLayout = new javax.swing.GroupLayout(jPCNome);
-        jPCNome.setLayout(jPCNomeLayout);
+        javax.swing.GroupLayout jPCNomeLayout = new javax.swing.GroupLayout(ConsultaItemPanelNome);
+        ConsultaItemPanelNome.setLayout(jPCNomeLayout);
         jPCNomeLayout.setHorizontalGroup(
             jPCNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPCNomeLayout.createSequentialGroup()
@@ -261,10 +276,10 @@ public class ConsultaItem extends javax.swing.JFrame {
                             .addComponent(jLNQuantidade))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPCNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jFNQuantidade, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
-                            .addComponent(jFCodigo)
-                            .addComponent(jFNPrecoCusto, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
-                            .addComponent(jFNMargemLucro))
+                            .addComponent(ConsultaItemNomeTextNQuantidade, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                            .addComponent(ConsultaItemNomeTextCodigo)
+                            .addComponent(ConsultaItemNomeTextNPrecoCusto, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                            .addComponent(ConsultaItemNomeTextNMargemLucro))
                         .addContainerGap(206, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPCNomeLayout.createSequentialGroup()
                         .addComponent(ConsultaItemNomeBotaoListar)
@@ -278,18 +293,18 @@ public class ConsultaItem extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addGroup(jPCNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLCodigo)
-                    .addComponent(jFCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ConsultaItemNomeTextCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPCNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFNPrecoCusto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsultaItemNomeTextNPrecoCusto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLNPrecoCusto))
                 .addGap(8, 8, 8)
                 .addGroup(jPCNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFNMargemLucro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsultaItemNomeTextNMargemLucro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLNMargemLucro))
                 .addGap(18, 18, 18)
                 .addGroup(jPCNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFNQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsultaItemNomeTextNQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLNQuantidade))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(jPCNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -308,9 +323,9 @@ public class ConsultaItem extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(ConsultaItemPanelCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPCNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(ConsultaItemPanelNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -322,11 +337,11 @@ public class ConsultaItem extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                     .addContainerGap(129, Short.MAX_VALUE)
-                    .addComponent(jPCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(ConsultaItemPanelCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                     .addContainerGap(125, Short.MAX_VALUE)
-                    .addComponent(jPCNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(ConsultaItemPanelNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -375,34 +390,46 @@ public class ConsultaItem extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jFPesquisaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFPesquisaFocusGained
-        jFPesquisa.setText("");
+        ConsultaItemTextPesquisa.setText("");
 }//GEN-LAST:event_jFPesquisaFocusGained
 
-    private void jFPesquisaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFPesquisaFocusLost
-        jFPesquisa.setText("Pesquisa");
-}//GEN-LAST:event_jFPesquisaFocusLost
+/*    private void jFPesquisaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFPesquisaFocusLost
+        ConsultaItemTextPesquisa.setText("");
+}*///GEN-LAST:event_jFPesquisaFocusLost
 
     private void jBCBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCBuscaActionPerformed
-//        String busca = jFPesquisa.getText();
-//        if(busca == null || busca.length() == 0){
-//            JOptionPane.showMessageDialog(null, "Pesquisa Inválida");
-//        } else{
-//            Item item = new Item();
-//            item = PersistenciaItem.getInstance().seach();
-//            if(jRCodigo.isSelected() == true){
-//                jFNome.setText(item.getNome());
-//                jFMargemLucro.setText(item);
-//                jFPrecoCusto.setText(item);
-//                jFQuantidade.setText(item);
-//            } else{
-//                if(jRNome.isSelected() == true){
-//                    jFCodigo.setText(item.getCodigo());
-//                    jFNMargemLucro.setText(item);
-//                    jFNPrecoCusto.setText(item);
-//                    jFNQuantidade.setText(item);
-//                }
-//            }
-//        }
+        String busca = null;
+        busca = ConsultaItemTextPesquisa.getText();
+        if(busca == null || busca.length() == 0){
+            JOptionPane.showMessageDialog(null, "Pesquisa Inválida");
+        } 
+        else{            
+	            if(ConsultaItemOpcaoCodigo.isSelected() == true){
+	            	Item item = PersistenciaEstoque.getInstance().searchItem(Integer.parseInt(busca));
+	            	if(item == null){
+	                    JOptionPane.showMessageDialog(null, "Nao encontrado!!!!!");
+	            	}
+	            	else{
+		            	ConsultaItemCodigoTextNome.setText(item.getNome());
+		                ConsultaItemCodigoTextMargemLucro.setText(((Float)item.getMargemLucro()).toString());
+		                ConsultaItemCodigoTextPrecoCusto.setText(((Float)item.getPrecoCusto()).toString());
+		                ConsultaItemCodigoTextQuantidade.setText(String.valueOf(item.getQuant()));
+	            	}	
+	            } else{
+	                if(ConsultaItemOpcaoNome.isSelected() == true){
+	                	Item item = PersistenciaEstoque.getInstance().searchItem(busca);
+	                	if(item == null){
+	                        JOptionPane.showMessageDialog(null, "Nao encontrado!!!!!");
+	                	}
+	                	else {
+		                    ConsultaItemNomeTextCodigo.setText(String.valueOf(item.getCodigo()));
+		                    ConsultaItemNomeTextNMargemLucro.setText(((Float)item.getMargemLucro()).toString());
+		                    ConsultaItemNomeTextNPrecoCusto.setText(((Float)item.getMargemLucro()).toString());
+		                    ConsultaItemNomeTextNQuantidade.setText(String.valueOf(item.getQuant()));
+	                	}    
+	                }
+	            }
+        }
 }//GEN-LAST:event_jBCBuscaActionPerformed
 
 	private void ConsultaItemNomeBotaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaItemNomeBotaoOkActionPerformed
@@ -416,13 +443,13 @@ public class ConsultaItem extends javax.swing.JFrame {
 	}//GEN-LAST:event_ConsultaItemCodigoBotaoOkActionPerformed
 
 	private void jRCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRCodigoActionPerformed
-		jPCNome.setVisible(false);
-		jPCodigo.setVisible(true);
+		ConsultaItemPanelNome.setVisible(false);
+		ConsultaItemPanelCodigo.setVisible(true);
 	}//GEN-LAST:event_jRCodigoActionPerformed
 
 	private void jRNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRNomeActionPerformed
-		jPCodigo.setVisible(false);
-		jPCNome.setVisible(true);
+		ConsultaItemPanelCodigo.setVisible(false);
+		ConsultaItemPanelNome.setVisible(true);
 	}//GEN-LAST:event_jRNomeActionPerformed
 
 	private void ConsultaItemCodigoBotaoListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaItemCodigoBotaoListarActionPerformed
@@ -449,15 +476,15 @@ public class ConsultaItem extends javax.swing.JFrame {
     private javax.swing.JButton ConsultaItemNomeBotaoOk;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jBCBusca;
-    private javax.swing.JFormattedTextField jFCodigo;
-    private javax.swing.JFormattedTextField jFMargemLucro;
-    private javax.swing.JFormattedTextField jFNMargemLucro;
-    private javax.swing.JFormattedTextField jFNPrecoCusto;
-    private javax.swing.JFormattedTextField jFNQuantidade;
-    private javax.swing.JFormattedTextField jFNome;
-    private javax.swing.JFormattedTextField jFPesquisa;
-    private javax.swing.JFormattedTextField jFPrecoCusto;
-    private javax.swing.JFormattedTextField jFQuantidade;
+    private javax.swing.JFormattedTextField ConsultaItemNomeTextCodigo;
+    private javax.swing.JFormattedTextField ConsultaItemCodigoTextMargemLucro;
+    private javax.swing.JFormattedTextField ConsultaItemNomeTextNMargemLucro;
+    private javax.swing.JFormattedTextField ConsultaItemNomeTextNPrecoCusto;
+    private javax.swing.JFormattedTextField ConsultaItemNomeTextNQuantidade;
+    private javax.swing.JFormattedTextField ConsultaItemCodigoTextNome;
+    private javax.swing.JFormattedTextField ConsultaItemTextPesquisa;
+    private javax.swing.JFormattedTextField ConsultaItemCodigoTextPrecoCusto;
+    private javax.swing.JFormattedTextField ConsultaItemCodigoTextQuantidade;
     private javax.swing.JLabel jLCodigo;
     private javax.swing.JLabel jLMargemLucro;
     private javax.swing.JLabel jLNMargemLucro;
@@ -466,13 +493,13 @@ public class ConsultaItem extends javax.swing.JFrame {
     private javax.swing.JLabel jLNome;
     private javax.swing.JLabel jLPrecoCusto;
     private javax.swing.JLabel jLQuantidade;
-    private javax.swing.JPanel jPCNome;
-    private javax.swing.JPanel jPCodigo;
+    private javax.swing.JPanel ConsultaItemPanelNome;
+    private javax.swing.JPanel ConsultaItemPanelCodigo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JRadioButton jRCodigo;
-    private javax.swing.JRadioButton jRNome;
+    private javax.swing.JRadioButton ConsultaItemOpcaoCodigo;
+    private javax.swing.JRadioButton ConsultaItemOpcaoNome;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 

@@ -11,6 +11,10 @@
 
 package gui;
 
+import javax.swing.JOptionPane;
+
+import persistencia.PersistenciaCliente;
+import pessoas.Cliente;
 import gui.Principal;
 
 /**
@@ -25,6 +29,13 @@ public class ConsultaCliente extends javax.swing.JFrame {
 		this.principal = principal;
 		ConsultaClientePanelCpf.setVisible(false);
 		ConsultaClientePanelNome.setVisible(false);
+		ConsultaClienteTextPesquisa.setText("");
+		ConsultaClienteCpfTextNome.setEditable(false);
+		ConsultaClienteCpfTextEndereco.setEditable(false);
+		ConsultaClienteCpfTextTelefone.setEditable(false);
+		ConsultaClienteNomeTextCpf.setEditable(false);
+		ConsultaClienteNomeTextEndereco.setEditable(false);
+		ConsultaClienteNomeTextTelefone.setEditable(false);	
     }
 
     /** This method is called from within the constructor to
@@ -48,18 +59,18 @@ public class ConsultaCliente extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLCPF = new javax.swing.JLabel();
-        ConsultaClienteTextEndereco = new javax.swing.JFormattedTextField();
-        ConsultaClienteTextNome = new javax.swing.JFormattedTextField();
-        ConsultaClienteTextTelefone = new javax.swing.JFormattedTextField();
+        ConsultaClienteCpfTextEndereco = new javax.swing.JFormattedTextField();
+        ConsultaClienteCpfTextNome = new javax.swing.JFormattedTextField();
+        ConsultaClienteCpfTextTelefone = new javax.swing.JFormattedTextField();
         ConsultaClienteCpfBotaoOk = new javax.swing.JButton();
         ConsultaClienteCpfBotaoListar = new javax.swing.JButton();
         ConsultaClientePanelNome = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLCPF1 = new javax.swing.JLabel();
-        jFNEndereco = new javax.swing.JFormattedTextField();
-        jFCPF = new javax.swing.JFormattedTextField();
-        jFNTelefone = new javax.swing.JFormattedTextField();
+        ConsultaClienteNomeTextEndereco = new javax.swing.JFormattedTextField();
+        ConsultaClienteNomeTextCpf = new javax.swing.JFormattedTextField();
+        ConsultaClienteNomeTextTelefone = new javax.swing.JFormattedTextField();
         ConsultaClienteNomeBotaoOk = new javax.swing.JButton();
         ConsultaClienteNomeBotaoListar = new javax.swing.JButton();
 
@@ -75,7 +86,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
                 ConsultaClienteTextPesquisaFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                ConsultaClienteTextPesquisaFocusLost(evt);
+//                ConsultaClienteTextPesquisaFocusLost(evt);
             }
         });
 
@@ -137,7 +148,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
 
         jLCPF.setText("Nome");
 
-        ConsultaClienteTextTelefone.setForeground(new java.awt.Color(58, 57, 59));
+        ConsultaClienteCpfTextTelefone.setForeground(new java.awt.Color(58, 57, 59));
 
         ConsultaClienteCpfBotaoOk.setText("OK");
         ConsultaClienteCpfBotaoOk.addActionListener(new java.awt.event.ActionListener() {
@@ -166,8 +177,8 @@ public class ConsultaCliente extends javax.swing.JFrame {
                             .addComponent(jLCPF))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(ConsultaClientePanelCpfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(ConsultaClienteTextNome, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
-                            .addComponent(ConsultaClienteTextEndereco, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)))
+                            .addComponent(ConsultaClienteCpfTextNome, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
+                            .addComponent(ConsultaClienteCpfTextEndereco, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaClientePanelCpfLayout.createSequentialGroup()
                         .addComponent(ConsultaClienteCpfBotaoListar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 332, Short.MAX_VALUE)
@@ -175,7 +186,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
                     .addGroup(ConsultaClientePanelCpfLayout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addGap(18, 18, 18)
-                        .addComponent(ConsultaClienteTextTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(ConsultaClienteCpfTextTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         ConsultaClientePanelCpfLayout.setVerticalGroup(
@@ -183,16 +194,16 @@ public class ConsultaCliente extends javax.swing.JFrame {
             .addGroup(ConsultaClientePanelCpfLayout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addGroup(ConsultaClientePanelCpfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ConsultaClienteTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsultaClienteCpfTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLCPF))
                 .addGap(33, 33, 33)
                 .addGroup(ConsultaClientePanelCpfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(ConsultaClienteTextEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ConsultaClienteCpfTextEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(ConsultaClientePanelCpfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(ConsultaClienteTextTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ConsultaClienteCpfTextTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(ConsultaClientePanelCpfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ConsultaClienteCpfBotaoOk)
@@ -208,7 +219,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
 
         jLCPF1.setText("CPF");
 
-        jFNTelefone.setForeground(new java.awt.Color(58, 57, 59));
+        ConsultaClienteNomeTextTelefone.setForeground(new java.awt.Color(58, 57, 59));
 
         ConsultaClienteNomeBotaoOk.setText("OK");
         ConsultaClienteNomeBotaoOk.addActionListener(new java.awt.event.ActionListener() {
@@ -238,9 +249,9 @@ public class ConsultaCliente extends javax.swing.JFrame {
                             .addComponent(jLabel7))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                         .addGroup(ConsultaClientePanelNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jFNTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jFCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jFNEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(ConsultaClienteNomeTextTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ConsultaClienteNomeTextCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ConsultaClienteNomeTextEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(16, Short.MAX_VALUE))
                     .addGroup(ConsultaClientePanelNomeLayout.createSequentialGroup()
                         .addComponent(ConsultaClienteNomeBotaoListar)
@@ -257,14 +268,14 @@ public class ConsultaCliente extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addGroup(ConsultaClientePanelNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLCPF1)
-                    .addComponent(jFCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ConsultaClienteNomeTextCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addGroup(ConsultaClientePanelNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFNEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsultaClienteNomeTextEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addGap(36, 36, 36)
                 .addGroup(ConsultaClientePanelNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFNTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsultaClienteNomeTextTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addComponent(ConsultaClienteNomeBotaoListar)
@@ -335,41 +346,57 @@ public class ConsultaCliente extends javax.swing.JFrame {
         ConsultaClienteTextPesquisa.setText("");
 }//GEN-LAST:event_ConsultaClienteTextPesquisaFocusGained
 
-    private void ConsultaClienteTextPesquisaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ConsultaClienteTextPesquisaFocusLost
-        ConsultaClienteTextPesquisa.setText("Pesquisa");
-}//GEN-LAST:event_ConsultaClienteTextPesquisaFocusLost
+//    private void ConsultaClienteTextPesquisaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ConsultaClienteTextPesquisaFocusLost
+//        ConsultaClienteTextPesquisa.setText("Pesquisa");
+//}//GEN-LAST:event_ConsultaClienteTextPesquisaFocusLost
 
     private void ConsultaClienteBotaoBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaClienteBotaoBuscaActionPerformed
-//        String busca = jFPesquisa.getText();
-//        if(busca == null || busca.length() == 0){
-//            JOptionPane.showMessageDialog(null, "Pesquisa Inválida");
-//        } else{
-//            Cliente cliente = new Cliente();
-//            cliente = PersistenciaCliente.getInstance().seach();
-//            if(jRCPF.isSelected() == true){
-//                jFNome.setText(cliente.getNome());
-//                jFEndereco.setText(cliente.getEndereco());
-//                jFCodigo.setText(cliente.getCodigo());
-//                jFTelefone.setText(cliente.getTelefone());
-//            } else{
-//                if(jRNome.isSelected() == true){
-//                    jFCPF.setText(cliente.getCnpj());
-//                    jFNEndereco.setText(cliente.getEndereco());
-//                    jFNCodigo.setText(cliente.getCodigo());
-//                    jFNTelefone.setText(cliente.getTelefone());
-//                }
-//            }
-//        }
+        String busca = null;
+        busca = ConsultaClienteTextPesquisa.getText();
+        if(busca == null || busca.length() == 0){
+            JOptionPane.showMessageDialog(null, "Pesquisa Inválida");
+        } 
+        else{
+            if(ConsultaClienteOpcaoCpf.isSelected() == true){
+            	Cliente cliente = PersistenciaCliente.getInstance().searchCliente(busca);
+                if(cliente == null){
+                	JOptionPane.showMessageDialog(null, "Não Encontrado");
+                }
+                else{
+	            	ConsultaClienteCpfTextNome.setText(cliente.getNome());
+	                ConsultaClienteCpfTextEndereco.setText(cliente.getEndereco());
+	                ConsultaClienteCpfTextTelefone.setText(cliente.getTelefone());
+                }    
+             }else{
+                if(ConsultaClienteOpcaoNome.isSelected() == true){
+                	Cliente cliente = PersistenciaCliente.getInstance().searchCliente(busca);
+                    if(cliente == null){
+                    	JOptionPane.showMessageDialog(null, "Não Encontrado");
+                    }
+                    else{
+	                	ConsultaClienteNomeTextCpf.setText(cliente.getCpf());
+	                    ConsultaClienteNomeTextEndereco.setText(cliente.getEndereco());
+	                    ConsultaClienteNomeTextTelefone.setText(cliente.getTelefone());
+                    }    
+                }
+            }       
+        }
 }//GEN-LAST:event_ConsultaClienteBotaoBuscaActionPerformed
-
+    
 	private void ConsultaClienteOpcaoCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaClienteOpcaoCpfActionPerformed
 		ConsultaClientePanelNome.setVisible(false);
 		ConsultaClientePanelCpf.setVisible(true);
+		ConsultaClienteCpfTextEndereco.setText("");
+		ConsultaClienteCpfTextNome.setText("");
+		ConsultaClienteCpfTextTelefone.setText("");
 	}//GEN-LAST:event_ConsultaClienteOpcaoCpfActionPerformed
 
 	private void ConsultaClienteOpcaoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaClienteOpcaoNomeActionPerformed
 		ConsultaClientePanelCpf.setVisible(false);
 		ConsultaClientePanelNome.setVisible(true);
+		ConsultaClienteNomeTextCpf.setText("");
+		ConsultaClienteNomeTextEndereco.setText("");
+		ConsultaClienteNomeTextTelefone.setText("");
 	}//GEN-LAST:event_ConsultaClienteOpcaoNomeActionPerformed
 
 	private void ConsultaClienteNomeBotaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaClienteNomeBotaoOkActionPerformed
@@ -409,14 +436,14 @@ public class ConsultaCliente extends javax.swing.JFrame {
     private javax.swing.JRadioButton ConsultaClienteOpcaoNome;
     private javax.swing.JPanel ConsultaClientePanelCpf;
     private javax.swing.JPanel ConsultaClientePanelNome;
-    private javax.swing.JFormattedTextField ConsultaClienteTextEndereco;
-    private javax.swing.JFormattedTextField ConsultaClienteTextNome;
+    private javax.swing.JFormattedTextField ConsultaClienteCpfTextEndereco;
+    private javax.swing.JFormattedTextField ConsultaClienteCpfTextNome;
     private javax.swing.JFormattedTextField ConsultaClienteTextPesquisa;
-    private javax.swing.JFormattedTextField ConsultaClienteTextTelefone;
+    private javax.swing.JFormattedTextField ConsultaClienteCpfTextTelefone;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JFormattedTextField jFCPF;
-    private javax.swing.JFormattedTextField jFNEndereco;
-    private javax.swing.JFormattedTextField jFNTelefone;
+    private javax.swing.JFormattedTextField ConsultaClienteNomeTextCpf;
+    private javax.swing.JFormattedTextField ConsultaClienteNomeTextEndereco;
+    private javax.swing.JFormattedTextField ConsultaClienteNomeTextTelefone;
     private javax.swing.JLabel jLCPF;
     private javax.swing.JLabel jLCPF1;
     private javax.swing.JLabel jLabel3;
