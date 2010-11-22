@@ -17,8 +17,6 @@ import gui.ConsultaItem;
 import gui.FrameCadastroFornecedor;
 import gui.FrameCadastroCliente;
 import gui.FrameCadastroItens;
-import janelasCadastro.*;
-import janelasConsulta.*;
 import gui.FrameMovimentoCompra;
 import gui.FrameMovimentoPedido;
 import gui.FrameMovimentoPreCompra;
