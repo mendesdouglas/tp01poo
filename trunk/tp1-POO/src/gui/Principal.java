@@ -19,13 +19,19 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dialog.ModalExclusionType;
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
+
+import javax.annotation.Resources;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -54,6 +60,7 @@ public class Principal extends javax.swing.JFrame {
 		}
         initComponents();
     }
+    
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -89,6 +96,7 @@ public class Principal extends javax.swing.JFrame {
         menuItemMovimentoVendas = new JMenuItem();
         menuPrincipalAjuda = new JMenu();
         menuItemAjudaDocumentacao = new JMenuItem();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema de controle de uma loja");
@@ -99,7 +107,7 @@ public class Principal extends javax.swing.JFrame {
         setIconImages(null);
         setMinimumSize(new Dimension(600, 600));
         setModalExclusionType(ModalExclusionType.TOOLKIT_EXCLUDE);
-
+        
         painelLoginLabelCabcalho.setText("Nome de usuário e senha para acesso:");
 
         painelLoginLabelNome.setText("Nome:");
@@ -429,6 +437,8 @@ public class Principal extends javax.swing.JFrame {
     private JLabel painelLoginLabelCabcalho;
     private JLabel painelLoginLabelNome;
     private JLabel painelLoginLabelSenha;
+    private javax.swing.JLabel jLabel1;
+    
     // End of variables declaration//GEN-END:variables
 
 }

@@ -11,6 +11,7 @@
 
 package gui;
 
+import persistencia.AccessControl;
 import gui.Principal;
 
 
@@ -38,21 +39,21 @@ public class FrameCadastroUsuario extends javax.swing.JFrame {
 
         permissoes = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        CadastroUsuarioTextNome = new javax.swing.JTextField();
+        nome = new javax.swing.JTextField();
         labelNome = new javax.swing.JLabel();
-        CadastroUsuarioBotaoCancelar = new javax.swing.JButton();
-        CadastroUsuarioBotaoOk = new javax.swing.JButton();
-        CadastroUsuarioBotaoLimparCampos = new javax.swing.JButton();
-        CadastroUsuarioBotaoOutroCadastro = new javax.swing.JButton();
+        botaoCancelar = new javax.swing.JButton();
+        botaoOk = new javax.swing.JButton();
+        botaoLimparCampos = new javax.swing.JButton();
+        botaoOutroCadastro = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
-        labelTituloCadastroUsuario = new javax.swing.JLabel();
+        labelTitulo = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         labelNomeUsuario = new javax.swing.JLabel();
-        CadastroUsuarioNomeUsuario = new javax.swing.JTextField();
-        labelPasswdUsuario = new javax.swing.JLabel();
-        CadastroUsuarioPasswd = new javax.swing.JPasswordField();
+        nomeUsuario = new javax.swing.JTextField();
+        labelPasswd = new javax.swing.JLabel();
+        passwd = new javax.swing.JPasswordField();
         jSeparator4 = new javax.swing.JSeparator();
-        jLabel1 = new javax.swing.JLabel();
+        labelPermissoes = new javax.swing.JLabel();
         permissoesAdministrador = new javax.swing.JRadioButton();
         permissoesComprador = new javax.swing.JRadioButton();
         permissoesVendedor = new javax.swing.JRadioButton();
@@ -64,50 +65,50 @@ public class FrameCadastroUsuario extends javax.swing.JFrame {
         jPanel1.setMinimumSize(new java.awt.Dimension(580, 580));
         jPanel1.setPreferredSize(new java.awt.Dimension(580, 580));
 
-        CadastroUsuarioTextNome.addActionListener(new java.awt.event.ActionListener() {
+        nome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CadastroUsuarioTextNomeActionPerformed(evt);
+                nomeActionPerformed(evt);
             }
         });
 
         labelNome.setText("Nome*:");
 
-        CadastroUsuarioBotaoCancelar.setText("Cancelar");
-        CadastroUsuarioBotaoCancelar.addActionListener(new java.awt.event.ActionListener() {
+        botaoCancelar.setText("Cancelar");
+        botaoCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CadastroUsuarioBotaoCancelarActionPerformed(evt);
+                botaoCancelarActionPerformed(evt);
             }
         });
 
-        CadastroUsuarioBotaoOk.setText("Ok");
-        CadastroUsuarioBotaoOk.addActionListener(new java.awt.event.ActionListener() {
+        botaoOk.setText("Ok");
+        botaoOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CadastroUsuarioBotaoOkActionPerformed(evt);
+                botaoOkActionPerformed(evt);
             }
         });
 
-        CadastroUsuarioBotaoLimparCampos.setText("Limpar Campos");
-        CadastroUsuarioBotaoLimparCampos.addActionListener(new java.awt.event.ActionListener() {
+        botaoLimparCampos.setText("Limpar Campos");
+        botaoLimparCampos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CadastroUsuarioBotaoLimparCamposActionPerformed(evt);
+                botaoLimparCamposActionPerformed(evt);
             }
         });
 
-        CadastroUsuarioBotaoOutroCadastro.setText("Outro Cadastro?");
-        CadastroUsuarioBotaoOutroCadastro.addActionListener(new java.awt.event.ActionListener() {
+        botaoOutroCadastro.setText("Outro Cadastro?");
+        botaoOutroCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CadastroUsuarioBotaoOutroCadastroActionPerformed(evt);
+                botaoOutroCadastroActionPerformed(evt);
             }
         });
 
-        labelTituloCadastroUsuario.setFont(new java.awt.Font("Ubuntu", 1, 18));
-        labelTituloCadastroUsuario.setText("Cadastro de Usuários:");
+        labelTitulo.setFont(new java.awt.Font("Ubuntu", 1, 18));
+        labelTitulo.setText("Cadastro de Usuários:");
 
         labelNomeUsuario.setText("Nome de Usuário*:");
 
-        labelPasswdUsuario.setText("Senha:");
+        labelPasswd.setText("Senha:");
 
-        jLabel1.setText("Permissões:");
+        labelPermissoes.setText("Permissões:");
 
         permissoes.add(permissoesAdministrador);
         permissoesAdministrador.setText("Administrador");
@@ -122,90 +123,88 @@ public class FrameCadastroUsuario extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jSeparator4, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jSeparator4, javax.swing.GroupLayout.DEFAULT_SIZE, 472, Short.MAX_VALUE))
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE)
+                    .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE)))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(71, 71, 71)
+                .addComponent(botaoOk, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(botaoCancelar)
+                .addGap(18, 18, 18)
+                .addComponent(botaoOutroCadastro)
+                .addGap(18, 18, 18)
+                .addComponent(botaoLimparCampos))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 472, Short.MAX_VALUE)
-                            .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 472, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(CadastroUsuarioBotaoOk, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(CadastroUsuarioBotaoCancelar)
+                        .addComponent(labelNomeUsuario)
+                        .addGap(1, 1, 1)
+                        .addComponent(nomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(CadastroUsuarioBotaoOutroCadastro)
-                        .addGap(18, 18, 18)
-                        .addComponent(CadastroUsuarioBotaoLimparCampos))
+                        .addComponent(labelPasswd)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(passwd, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
+                        .addComponent(labelNome)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nome, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(155, 155, 155)
+                .addComponent(labelTitulo))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(labelNomeUsuario)
-                                .addGap(1, 1, 1)
-                                .addComponent(CadastroUsuarioNomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(labelPasswdUsuario)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(CadastroUsuarioPasswd, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(labelNome)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(CadastroUsuarioTextNome, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(155, 155, 155)
-                        .addComponent(labelTituloCadastroUsuario))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(permissoesComprador)
-                                    .addComponent(permissoesAdministrador)
-                                    .addComponent(permissoesVendedor))))))
-                .addContainerGap())
+                            .addComponent(permissoesComprador)
+                            .addComponent(permissoesAdministrador)
+                            .addComponent(permissoesVendedor)))
+                    .addComponent(labelPermissoes))
+                .addGap(391, 391, 391))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelTituloCadastroUsuario)
+                .addComponent(labelTitulo)
                 .addGap(31, 31, 31)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelNomeUsuario)
-                    .addComponent(CadastroUsuarioNomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelPasswdUsuario)
-                    .addComponent(CadastroUsuarioPasswd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelPasswd)
+                    .addComponent(passwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelNome)
-                    .addComponent(CadastroUsuarioTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50)
-                .addComponent(jLabel1)
+                .addComponent(labelPermissoes)
                 .addGap(26, 26, 26)
                 .addComponent(permissoesAdministrador)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(permissoesComprador)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(permissoesVendedor)
-                .addGap(71, 71, 71)
+                .addGap(115, 115, 115)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CadastroUsuarioBotaoOk)
-                    .addComponent(CadastroUsuarioBotaoCancelar)
-                    .addComponent(CadastroUsuarioBotaoOutroCadastro)
-                    .addComponent(CadastroUsuarioBotaoLimparCampos))
+                    .addComponent(botaoOk)
+                    .addComponent(botaoCancelar)
+                    .addComponent(botaoOutroCadastro)
+                    .addComponent(botaoLimparCampos))
                 .addGap(20, 20, 20))
         );
 
@@ -215,8 +214,8 @@ public class FrameCadastroUsuario extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,30 +228,48 @@ public class FrameCadastroUsuario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-	private void CadastroUsuarioTextNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroUsuarioTextNomeActionPerformed
+	private void nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeActionPerformed
 		// TODO add your handling code here:
-	}//GEN-LAST:event_CadastroUsuarioTextNomeActionPerformed
+	}//GEN-LAST:event_nomeActionPerformed
 
-	private void CadastroUsuarioBotaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroUsuarioBotaoOkActionPerformed
+	private void botaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoOkActionPerformed
+		novoUsuario();
+		this.dispose();
+	}//GEN-LAST:event_botaoOkActionPerformed
+
+	private void botaoLimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparCamposActionPerformed
+		nome.setText("");
+        nomeUsuario.setText("");
+        passwd.setText("");
+	}//GEN-LAST:event_botaoLimparCamposActionPerformed
+
+	private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
 		this.principal.setEnabled(true);
 		this.dispose();
-	}//GEN-LAST:event_CadastroUsuarioBotaoOkActionPerformed
+	}//GEN-LAST:event_botaoCancelarActionPerformed
 
-	private void CadastroUsuarioBotaoLimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroUsuarioBotaoLimparCamposActionPerformed
-		CadastroUsuarioTextNome.setText("");
-        CadastroUsuarioNomeUsuario.setText("");
-        CadastroUsuarioPasswd.setText("");
-	}//GEN-LAST:event_CadastroUsuarioBotaoLimparCamposActionPerformed
+	private void botaoOutroCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoOutroCadastroActionPerformed
+		novoUsuario();
+	}//GEN-LAST:event_botaoOutroCadastroActionPerformed
 
-	private void CadastroUsuarioBotaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroUsuarioBotaoCancelarActionPerformed
+	private void novoUsuario() {
+		int permitionLevel=0;
 		this.principal.setEnabled(true);
-		this.dispose();
-	}//GEN-LAST:event_CadastroUsuarioBotaoCancelarActionPerformed
-
-	private void CadastroUsuarioBotaoOutroCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroUsuarioBotaoOutroCadastroActionPerformed
-		this.principal.setEnabled(true);
-		this.dispose();
-	}//GEN-LAST:event_CadastroUsuarioBotaoOutroCadastroActionPerformed
+		
+		if(permissoesAdministrador.isSelected()) {
+			permitionLevel=1;
+		}
+		
+		if(permissoesComprador.isSelected()) {
+			permitionLevel=2;
+		}
+		
+		if(permissoesVendedor.isSelected()) {
+			permitionLevel=3;
+		}
+		
+		AccessControl.cadastroUsuario(nome.getText(), nomeUsuario.getText(), passwd.getText(), permitionLevel);
+	}
 
     /**
     * @param args the command line arguments
@@ -266,22 +283,22 @@ public class FrameCadastroUsuario extends javax.swing.JFrame {
    // }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CadastroUsuarioBotaoCancelar;
-    private javax.swing.JButton CadastroUsuarioBotaoLimparCampos;
-    private javax.swing.JButton CadastroUsuarioBotaoOk;
-    private javax.swing.JButton CadastroUsuarioBotaoOutroCadastro;
-    private javax.swing.JTextField CadastroUsuarioNomeUsuario;
-    private javax.swing.JPasswordField CadastroUsuarioPasswd;
-    private javax.swing.JTextField CadastroUsuarioTextNome;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton botaoCancelar;
+    private javax.swing.JButton botaoLimparCampos;
+    private javax.swing.JButton botaoOk;
+    private javax.swing.JButton botaoOutroCadastro;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JLabel labelNome;
     private javax.swing.JLabel labelNomeUsuario;
-    private javax.swing.JLabel labelPasswdUsuario;
-    private javax.swing.JLabel labelTituloCadastroUsuario;
+    private javax.swing.JLabel labelPasswd;
+    private javax.swing.JLabel labelPermissoes;
+    private javax.swing.JLabel labelTitulo;
+    private javax.swing.JTextField nome;
+    private javax.swing.JTextField nomeUsuario;
+    private javax.swing.JPasswordField passwd;
     private javax.swing.ButtonGroup permissoes;
     private javax.swing.JRadioButton permissoesAdministrador;
     private javax.swing.JRadioButton permissoesComprador;

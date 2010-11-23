@@ -252,11 +252,7 @@ public class FrameCadastroCliente extends javax.swing.JFrame {
 
 	private void BotaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoOkActionPerformed
 		this.principal.setEnabled(true);
-		Cliente cliente = new Cliente(cpf.getText(),
-									  nome.getText(),
-									  enderecoRua.getText()+", "+enderecoNumero.getText()+", "+enderecoBairro.getText(),
-									  enderecoTelefone.getText());
-		PersistenciaCliente.getInstance().cadastro(cliente);
+		novoCliente();
 		this.dispose();
 	}//GEN-LAST:event_BotaoOkActionPerformed
 
@@ -270,13 +266,17 @@ public class FrameCadastroCliente extends javax.swing.JFrame {
 	}//GEN-LAST:event_BotaoCancelarActionPerformed
 
 	private void BotaoOutroCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoOutroCadastroActionPerformed
+		novoCliente();
+		limparCampos();
+	}//GEN-LAST:event_BotaoOutroCadastroActionPerformed
+
+	private void novoCliente() {
 		Cliente cliente = new Cliente(cpf.getText(),
 									  nome.getText(),
 									  enderecoRua.getText()+", "+enderecoNumero.getText()+", "+enderecoBairro.getText(),
 									  enderecoTelefone.getText());
 		PersistenciaCliente.getInstance().cadastro(cliente);
-		limparCampos();
-	}//GEN-LAST:event_BotaoOutroCadastroActionPerformed
+	}
 
 	private void limparCampos() {
 		nome.setText("");

@@ -233,11 +233,7 @@ public class FrameCadastroFornecedor extends javax.swing.JFrame {
 
 	private void botaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoOkActionPerformed
 		this.principal.setEnabled(true);
-		Fornecedor fornecedor = new Fornecedor(cnpj.getText(),
-											   razaoSocial.getText(),
-											   enderecoRua.getText()+", "+enderecoNumero.getText()+", "+enderecoBairro.getText(),
-											   enderecoTelefone.getText());
-		PersistenciaFornecedor.getInstance().cadastro(fornecedor);
+		novoFornecedor();
 		this.dispose();
 	}//GEN-LAST:event_botaoOkActionPerformed
 
@@ -247,11 +243,7 @@ public class FrameCadastroFornecedor extends javax.swing.JFrame {
 
 
 	private void botaoOutroCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoOutroCadastroActionPerformed
-		Fornecedor fornecedor = new Fornecedor(cnpj.getText(),
-				   							   razaoSocial.getText(),
-				   							   enderecoRua.getText()+", "+enderecoNumero.getText()+", "+enderecoBairro.getText(),
-				   							   enderecoTelefone.getText());
-		PersistenciaFornecedor.getInstance().cadastro(fornecedor);
+		novoFornecedor();
 		limparCampos();
 	}//GEN-LAST:event_botaoOutroCadastroActionPerformed
 
@@ -260,6 +252,13 @@ public class FrameCadastroFornecedor extends javax.swing.JFrame {
 		this.dispose();
 	}//GEN-LAST:event_botaoCancelarActionPerformed
 	
+	private void novoFornecedor() {
+		Fornecedor fornecedor = new Fornecedor(cnpj.getText(),
+				   							   razaoSocial.getText(),
+				   							   enderecoRua.getText()+", "+enderecoNumero.getText()+", "+enderecoBairro.getText(),
+				   							   enderecoTelefone.getText());
+		PersistenciaFornecedor.getInstance().cadastro(fornecedor);
+	}
 	private void limparCampos() {
 		razaoSocial.setText("");
 		cnpj.setText("");

@@ -31,8 +31,8 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" pref="496" max="-2" attributes="0"/>
-              <EmptySpace pref="60" max="32767" attributes="0"/>
+              <Component id="jPanel1" min="-2" pref="530" max="-2" attributes="0"/>
+              <EmptySpace pref="26" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -63,108 +63,104 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jSeparator4" pref="518" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jSeparator4" pref="472" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="jSeparator2" alignment="0" pref="518" max="32767" attributes="0"/>
+                      <Component id="jSeparator3" alignment="1" pref="518" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                  <Component id="botaoOk" min="-2" pref="33" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="botaoCancelar" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="botaoOutroCadastro" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="botaoLimparCampos" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jSeparator2" alignment="0" pref="472" max="32767" attributes="0"/>
-                              <Component id="jSeparator3" alignment="1" pref="472" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
-                          <Component id="CadastroUsuarioBotaoOk" min="-2" pref="33" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="CadastroUsuarioBotaoCancelar" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelNomeUsuario" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                          <Component id="nomeUsuario" min="-2" pref="154" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="CadastroUsuarioBotaoOutroCadastro" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="CadastroUsuarioBotaoLimparCampos" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="labelNomeUsuario" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                                  <Component id="CadastroUsuarioNomeUsuario" min="-2" pref="154" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="labelPasswdUsuario" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="CadastroUsuarioPasswd" pref="130" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="labelNome" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="CadastroUsuarioTextNome" pref="409" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
-                          <Component id="labelTituloCadastroUsuario" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="labelPasswd" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="permissoesComprador" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="permissoesAdministrador" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="permissoesVendedor" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
+                          <Component id="passwd" pref="184" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="labelNome" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="nome" pref="455" max="32767" attributes="0"/>
                       </Group>
                   </Group>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
+                  <Component id="labelTitulo" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="permissoesComprador" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="permissoesAdministrador" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="permissoesVendedor" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Component id="labelPermissoes" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="391" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="labelTituloCadastroUsuario" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelTitulo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="labelNomeUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="CadastroUsuarioNomeUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="labelPasswdUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="CadastroUsuarioPasswd" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="nomeUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelPasswd" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="passwd" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   <Component id="jSeparator4" min="-2" pref="10" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="labelNome" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="CadastroUsuarioTextNome" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="nome" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelPermissoes" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Component id="permissoesAdministrador" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="permissoesComprador" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="permissoesVendedor" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
                   <Component id="jSeparator3" min="-2" pref="10" max="-2" attributes="0"/>
-                  <EmptySpace pref="42" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="CadastroUsuarioBotaoOk" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="CadastroUsuarioBotaoCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="CadastroUsuarioBotaoOutroCadastro" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="CadastroUsuarioBotaoLimparCampos" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="botaoOk" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="botaoCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="botaoOutroCadastro" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="botaoLimparCampos" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
@@ -172,9 +168,9 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="CadastroUsuarioTextNome">
+        <Component class="javax.swing.JTextField" name="nome">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CadastroUsuarioTextNomeActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nomeActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="labelNome">
@@ -182,41 +178,41 @@
             <Property name="text" type="java.lang.String" value="Nome*:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="CadastroUsuarioBotaoCancelar">
+        <Component class="javax.swing.JButton" name="botaoCancelar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CadastroUsuarioBotaoCancelarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoCancelarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="CadastroUsuarioBotaoOk">
+        <Component class="javax.swing.JButton" name="botaoOk">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ok"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CadastroUsuarioBotaoOkActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoOkActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="CadastroUsuarioBotaoLimparCampos">
+        <Component class="javax.swing.JButton" name="botaoLimparCampos">
           <Properties>
             <Property name="text" type="java.lang.String" value="Limpar Campos"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CadastroUsuarioBotaoLimparCamposActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoLimparCamposActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="CadastroUsuarioBotaoOutroCadastro">
+        <Component class="javax.swing.JButton" name="botaoOutroCadastro">
           <Properties>
             <Property name="text" type="java.lang.String" value="Outro Cadastro?"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CadastroUsuarioBotaoOutroCadastroActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoOutroCadastroActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator2">
         </Component>
-        <Component class="javax.swing.JLabel" name="labelTituloCadastroUsuario">
+        <Component class="javax.swing.JLabel" name="labelTitulo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Ubuntu" size="18" style="1"/>
@@ -231,18 +227,18 @@
             <Property name="text" type="java.lang.String" value="Nome de Usu&#xe1;rio*:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="CadastroUsuarioNomeUsuario">
+        <Component class="javax.swing.JTextField" name="nomeUsuario">
         </Component>
-        <Component class="javax.swing.JLabel" name="labelPasswdUsuario">
+        <Component class="javax.swing.JLabel" name="labelPasswd">
           <Properties>
             <Property name="text" type="java.lang.String" value="Senha:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="CadastroUsuarioPasswd">
+        <Component class="javax.swing.JPasswordField" name="passwd">
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator4">
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="labelPermissoes">
           <Properties>
             <Property name="text" type="java.lang.String" value="Permiss&#xf5;es:"/>
           </Properties>
