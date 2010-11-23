@@ -279,15 +279,31 @@ public class FrameCadastroCliente extends javax.swing.JFrame {
 
 	}//GEN-LAST:event_BotaoOkActionPerformed
 
+	/**
+	 * Botão que limpa os campos preenchidos 
+	 * utiliza um método limparCampos
+	 * 
+	 * @param evt
+	 */
 	private void BotaoLimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoLimparCamposActionPerformed
 		limparCampos();
 	}//GEN-LAST:event_BotaoLimparCamposActionPerformed
 
+	/**
+	 * 
+	 * Botão que cancela um cadastro
+	 * @param evt
+	 */
 	private void BotaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCancelarActionPerformed
 		this.principal.setEnabled(true);
 		this.dispose();
 	}//GEN-LAST:event_BotaoCancelarActionPerformed
 
+	/**
+	 *Adicionar um novo cadastro
+	 *limpa os campos para o novo cadastro
+	 * @param evt
+	 */
 	private void BotaoOutroCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoOutroCadastroActionPerformed
 		if(novoCliente()){
 			JOptionPane.showConfirmDialog(null, "Cadastro realizado com sucesso!","Confirmação de Cadastro",JOptionPane.CLOSED_OPTION);
@@ -295,6 +311,11 @@ public class FrameCadastroCliente extends javax.swing.JFrame {
 		}
 	}//GEN-LAST:event_BotaoOutroCadastroActionPerformed
 
+	/**
+	 * Cadastra um cliente novo
+	 * campos: nome,cpf são obrigatórios 
+	 * @return
+	 */
 	private boolean novoCliente() {
 		if(nome.getText().length() == 0){
 			labelWarningNome.setText("O Nome é um campo obrigatório.");
@@ -318,6 +339,10 @@ public class FrameCadastroCliente extends javax.swing.JFrame {
 		return PersistenciaCliente.getInstance().cadastro(cliente);
 	}
 
+	/**
+	 * limpa todos os campos preenchidos
+	 *  
+	 */
 	private void limparCampos() {
 		nome.setText("");
 		cpf.setText("");

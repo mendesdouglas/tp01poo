@@ -6,7 +6,12 @@ import java.text.*;
 
 public final class Console {
 
-  public static boolean readBoolean () {
+/**
+ * Método utilizado para a leitura de valores booleanos
+ * @param vazio
+ * @return boolean
+ */
+	public static boolean readBoolean () {
       try {
          BufferedReader br = new BufferedReader (
                 new InputStreamReader (System.in) );
@@ -18,6 +23,11 @@ public final class Console {
       }
   }
 
+/**
+ * Método utilizado para a leitura de Bytes
+ * 	
+ * @return 0
+ */
   public static byte readByte () {
       try {
          BufferedReader br = new BufferedReader (
@@ -31,6 +41,11 @@ public final class Console {
       }
   }
 
+  /**
+   * Método utilizado para a leitura de short
+   * 
+   * @return 0
+   */
   public static short readShort () {
       try {
          BufferedReader br = new BufferedReader (
@@ -44,6 +59,11 @@ public final class Console {
       }
   }
 
+  /**
+   * 
+   * Método para a leitura de Integer
+   * @return 0
+   */
  public static int readInteger () {
       try {
          BufferedReader br = new BufferedReader (
@@ -57,6 +77,11 @@ public final class Console {
       }
   }
 
+ /**
+  * 
+  * Método utilizado para a leitura de long
+  * @return 0
+  */
  public static long readLong () {
       try {
          BufferedReader br = new BufferedReader (
@@ -70,6 +95,11 @@ public final class Console {
       }
   }
 
+ /**
+  * 
+  * Método utilizado para a leitura de float 
+  * @return 0
+  */
   public static float readFloat () {
       try {
          BufferedReader br = new BufferedReader (
@@ -84,6 +114,11 @@ public final class Console {
       }
   }
 
+  /**
+   * Método utilizado para a leitura de Double
+   * 
+   * @return 0
+   */
   public static double readDouble () {
       try {
          BufferedReader br = new BufferedReader (
@@ -98,6 +133,11 @@ public final class Console {
       }
   }
 
+  /**
+   * 
+   *Método utilizado para a leitura de char 
+   * @return 0
+   */
   public static char readChar () {
       try {
         /* BufferedReader br = new BufferedReader (
@@ -110,6 +150,11 @@ public final class Console {
       }
   }
 
+  /**
+   * 
+   * Método utilizado para a leitura de String
+   * @return 0
+   */
   public static String readString () {
       try {
          BufferedReader br = new BufferedReader (
@@ -121,6 +166,13 @@ public final class Console {
       }
   }
   
+/**
+ * 
+ *   
+ * @param stx
+ * @param formato
+ * @return dataUsuario
+ */
   public static Date str2date(String stx,String formato){
 	  if (formato == null || formato.length() == 0){
 		  formato = "dd/MM/yyyy";
@@ -135,6 +187,13 @@ public final class Console {
 	  return dataUsuario;
   }
 
+ /**
+  * 
+  * 
+  * @param data
+  * @param formato
+  * @return data
+  */
   public static String date2str(Date data,String formato){
 	  if (formato == null || formato.length() == 0){
 		  formato = "dd/MM/yyyy";

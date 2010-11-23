@@ -434,6 +434,10 @@ public class ConsultaItem extends javax.swing.JFrame {
         ConsultaItemTextPesquisa.setText("");
 }*///GEN-LAST:event_jFPesquisaFocusLost
 
+    /**
+     * Busca um item pelo codigo ou pelo nome
+     * Não aceita campos vazios
+     */
     private void jBCBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCBuscaActionPerformed
     	String busca = null;
         busca = ConsultaItemTextPesquisa.getText();
@@ -469,16 +473,30 @@ public class ConsultaItem extends javax.swing.JFrame {
         }
 }//GEN-LAST:event_jBCBuscaActionPerformed
 
+    /**
+     * 
+     * Habilita a consulta pelo nome do item
+     * @param evt
+     */
 	private void ConsultaItemNomeBotaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaItemNomeBotaoOkActionPerformed
 		principal.setEnabled(true);
 		this.dispose();
 	}//GEN-LAST:event_ConsultaItemNomeBotaoOkActionPerformed
 
+	/**
+	 * Habilita a consulta pelo codigo do item
+	 * @param evt
+	 */
 	private void ConsultaItemCodigoBotaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaItemCodigoBotaoOkActionPerformed
 		principal.setEnabled(true);
 		this.dispose();
 	}//GEN-LAST:event_ConsultaItemCodigoBotaoOkActionPerformed
 
+	/**
+	 * Campos para a busca através do código
+	 * desabilita a busca pelo nome
+	 * @param evt
+	 */
 	private void jRCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRCodigoActionPerformed
 		ConsultaItemPanelNome.setVisible(false);
 		ConsultaItemPanelCodigo.setVisible(true);
@@ -488,7 +506,11 @@ public class ConsultaItem extends javax.swing.JFrame {
 		ConsultaItemCodigoTextQuantidade.setText("");
 		ConsultaItemBotaoBusca.setEnabled(true);
 	}//GEN-LAST:event_jRCodigoActionPerformed
-
+/**
+ * campos para a busca através do nome
+ * desabilita a busca pelo código
+ * @param evt
+ */
 	private void jRNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRNomeActionPerformed
 		ConsultaItemPanelCodigo.setVisible(false);
 		ConsultaItemPanelNome.setVisible(true);
@@ -499,12 +521,21 @@ public class ConsultaItem extends javax.swing.JFrame {
 		ConsultaItemBotaoBusca.setEnabled(true);
 	}//GEN-LAST:event_jRNomeActionPerformed
 
+	/**
+	 * Botão que lista os itens através do código desabilita a janela anterior
+	 * @param evt
+	 */
 	private void ConsultaItemCodigoBotaoListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaItemCodigoBotaoListarActionPerformed
 		ConsultaListar listar = new ConsultaListar(this);
 		listar.setVisible(true);
 		this.setEnabled(false);
 	}//GEN-LAST:event_ConsultaItemCodigoBotaoListarActionPerformed
 
+	/**
+	 * BOtão para a listagem dos itens através do nome
+	 * desabilita a janela anterior
+	 * @param evt
+	 */
 	private void ConsultaItemNomeBotaoListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaItemNomeBotaoListarActionPerformed
 		ConsultaListar listar = new ConsultaListar(this);
 		listar.setVisible(true);
