@@ -28,7 +28,7 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
 	private Component principal;
 	private Fornecedor fornecedor;
     /** Creates new form Fornecedor */
-    public ConsultaFornecedor(Principal principal) {
+    public ConsultaFornecedor(Principal2 principal) {
         initComponents();
 		this.principal = principal;
 		this.fornecedor = null;

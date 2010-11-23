@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 
 import pessoas.Cliente;
 import persistencia.PersistenciaCliente;
-import gui.Principal;
+import gui.Principal2;
 
 
 /**
@@ -28,7 +28,7 @@ public class FrameCadastroCliente extends javax.swing.JFrame {
 
 	private Component principal;
     /** Creates new form FrameCadastroFornecedores */
-    public FrameCadastroCliente(Principal principal) {
+    public FrameCadastroCliente(Principal2 principal) {
         initComponents();
 		this.principal = principal;
     }
