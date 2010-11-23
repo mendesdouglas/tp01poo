@@ -98,6 +98,17 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
         ConsultaFornecedorNomeBotaListar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel2.setPreferredSize(new java.awt.Dimension(514, 401));
 
@@ -109,7 +120,7 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
                 jFPesquisaFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-//				jFPesquisaFocusLost(evt);
+//                jFPesquisaFocusLost(evt);
             }
         });
 
@@ -246,7 +257,7 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
 
         ConsultaFornecedorNomeTextTelefone.setForeground(new java.awt.Color(58, 57, 59));
 
-        ConsultaFornecedorNomeBotaoOk.setText("Ok");
+        ConsultaFornecedorNomeBotaoOk.setText("OK");
         ConsultaFornecedorNomeBotaoOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConsultaFornecedorNomeBotaoOkActionPerformed(evt);
@@ -298,7 +309,7 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
                 .addGroup(ConsultaFornecedorPanelNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ConsultaFornecedorNomeTextEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addGroup(ConsultaFornecedorPanelNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(ConsultaFornecedorNomeTextTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -332,14 +343,14 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(297, Short.MAX_VALUE))
+                .addContainerGap(295, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                    .addContainerGap(122, Short.MAX_VALUE)
+                    .addContainerGap(120, Short.MAX_VALUE)
                     .addComponent(ConsultaFornecedorPanelCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                    .addContainerGap(118, Short.MAX_VALUE)
+                    .addContainerGap(116, Short.MAX_VALUE)
                     .addComponent(ConsultaFornecedorPanelNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
@@ -480,6 +491,18 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
 		this.setEnabled(false);
 	}//GEN-LAST:event_ConsultaFornecedorNomeBotaListarActionPerformed
 
+        private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+           
+        }//GEN-LAST:event_formWindowActivated
+
+        private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+            this.principal.setEnabled(true);
+        }//GEN-LAST:event_formWindowClosed
+
+        private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+            this.principal.setEnabled(true);
+        }//GEN-LAST:event_formWindowClosing
+
     /**
     * @param args the command line arguments
     */
@@ -516,7 +539,9 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
     // End of variables declaration//GEN-END:variables
 	@Override
 	public void enviar() {
-		((FrameMovimentoPreCompra)principal).receber(fornecedor);
+		if(principal instanceof FrameMovimentoPreCompra){
+			((FrameMovimentoPreCompra)principal).receber(fornecedor);
+		}	
 	}
 
 	@Override
