@@ -11,6 +11,8 @@
 
 package gui;
 
+import javax.swing.JOptionPane;
+
 import pessoas.Cliente;
 import persistencia.PersistenciaCliente;
 import gui.Principal;
@@ -18,7 +20,7 @@ import gui.Principal;
 
 /**
  *
- * @author isac
+ * @author luizcpo
  */
 public class FrameCadastroCliente extends javax.swing.JFrame {
 
@@ -53,13 +55,15 @@ public class FrameCadastroCliente extends javax.swing.JFrame {
         enderecoTelefone = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         enderecoBairro = new javax.swing.JTextField();
-        botaoCancelar = new javax.swing.JButton();
-        botaoOk = new javax.swing.JButton();
-        botaoLimparCampos = new javax.swing.JButton();
-        botaoOutroCadastro = new javax.swing.JButton();
+        BotaoCancelar = new javax.swing.JButton();
+        BotaoOk = new javax.swing.JButton();
+        BotaoLimparCampos = new javax.swing.JButton();
+        BotaoOutroCadastro = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         labelTitulo = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
+        labelWarningNome = new javax.swing.JLabel();
+        labelWarningCpf = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setModalExclusionType(java.awt.Dialog.ModalExclusionType.TOOLKIT_EXCLUDE);
@@ -88,44 +92,54 @@ public class FrameCadastroCliente extends javax.swing.JFrame {
 
         labelEnderecoTelefone.setText("Telefone:");
 
-        botaoCancelar.setText("Cancelar");
-        botaoCancelar.addActionListener(new java.awt.event.ActionListener() {
+        BotaoCancelar.setText("Cancelar");
+        BotaoCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoCancelarActionPerformed(evt);
             }
         });
 
-        botaoOk.setText("Ok");
-        botaoOk.addActionListener(new java.awt.event.ActionListener() {
+        BotaoOk.setText("Ok");
+        BotaoOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoOkActionPerformed(evt);
             }
         });
 
-        botaoLimparCampos.setText("Limpar Campos");
-        botaoLimparCampos.addActionListener(new java.awt.event.ActionListener() {
+        BotaoLimparCampos.setText("Limpar Campos");
+        BotaoLimparCampos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoLimparCamposActionPerformed(evt);
             }
         });
 
-        botaoOutroCadastro.setText("Outro Cadastro?");
-        botaoOutroCadastro.addActionListener(new java.awt.event.ActionListener() {
+        BotaoOutroCadastro.setText("Outro Cadastro?");
+        BotaoOutroCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoOutroCadastroActionPerformed(evt);
             }
         });
 
-        labelTitulo.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        labelTitulo.setFont(new java.awt.Font("Ubuntu", 1, 18));
         labelTitulo.setText("Cadastro de Clientes:");
+
+        labelWarningNome.setForeground(new java.awt.Color(255, 0, 0));
+
+        labelWarningCpf.setForeground(new java.awt.Color(255, 0, 0));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(labelWarningCpf, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(labelWarningNome, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -148,13 +162,9 @@ public class FrameCadastroCliente extends javax.swing.JFrame {
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE))
                                                     .addComponent(enderecoTelefone, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)))
                                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(labelNome)
-                                                    .addComponent(labelCpf))
+                                                .addComponent(labelNome)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                                .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addComponent(labelEnderecoRua))
                                 .addGap(28, 28, 28))
                             .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
@@ -164,15 +174,20 @@ public class FrameCadastroCliente extends javax.swing.JFrame {
                                 .addComponent(labelTitulo)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE))
                             .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(71, 71, 71)
-                        .addComponent(botaoOk, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BotaoOk, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(botaoCancelar)
+                        .addComponent(BotaoCancelar)
                         .addGap(18, 18, 18)
-                        .addComponent(botaoOutroCadastro)
+                        .addComponent(BotaoOutroCadastro)
                         .addGap(18, 18, 18)
-                        .addComponent(botaoLimparCampos)))
+                        .addComponent(BotaoLimparCampos))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(labelCpf)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -186,11 +201,15 @@ public class FrameCadastroCliente extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelNome)
                     .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16)
+                .addGap(1, 1, 1)
+                .addComponent(labelWarningNome, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelCpf)
                     .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(84, 84, 84)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelWarningCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,10 +238,10 @@ public class FrameCadastroCliente extends javax.swing.JFrame {
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoOk)
-                    .addComponent(botaoCancelar)
-                    .addComponent(botaoOutroCadastro)
-                    .addComponent(botaoLimparCampos))
+                    .addComponent(BotaoOk)
+                    .addComponent(BotaoCancelar)
+                    .addComponent(BotaoOutroCadastro)
+                    .addComponent(BotaoLimparCampos))
                 .addGap(20, 20, 20))
         );
 
@@ -251,9 +270,13 @@ public class FrameCadastroCliente extends javax.swing.JFrame {
 	}//GEN-LAST:event_nomeActionPerformed
 
 	private void BotaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoOkActionPerformed
-		this.principal.setEnabled(true);
-		novoCliente();
-		this.dispose();
+
+		if(novoCliente()){
+			JOptionPane.showConfirmDialog(null, "Cadastro realizado com sucesso!","Confirmação de Cadastro",JOptionPane.CLOSED_OPTION);
+			this.principal.setEnabled(true);
+			this.dispose();			
+		}
+
 	}//GEN-LAST:event_BotaoOkActionPerformed
 
 	private void BotaoLimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoLimparCamposActionPerformed
@@ -266,16 +289,33 @@ public class FrameCadastroCliente extends javax.swing.JFrame {
 	}//GEN-LAST:event_BotaoCancelarActionPerformed
 
 	private void BotaoOutroCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoOutroCadastroActionPerformed
-		novoCliente();
-		limparCampos();
+		if(novoCliente()){
+			JOptionPane.showConfirmDialog(null, "Cadastro realizado com sucesso!","Confirmação de Cadastro",JOptionPane.CLOSED_OPTION);
+			limparCampos();
+		}
 	}//GEN-LAST:event_BotaoOutroCadastroActionPerformed
 
-	private void novoCliente() {
+	private boolean novoCliente() {
+		if(nome.getText().length() == 0){
+			labelWarningNome.setText("O Nome é um campo obrigatório.");
+			return false;
+		}else{
+			labelWarningNome.setText("");
+		}
+		
+		if(cpf.getText().length() == 0){
+			labelWarningCpf.setText("O CPF é um campo obrigatório.");
+			return false;
+		}else{
+			labelWarningCpf.setText("");
+		}
+		
+
 		Cliente cliente = new Cliente(cpf.getText(),
 									  nome.getText(),
 									  enderecoRua.getText()+", "+enderecoNumero.getText()+", "+enderecoBairro.getText(),
 									  enderecoTelefone.getText());
-		PersistenciaCliente.getInstance().cadastro(cliente);
+		return PersistenciaCliente.getInstance().cadastro(cliente);
 	}
 
 	private void limparCampos() {
@@ -285,6 +325,8 @@ public class FrameCadastroCliente extends javax.swing.JFrame {
 		enderecoNumero.setText("");
 		enderecoRua.setText("");
 		enderecoTelefone.setText("");
+		labelWarningNome.setText("");
+		labelWarningCpf.setText("");
 	}
 
     /**
@@ -299,10 +341,10 @@ public class FrameCadastroCliente extends javax.swing.JFrame {
    // }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botaoCancelar;
-    private javax.swing.JButton botaoLimparCampos;
-    private javax.swing.JButton botaoOk;
-    private javax.swing.JButton botaoOutroCadastro;
+    private javax.swing.JButton BotaoCancelar;
+    private javax.swing.JButton BotaoLimparCampos;
+    private javax.swing.JButton BotaoOk;
+    private javax.swing.JButton BotaoOutroCadastro;
     private javax.swing.JTextField cpf;
     private javax.swing.JTextField enderecoBairro;
     private javax.swing.JTextField enderecoNumero;
@@ -320,7 +362,8 @@ public class FrameCadastroCliente extends javax.swing.JFrame {
     private javax.swing.JLabel labelEnderecoTelefone;
     private javax.swing.JLabel labelNome;
     private javax.swing.JLabel labelTitulo;
+    private javax.swing.JLabel labelWarningCpf;
+    private javax.swing.JLabel labelWarningNome;
     private javax.swing.JTextField nome;
     // End of variables declaration//GEN-END:variables
-
 }

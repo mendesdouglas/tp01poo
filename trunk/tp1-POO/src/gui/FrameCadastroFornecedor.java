@@ -4,12 +4,14 @@
  */
 package gui;
 
+import javax.swing.JOptionPane;
+
 import persistencia.PersistenciaFornecedor;
 import pessoas.Fornecedor;
 import gui.Principal;
 /**
  *
- * @author isac
+ * @author luizcpo
  */
 public class FrameCadastroFornecedor extends javax.swing.JFrame {
 	Principal principal;
@@ -50,6 +52,8 @@ public class FrameCadastroFornecedor extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
+        labelWarningRazaoSocial = new javax.swing.JLabel();
+        labelWarningCnpj = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro Clientes");
@@ -90,7 +94,7 @@ public class FrameCadastroFornecedor extends javax.swing.JFrame {
             }
         });
 
-        labelTitulo.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        labelTitulo.setFont(new java.awt.Font("Ubuntu", 1, 18));
         labelTitulo.setText("Cadastro de Fornecedores:");
 
         botaoOutroCadastro.setText("Outro Cadastro?");
@@ -100,24 +104,14 @@ public class FrameCadastroFornecedor extends javax.swing.JFrame {
             }
         });
 
+        labelWarningRazaoSocial.setForeground(new java.awt.Color(255, 0, 0));
+
+        labelWarningCnpj.setForeground(new java.awt.Color(255, 0, 0));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(labelCnpj)
-                    .addComponent(labelRazaoSocial))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cnpj)
-                    .addComponent(razaoSocial, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE))
-                .addGap(40, 40, 40))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
-                .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(152, 152, 152)
                 .addComponent(labelTitulo)
@@ -160,6 +154,24 @@ public class FrameCadastroFornecedor extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(botaoLimparCampos)
                 .addContainerGap(162, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(labelWarningCnpj, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 552, Short.MAX_VALUE)
+                    .addComponent(labelWarningRazaoSocial, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 552, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(labelCnpj)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cnpj, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(labelRazaoSocial)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(razaoSocial, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)))
+                .addGap(40, 40, 40))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,17 +180,21 @@ public class FrameCadastroFornecedor extends javax.swing.JFrame {
                 .addComponent(labelTitulo)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelRazaoSocial)
                     .addComponent(razaoSocial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelWarningRazaoSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelCnpj)
-                    .addComponent(cnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
+                    .addComponent(cnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelCnpj))
+                .addGap(7, 7, 7)
+                .addComponent(labelWarningCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(labelEndereco)
@@ -232,9 +248,11 @@ public class FrameCadastroFornecedor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 	private void botaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoOkActionPerformed
-		this.principal.setEnabled(true);
-		novoFornecedor();
-		this.dispose();
+		if(novoFornecedor()){
+			JOptionPane.showConfirmDialog(null, "Cadastro realizado com sucesso!","Confirmação de Cadastro",JOptionPane.CLOSED_OPTION);
+			this.principal.setEnabled(true);
+			this.dispose();
+		}
 	}//GEN-LAST:event_botaoOkActionPerformed
 
 	private void botaoLimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparCamposActionPerformed
@@ -243,8 +261,10 @@ public class FrameCadastroFornecedor extends javax.swing.JFrame {
 
 
 	private void botaoOutroCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoOutroCadastroActionPerformed
-		novoFornecedor();
-		limparCampos();
+		if(novoFornecedor()){
+			JOptionPane.showConfirmDialog(null, "Cadastro realizado com sucesso!","Confirmação de Cadastro",JOptionPane.CLOSED_OPTION);
+			limparCampos();
+		}
 	}//GEN-LAST:event_botaoOutroCadastroActionPerformed
 
 	private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
@@ -252,13 +272,28 @@ public class FrameCadastroFornecedor extends javax.swing.JFrame {
 		this.dispose();
 	}//GEN-LAST:event_botaoCancelarActionPerformed
 	
-	private void novoFornecedor() {
+	private boolean novoFornecedor() {		
+		if(razaoSocial.getText().length() == 0){
+			labelWarningRazaoSocial.setText("A Razão Social é um campo obrigatório.");
+			return false;
+		}else{
+			labelWarningRazaoSocial.setText("");
+		}
+		
+		if(cnpj.getText().length() == 0){
+			labelWarningCnpj.setText("O CNPJ é um campo obrigatório.");
+			return false;
+		}else{
+			labelWarningCnpj.setText("");
+		}
+
 		Fornecedor fornecedor = new Fornecedor(cnpj.getText(),
 				   							   razaoSocial.getText(),
 				   							   enderecoRua.getText()+", "+enderecoNumero.getText()+", "+enderecoBairro.getText(),
 				   							   enderecoTelefone.getText());
-		PersistenciaFornecedor.getInstance().cadastro(fornecedor);
+		return PersistenciaFornecedor.getInstance().cadastro(fornecedor);
 	}
+	
 	private void limparCampos() {
 		razaoSocial.setText("");
 		cnpj.setText("");
@@ -266,6 +301,8 @@ public class FrameCadastroFornecedor extends javax.swing.JFrame {
 		enderecoNumero.setText("");
 		enderecoBairro.setText("");
 		enderecoTelefone.setText("");
+		labelWarningCnpj.setText("");
+		labelWarningRazaoSocial.setText("");
 	}
 
     /**
@@ -301,6 +338,8 @@ public class FrameCadastroFornecedor extends javax.swing.JFrame {
     private javax.swing.JLabel labelEnderecoTelefone;
     private javax.swing.JLabel labelRazaoSocial;
     private javax.swing.JLabel labelTitulo;
+    private javax.swing.JLabel labelWarningCnpj;
+    private javax.swing.JLabel labelWarningRazaoSocial;
     private javax.swing.JTextField razaoSocial;
     // End of variables declaration//GEN-END:variables
 }
