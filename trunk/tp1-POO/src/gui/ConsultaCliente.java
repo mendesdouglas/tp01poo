@@ -418,12 +418,12 @@ public class ConsultaCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ConsultaClienteTextPesquisaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ConsultaClienteTextPesquisaFocusGained
-        ConsultaClienteTextPesquisa.setText("");
-}//GEN-LAST:event_ConsultaClienteTextPesquisaFocusGained
+       // ConsultaClienteTextPesquisa.setText("");
+    }//GEN-LAST:event_ConsultaClienteTextPesquisaFocusGained
 
-//    private void ConsultaClienteTextPesquisaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ConsultaClienteTextPesquisaFocusLost
-//        ConsultaClienteTextPesquisa.setText("Pesquisa");
-//}//GEN-LAST:event_ConsultaClienteTextPesquisaFocusLost
+    //    private void ConsultaClienteTextPesquisaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ConsultaClienteTextPesquisaFocusLost
+    //        ConsultaClienteTextPesquisa.setText("Pesquisa");
+    //}//GEN-LAST:event_ConsultaClienteTextPesquisaFocusLost
 
     /**
      * Campo de busca de um cliente por meio do cpf ou do nome
@@ -438,7 +438,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
         } 
         else{
             if(ConsultaClienteOpcaoCpf.isSelected() == true){
-            	Cliente cliente = PersistenciaCliente.getInstance().searchCliente(busca);
+            	cliente = PersistenciaCliente.getInstance().searchCliente(busca);
                 if(cliente == null){
                 	JOptionPane.showMessageDialog(null, "Não Encontrado");
                 }
@@ -449,7 +449,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
                 }    
              }else{
                 if(ConsultaClienteOpcaoNome.isSelected() == true){
-                	Cliente cliente = PersistenciaCliente.getInstance().searchCliente(busca);
+                	cliente = PersistenciaCliente.getInstance().searchCliente(busca);
                     if(cliente == null){
                     	JOptionPane.showMessageDialog(null, "Não Encontrado");
                     }
