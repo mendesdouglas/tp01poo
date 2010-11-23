@@ -16,6 +16,11 @@ import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
+import persistencia.PersistenciaCliente;
+import pessoas.Cliente;
+import pessoas.Fornecedor;
+
+import estoque.Item;
 import estoque.ItemCompra;
 
 /**
@@ -28,16 +33,22 @@ public class ConsultaListar extends javax.swing.JFrame {
     public ConsultaListar(ConsultaCliente cliente) {
         initComponents();
 		this.object = cliente;
+		ArrayList<Object> clientes = PersistenciaCliente.getInstance().overview();
+		String [] cabecalho = new String [] {"Cpf","Nome","Endereco","Telefone"};
+		ConsultaClienteTabela.setModel(getData(clientes,cabecalho));
+		
     }
 
 	public ConsultaListar(ConsultaFornecedor fornecedor) {
         initComponents();
 		this.object = fornecedor;
+		String [] cabecalho = new String [] {"Codigo","Nome","Telefone"};
     }
 
 	public ConsultaListar(ConsultaItem item) {
         initComponents();
 		this.object = item;
+		String [] cabecalho = new String [] {"Codigo","Nome","Preco custo","Margem lucro","Quantidade"};
     }
     /** This method is called from within the constructor to
      * initialize the form.
@@ -124,16 +135,34 @@ public class ConsultaListar extends javax.swing.JFrame {
 		for (int i = 0; i < headersName.length; i++) {
 			headers.add(headersName[i]);
 		}
-		if (itens != null){
-			for (ItemCompra itensC : itens) {
-				Vector<String> vetor = new Vector<String>();
-				vetor.add(((Integer)linha).toString());
-				vetor.add(((Integer)itensC.getCodigoItem()).toString());
-				vetor.add(itensC.getNomeItem());
-				vetor.add(((Float)itensC.getPrecoCompra()).toString());
-				vetor.add(((Integer)itensC.getQuant()).toString());
-				vetor.add(subtotal.toString());
-				dados.add(linha,vetor);
+		
+		if (data != null){
+			for (Object itensC : data) {
+				if(itensC instanceof Item){
+					Vector<String> vetor = new Vector<String>();
+					vetor.add(((Integer)((Item)itensC).getCodigo()).toString());
+					vetor.add(((Item)itensC).getNome().toString());
+					vetor.add(((Float)((Item)itensC).getPrecoCusto()).toString());
+					vetor.add(((Float)((Item)itensC).getMargemLucro()).toString());
+					vetor.add(((Integer)((Item)itensC).getQuant()).toString());
+					dados.add(vetor);
+				}
+				if(itensC instanceof Fornecedor){
+					Vector<String> vetor = new Vector<String>();
+					vetor.add(((Fornecedor)itensC).getCnpj());
+					vetor.add(((Fornecedor)itensC).getNome().toString());
+					vetor.add(((Fornecedor)itensC).getTelefone());				
+					dados.add(vetor);
+				}
+				
+				if(itensC instanceof Cliente){
+					Vector<String> vetor = new Vector<String>();
+					vetor.add(((Cliente)itensC).getCpf());
+					vetor.add(((Cliente)itensC).getNome());
+					vetor.add(((Cliente)itensC).getEndereco());
+					vetor.add(((Cliente)itensC).getTelefone());				
+					dados.add(vetor);
+				}
 			}
 		}
 		else{
