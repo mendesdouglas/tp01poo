@@ -36,7 +36,7 @@ private Principal principal;
         jTable1 = new javax.swing.JTable();
         FrameMovimentoPedidoLabelCodigo = new javax.swing.JLabel();
         FrameMovimentoPedidoLabelCliente = new javax.swing.JLabel();
-        FrameMovimentoPedidoButtonAdicionar = new javax.swing.JButton();
+        botaoSair = new javax.swing.JButton();
         FrameMovimentoPedidoLabelQuantidadeTotal = new javax.swing.JLabel();
         FrameMovimentoPedidoLabelPrecoTotal = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
@@ -47,11 +47,15 @@ private Principal principal;
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         FrameMovimentoPedidoLabelQuantidade = new javax.swing.JLabel();
-        FrameMovimentoPedidoButtonLimpar = new javax.swing.JButton();
-        FrameMovimentoPedidoButtonSair = new javax.swing.JButton();
+        botaoLimpar = new javax.swing.JButton();
+        botaoAdicionar = new javax.swing.JButton();
         FrameMovimentoPedidoTextFieldCodigo = new javax.swing.JTextField();
         FrameMovimentoPedidoTextFieldPreco = new javax.swing.JTextField();
         FrameMovimentoPedidoTextFieldQuantidade = new javax.swing.JTextField();
+        jSeparator4 = new javax.swing.JSeparator();
+        botaoRemover = new javax.swing.JButton();
+        botaoEditar = new javax.swing.JButton();
+        botaoSalvar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -89,24 +93,18 @@ private Principal principal;
 
         FrameMovimentoPedidoLabelCliente.setText("Preço: R$");
 
-        FrameMovimentoPedidoButtonAdicionar.setText("Sair");
-        FrameMovimentoPedidoButtonAdicionar.addActionListener(new java.awt.event.ActionListener() {
+        botaoSair.setText("Sair");
+        botaoSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FrameMovimentoPedidoButtonAdicionarActionPerformed(evt);
+                botaoSairActionPerformed(evt);
             }
         });
 
-        FrameMovimentoPedidoLabelQuantidadeTotal.setText("Adicionar um novo item");
+        FrameMovimentoPedidoLabelQuantidadeTotal.setText("Adicionar ou Editar");
 
         FrameMovimentoPedidoLabelPrecoTotal.setText("Quantidade:");
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
-        FrameMovimentoPedidoLabelPreco.setText("jLabel1");
-
-        jLabel2.setText("jLabel2");
-
-        jLabel4.setText("jLabel4");
 
         jLabel8.setText("Cliente:");
 
@@ -114,17 +112,17 @@ private Principal principal;
 
         FrameMovimentoPedidoLabelQuantidade.setText("Preço total: R$");
 
-        FrameMovimentoPedidoButtonLimpar.setText("Limpar");
-        FrameMovimentoPedidoButtonLimpar.addActionListener(new java.awt.event.ActionListener() {
+        botaoLimpar.setText("Limpar");
+        botaoLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FrameMovimentoPedidoButtonLimparActionPerformed(evt);
+                botaoLimparActionPerformed(evt);
             }
         });
 
-        FrameMovimentoPedidoButtonSair.setText("Adicionar");
-        FrameMovimentoPedidoButtonSair.addActionListener(new java.awt.event.ActionListener() {
+        botaoAdicionar.setText("Adicionar");
+        botaoAdicionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FrameMovimentoPedidoButtonSairActionPerformed(evt);
+                botaoAdicionarActionPerformed(evt);
             }
         });
 
@@ -146,6 +144,29 @@ private Principal principal;
             }
         });
 
+        jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        botaoRemover.setText("Remover");
+        botaoRemover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoRemoverActionPerformed(evt);
+            }
+        });
+
+        botaoEditar.setText("Editar");
+        botaoEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoEditarActionPerformed(evt);
+            }
+        });
+
+        botaoSalvar.setText("Salvar Alteração");
+        botaoSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoSalvarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -155,109 +176,128 @@ private Principal principal;
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(97, 97, 97)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9)
-                            .addComponent(FrameMovimentoPedidoLabelQuantidade))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(FrameMovimentoPedidoLabelPreco)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(FrameMovimentoPedidoLabelPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(FrameMovimentoPedidoLabelQuantidade)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)))
+                        .addGap(19, 19, 19))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(62, 62, 62)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(FrameMovimentoPedidoLabelQuantidadeTotal)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(FrameMovimentoPedidoLabelCodigo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(FrameMovimentoPedidoTextFieldCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(FrameMovimentoPedidoButtonSair)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(FrameMovimentoPedidoButtonLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(17, 17, 17)
-                                        .addComponent(FrameMovimentoPedidoButtonAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(FrameMovimentoPedidoLabelCliente)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(FrameMovimentoPedidoTextFieldPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(1, 1, 1)
-                                        .addComponent(FrameMovimentoPedidoLabelPrecoTotal)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(FrameMovimentoPedidoTextFieldQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(FrameMovimentoPedidoLabelCodigo)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(FrameMovimentoPedidoTextFieldCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(FrameMovimentoPedidoLabelCliente)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(FrameMovimentoPedidoTextFieldPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(1, 1, 1)
+                                    .addComponent(FrameMovimentoPedidoLabelPrecoTotal)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(FrameMovimentoPedidoTextFieldQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(95, 95, 95)
-                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(botaoSalvar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(botaoEditar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botaoRemover)
+                        .addGap(18, 18, 18)
+                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botaoAdicionar)
+                        .addGap(18, 18, 18)
+                        .addComponent(botaoLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17)
+                        .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel9)
-                                .addGap(18, 18, 18)
-                                .addComponent(FrameMovimentoPedidoLabelQuantidade))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(FrameMovimentoPedidoLabelPreco)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel4))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(FrameMovimentoPedidoLabelQuantidadeTotal)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(FrameMovimentoPedidoLabelCliente)
+                            .addComponent(FrameMovimentoPedidoLabelCodigo)
+                            .addComponent(FrameMovimentoPedidoTextFieldCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(FrameMovimentoPedidoTextFieldPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(FrameMovimentoPedidoLabelPrecoTotal)
+                            .addComponent(FrameMovimentoPedidoTextFieldQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))))
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(FrameMovimentoPedidoLabelQuantidadeTotal)
-                .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(FrameMovimentoPedidoLabelCliente)
-                    .addComponent(FrameMovimentoPedidoLabelCodigo)
-                    .addComponent(FrameMovimentoPedidoTextFieldCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FrameMovimentoPedidoTextFieldPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FrameMovimentoPedidoLabelPrecoTotal)
-                    .addComponent(FrameMovimentoPedidoTextFieldQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(FrameMovimentoPedidoButtonAdicionar)
-                    .addComponent(FrameMovimentoPedidoButtonLimpar)
-                    .addComponent(FrameMovimentoPedidoButtonSair))
-                .addGap(31, 31, 31))
+                        .addGap(122, 122, 122)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(FrameMovimentoPedidoLabelPreco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel8))
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(FrameMovimentoPedidoLabelQuantidade)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(47, 47, 47)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(botaoSair)
+                        .addComponent(botaoLimpar)
+                        .addComponent(botaoAdicionar))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(botaoRemover)
+                        .addComponent(botaoEditar)
+                        .addComponent(botaoSalvar))
+                    .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void FrameMovimentoPedidoButtonAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FrameMovimentoPedidoButtonAdicionarActionPerformed
+    private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
 		this.principal.setEnabled(true);
 		this.dispose();
-    }//GEN-LAST:event_FrameMovimentoPedidoButtonAdicionarActionPerformed
+    }//GEN-LAST:event_botaoSairActionPerformed
 
-    private void FrameMovimentoPedidoButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FrameMovimentoPedidoButtonSairActionPerformed
+    private void botaoAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAdicionarActionPerformed
 this.principal.setEnabled(true);
 this.dispose();
-    }//GEN-LAST:event_FrameMovimentoPedidoButtonSairActionPerformed
+    }//GEN-LAST:event_botaoAdicionarActionPerformed
 
-	private void FrameMovimentoPedidoButtonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FrameMovimentoPedidoButtonLimparActionPerformed
+	private void botaoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparActionPerformed
 	FrameMovimentoPedidoTextFieldPreco.setText("");
 	FrameMovimentoPedidoTextFieldQuantidade.setText("");
 	FrameMovimentoPedidoTextFieldCodigo.setText("");
-	}//GEN-LAST:event_FrameMovimentoPedidoButtonLimparActionPerformed
+	}//GEN-LAST:event_botaoLimparActionPerformed
 
 	private void FrameMovimentoPedidoTextFieldCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FrameMovimentoPedidoTextFieldCodigoActionPerformed
 	FrameMovimentoPedidoTextFieldCodigo.setText("");
@@ -273,6 +313,18 @@ this.dispose();
 	FrameMovimentoPedidoTextFieldQuantidade.setText("");
 	}//GEN-LAST:event_FrameMovimentoPedidoTextFieldQuantidadeActionPerformed
 
+	private void botaoRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRemoverActionPerformed
+		// TODO add your handling code here:
+}//GEN-LAST:event_botaoRemoverActionPerformed
+
+	private void botaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarActionPerformed
+		// TODO add your handling code here:
+}//GEN-LAST:event_botaoEditarActionPerformed
+
+	private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
+		// TODO add your handling code here:
+}//GEN-LAST:event_botaoSalvarActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -285,9 +337,6 @@ this.dispose();
     //}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton FrameMovimentoPedidoButtonAdicionar;
-    private javax.swing.JButton FrameMovimentoPedidoButtonLimpar;
-    private javax.swing.JButton FrameMovimentoPedidoButtonSair;
     private javax.swing.JLabel FrameMovimentoPedidoLabelCliente;
     private javax.swing.JLabel FrameMovimentoPedidoLabelCodigo;
     private javax.swing.JLabel FrameMovimentoPedidoLabelPreco;
@@ -297,6 +346,12 @@ this.dispose();
     private javax.swing.JTextField FrameMovimentoPedidoTextFieldCodigo;
     private javax.swing.JTextField FrameMovimentoPedidoTextFieldPreco;
     private javax.swing.JTextField FrameMovimentoPedidoTextFieldQuantidade;
+    private javax.swing.JButton botaoAdicionar;
+    private javax.swing.JButton botaoEditar;
+    private javax.swing.JButton botaoLimpar;
+    private javax.swing.JButton botaoRemover;
+    private javax.swing.JButton botaoSair;
+    private javax.swing.JButton botaoSalvar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel8;
@@ -304,6 +359,7 @@ this.dispose();
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 

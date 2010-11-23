@@ -365,13 +365,13 @@ public class Principal extends javax.swing.JFrame {
 	}//GEN-LAST:event_menuItemConsultasItensActionPerformed
 
 	private void menuItemMovimentoComprasActionPerformed(ActionEvent evt) {//GEN-FIRST:event_menuItemMovimentoComprasActionPerformed
-		FrameMovimentoCompra compra = new FrameMovimentoCompra(this);
+		FrameMovimentoPreCompra compra = new FrameMovimentoPreCompra(this);
 		compra.setVisible(true);
 		this.setEnabled(false);
 	}//GEN-LAST:event_menuItemMovimentoComprasActionPerformed
 
 	private void menuItemMovimentoVendasActionPerformed(ActionEvent evt) {//GEN-FIRST:event_menuItemMovimentoVendasActionPerformed
-		FrameMovimentoPedido movimentoPedido = new FrameMovimentoPedido(this);
+		FrameMovimentoPrePedido movimentoPedido = new FrameMovimentoPrePedido(this);
 		movimentoPedido.setVisible(true);
 		this.setEnabled(false);
 	}//GEN-LAST:event_menuItemMovimentoVendasActionPerformed
