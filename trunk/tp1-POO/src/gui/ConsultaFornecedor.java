@@ -48,7 +48,9 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
     public ConsultaFornecedor(FrameMovimentoPreCompra principal) {
         initComponents();
 		this.principal = principal;
-		ConsultaFornecedorPanelCnpj.setVisible(false);
+		this.fornecedor = null;
+		this.ConsultaFornecedorOpcaoCnpj.setSelected(true);
+		ConsultaFornecedorPanelCnpj.setVisible(true);
 		ConsultaFornecedorPanelNome.setVisible(false);
 		ConsultaFornecedorTextPesquisa.setText("");
 		ConsultaFornecedorCnpjTextNome.setEditable(false);
@@ -57,7 +59,24 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
 		ConsultaFornecedorNomeTextCnpj.setEditable(false);
 		ConsultaFornecedorNomeTextEndereco.setEditable(false);
 		ConsultaFornecedorNomeTextTelefone.setEditable(false);	
-		ConsultaFornecedorBotaoBusca.setEnabled(false);
+		ConsultaFornecedorBotaoBusca.setEnabled(true);
+	}
+    
+    public ConsultaFornecedor(FrameCadastroFornecedor principal) {
+        initComponents();
+		this.principal = principal;
+		this.fornecedor = null;
+		this.ConsultaFornecedorOpcaoCnpj.setSelected(true);
+		ConsultaFornecedorPanelCnpj.setVisible(true);
+		ConsultaFornecedorPanelNome.setVisible(false);
+		ConsultaFornecedorTextPesquisa.setText("");
+		ConsultaFornecedorCnpjTextNome.setEditable(false);
+		ConsultaFornecedorCnpjTextEndereco.setEditable(false);
+		ConsultaFornecedorCnpjTextTelefone.setEditable(false);
+		ConsultaFornecedorNomeTextCnpj.setEditable(false);
+		ConsultaFornecedorNomeTextEndereco.setEditable(false);
+		ConsultaFornecedorNomeTextTelefone.setEditable(false);	
+		ConsultaFornecedorBotaoBusca.setEnabled(true);
 	}
 
 	/** This method is called from within the constructor to

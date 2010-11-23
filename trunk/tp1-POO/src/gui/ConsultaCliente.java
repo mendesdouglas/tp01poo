@@ -46,7 +46,9 @@ public class ConsultaCliente extends javax.swing.JFrame {
     public ConsultaCliente(FrameMovimentoPrePedido principal) {
         initComponents();
 		this.principal = principal;
-		ConsultaClientePanelCpf.setVisible(false);
+		cliente = null;
+		ConsultaClienteOpcaoCpf.setSelected(true);
+		ConsultaClientePanelCpf.setVisible(true);
 		ConsultaClientePanelNome.setVisible(false);
 		ConsultaClienteTextPesquisa.setText("");
 		ConsultaClienteCpfTextNome.setEditable(false);
@@ -55,7 +57,24 @@ public class ConsultaCliente extends javax.swing.JFrame {
 		ConsultaClienteNomeTextCpf.setEditable(false);
 		ConsultaClienteNomeTextEndereco.setEditable(false);
 		ConsultaClienteNomeTextTelefone.setEditable(false);	
-		ConsultaClienteBotaoBusca.setEnabled(false);
+		ConsultaClienteBotaoBusca.setEnabled(true);
+	}
+    
+    public ConsultaCliente(FrameCadastroCliente principal) {
+        initComponents();
+		this.principal = principal;
+		cliente = null;
+		ConsultaClienteOpcaoCpf.setSelected(true);
+		ConsultaClientePanelCpf.setVisible(true);
+		ConsultaClientePanelNome.setVisible(false);
+		ConsultaClienteTextPesquisa.setText("");
+		ConsultaClienteCpfTextNome.setEditable(false);
+		ConsultaClienteCpfTextEndereco.setEditable(false);
+		ConsultaClienteCpfTextTelefone.setEditable(false);
+		ConsultaClienteNomeTextCpf.setEditable(false);
+		ConsultaClienteNomeTextEndereco.setEditable(false);
+		ConsultaClienteNomeTextTelefone.setEditable(false);	
+		ConsultaClienteBotaoBusca.setEnabled(true);
 	}
 
 	/** This method is called from within the constructor to

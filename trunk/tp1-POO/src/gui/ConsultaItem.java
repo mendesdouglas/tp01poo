@@ -11,6 +11,8 @@
 
 package gui;
 
+import java.awt.Component;
+
 import javax.swing.JOptionPane;
 
 import estoque.Item;
@@ -25,7 +27,9 @@ import gui.Principal;
  */
 public class ConsultaItem extends javax.swing.JFrame {
 
-	private Principal principal;
+	private Component principal;
+    Item item;
+    
     /** Creates new form Item */
     public ConsultaItem(Principal principal) {
         initComponents();
@@ -45,6 +49,23 @@ public class ConsultaItem extends javax.swing.JFrame {
 		ConsultaItemBotaoBusca.setEnabled(true);
     }
 
+    public ConsultaItem(FrameCadastroItens principal) {
+        initComponents();
+		this.principal = principal;
+		ConsultaItemOpcaoCodigo.setSelected(true);
+		ConsultaItemPanelNome.setVisible(false);
+		ConsultaItemPanelCodigo.setVisible(true);
+		ConsultaItemTextPesquisa.setText("");
+		ConsultaItemCodigoTextMargemLucro.setEditable(false);
+		ConsultaItemCodigoTextNome.setEditable(false);
+		ConsultaItemCodigoTextPrecoCusto.setEditable(false);
+		ConsultaItemCodigoTextQuantidade.setEditable(false);
+		ConsultaItemNomeTextCodigo.setEditable(false);
+		ConsultaItemNomeTextMargemLucro.setEditable(false);
+		ConsultaItemNomeTextPrecoCusto.setEditable(false);
+		ConsultaItemNomeTextQuantidade.setEditable(false);	
+		ConsultaItemBotaoBusca.setEnabled(true);
+    }
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
