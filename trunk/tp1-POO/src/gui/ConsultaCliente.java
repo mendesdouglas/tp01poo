@@ -25,6 +25,7 @@ import gui.Principal;
  */
 public class ConsultaCliente extends javax.swing.JFrame {
     private Component principal;
+    private Cliente cliente;
     /** Creates new form Cliente */
     public ConsultaCliente(Principal principal) {
         initComponents();
@@ -94,6 +95,14 @@ public class ConsultaCliente extends javax.swing.JFrame {
         ConsultaClienteNomeBotaoListar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel1.setPreferredSize(new java.awt.Dimension(514, 401));
 
@@ -105,7 +114,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
                 ConsultaClienteTextPesquisaFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-//                ConsultaClienteTextPesquisaFocusLost(evt);
+//              ConsultaClienteTextPesquisaFocusLost(evt);
             }
         });
 
@@ -169,7 +178,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
 
         ConsultaClienteCpfTextTelefone.setForeground(new java.awt.Color(58, 57, 59));
 
-        ConsultaClienteCpfBotaoOk.setText("Fechar");
+        ConsultaClienteCpfBotaoOk.setText("OK");
         ConsultaClienteCpfBotaoOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConsultaClienteCpfBotaoOkActionPerformed(evt);
@@ -240,7 +249,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
 
         ConsultaClienteNomeTextTelefone.setForeground(new java.awt.Color(58, 57, 59));
 
-        ConsultaClienteNomeBotaoOk.setText("Fechar");
+        ConsultaClienteNomeBotaoOk.setText("OK");
         ConsultaClienteNomeBotaoOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConsultaClienteNomeBotaoOkActionPerformed(evt);
@@ -326,14 +335,14 @@ public class ConsultaCliente extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(294, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(112, Short.MAX_VALUE)
-                    .addComponent(ConsultaClientePanelCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(292, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                     .addContainerGap(110, Short.MAX_VALUE)
+                    .addComponent(ConsultaClientePanelCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(108, Short.MAX_VALUE)
                     .addComponent(ConsultaClientePanelNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
@@ -421,13 +430,25 @@ public class ConsultaCliente extends javax.swing.JFrame {
 	}//GEN-LAST:event_ConsultaClienteOpcaoNomeActionPerformed
 
 	private void ConsultaClienteNomeBotaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaClienteNomeBotaoOkActionPerformed
-		principal.setEnabled(true);
-		this.dispose();
+		if(cliente == null){
+			JOptionPane.showMessageDialog(null, "Esta nao é uma pesquisa válida");
+		}
+		else {
+			principal.setEnabled(true);
+			enviar();
+			this.dispose();
+		}	
 }//GEN-LAST:event_ConsultaClienteNomeBotaoOkActionPerformed
 
 	private void ConsultaClienteCpfBotaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaClienteCpfBotaoOkActionPerformed
-		principal.setEnabled(true);
-		this.dispose();
+		if(cliente == null){
+			JOptionPane.showMessageDialog(null, "Esta nao é uma pesquisa válida");
+		}
+		else {
+			principal.setEnabled(true);
+			enviar();
+			this.dispose();
+		}	
 }//GEN-LAST:event_ConsultaClienteCpfBotaoOkActionPerformed
 
 	private void ConsultaClienteCpfBotaoListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaClienteCpfBotaoListarActionPerformed
@@ -441,6 +462,14 @@ public class ConsultaCliente extends javax.swing.JFrame {
 		listar.setVisible(true);
 		this.setEnabled(false);
 	}//GEN-LAST:event_ConsultaClienteNomeBotaoListarActionPerformed
+
+        private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+            this.principal.setEnabled(true);
+        }//GEN-LAST:event_formWindowClosed
+
+        private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+            this.principal.setEnabled(true);
+        }//GEN-LAST:event_formWindowClosing
 
     /**
     * @param args the command line arguments
@@ -475,5 +504,10 @@ public class ConsultaCliente extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
-
+	
+    public void enviar(){
+		if(principal instanceof FrameMovimentoPrePedido){
+			((FrameMovimentoPrePedido)principal).receber(cliente);
+		}	
+	}
 }
