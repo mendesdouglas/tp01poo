@@ -73,8 +73,18 @@ public class Principal2 extends javax.swing.JFrame {
         jLabel2.setText("Insira Nome de Usuário e senha:");
 
         botaoOk.setText("Ok");
+        botaoOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoOkActionPerformed(evt);
+            }
+        });
 
         botaoCancelar.setText("Cancelar");
+        botaoCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoCancelarActionPerformed(evt);
+            }
+        });
 
         labelNome.setText("Nome:");
 
@@ -130,12 +140,27 @@ public class Principal2 extends javax.swing.JFrame {
         jMenu1.setText("Arquivo");
 
         menuLogin.setText("Login");
+        menuLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuLoginActionPerformed(evt);
+            }
+        });
         jMenu1.add(menuLogin);
 
         menuLogout.setText("Logout");
+        menuLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuLogoutActionPerformed(evt);
+            }
+        });
         jMenu1.add(menuLogout);
 
         menuSair.setText("Sair");
+        menuSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuSairActionPerformed(evt);
+            }
+        });
         jMenu1.add(menuSair);
 
         jMenuBar1.add(jMenu1);
@@ -143,15 +168,35 @@ public class Principal2 extends javax.swing.JFrame {
         jMenu2.setText("Consultas");
 
         menuConsultaFornecedor.setText("Fornecedores");
+        menuConsultaFornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuConsultaFornecedorActionPerformed(evt);
+            }
+        });
         jMenu2.add(menuConsultaFornecedor);
 
         menuConsultaClientes.setText("Clientes");
+        menuConsultaClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuConsultaClientesActionPerformed(evt);
+            }
+        });
         jMenu2.add(menuConsultaClientes);
 
         menuConsultaUsuários.setText("Usuários");
+        menuConsultaUsuários.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuConsultaUsuáriosActionPerformed(evt);
+            }
+        });
         jMenu2.add(menuConsultaUsuários);
 
         menuConsultaItens.setText("Itens");
+        menuConsultaItens.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuConsultaItensActionPerformed(evt);
+            }
+        });
         jMenu2.add(menuConsultaItens);
 
         jMenuBar1.add(jMenu2);
@@ -159,12 +204,27 @@ public class Principal2 extends javax.swing.JFrame {
         jMenu3.setText("Cadastros");
 
         menuCadastroFornecedores.setText("Fornecedores");
+        menuCadastroFornecedores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCadastroFornecedoresActionPerformed(evt);
+            }
+        });
         jMenu3.add(menuCadastroFornecedores);
 
         menuCadastroClientes.setText("Clientes");
+        menuCadastroClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCadastroClientesActionPerformed(evt);
+            }
+        });
         jMenu3.add(menuCadastroClientes);
 
         menuCadastroItens.setText("Itens");
+        menuCadastroItens.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCadastroItensActionPerformed(evt);
+            }
+        });
         jMenu3.add(menuCadastroItens);
 
         jMenuBar1.add(jMenu3);
@@ -172,6 +232,11 @@ public class Principal2 extends javax.swing.JFrame {
         jMenu4.setText("Compra");
 
         menuIniciarCompra.setText("Iniciar Compra");
+        menuIniciarCompra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuIniciarCompraActionPerformed(evt);
+            }
+        });
         jMenu4.add(menuIniciarCompra);
 
         jMenuBar1.add(jMenu4);
@@ -179,6 +244,11 @@ public class Principal2 extends javax.swing.JFrame {
         jMenu5.setText("Venda");
 
         menuIniciarVenda.setText("Iniciar Venda");
+        menuIniciarVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuIniciarVendaActionPerformed(evt);
+            }
+        });
         jMenu5.add(menuIniciarVenda);
 
         jMenuBar1.add(jMenu5);
@@ -186,12 +256,27 @@ public class Principal2 extends javax.swing.JFrame {
         jMenu6.setText("Usuários");
 
         menuAdicionarUsuarios.setText("Adicionar");
+        menuAdicionarUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuAdicionarUsuariosActionPerformed(evt);
+            }
+        });
         jMenu6.add(menuAdicionarUsuarios);
 
         menuRemoverUsuários.setText("Remover");
+        menuRemoverUsuários.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuRemoverUsuáriosActionPerformed(evt);
+            }
+        });
         jMenu6.add(menuRemoverUsuários);
 
         menuAlterarSenha.setText("Alterar Senha");
+        menuAlterarSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuAlterarSenhaActionPerformed(evt);
+            }
+        });
         jMenu6.add(menuAlterarSenha);
 
         jMenuBar1.add(jMenu6);
@@ -221,6 +306,74 @@ public class Principal2 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+	private void botaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoOkActionPerformed
+		// TODO add your handling code here:
+	}//GEN-LAST:event_botaoOkActionPerformed
+
+	private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
+		// TODO add your handling code here:
+	}//GEN-LAST:event_botaoCancelarActionPerformed
+
+	private void menuLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuLoginActionPerformed
+		// TODO add your handling code here:
+	}//GEN-LAST:event_menuLoginActionPerformed
+
+	private void menuLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuLogoutActionPerformed
+		// TODO add your handling code here:
+	}//GEN-LAST:event_menuLogoutActionPerformed
+
+	private void menuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSairActionPerformed
+		// TODO add your handling code here:
+	}//GEN-LAST:event_menuSairActionPerformed
+
+	private void menuConsultaFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuConsultaFornecedorActionPerformed
+		// TODO add your handling code here:
+	}//GEN-LAST:event_menuConsultaFornecedorActionPerformed
+
+	private void menuConsultaClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuConsultaClientesActionPerformed
+		// TODO add your handling code here:
+	}//GEN-LAST:event_menuConsultaClientesActionPerformed
+
+	private void menuConsultaUsuáriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuConsultaUsuáriosActionPerformed
+		// TODO add your handling code here:
+	}//GEN-LAST:event_menuConsultaUsuáriosActionPerformed
+
+	private void menuConsultaItensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuConsultaItensActionPerformed
+		// TODO add your handling code here:
+	}//GEN-LAST:event_menuConsultaItensActionPerformed
+
+	private void menuCadastroFornecedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastroFornecedoresActionPerformed
+		// TODO add your handling code here:
+	}//GEN-LAST:event_menuCadastroFornecedoresActionPerformed
+
+	private void menuCadastroClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastroClientesActionPerformed
+		// TODO add your handling code here:
+	}//GEN-LAST:event_menuCadastroClientesActionPerformed
+
+	private void menuCadastroItensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastroItensActionPerformed
+		// TODO add your handling code here:
+	}//GEN-LAST:event_menuCadastroItensActionPerformed
+
+	private void menuIniciarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuIniciarCompraActionPerformed
+		// TODO add your handling code here:
+	}//GEN-LAST:event_menuIniciarCompraActionPerformed
+
+	private void menuIniciarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuIniciarVendaActionPerformed
+		// TODO add your handling code here:
+	}//GEN-LAST:event_menuIniciarVendaActionPerformed
+
+	private void menuAdicionarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAdicionarUsuariosActionPerformed
+		// TODO add your handling code here:
+	}//GEN-LAST:event_menuAdicionarUsuariosActionPerformed
+
+	private void menuRemoverUsuáriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRemoverUsuáriosActionPerformed
+		// TODO add your handling code here:
+	}//GEN-LAST:event_menuRemoverUsuáriosActionPerformed
+
+	private void menuAlterarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAlterarSenhaActionPerformed
+		// TODO add your handling code here:
+	}//GEN-LAST:event_menuAlterarSenhaActionPerformed
 
     /**
     * @param args the command line arguments
