@@ -64,7 +64,7 @@ public class AccessControl {
 	 * @return false caso o cadstro não ocorra com sucesso
 	 * @exception SQLException no caso de erro na conexão
 	 */	
-	public static boolean cadastroUsuario(String username,String passwd,Boolean admin){
+	public static boolean cadastroUsuario(String name,String username,String passwd,Integer access){
 		ResultSet rs;
 		try {
 			Statement stat = Conecta.getConnection().conn.createStatement();
@@ -73,8 +73,8 @@ public class AccessControl {
 				Log.getLoginstance(null).error("Tentativa de cadastro de usuário já existente "+username);
 				return false;
 			}
-			stat.executeUpdate("insert into Users (name,passwd,admin) values ('"+username+"','"+processa(passwd)+"','"+admin.toString()+"')");
-			Log.getLoginstance(null).info("Usuário "+username+" cadastrado com sucesso");
+			stat.executeUpdate("insert into Users (completeName,name,passwd,permition) values ('"+name+"','"+username+"','"+processa(passwd)+"','"+access.toString()+"')");
+			Log.getLoginstance(null).info("Usuário "+name+" de login "+username+" cadastrado com sucesso");
 			return true;
 		} catch (SQLException e) {
 			Log.getLoginstance(null).error(e.getMessage());
