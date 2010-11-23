@@ -11,6 +11,14 @@
 
 package gui;
 
+import javax.swing.JOptionPane;
+
+import persistencia.PersistenciaCliente;
+import persistencia.PersistenciaFornecedor;
+import pessoas.Cliente;
+import pessoas.Fornecedor;
+import estoque.Compra;
+import estoque.Pedido;
 import interfaces.Communication;
 import gui.ConsultaCliente;
 
@@ -38,16 +46,16 @@ public class FrameMovimentoPrePedido extends javax.swing.JFrame implements Commu
 
         prePedidoCampoCpf = new javax.swing.JTextField();
         prePedidoLabelCabecalho = new javax.swing.JLabel();
-        PrePedidoLabelCpf = new javax.swing.JLabel();
+        prePedidoLabelCpf = new javax.swing.JLabel();
         prePedidoBotaoPesquisar = new javax.swing.JButton();
-        PrePedidoBotaoOK = new javax.swing.JButton();
+        prePedidoBotaoOK = new javax.swing.JButton();
         prePedidoBotaoCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         prePedidoLabelCabecalho.setText("Insira o Cpf do Cliente que irá realizar o pedido:");
 
-        PrePedidoLabelCpf.setText("Cpf:");
+        prePedidoLabelCpf.setText("Cpf:");
 
         prePedidoBotaoPesquisar.setText("Pesquisar");
         prePedidoBotaoPesquisar.addActionListener(new java.awt.event.ActionListener() {
@@ -56,8 +64,8 @@ public class FrameMovimentoPrePedido extends javax.swing.JFrame implements Commu
             }
         });
 
-        PrePedidoBotaoOK.setText("Ok");
-        PrePedidoBotaoOK.addActionListener(new java.awt.event.ActionListener() {
+        prePedidoBotaoOK.setText("Ok");
+        prePedidoBotaoOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PrePedidoBotaoOKActionPerformed(evt);
             }
@@ -78,12 +86,12 @@ public class FrameMovimentoPrePedido extends javax.swing.JFrame implements Commu
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(PrePedidoLabelCpf)
+                        .addComponent(prePedidoLabelCpf)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(prePedidoCampoCpf, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(65, 65, 65)
-                        .addComponent(PrePedidoBotaoOK, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(prePedidoBotaoOK, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(prePedidoBotaoCancelar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -101,12 +109,12 @@ public class FrameMovimentoPrePedido extends javax.swing.JFrame implements Commu
                 .addComponent(prePedidoLabelCabecalho, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(PrePedidoLabelCpf)
+                    .addComponent(prePedidoLabelCpf)
                     .addComponent(prePedidoCampoCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(prePedidoBotaoPesquisar)
-                    .addComponent(PrePedidoBotaoOK)
+                    .addComponent(prePedidoBotaoOK)
                     .addComponent(prePedidoBotaoCancelar))
                 .addGap(60, 60, 60))
         );
@@ -120,9 +128,25 @@ public class FrameMovimentoPrePedido extends javax.swing.JFrame implements Commu
 	}//GEN-LAST:event_prePedidoBotaoCancelarActionPerformed
 
 	private void PrePedidoBotaoOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrePedidoBotaoOKActionPerformed
-		FrameMovimentoPedido pedido = new FrameMovimentoPedido(principal);
-		pedido.setVisible(true);
-		this.dispose();
+		if (prePedidoCampoCpf.getText() == null || prePedidoCampoCpf.getText().length() == 0){
+			JOptionPane.showConfirmDialog(null,"O campo Cpf nao pode ser vazio","mensagem",JOptionPane.CLOSED_OPTION);
+		}
+		else{
+			if (pedido == null ){
+				Cliente cliente = PersistenciaCliente.getInstance().searchCliente(prePedidoCampoCpf.getText());
+				if (cliente == null ){
+					JOptionPane.showConfirmDialog(null,"Cpf invalido","mensagem",JOptionPane.CLOSED_OPTION);
+					prePedidoCampoCpf.setText("");
+					return;
+				}
+				else{
+					pedido = new Pedido(cliente);
+				}
+			}
+			FrameMovimentoPedido movPedido = new FrameMovimentoPedido(principal,pedido);
+			movPedido.setVisible(true);
+			this.dispose();
+		}
 	}//GEN-LAST:event_PrePedidoBotaoOKActionPerformed
 
 	private void prePedidoBotaoPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prePedidoBotaoPesquisarActionPerformed
@@ -131,25 +155,16 @@ public class FrameMovimentoPrePedido extends javax.swing.JFrame implements Commu
 		this.setEnabled(false);
 	}//GEN-LAST:event_prePedidoBotaoPesquisarActionPerformed
 
-    /**
-    * @param args the command line arguments
-    */
-//    public static void main(String args[]) {
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new FrameMovimentoPrePedido().setVisible(true);
-//            }
-//        });
-//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton PrePedidoBotaoOK;
-    private javax.swing.JLabel PrePedidoLabelCpf;
+    private javax.swing.JButton prePedidoBotaoOK;
+    private javax.swing.JLabel prePedidoLabelCpf;
     private javax.swing.JButton prePedidoBotaoCancelar;
     private javax.swing.JButton prePedidoBotaoPesquisar;
     private javax.swing.JTextField prePedidoCampoCpf;
     private javax.swing.JLabel prePedidoLabelCabecalho;
     // End of variables declaration//GEN-END:variables
+	private Pedido pedido;
 
 	@Override
 	public void enviar() {
@@ -159,8 +174,13 @@ public class FrameMovimentoPrePedido extends javax.swing.JFrame implements Commu
 
 	@Override
 	public void receber(Object o) {
-		// TODO Auto-generated method stub
-		
+		if (o instanceof Cliente && o != null){
+			pedido = new Pedido((Cliente)o);
+			prePedidoLabelCpf.setText(((Cliente)o).getCpf());
+		}
+		else {
+			JOptionPane.showConfirmDialog(null,"Cliente invalido","mensagem",JOptionPane.CLOSED_OPTION);
+		}
 	}
 
 }
