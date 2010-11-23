@@ -11,6 +11,14 @@
 
 package gui;
 
+import javax.swing.JOptionPane;
+
+import org.hamcrest.core.IsInstanceOf;
+
+import persistencia.PersistenciaFornecedor;
+import pessoas.Fornecedor;
+
+import estoque.Compra;
 import interfaces.Communication;
 
 
@@ -20,10 +28,12 @@ import interfaces.Communication;
  */
 public class FrameMovimentoPreCompra extends javax.swing.JFrame implements Communication{
 
-    /** Creates new form FrameMovimentoPreCompra */
+    private Compra compra;
+	/** Creates new form FrameMovimentoPreCompra */
     public FrameMovimentoPreCompra(Principal principal) {
         initComponents();
 		this.principal=principal;
+		this.compra = null;
     }
 
     /** This method is called from within the constructor to
@@ -119,9 +129,25 @@ public class FrameMovimentoPreCompra extends javax.swing.JFrame implements Commu
 	}//GEN-LAST:event_preCompraBotaoCancelarActionPerformed
 
 	private void PreCompraBotaoOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PreCompraBotaoOKActionPerformed
-		FrameMovimentoCompra compra = new FrameMovimentoCompra(principal);
-		compra.setVisible(true);
-		this.dispose();
+		if (preCompraCampoCnpj.getText() == null || preCompraCampoCnpj.getText().length() == 0){
+			JOptionPane.showConfirmDialog(null,"O campo cnpj nao pode ser vazio","mensagem",JOptionPane.CLOSED_OPTION);
+		}
+		else{
+			if (compra == null ){
+				Fornecedor fornecedor = PersistenciaFornecedor.getInstance().searchFornecedor(preCompraCampoCnpj.getText());
+				if (fornecedor == null ){
+					JOptionPane.showConfirmDialog(null,"cnpj invalido","mensagem",JOptionPane.CLOSED_OPTION);
+					preCompraCampoCnpj.setText("");
+					return;
+				}
+				else{
+					compra = new Compra(fornecedor);
+				}
+			}
+			FrameMovimentoCompra movCompra = new FrameMovimentoCompra(principal,compra);
+			movCompra.setVisible(true);
+			this.dispose();
+		}
 	}//GEN-LAST:event_PreCompraBotaoOKActionPerformed
 
 	private void preCompraBotaoPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_preCompraBotaoPesquisarActionPerformed
@@ -150,14 +176,19 @@ public class FrameMovimentoPreCompra extends javax.swing.JFrame implements Commu
     private javax.swing.JLabel preCompraLabelCabecalho;
     // End of variables declaration//GEN-END:variables
 	@Override
-	public Object enviar() {
-		// TODO Auto-generated method stub
-		return null;
+	public void enviar() {
+	
 	}
 
 	@Override
 	public void receber(Object o) {
-		// TODO Auto-generated method stub
+		if (o instanceof Fornecedor && o != null){
+			compra = new Compra((Fornecedor)o);
+			preCompraCampoCnpj.setText(((Fornecedor)o).getCnpj());
+		}
+		else {
+			JOptionPane.showConfirmDialog(null,"Fornecedor invalido","mensagem",JOptionPane.CLOSED_OPTION);
+		}
 		
 	}
 

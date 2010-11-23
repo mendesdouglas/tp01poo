@@ -152,9 +152,9 @@ public class FrameMovimentoPrePedido extends javax.swing.JFrame implements Commu
     // End of variables declaration//GEN-END:variables
 
 	@Override
-	public Object enviar() {
+	public void enviar() {
 		// TODO Auto-generated method stub
-		return null;
+
 	}
 
 	@Override

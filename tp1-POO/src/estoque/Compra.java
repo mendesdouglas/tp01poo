@@ -138,10 +138,9 @@ public class Compra {
 	 * Adiciona um item à lista de compra.
 	 * 
 	 * @return Verdadeiro se adicionar com sucesso ou Falso do contrário.
-	 * @throws IOException 
 	 * 
 	 */	
-	public boolean addItem(Item item,float precoCompra,int quant) throws IOException{
+	public boolean addItem(Item item,float precoCompra,int quant){
 		if (searchItemCompra(item.getCodigo()) || item == null){
 			return false;
 		}
