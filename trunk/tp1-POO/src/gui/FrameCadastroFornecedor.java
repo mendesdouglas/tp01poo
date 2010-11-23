@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 import persistencia.PersistenciaFornecedor;
 import pessoas.Fornecedor;
-import gui.Principal;
+import gui.Principal2;
 /**
  *
  * @author luizcpo
@@ -18,7 +18,7 @@ import gui.Principal;
 public class FrameCadastroFornecedor extends javax.swing.JFrame {
 	private Component principal;
     /** Creates new form CadastroCLientesFrame */
-    public FrameCadastroFornecedor(Principal principal) {
+    public FrameCadastroFornecedor(Principal2 principal) {
         initComponents();
 		this.principal = principal;
     }

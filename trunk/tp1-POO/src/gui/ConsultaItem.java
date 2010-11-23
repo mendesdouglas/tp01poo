@@ -19,7 +19,7 @@ import estoque.Item;
 
 import persistencia.PersistenciaEstoque;
 
-import gui.Principal;
+import gui.Principal2;
 
 /**
  *
@@ -30,7 +30,7 @@ public class ConsultaItem extends javax.swing.JFrame {
 	private Component principal;
     
     /** Creates new form Item */
-    public ConsultaItem(Principal principal) {
+    public ConsultaItem(Principal2 principal) {
         initComponents();
 		this.principal = principal;
 		ConsultaItemOpcaoCodigo.setSelected(true);

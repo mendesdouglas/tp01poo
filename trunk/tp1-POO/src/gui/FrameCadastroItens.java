@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 
 import estoque.Item;
 import persistencia.PersistenciaEstoque;
-import gui.Principal;
+import gui.Principal2;
 /**
  *
  * @author felipe
@@ -25,7 +25,7 @@ import gui.Principal;
 public class FrameCadastroItens extends javax.swing.JFrame {
     private Component principal;
     /** Creates new form FrameCadastro */
-    public FrameCadastroItens(Principal principal) {
+    public FrameCadastroItens(Principal2 principal) {
         initComponents();
 		this.principal = principal;
     }
