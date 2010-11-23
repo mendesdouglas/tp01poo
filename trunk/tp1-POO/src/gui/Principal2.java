@@ -9,7 +9,15 @@
  * Created on 23/11/2010, 17:08:36
  */
 
-package javaapplication4;
+package gui;
+
+import javax.swing.JOptionPane;
+
+import exceptions.PasswordsDontMatchException;
+import exceptions.UserNotFoundException;
+
+import persistencia.AccessControl;
+import persistencia.Log;
 
 /**
  *
@@ -19,7 +27,28 @@ public class Principal2 extends javax.swing.JFrame {
 
     /** Creates new form Principal2 */
     public Principal2() {
+		try {
+			javax.swing.UIManager.setLookAndFeel("com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
         initComponents();
+        menuAdicionarUsuarios.setEnabled(false);
+        menuAlterarSenha.setEnabled(false);
+        menuCadastroClientes.setEnabled(false);
+        menuCadastroFornecedores.setEnabled(false);
+        menuCadastroItens.setEnabled(false);
+        menuConsultaClientes.setEnabled(true);
+        menuConsultaFornecedor.setEnabled(true);
+        menuConsultaItens.setEnabled(true);
+        menuCadastroUsuarios.setEnabled(false);
+        menuIniciarCompra.setEnabled(false);
+        menuIniciarVenda.setEnabled(false);
+        menuLogin.setEnabled(true);
+        menuLogout.setEnabled(true);
+        menuRemoverUsuários.setEnabled(false);
+        menuSair.setEnabled(true);
+        painelLogin.setVisible(false);
     }
 
     /** This method is called from within the constructor to
@@ -49,12 +78,12 @@ public class Principal2 extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         menuConsultaFornecedor = new javax.swing.JMenuItem();
         menuConsultaClientes = new javax.swing.JMenuItem();
-        menuConsultaUsuários = new javax.swing.JMenuItem();
         menuConsultaItens = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         menuCadastroFornecedores = new javax.swing.JMenuItem();
         menuCadastroClientes = new javax.swing.JMenuItem();
         menuCadastroItens = new javax.swing.JMenuItem();
+        menuCadastroUsuarios = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         menuIniciarCompra = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
@@ -68,7 +97,7 @@ public class Principal2 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("/home/isac/workspace/tp1-POO/src/gui/logo.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/logo.png"))); // NOI18N
 
         jLabel2.setText("Insira Nome de Usuário e senha:");
 
@@ -183,14 +212,6 @@ public class Principal2 extends javax.swing.JFrame {
         });
         jMenu2.add(menuConsultaClientes);
 
-        menuConsultaUsuários.setText("Usuários");
-        menuConsultaUsuários.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuConsultaUsuáriosActionPerformed(evt);
-            }
-        });
-        jMenu2.add(menuConsultaUsuários);
-
         menuConsultaItens.setText("Itens");
         menuConsultaItens.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -226,6 +247,14 @@ public class Principal2 extends javax.swing.JFrame {
             }
         });
         jMenu3.add(menuCadastroItens);
+
+        menuCadastroUsuarios.setText("Usuario");
+        menuCadastroUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCadastroUsuariosActionPerformed(evt);
+            }
+        });
+        jMenu3.add(menuCadastroUsuarios);
 
         jMenuBar1.add(jMenu3);
 
@@ -308,59 +337,137 @@ public class Principal2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 	private void botaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoOkActionPerformed
-		// TODO add your handling code here:
+		login();
 	}//GEN-LAST:event_botaoOkActionPerformed
 
+	private void login() {
+		if(campoNome.getText().length() == 0){
+			mensagem("O campo nome não pode estar em branco");
+			return;
+		}
+		else{
+			try {
+				if(AccessControl.login(campoNome.getText(),new String(campoSenha.getPassword()))){
+					switch(AccessControl.getPermission(campoNome.getText())){
+					case 1:{
+						administrador();
+						break;
+						}
+					case 2:{
+						cliente();
+						break;
+					}
+					case 3:{
+						Fornecedor();
+						break;
+					}
+					default:{
+						painelLogin.setVisible(false);
+					}
+					
+				}
+				}
+			} catch (UserNotFoundException e) {
+				mensagem("Usuario nao encontrado");
+				return;
+			} catch (PasswordsDontMatchException e) {
+				mensagem("Password errado");
+				return;
+			}
+		}
+	}
+
+	private void Fornecedor() {
+		menuAlterarSenha.setEnabled(true);
+		menuCadastroItens.setEnabled(true);
+		menuIniciarCompra.setEnabled(true);
+		menuCadastroFornecedores.setEnabled(true);
+		painelLogin.setVisible(false);
+	}
+
+	private void cliente() {
+		menuAlterarSenha.setEnabled(true);
+		menuIniciarVenda.setEnabled(true);
+		menuCadastroClientes.setEnabled(true);
+		painelLogin.setVisible(false);
+	}
+
+	private void administrador() {
+		menuAdicionarUsuarios.setEnabled(true);
+		menuAlterarSenha.setEnabled(true);
+		menuCadastroClientes.setEnabled(true);
+		menuCadastroFornecedores.setEnabled(true);
+		menuCadastroItens.setEnabled(true);
+		menuCadastroUsuarios.setEnabled(true);
+		menuIniciarCompra.setEnabled(true);
+		menuIniciarVenda.setEnabled(true);
+		menuRemoverUsuários.setEnabled(true);
+		painelLogin.setVisible(false);
+	}
+
 	private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
-		// TODO add your handling code here:
+		painelLogin.setVisible(false);
 	}//GEN-LAST:event_botaoCancelarActionPerformed
 
 	private void menuLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuLoginActionPerformed
-		// TODO add your handling code here:
+		painelLogin.setVisible(true);
 	}//GEN-LAST:event_menuLoginActionPerformed
 
 	private void menuLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuLogoutActionPerformed
-		// TODO add your handling code here:
+		Log.getLoginstance(null).info("Usuário "+AccessControl.nome+" deslogado com sucesso");
+		AccessControl.nome = "";
 	}//GEN-LAST:event_menuLogoutActionPerformed
 
 	private void menuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSairActionPerformed
-		// TODO add your handling code here:
+		this.dispose();
 	}//GEN-LAST:event_menuSairActionPerformed
 
 	private void menuConsultaFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuConsultaFornecedorActionPerformed
-		// TODO add your handling code here:
+		ConsultaFornecedor consultaFornecedor = new ConsultaFornecedor(this);
+		consultaFornecedor.setVisible(true);
+		this.setEnabled(false);
 	}//GEN-LAST:event_menuConsultaFornecedorActionPerformed
 
 	private void menuConsultaClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuConsultaClientesActionPerformed
-		// TODO add your handling code here:
+		ConsultaFornecedor consultaFornecedor = new ConsultaFornecedor(this);
+		consultaFornecedor.setVisible(true);
+		this.setEnabled(false);
 	}//GEN-LAST:event_menuConsultaClientesActionPerformed
 
-	private void menuConsultaUsuáriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuConsultaUsuáriosActionPerformed
-		// TODO add your handling code here:
-	}//GEN-LAST:event_menuConsultaUsuáriosActionPerformed
-
 	private void menuConsultaItensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuConsultaItensActionPerformed
-		// TODO add your handling code here:
+		ConsultaItem consultaItem = new ConsultaItem(this);
+		consultaItem.setVisible(true);
+		this.setEnabled(false);
 	}//GEN-LAST:event_menuConsultaItensActionPerformed
 
 	private void menuCadastroFornecedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastroFornecedoresActionPerformed
-		// TODO add your handling code here:
+		FrameCadastroFornecedor cadastroFornecedores = new FrameCadastroFornecedor(this);
+		cadastroFornecedores.setVisible(true);
+		this.setEnabled(false);
 	}//GEN-LAST:event_menuCadastroFornecedoresActionPerformed
 
 	private void menuCadastroClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastroClientesActionPerformed
-		// TODO add your handling code here:
+		FrameCadastroCliente cadastroClientes = new FrameCadastroCliente(this);
+		cadastroClientes.setVisible(true);
+		this.setEnabled(false);
 	}//GEN-LAST:event_menuCadastroClientesActionPerformed
 
 	private void menuCadastroItensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastroItensActionPerformed
-		// TODO add your handling code here:
+		FrameCadastroItens cadastroItens = new FrameCadastroItens(this);
+	    cadastroItens.setVisible(true);
+		this.setEnabled(false);
 	}//GEN-LAST:event_menuCadastroItensActionPerformed
 
 	private void menuIniciarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuIniciarCompraActionPerformed
-		// TODO add your handling code here:
+		FrameMovimentoPreCompra compra = new FrameMovimentoPreCompra(this);
+		compra.setVisible(true);
+		this.setEnabled(false);
 	}//GEN-LAST:event_menuIniciarCompraActionPerformed
 
 	private void menuIniciarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuIniciarVendaActionPerformed
-		// TODO add your handling code here:
+		FrameMovimentoPrePedido movimentoPedido = new FrameMovimentoPrePedido(this);
+		movimentoPedido.setVisible(true);
+		this.setEnabled(false);
 	}//GEN-LAST:event_menuIniciarVendaActionPerformed
 
 	private void menuAdicionarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAdicionarUsuariosActionPerformed
@@ -375,6 +482,21 @@ public class Principal2 extends javax.swing.JFrame {
 		// TODO add your handling code here:
 	}//GEN-LAST:event_menuAlterarSenhaActionPerformed
 
+	private void menuCadastroUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+		FrameCadastroUsuario cadastroUsuario = new FrameCadastroUsuario(this);
+		cadastroUsuario.setVisible(true);
+		this.setEnabled(false);
+	}//GEN-LAST:event_jMenuItem1ActionPerformed
+
+	private void limpaCampos() {
+		campoNome.setText("");
+		campoSenha.setText("");
+	}
+	
+	private void mensagem(String mensagem) {
+		JOptionPane.showConfirmDialog(null,mensagem,"Mensagem",JOptionPane.CLOSED_OPTION);
+	}
+	
     /**
     * @param args the command line arguments
     */
@@ -408,10 +530,10 @@ public class Principal2 extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuCadastroClientes;
     private javax.swing.JMenuItem menuCadastroFornecedores;
     private javax.swing.JMenuItem menuCadastroItens;
+    private javax.swing.JMenuItem menuCadastroUsuarios;
     private javax.swing.JMenuItem menuConsultaClientes;
     private javax.swing.JMenuItem menuConsultaFornecedor;
     private javax.swing.JMenuItem menuConsultaItens;
-    private javax.swing.JMenuItem menuConsultaUsuários;
     private javax.swing.JMenuItem menuIniciarCompra;
     private javax.swing.JMenuItem menuIniciarVenda;
     private javax.swing.JMenuItem menuLogin;

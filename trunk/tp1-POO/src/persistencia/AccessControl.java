@@ -10,6 +10,8 @@ import exceptions.UserNotFoundException;
 
 public class AccessControl {
 	
+	public static String nome;
+	
 	/**
 	 * Realiza o login do usuário no sistema
 	 * @param username Nome do usuário
@@ -21,30 +23,20 @@ public class AccessControl {
 	 * @throws PasswordsDontMatchException  caso a senha informada nao bata com a senha armazenada no banco
 	 * @exception SQLException no caso de erro na conexão
 	 */
-	public static boolean login(String username,String passwd,boolean adminRequired) throws UserNotFoundException, PasswordsDontMatchException{
+	public static boolean login(String username,String passwd) throws UserNotFoundException, PasswordsDontMatchException{
 		ResultSet rs;
 		try {
 			Statement stat = Conecta.getConnection().conn.createStatement();
 			rs = stat.executeQuery("select * from Users where name='"+username+"'");
 			if (rs.next()){
-				if (adminRequired){
-					if (rs.getString("passwd").equals(processa(passwd)) && isAdmin(username)){
-						Log.getLoginstance(null).info("Usuário "+username+" Logado com sucesso no sistema");
-						return true;
-					}
-					else{
-						throw new PasswordsDontMatchException(passwd);
-					}		
-				}
-				else{
 					if(rs.getString("passwd").equals(processa(passwd))){
 						Log.getLoginstance(null).info("Usuário "+username+" Logado com sucesso no sistema");
+						nome=username;
 						return true;
 					}
 					else{
 						throw new PasswordsDontMatchException(passwd);
 					}
-				}
 			}
 			else{
 				throw new UserNotFoundException(username);
@@ -116,24 +108,26 @@ public class AccessControl {
 	/**
 	 * Verifica se o usuário tem privilégios administrativos
 	 * @param username Nome do usuário
-	 * @return true em caso positivo
-	 * @return false em caso negativo
+	 * @return 0 em caso de erro
+	 * @return 1 se administrador
+	 * @return 2 se Cliente
+	 * @return 3 se Fornecedor
 	 * @exception SQLException no caso de erro na conexão
 	 */
-	public static boolean isAdmin(String username){
+	public static Integer getPermission(String username){
 		ResultSet rs;
 		try {
 			Statement stat = Conecta.getConnection().conn.createStatement();
 			rs = stat.executeQuery("select * from Users where name='"+username+"'");
 			if (rs.next()){
-				return rs.getString("admin").equalsIgnoreCase("true");
+				return rs.getInt("permition");
 			}
 			else{
-				return false;
+				return 0;
 			}
 		} catch (SQLException e) {
 			Log.getLoginstance(null).error(e.getMessage());
-			return false;
+			return 0;
 		}
 		
 	}
