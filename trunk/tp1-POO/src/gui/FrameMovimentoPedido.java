@@ -26,11 +26,11 @@ import gui.*;
  * @author amanda
  */
 public class FrameMovimentoPedido extends javax.swing.JFrame {
-	private Principal2 principal;
+	private Principal principal;
 	private Pedido pedido;
     
 	/** Creates new form FrameMovimentoPedido */
-    public FrameMovimentoPedido(Principal2 principal,Pedido pedido) {
+    public FrameMovimentoPedido(Principal principal,Pedido pedido) {
         initComponents();
 		this.principal = principal;
 		if(pedido == null ){

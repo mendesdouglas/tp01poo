@@ -30,7 +30,7 @@ public class FrameMovimentoPreCompra extends javax.swing.JFrame implements Commu
 
     private Compra compra;
 	/** Creates new form FrameMovimentoPreCompra */
-    public FrameMovimentoPreCompra(Principal2 principal) {
+    public FrameMovimentoPreCompra(Principal principal) {
         initComponents();
 		this.principal=principal;
 		this.compra = null;
@@ -166,7 +166,7 @@ public class FrameMovimentoPreCompra extends javax.swing.JFrame implements Commu
 //            }
 //        });
 //    }
-	private Principal2 principal;
+	private Principal principal;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton PreCompraBotaoOK;
     private javax.swing.JLabel PreCompraLabelCnpj;
