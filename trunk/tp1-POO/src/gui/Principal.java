@@ -466,7 +466,9 @@ public class Principal extends javax.swing.JFrame {
 	}//GEN-LAST:event_menuRemoverUsuáriosActionPerformed
 
 	private void menuAlterarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAlterarSenhaActionPerformed
-		// TODO add your handling code here:
+		AlteraSenha altera = new AlteraSenha(this);
+		altera.setVisible(true);
+		this.setEnabled(false);
 	}//GEN-LAST:event_menuAlterarSenhaActionPerformed
 
 	private void menuCadastroUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
