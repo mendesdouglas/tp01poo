@@ -11,6 +11,8 @@
 
 package gui;
 
+import java.awt.Component;
+
 import javax.swing.JOptionPane;
 
 import estoque.Item;
@@ -21,9 +23,14 @@ import gui.Principal;
  * @author felipe
  */
 public class FrameCadastroItens extends javax.swing.JFrame {
-    Principal principal;
+    private Component principal;
     /** Creates new form FrameCadastro */
     public FrameCadastroItens(Principal principal) {
+        initComponents();
+		this.principal = principal;
+    }
+    
+    public FrameCadastroItens(ConsultaItem principal) {
         initComponents();
 		this.principal = principal;
     }
@@ -62,7 +69,7 @@ public class FrameCadastroItens extends javax.swing.JFrame {
         labelWarningLucro = new javax.swing.JLabel();
         labelWarningNome = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         labelNome.setText("Nome - Descrição*:");
 

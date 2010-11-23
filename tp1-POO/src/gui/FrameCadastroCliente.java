@@ -11,6 +11,8 @@
 
 package gui;
 
+import java.awt.Component;
+
 import javax.swing.JOptionPane;
 
 import pessoas.Cliente;
@@ -24,13 +26,17 @@ import gui.Principal;
  */
 public class FrameCadastroCliente extends javax.swing.JFrame {
 
-	private Principal principal;
+	private Component principal;
     /** Creates new form FrameCadastroFornecedores */
     public FrameCadastroCliente(Principal principal) {
         initComponents();
 		this.principal = principal;
     }
-
+    
+    public FrameCadastroCliente(ConsultaCliente principal) {
+        initComponents();
+		this.principal = principal;
+    }
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is

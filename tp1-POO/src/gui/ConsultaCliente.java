@@ -120,7 +120,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
         ConsultaClienteNomeBotaoListar = new javax.swing.JButton();
         ConsultaClienteNomeBotaoCadastro = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
@@ -218,7 +218,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
             }
         });
 
-        ConsultaClienteCpfBotaoCadastro.setText("Cadastrar");
+        ConsultaClienteCpfBotaoCadastro.setText("Cadastro");
         ConsultaClienteCpfBotaoCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConsultaClienteCpfBotaoCadastroActionPerformed(evt);
@@ -299,7 +299,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
             }
         });
 
-        ConsultaClienteNomeBotaoCadastro.setText("Cadastrar");
+        ConsultaClienteNomeBotaoCadastro.setText("Cadastro");
         ConsultaClienteNomeBotaoCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConsultaClienteNomeBotaoCadastroActionPerformed(evt);
@@ -497,14 +497,9 @@ public class ConsultaCliente extends javax.swing.JFrame {
 	 * @param evt
 	 */
 	private void ConsultaClienteNomeBotaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaClienteNomeBotaoOkActionPerformed
-		if(cliente == null){
-			JOptionPane.showMessageDialog(null, "Esta nao é uma pesquisa válida");
-		}
-		else {
 			principal.setEnabled(true);
 			enviar();
-			this.dispose();
-		}	
+			this.dispose();	
 }//GEN-LAST:event_ConsultaClienteNomeBotaoOkActionPerformed
 
 	/**
@@ -513,14 +508,9 @@ public class ConsultaCliente extends javax.swing.JFrame {
 	 * @param evt
 	 */
 	private void ConsultaClienteCpfBotaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaClienteCpfBotaoOkActionPerformed
-		if(cliente == null){
-			JOptionPane.showMessageDialog(null, "Esta nao é uma pesquisa válida");
-		}
-		else {
 			principal.setEnabled(true);
 			enviar();
-			this.dispose();
-		}	
+			this.dispose();	
 }//GEN-LAST:event_ConsultaClienteCpfBotaoOkActionPerformed
 
 	/**
@@ -557,15 +547,15 @@ public class ConsultaCliente extends javax.swing.JFrame {
         }//GEN-LAST:event_formWindowClosing
 
         private void ConsultaClienteNomeBotaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaClienteNomeBotaoCadastroActionPerformed
-//            FrameCadastroCliente cliente = new FrameCadastroCliente(this);
-//            cliente.setVisible(true);
-//            this.setEnabled(false);
+            FrameCadastroCliente cliente = new FrameCadastroCliente(this);
+            cliente.setVisible(true);
+            this.dispose();
         }//GEN-LAST:event_ConsultaClienteNomeBotaoCadastroActionPerformed
 
         private void ConsultaClienteCpfBotaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaClienteCpfBotaoCadastroActionPerformed
-//        	FrameCadastroCliente cliente = new FrameCadastroCliente(this);
-//            cliente.setVisible(true);
-//            this.setEnabled(false);
+        	FrameCadastroCliente cliente = new FrameCadastroCliente(this);
+            cliente.setVisible(true);
+            this.dispose();
         }//GEN-LAST:event_ConsultaClienteCpfBotaoCadastroActionPerformed
 
     /**
@@ -610,7 +600,12 @@ public class ConsultaCliente extends javax.swing.JFrame {
    */
     public void enviar(){
 		if(principal instanceof FrameMovimentoPrePedido){
+			if(cliente == null){
+				JOptionPane.showMessageDialog(null, "Esta nao é uma pesquisa válida");
+			}
+			else{
 			((FrameMovimentoPrePedido)principal).receber(cliente);
+			}
 		}	
 	}
 }
