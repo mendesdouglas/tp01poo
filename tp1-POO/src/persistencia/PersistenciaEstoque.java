@@ -14,11 +14,19 @@ public class PersistenciaEstoque {
 	private static PersistenciaEstoque EstoqueInstance;
 	private Connection conn;
 
+	/**
+	 * Conexão com banco de dados
+	 * 
+	 */
 	private PersistenciaEstoque () {
 		Conecta c = Conecta.getConnection();
 		this.conn = c.conn;
 	}
 	 
+	/**
+	 * 
+	 * Singleton. Usado para que haja apenas uma conexão com o banco sendo usada no sistema
+	 */
 	public static PersistenciaEstoque getInstance(){
 		if(EstoqueInstance == null) {
 			EstoqueInstance = new PersistenciaEstoque();
@@ -27,15 +35,18 @@ public class PersistenciaEstoque {
 	 }
 	
 	/**
-	 * 
+	 * Removido
 	 */
 	public boolean save (){
 		return true;
 	}
 	
-	/**
-	 * 
-	 */
+/**
+ * 
+ * Salva uma compra
+ * @param compra
+ * @return true ao finalizar a compra
+ */
 	public boolean saveCompra (Compra compra){
 		Statement stat;
 		ArrayList<ItemCompra> itens = compra.overview();
@@ -57,9 +68,11 @@ public class PersistenciaEstoque {
 			return false;
 		}
 	}
-	
 	/**
+	 * Salva um pedido
 	 * 
+	 * @param pedido
+	 * @return boolean
 	 */
 	public boolean savePedido (Pedido pedido){
 		Statement stat;
@@ -91,7 +104,10 @@ public class PersistenciaEstoque {
 	}
 	
 	/**
+	 * Pesquisa por um item quando inserido seu código
 	 * 
+	 * @param codigo
+	 * @return o item (e suas informações)
 	 */
 	public Item searchItem (int codigo) {
 		Statement stat;
@@ -111,9 +127,11 @@ public class PersistenciaEstoque {
 			return null;
 		}
 	}
-	
 	/**
 	 * 
+	 * Pesquisa por um item quando inserido seu nome
+	 * @param nome
+	 * @return o item (e suas informações 
 	 */
 	public Item searchItem (String nome) {
 		Statement stat;
@@ -134,6 +152,12 @@ public class PersistenciaEstoque {
 		}
 	}
 	
+	/**
+	 * 
+	 * Remove um item a partir da informação do codigo
+	 * @param codigo
+	 * @return true se é possível remover o item
+	 */
 	public boolean delItem(int codigo){
 		Statement stat;
 		try {
@@ -147,6 +171,12 @@ public class PersistenciaEstoque {
 		}
 	}
 	
+	/**
+	 * 
+	 * Remove um item a partir da informação do nome 
+	 * @param nome
+	 * @return true se é possível remover
+	 */
 	public boolean delItem(String nome){
 		Statement stat;
 		try {
@@ -159,8 +189,12 @@ public class PersistenciaEstoque {
 			return false;
 		}
 	}
+	
 	/**
 	 * 
+	 * Cadastra um item novo no banco de dados
+	 * @param item
+	 * @return true se é possível cadastrar
 	 */
 	public boolean cadastro (Item item) {
 		Statement stat;
@@ -177,6 +211,10 @@ public class PersistenciaEstoque {
 		}
 	}
 	
+	/**
+	 * Remove a lista de itens do banco de dados
+	 * 
+	 */
 	public void purge(){
 		Statement stat;
 		try {
@@ -190,7 +228,7 @@ public class PersistenciaEstoque {
 	
 	
 	/**
-	 * 
+	 * Retorna uma copia da lista de itens
 	 */
 	public ArrayList<Item> overview () {
 		ArrayList<Item> itens = new ArrayList<Item>();
@@ -212,7 +250,13 @@ public class PersistenciaEstoque {
 		}
 	}
 
+	/**
+	 * Finaliza um pedido
+	 * @param pedido
+	 * @throws IOException
+	 */
 	public boolean finalizarPedido(Pedido pedido){
+
 		ArrayList<ItemPedido> listaPedido = pedido.overview();
 		if (listaPedido == null || listaPedido.size() == 0){
 			return false;
@@ -225,6 +269,13 @@ public class PersistenciaEstoque {
 		return true;
 	}
 	
+
+	/**
+	 * Finaliza uma compra
+	 * 
+	 * @param compra
+	 * @throws IOException
+	 */
 	public boolean finalizarCompra(Compra compra){
 		ArrayList<ItemCompra> listaCompra = compra.overview();
 		if (listaCompra == null || listaCompra.size() == 0){
