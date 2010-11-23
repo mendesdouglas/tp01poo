@@ -28,7 +28,6 @@ import gui.Principal;
 public class ConsultaItem extends javax.swing.JFrame {
 
 	private Component principal;
-    Item item;
     
     /** Creates new form Item */
     public ConsultaItem(Principal principal) {
@@ -92,7 +91,7 @@ public class ConsultaItem extends javax.swing.JFrame {
         ConsultaItemNomeBotaoListar = new javax.swing.JButton();
         ConsultaItemNomeBotaoCadastro = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
@@ -192,7 +191,7 @@ public class ConsultaItem extends javax.swing.JFrame {
             }
         });
 
-        ConsultaItemCodigoBotaoCadastro.setText("Cadastrar");
+        ConsultaItemCodigoBotaoCadastro.setText("Cadastro");
         ConsultaItemCodigoBotaoCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConsultaItemCodigoBotaoCadastroActionPerformed(evt);
@@ -551,15 +550,15 @@ public class ConsultaItem extends javax.swing.JFrame {
         }//GEN-LAST:event_formWindowClosing
 
         private void ConsultaItemCodigoBotaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaItemCodigoBotaoCadastroActionPerformed
-//            FrameCadastroItens itens = new FrameCadastroItens(this);
-//            itens.setVisible(true);
-//            this.setEnabled(false);
+            FrameCadastroItens itens = new FrameCadastroItens(this);
+            itens.setVisible(true);
+        	this.dispose();
         }//GEN-LAST:event_ConsultaItemCodigoBotaoCadastroActionPerformed
 
         private void ConsultaItemNomeBotaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaItemNomeBotaoCadastroActionPerformed
-//            FrameCadastroItens itens = new FrameCadastroItens(this);
-//           itens.setVisible(true);
-//            this.setEnabled(false);
+            FrameCadastroItens itens = new FrameCadastroItens(this);
+            itens.setVisible(true);
+            this.dispose();
         }//GEN-LAST:event_ConsultaItemNomeBotaoCadastroActionPerformed
 
     /**

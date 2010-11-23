@@ -101,7 +101,7 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
         ConsultaFornecedorNomeBotaListar = new javax.swing.JButton();
         ConsultaFornecedorNomeBotaoCadastro = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -202,7 +202,7 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
             }
         });
 
-        ConsultaFornecedorCnpjBotaoCadastro.setText("Cadastrar");
+        ConsultaFornecedorCnpjBotaoCadastro.setText("Cadastro");
         ConsultaFornecedorCnpjBotaoCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConsultaFornecedorCnpjBotaoCadastroActionPerformed(evt);
@@ -285,7 +285,7 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
             }
         });
 
-        ConsultaFornecedorNomeBotaoCadastro.setText("Cadastrar");
+        ConsultaFornecedorNomeBotaoCadastro.setText("Cadastro");
         ConsultaFornecedorNomeBotaoCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConsultaFornecedorNomeBotaoCadastroActionPerformed(evt);
@@ -468,25 +468,15 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
 }//GEN-LAST:event_jBBuscaActionPerformed
 
 	private void ConsultaFornecedorCnpjBotaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaFornecedorCnpjBotaoOkActionPerformed
-		if (fornecedor == null ){
-    		JOptionPane.showMessageDialog(null, "Esta nao é uma pesquisa válida");
-		}
-		else{
 			principal.setEnabled(true);
 			enviar();
 			this.dispose();
-		}
 	}//GEN-LAST:event_ConsultaFornecedorCnpjBotaoOkActionPerformed
 
 	private void ConsultaFornecedorNomeBotaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaFornecedorNomeBotaoOkActionPerformed
-		if (fornecedor == null ){
-    		JOptionPane.showMessageDialog(null, "Esta nao é uma pesquisa válida");
-		}
-		else{
 			principal.setEnabled(true);
 			enviar();
 			this.dispose();
-		}
 	}//GEN-LAST:event_ConsultaFornecedorNomeBotaoOkActionPerformed
 
 	private void jRCNPJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRCNPJActionPerformed
@@ -532,15 +522,15 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
         }//GEN-LAST:event_formWindowClosing
 
         private void ConsultaFornecedorNomeBotaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaFornecedorNomeBotaoCadastroActionPerformed
-//            FrameCadastroFornecedor fornecedor = new FrameCadastroFornecedor(this);
-//            fornecedor.setVisible(true);
-//            this.setEnabled(false);
+            FrameCadastroFornecedor fornecedor = new FrameCadastroFornecedor(this);
+            fornecedor.setVisible(true);
+            this.dispose();
         }//GEN-LAST:event_ConsultaFornecedorNomeBotaoCadastroActionPerformed
 
         private void ConsultaFornecedorCnpjBotaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaFornecedorCnpjBotaoCadastroActionPerformed
-//            FrameCadastroFornecedor fornecedor = new FrameCadastroFornecedor(this);
-//            fornecedor.setVisible(true);
-//            this.setEnabled(false);
+            FrameCadastroFornecedor fornecedor = new FrameCadastroFornecedor(this);
+            fornecedor.setVisible(true);
+        	this.dispose();	
         }//GEN-LAST:event_ConsultaFornecedorCnpjBotaoCadastroActionPerformed
 
     /**
@@ -582,8 +572,13 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
 	@Override
 	public void enviar() {
 		if(principal instanceof FrameMovimentoPreCompra){
-			((FrameMovimentoPreCompra)principal).receber(fornecedor);
-		}	
+			if (fornecedor == null ){
+	    		JOptionPane.showMessageDialog(null, "Esta nao é uma pesquisa válida");
+			}
+			else{
+				((FrameMovimentoPreCompra)principal).receber(fornecedor);
+			}	
+		}
 	}
 
 	@Override

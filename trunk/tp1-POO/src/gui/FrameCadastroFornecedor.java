@@ -4,6 +4,8 @@
  */
 package gui;
 
+import java.awt.Component;
+
 import javax.swing.JOptionPane;
 
 import persistencia.PersistenciaFornecedor;
@@ -14,13 +16,17 @@ import gui.Principal;
  * @author luizcpo
  */
 public class FrameCadastroFornecedor extends javax.swing.JFrame {
-	Principal principal;
+	private Component principal;
     /** Creates new form CadastroCLientesFrame */
     public FrameCadastroFornecedor(Principal principal) {
         initComponents();
 		this.principal = principal;
     }
 
+    public FrameCadastroFornecedor(ConsultaFornecedor principal) {
+        initComponents();
+		this.principal = principal;
+    }
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
