@@ -30,8 +30,9 @@ public class ConsultaItem extends javax.swing.JFrame {
     public ConsultaItem(Principal principal) {
         initComponents();
 		this.principal = principal;
+		ConsultaItemOpcaoCodigo.setSelected(true);
 		ConsultaItemPanelNome.setVisible(false);
-		ConsultaItemPanelCodigo.setVisible(false);
+		ConsultaItemPanelCodigo.setVisible(true);
 		ConsultaItemTextPesquisa.setText("");
 		ConsultaItemCodigoTextMargemLucro.setEditable(false);
 		ConsultaItemCodigoTextNome.setEditable(false);
@@ -41,7 +42,7 @@ public class ConsultaItem extends javax.swing.JFrame {
 		ConsultaItemNomeTextNMargemLucro.setEditable(false);
 		ConsultaItemNomeTextNPrecoCusto.setEditable(false);
 		ConsultaItemNomeTextNQuantidade.setEditable(false);	
-		ConsultaItemBotaoBusca.setEnabled(false);
+		ConsultaItemBotaoBusca.setEnabled(true);
     }
 
     /** This method is called from within the constructor to

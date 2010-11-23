@@ -42,7 +42,7 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
 		ConsultaFornecedorNomeTextCnpj.setEditable(false);
 		ConsultaFornecedorNomeTextEndereco.setEditable(false);
 		ConsultaFornecedorNomeTextTelefone.setEditable(false);	
-		ConsultaFornecedorBotaoBusca.setEnabled(false);
+		ConsultaFornecedorBotaoBusca.setEnabled(true);
     }
 
     public ConsultaFornecedor(FrameMovimentoPreCompra principal) {
@@ -173,7 +173,7 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
 
         ConsultaFornecedorCnpjTextTelefone.setForeground(new java.awt.Color(58, 57, 59));
 
-        ConsultaFornecedorCnpjBotaoOk.setText("Ok");
+        ConsultaFornecedorCnpjBotaoOk.setText("OK");
         ConsultaFornecedorCnpjBotaoOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConsultaFornecedorCnpjBotaoOkActionPerformed(evt);

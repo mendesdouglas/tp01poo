@@ -29,7 +29,8 @@ public class ConsultaCliente extends javax.swing.JFrame {
     public ConsultaCliente(Principal principal) {
         initComponents();
 		this.principal = principal;
-		ConsultaClientePanelCpf.setVisible(false);
+		ConsultaClienteOpcaoCpf.setSelected(true);
+		ConsultaClientePanelCpf.setVisible(true);
 		ConsultaClientePanelNome.setVisible(false);
 		ConsultaClienteTextPesquisa.setText("");
 		ConsultaClienteCpfTextNome.setEditable(false);
@@ -38,7 +39,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
 		ConsultaClienteNomeTextCpf.setEditable(false);
 		ConsultaClienteNomeTextEndereco.setEditable(false);
 		ConsultaClienteNomeTextTelefone.setEditable(false);	
-		ConsultaClienteBotaoBusca.setEnabled(false);
+		ConsultaClienteBotaoBusca.setEnabled(true);
     }
 
     public ConsultaCliente(FrameMovimentoPrePedido principal) {
