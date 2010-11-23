@@ -126,12 +126,12 @@ public class AccessControl {
 			rs = stat.executeQuery("select * from Users where name='"+username+"'");
 			if (rs.next()){
 				if (rs.getString("passwd").equals(processa(oldPasswd))){
-					stat.executeUpdate("alter table Users set passwd = '"+newPasswd+"' where name='"+username+"'");
+					stat.executeUpdate("update Users set passwd = '"+processa(newPasswd)+"' where name='"+username+"'");
 					Log.getLoginstance(null).info("Usuário "+username+" removido com sucesso");
 					return true;
 				}
 				else{
-					throw new PasswordsDontMatchException(passwd);
+					throw new PasswordsDontMatchException(oldPasswd);
 				}
 			}
 			else{
