@@ -43,6 +43,11 @@ public class ConsultaCliente extends javax.swing.JFrame {
 		ConsultaClienteBotaoBusca.setEnabled(true);
     }
 
+/**
+ * 
+ * 
+ * @param principal
+ */
     public ConsultaCliente(FrameMovimentoPrePedido principal) {
         initComponents();
 		this.principal = principal;
@@ -420,6 +425,11 @@ public class ConsultaCliente extends javax.swing.JFrame {
 //        ConsultaClienteTextPesquisa.setText("Pesquisa");
 //}//GEN-LAST:event_ConsultaClienteTextPesquisaFocusLost
 
+    /**
+     * Campo de busca de um cliente por meio do cpf ou do nome
+     * Não aceita campos em branco para pesquisa
+     * Retorna caso encontre as informações do cliente
+     */
     private void ConsultaClienteBotaoBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaClienteBotaoBuscaActionPerformed
         String busca = null;
         busca = ConsultaClienteTextPesquisa.getText();
@@ -453,6 +463,11 @@ public class ConsultaCliente extends javax.swing.JFrame {
         }
 }//GEN-LAST:event_ConsultaClienteBotaoBuscaActionPerformed
     
+    /**
+     * Campo de busca através do cpf
+     * Desabilita a pesquisa por nome
+     * @param evt
+     */
 	private void ConsultaClienteOpcaoCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaClienteOpcaoCpfActionPerformed
 		ConsultaClientePanelNome.setVisible(false);
 		ConsultaClientePanelCpf.setVisible(true);
@@ -462,6 +477,11 @@ public class ConsultaCliente extends javax.swing.JFrame {
 		ConsultaClienteBotaoBusca.setEnabled(true);
 	}//GEN-LAST:event_ConsultaClienteOpcaoCpfActionPerformed
 
+	/**
+	 * Campo de busca através do nome
+	 * Desabilita a pesquisa por cpf
+	 * @param evt
+	 */
 	private void ConsultaClienteOpcaoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaClienteOpcaoNomeActionPerformed
 		ConsultaClientePanelCpf.setVisible(false);
 		ConsultaClientePanelNome.setVisible(true);
@@ -471,6 +491,11 @@ public class ConsultaCliente extends javax.swing.JFrame {
 		ConsultaClienteBotaoBusca.setEnabled(true);
 	}//GEN-LAST:event_ConsultaClienteOpcaoNomeActionPerformed
 
+	/**
+	 *Botão que confirma a busca do cliente desejado
+	 *Se o cliente não existe retorna uma mensagem
+	 * @param evt
+	 */
 	private void ConsultaClienteNomeBotaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaClienteNomeBotaoOkActionPerformed
 		if(cliente == null){
 			JOptionPane.showMessageDialog(null, "Esta nao é uma pesquisa válida");
@@ -482,6 +507,11 @@ public class ConsultaCliente extends javax.swing.JFrame {
 		}	
 }//GEN-LAST:event_ConsultaClienteNomeBotaoOkActionPerformed
 
+	/**
+	 * Botão que confirma a busca pelo cpf 
+	 * Caso o cliente não exista retorna uma mensagem
+	 * @param evt
+	 */
 	private void ConsultaClienteCpfBotaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaClienteCpfBotaoOkActionPerformed
 		if(cliente == null){
 			JOptionPane.showMessageDialog(null, "Esta nao é uma pesquisa válida");
@@ -493,18 +523,31 @@ public class ConsultaCliente extends javax.swing.JFrame {
 		}	
 }//GEN-LAST:event_ConsultaClienteCpfBotaoOkActionPerformed
 
+	/**
+	 * Botão que lista os clientes do banco de dados pelo cpf
+	 * Desabilita a janela anterior
+	 * @param evt
+	 */
 	private void ConsultaClienteCpfBotaoListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaClienteCpfBotaoListarActionPerformed
 		ConsultaListar listar = new ConsultaListar(this);
 		listar.setVisible(true);
 		this.setEnabled(false);
 	}//GEN-LAST:event_ConsultaClienteCpfBotaoListarActionPerformed
 	
+	/**
+	 * Botão que lista os clientes do banco de dados pelo nome
+	 * desabilita a janela anterior.
+	 * @param evt
+	 */
 	private void ConsultaClienteNomeBotaoListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaClienteNomeBotaoListarActionPerformed
 		ConsultaListar listar = new ConsultaListar(this);
 		listar.setVisible(true);
 		this.setEnabled(false);
 	}//GEN-LAST:event_ConsultaClienteNomeBotaoListarActionPerformed
-
+/**
+ * 
+ * @param evt
+ */
         private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
             this.principal.setEnabled(true);
         }//GEN-LAST:event_formWindowClosed
@@ -561,6 +604,10 @@ public class ConsultaCliente extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 	
+  /**
+   * Protocolo de comunicação entre as classes
+   * 
+   */
     public void enviar(){
 		if(principal instanceof FrameMovimentoPrePedido){
 			((FrameMovimentoPrePedido)principal).receber(cliente);

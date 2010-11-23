@@ -293,7 +293,7 @@ public class FrameCadastroFornecedor extends javax.swing.JFrame {
 				   							   enderecoTelefone.getText());
 		return PersistenciaFornecedor.getInstance().cadastro(fornecedor);
 	}
-	
+
 	private void limparCampos() {
 		razaoSocial.setText("");
 		cnpj.setText("");

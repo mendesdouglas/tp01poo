@@ -105,7 +105,11 @@ public class ConsultaListar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-	private void ConsultaClienteBotaoOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaClienteBotaoOKActionPerformed
+/**
+ * botão para a listagem 
+ * @param evt
+ */
+    private void ConsultaClienteBotaoOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaClienteBotaoOKActionPerformed
 		object.setEnabled(true);
 		this.dispose();
 	}//GEN-LAST:event_ConsultaClienteBotaoOKActionPerformed
