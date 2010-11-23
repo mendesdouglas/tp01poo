@@ -61,23 +61,6 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
 		ConsultaFornecedorNomeTextTelefone.setEditable(false);	
 		ConsultaFornecedorBotaoBusca.setEnabled(true);
 	}
-    
-    public ConsultaFornecedor(FrameCadastroFornecedor principal) {
-        initComponents();
-		this.principal = principal;
-		this.fornecedor = null;
-		this.ConsultaFornecedorOpcaoCnpj.setSelected(true);
-		ConsultaFornecedorPanelCnpj.setVisible(true);
-		ConsultaFornecedorPanelNome.setVisible(false);
-		ConsultaFornecedorTextPesquisa.setText("");
-		ConsultaFornecedorCnpjTextNome.setEditable(false);
-		ConsultaFornecedorCnpjTextEndereco.setEditable(false);
-		ConsultaFornecedorCnpjTextTelefone.setEditable(false);
-		ConsultaFornecedorNomeTextCnpj.setEditable(false);
-		ConsultaFornecedorNomeTextEndereco.setEditable(false);
-		ConsultaFornecedorNomeTextTelefone.setEditable(false);	
-		ConsultaFornecedorBotaoBusca.setEnabled(true);
-	}
 
 	/** This method is called from within the constructor to
      * initialize the form.
@@ -106,6 +89,7 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
         ConsultaFornecedorCnpjTextTelefone = new javax.swing.JFormattedTextField();
         ConsultaFornecedorCnpjBotaoOk = new javax.swing.JButton();
         ConsultaFornecedorCnpjBotaoListar = new javax.swing.JButton();
+        ConsultaFornecedorCnpjBotaoCadastro = new javax.swing.JButton();
         ConsultaFornecedorPanelNome = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -115,8 +99,9 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
         ConsultaFornecedorNomeTextTelefone = new javax.swing.JFormattedTextField();
         ConsultaFornecedorNomeBotaoOk = new javax.swing.JButton();
         ConsultaFornecedorNomeBotaListar = new javax.swing.JButton();
+        ConsultaFornecedorNomeBotaoCadastro = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -217,6 +202,13 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
             }
         });
 
+        ConsultaFornecedorCnpjBotaoCadastro.setText("Cadastrar");
+        ConsultaFornecedorCnpjBotaoCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultaFornecedorCnpjBotaoCadastroActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ConsultaFornecedorPanelCnpjLayout = new javax.swing.GroupLayout(ConsultaFornecedorPanelCnpj);
         ConsultaFornecedorPanelCnpj.setLayout(ConsultaFornecedorPanelCnpjLayout);
         ConsultaFornecedorPanelCnpjLayout.setHorizontalGroup(
@@ -226,7 +218,9 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
                 .addGroup(ConsultaFornecedorPanelCnpjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaFornecedorPanelCnpjLayout.createSequentialGroup()
                         .addComponent(ConsultaFornecedorCnpjBotaoListar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 333, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 246, Short.MAX_VALUE)
+                        .addComponent(ConsultaFornecedorCnpjBotaoCadastro)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(ConsultaFornecedorCnpjBotaoOk, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(ConsultaFornecedorPanelCnpjLayout.createSequentialGroup()
@@ -247,7 +241,7 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
         ConsultaFornecedorPanelCnpjLayout.setVerticalGroup(
             ConsultaFornecedorPanelCnpjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ConsultaFornecedorPanelCnpjLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(28, 28, 28)
                 .addGroup(ConsultaFornecedorPanelCnpjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLNome)
                     .addComponent(ConsultaFornecedorCnpjTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -262,7 +256,8 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ConsultaFornecedorPanelCnpjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ConsultaFornecedorCnpjBotaoOk)
-                    .addComponent(ConsultaFornecedorCnpjBotaoListar))
+                    .addComponent(ConsultaFornecedorCnpjBotaoListar)
+                    .addComponent(ConsultaFornecedorCnpjBotaoCadastro))
                 .addContainerGap())
         );
 
@@ -290,6 +285,13 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
             }
         });
 
+        ConsultaFornecedorNomeBotaoCadastro.setText("Cadastrar");
+        ConsultaFornecedorNomeBotaoCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultaFornecedorNomeBotaoCadastroActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ConsultaFornecedorPanelNomeLayout = new javax.swing.GroupLayout(ConsultaFornecedorPanelNome);
         ConsultaFornecedorPanelNome.setLayout(ConsultaFornecedorPanelNomeLayout);
         ConsultaFornecedorPanelNomeLayout.setHorizontalGroup(
@@ -310,7 +312,9 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
                         .addContainerGap(16, Short.MAX_VALUE))
                     .addGroup(ConsultaFornecedorPanelNomeLayout.createSequentialGroup()
                         .addComponent(ConsultaFornecedorNomeBotaListar)
-                        .addContainerGap(409, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 249, Short.MAX_VALUE)
+                        .addComponent(ConsultaFornecedorNomeBotaoCadastro)
+                        .addGap(94, 94, 94))))
             .addGroup(ConsultaFornecedorPanelNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaFornecedorPanelNomeLayout.createSequentialGroup()
                     .addContainerGap(434, Short.MAX_VALUE)
@@ -329,12 +333,17 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
                     .addComponent(ConsultaFornecedorNomeTextEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                .addGroup(ConsultaFornecedorPanelNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(ConsultaFornecedorNomeTextTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ConsultaFornecedorNomeBotaListar)
-                .addGap(6, 6, 6))
+                .addGroup(ConsultaFornecedorPanelNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(ConsultaFornecedorPanelNomeLayout.createSequentialGroup()
+                        .addGroup(ConsultaFornecedorPanelNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(ConsultaFornecedorNomeTextTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ConsultaFornecedorNomeBotaListar)
+                        .addGap(6, 6, 6))
+                    .addGroup(ConsultaFornecedorPanelNomeLayout.createSequentialGroup()
+                        .addComponent(ConsultaFornecedorNomeBotaoCadastro)
+                        .addContainerGap())))
             .addGroup(ConsultaFornecedorPanelNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaFornecedorPanelNomeLayout.createSequentialGroup()
                     .addContainerGap(218, Short.MAX_VALUE)
@@ -522,15 +531,29 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
             this.principal.setEnabled(true);
         }//GEN-LAST:event_formWindowClosing
 
+        private void ConsultaFornecedorNomeBotaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaFornecedorNomeBotaoCadastroActionPerformed
+//            FrameCadastroFornecedor fornecedor = new FrameCadastroFornecedor(this);
+//            fornecedor.setVisible(true);
+//            this.setEnabled(false);
+        }//GEN-LAST:event_ConsultaFornecedorNomeBotaoCadastroActionPerformed
+
+        private void ConsultaFornecedorCnpjBotaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaFornecedorCnpjBotaoCadastroActionPerformed
+//            FrameCadastroFornecedor fornecedor = new FrameCadastroFornecedor(this);
+//            fornecedor.setVisible(true);
+//            this.setEnabled(false);
+        }//GEN-LAST:event_ConsultaFornecedorCnpjBotaoCadastroActionPerformed
+
     /**
     * @param args the command line arguments
     */
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ConsultaFornecedorCnpjBotaoCadastro;
     private javax.swing.JButton ConsultaFornecedorCnpjBotaoListar;
     private javax.swing.JButton ConsultaFornecedorCnpjBotaoOk;
     private javax.swing.JButton ConsultaFornecedorNomeBotaListar;
+    private javax.swing.JButton ConsultaFornecedorNomeBotaoCadastro;
     private javax.swing.JButton ConsultaFornecedorNomeBotaoOk;
     private javax.swing.JPanel ConsultaFornecedorPanelCnpj;
     private javax.swing.JPanel ConsultaFornecedorPanelNome;

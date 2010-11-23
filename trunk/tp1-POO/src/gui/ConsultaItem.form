@@ -250,7 +250,9 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="ConsultaItemCodigoBotaoListar" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="409" max="32767" attributes="0"/>
+                                  <EmptySpace pref="253" max="32767" attributes="0"/>
+                                  <Component id="ConsultaItemCodigoBotaoCadastro" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -266,7 +268,7 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLNome" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jFNome" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -287,12 +289,15 @@
                               <Component id="jLQuantidade" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="38" max="32767" attributes="0"/>
-                          <Component id="ConsultaItemCodigoBotaoListar" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="ConsultaItemCodigoBotaoListar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="ConsultaItemCodigoBotaoCadastro" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="207" max="32767" attributes="0"/>
+                              <EmptySpace pref="209" max="32767" attributes="0"/>
                               <Component id="ConsultaItemCodigoBotaoOk" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -350,6 +355,14 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsultaItemCodigoBotaoListarActionPerformed"/>
                   </Events>
                 </Component>
+                <Component class="javax.swing.JButton" name="ConsultaItemCodigoBotaoCadastro">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Cadastrar"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsultaItemCodigoBotaoCadastroActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="jPCNome">
@@ -385,7 +398,9 @@
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="ConsultaItemNomeBotaoListar" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="329" max="32767" attributes="0"/>
+                                  <EmptySpace pref="247" max="32767" attributes="0"/>
+                                  <Component id="ConsultaItemNomeBotaoCadastro" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="ConsultaItemNomeBotaoOk" min="-2" pref="64" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -420,6 +435,7 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="ConsultaItemNomeBotaoOk" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="ConsultaItemNomeBotaoListar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="ConsultaItemNomeBotaoCadastro" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -474,6 +490,14 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsultaItemNomeBotaoListarActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="ConsultaItemNomeBotaoCadastro">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Cadastro"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsultaItemNomeBotaoCadastroActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
