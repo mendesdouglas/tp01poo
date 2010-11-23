@@ -103,6 +103,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
         ConsultaClienteCpfTextTelefone = new javax.swing.JFormattedTextField();
         ConsultaClienteCpfBotaoOk = new javax.swing.JButton();
         ConsultaClienteCpfBotaoListar = new javax.swing.JButton();
+        ConsultaClienteCpfBotaoCadastro = new javax.swing.JButton();
         ConsultaClientePanelNome = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -112,8 +113,9 @@ public class ConsultaCliente extends javax.swing.JFrame {
         ConsultaClienteNomeTextTelefone = new javax.swing.JFormattedTextField();
         ConsultaClienteNomeBotaoOk = new javax.swing.JButton();
         ConsultaClienteNomeBotaoListar = new javax.swing.JButton();
+        ConsultaClienteNomeBotaoCadastro = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
@@ -133,7 +135,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
                 ConsultaClienteTextPesquisaFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-//              ConsultaClienteTextPesquisaFocusLost(evt);
+//                ConsultaClienteTextPesquisaFocusLost(evt);
             }
         });
 
@@ -211,6 +213,13 @@ public class ConsultaCliente extends javax.swing.JFrame {
             }
         });
 
+        ConsultaClienteCpfBotaoCadastro.setText("Cadastrar");
+        ConsultaClienteCpfBotaoCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultaClienteCpfBotaoCadastroActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ConsultaClientePanelCpfLayout = new javax.swing.GroupLayout(ConsultaClientePanelCpf);
         ConsultaClientePanelCpf.setLayout(ConsultaClientePanelCpfLayout);
         ConsultaClientePanelCpfLayout.setHorizontalGroup(
@@ -228,7 +237,9 @@ public class ConsultaCliente extends javax.swing.JFrame {
                             .addComponent(ConsultaClienteCpfTextEndereco, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaClientePanelCpfLayout.createSequentialGroup()
                         .addComponent(ConsultaClienteCpfBotaoListar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 332, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 245, Short.MAX_VALUE)
+                        .addComponent(ConsultaClienteCpfBotaoCadastro)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(ConsultaClienteCpfBotaoOk, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ConsultaClientePanelCpfLayout.createSequentialGroup()
                         .addComponent(jLabel4)
@@ -239,7 +250,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
         ConsultaClientePanelCpfLayout.setVerticalGroup(
             ConsultaClientePanelCpfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ConsultaClientePanelCpfLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(40, 40, 40)
                 .addGroup(ConsultaClientePanelCpfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ConsultaClienteCpfTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLCPF))
@@ -254,7 +265,8 @@ public class ConsultaCliente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(ConsultaClientePanelCpfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ConsultaClienteCpfBotaoOk)
-                    .addComponent(ConsultaClienteCpfBotaoListar))
+                    .addComponent(ConsultaClienteCpfBotaoListar)
+                    .addComponent(ConsultaClienteCpfBotaoCadastro))
                 .addContainerGap())
         );
 
@@ -282,6 +294,13 @@ public class ConsultaCliente extends javax.swing.JFrame {
             }
         });
 
+        ConsultaClienteNomeBotaoCadastro.setText("Cadastrar");
+        ConsultaClienteNomeBotaoCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultaClienteNomeBotaoCadastroActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ConsultaClientePanelNomeLayout = new javax.swing.GroupLayout(ConsultaClientePanelNome);
         ConsultaClientePanelNome.setLayout(ConsultaClientePanelNomeLayout);
         ConsultaClientePanelNomeLayout.setHorizontalGroup(
@@ -302,7 +321,9 @@ public class ConsultaCliente extends javax.swing.JFrame {
                         .addContainerGap(16, Short.MAX_VALUE))
                     .addGroup(ConsultaClientePanelNomeLayout.createSequentialGroup()
                         .addComponent(ConsultaClienteNomeBotaoListar)
-                        .addContainerGap(401, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 240, Short.MAX_VALUE)
+                        .addComponent(ConsultaClienteNomeBotaoCadastro)
+                        .addGap(95, 95, 95))))
             .addGroup(ConsultaClientePanelNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaClientePanelNomeLayout.createSequentialGroup()
                     .addContainerGap(426, Short.MAX_VALUE)
@@ -325,7 +346,9 @@ public class ConsultaCliente extends javax.swing.JFrame {
                     .addComponent(ConsultaClienteNomeTextTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addComponent(ConsultaClienteNomeBotaoListar)
+                .addGroup(ConsultaClientePanelNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ConsultaClienteNomeBotaoListar)
+                    .addComponent(ConsultaClienteNomeBotaoCadastro))
                 .addContainerGap())
             .addGroup(ConsultaClientePanelNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaClientePanelNomeLayout.createSequentialGroup()
@@ -490,6 +513,18 @@ public class ConsultaCliente extends javax.swing.JFrame {
             this.principal.setEnabled(true);
         }//GEN-LAST:event_formWindowClosing
 
+        private void ConsultaClienteNomeBotaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaClienteNomeBotaoCadastroActionPerformed
+//            FrameCadastroCliente cliente = new FrameCadastroCliente(this);
+//            cliente.setVisible(true);
+//            this.setEnabled(false);
+        }//GEN-LAST:event_ConsultaClienteNomeBotaoCadastroActionPerformed
+
+        private void ConsultaClienteCpfBotaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaClienteCpfBotaoCadastroActionPerformed
+//        	FrameCadastroCliente cliente = new FrameCadastroCliente(this);
+//            cliente.setVisible(true);
+//            this.setEnabled(false);
+        }//GEN-LAST:event_ConsultaClienteCpfBotaoCadastroActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -497,8 +532,10 @@ public class ConsultaCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ConsultaClienteBotaoBusca;
+    private javax.swing.JButton ConsultaClienteCpfBotaoCadastro;
     private javax.swing.JButton ConsultaClienteCpfBotaoListar;
     private javax.swing.JButton ConsultaClienteCpfBotaoOk;
+    private javax.swing.JButton ConsultaClienteNomeBotaoCadastro;
     private javax.swing.JButton ConsultaClienteNomeBotaoListar;
     private javax.swing.JButton ConsultaClienteNomeBotaoOk;
     private javax.swing.JRadioButton ConsultaClienteOpcaoCpf;

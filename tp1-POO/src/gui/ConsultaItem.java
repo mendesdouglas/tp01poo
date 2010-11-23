@@ -49,23 +49,6 @@ public class ConsultaItem extends javax.swing.JFrame {
 		ConsultaItemBotaoBusca.setEnabled(true);
     }
 
-    public ConsultaItem(FrameCadastroItens principal) {
-        initComponents();
-		this.principal = principal;
-		ConsultaItemOpcaoCodigo.setSelected(true);
-		ConsultaItemPanelNome.setVisible(false);
-		ConsultaItemPanelCodigo.setVisible(true);
-		ConsultaItemTextPesquisa.setText("");
-		ConsultaItemCodigoTextMargemLucro.setEditable(false);
-		ConsultaItemCodigoTextNome.setEditable(false);
-		ConsultaItemCodigoTextPrecoCusto.setEditable(false);
-		ConsultaItemCodigoTextQuantidade.setEditable(false);
-		ConsultaItemNomeTextCodigo.setEditable(false);
-		ConsultaItemNomeTextMargemLucro.setEditable(false);
-		ConsultaItemNomeTextPrecoCusto.setEditable(false);
-		ConsultaItemNomeTextQuantidade.setEditable(false);	
-		ConsultaItemBotaoBusca.setEnabled(true);
-    }
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -95,6 +78,7 @@ public class ConsultaItem extends javax.swing.JFrame {
         ConsultaItemCodigoTextQuantidade = new javax.swing.JFormattedTextField();
         ConsultaItemCodigoBotaoOk = new javax.swing.JButton();
         ConsultaItemCodigoBotaoListar = new javax.swing.JButton();
+        ConsultaItemCodigoBotaoCadastro = new javax.swing.JButton();
         ConsultaItemPanelNome = new javax.swing.JPanel();
         jLNPrecoCusto = new javax.swing.JLabel();
         jLNMargemLucro = new javax.swing.JLabel();
@@ -106,8 +90,9 @@ public class ConsultaItem extends javax.swing.JFrame {
         ConsultaItemNomeTextQuantidade = new javax.swing.JFormattedTextField();
         ConsultaItemNomeBotaoOk = new javax.swing.JButton();
         ConsultaItemNomeBotaoListar = new javax.swing.JButton();
+        ConsultaItemNomeBotaoCadastro = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
@@ -207,6 +192,13 @@ public class ConsultaItem extends javax.swing.JFrame {
             }
         });
 
+        ConsultaItemCodigoBotaoCadastro.setText("Cadastrar");
+        ConsultaItemCodigoBotaoCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultaItemCodigoBotaoCadastroActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPCodigoLayout = new javax.swing.GroupLayout(ConsultaItemPanelCodigo);
         ConsultaItemPanelCodigo.setLayout(jPCodigoLayout);
         jPCodigoLayout.setHorizontalGroup(
@@ -230,7 +222,9 @@ public class ConsultaItem extends javax.swing.JFrame {
                         .addGap(37, 37, 37))
                     .addGroup(jPCodigoLayout.createSequentialGroup()
                         .addComponent(ConsultaItemCodigoBotaoListar)
-                        .addContainerGap(409, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 253, Short.MAX_VALUE)
+                        .addComponent(ConsultaItemCodigoBotaoCadastro)
+                        .addGap(90, 90, 90))))
             .addGroup(jPCodigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPCodigoLayout.createSequentialGroup()
                     .addContainerGap(434, Short.MAX_VALUE)
@@ -240,7 +234,7 @@ public class ConsultaItem extends javax.swing.JFrame {
         jPCodigoLayout.setVerticalGroup(
             jPCodigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPCodigoLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(25, 25, 25)
                 .addGroup(jPCodigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLNome)
                     .addComponent(ConsultaItemCodigoTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -257,11 +251,13 @@ public class ConsultaItem extends javax.swing.JFrame {
                     .addComponent(ConsultaItemCodigoTextQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLQuantidade))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                .addComponent(ConsultaItemCodigoBotaoListar)
+                .addGroup(jPCodigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ConsultaItemCodigoBotaoListar)
+                    .addComponent(ConsultaItemCodigoBotaoCadastro))
                 .addContainerGap())
             .addGroup(jPCodigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPCodigoLayout.createSequentialGroup()
-                    .addContainerGap(207, Short.MAX_VALUE)
+                    .addContainerGap(209, Short.MAX_VALUE)
                     .addComponent(ConsultaItemCodigoBotaoOk)
                     .addContainerGap()))
         );
@@ -292,6 +288,13 @@ public class ConsultaItem extends javax.swing.JFrame {
             }
         });
 
+        ConsultaItemNomeBotaoCadastro.setText("Cadastro");
+        ConsultaItemNomeBotaoCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultaItemNomeBotaoCadastroActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPCNomeLayout = new javax.swing.GroupLayout(ConsultaItemPanelNome);
         ConsultaItemPanelNome.setLayout(jPCNomeLayout);
         jPCNomeLayout.setHorizontalGroup(
@@ -314,7 +317,9 @@ public class ConsultaItem extends javax.swing.JFrame {
                         .addContainerGap(206, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPCNomeLayout.createSequentialGroup()
                         .addComponent(ConsultaItemNomeBotaoListar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 329, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 247, Short.MAX_VALUE)
+                        .addComponent(ConsultaItemNomeBotaoCadastro)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(ConsultaItemNomeBotaoOk, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );
@@ -340,7 +345,8 @@ public class ConsultaItem extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(jPCNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ConsultaItemNomeBotaoOk)
-                    .addComponent(ConsultaItemNomeBotaoListar))
+                    .addComponent(ConsultaItemNomeBotaoListar)
+                    .addComponent(ConsultaItemNomeBotaoCadastro))
                 .addContainerGap())
         );
 
@@ -513,14 +519,28 @@ public class ConsultaItem extends javax.swing.JFrame {
             this.principal.setEnabled(true);
         }//GEN-LAST:event_formWindowClosing
 
+        private void ConsultaItemCodigoBotaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaItemCodigoBotaoCadastroActionPerformed
+//            FrameCadastroItens itens = new FrameCadastroItens(this);
+//            itens.setVisible(true);
+//            this.setEnabled(false);
+        }//GEN-LAST:event_ConsultaItemCodigoBotaoCadastroActionPerformed
+
+        private void ConsultaItemNomeBotaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaItemNomeBotaoCadastroActionPerformed
+//            FrameCadastroItens itens = new FrameCadastroItens(this);
+//           itens.setVisible(true);
+//            this.setEnabled(false);
+        }//GEN-LAST:event_ConsultaItemNomeBotaoCadastroActionPerformed
+
     /**
     * @param args the command line arguments
     */
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ConsultaItemCodigoBotaoCadastro;
     private javax.swing.JButton ConsultaItemCodigoBotaoListar;
     private javax.swing.JButton ConsultaItemCodigoBotaoOk;
+    private javax.swing.JButton ConsultaItemNomeBotaoCadastro;
     private javax.swing.JButton ConsultaItemNomeBotaoListar;
     private javax.swing.JButton ConsultaItemNomeBotaoOk;
     private javax.swing.ButtonGroup buttonGroup1;
