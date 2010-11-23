@@ -269,7 +269,11 @@ public class FrameCadastroUsuario extends javax.swing.JFrame {
 	private void nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeActionPerformed
 		// TODO add your handling code here:
 	}//GEN-LAST:event_nomeActionPerformed
-
+	/**
+	 * ativa painel de confirmação de cadastro
+    * ativa painel com a janela principal 
+	 * @param evt
+	 */
 	private void botaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoOkActionPerformed
 		if(novoUsuario()) {
 			JOptionPane.showConfirmDialog(null, "Cadastro realizado com sucesso!","Confirmação de Cadastro",JOptionPane.CLOSED_OPTION);
@@ -277,26 +281,39 @@ public class FrameCadastroUsuario extends javax.swing.JFrame {
 			this.dispose();	
 		}
 	}//GEN-LAST:event_botaoOkActionPerformed
-
+	/**
+	 * botão que limpa os campos preenchidos
+	 * utiliza método limparCampos
+	 * @param evt
+	 */
 	private void botaoLimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparCamposActionPerformed
 		if(novoUsuario()){
 			JOptionPane.showConfirmDialog(null, "Cadastro realizado com sucesso!","Confirmação de Cadastro",JOptionPane.CLOSED_OPTION);
 			limparCampos();
 		}
 	}//GEN-LAST:event_botaoLimparCamposActionPerformed
-
+/**
+ * Botão que cancela um cadastro
+ * @param evt
+ */
 	private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
 		this.principal.setEnabled(true);
 		this.dispose();
 	}//GEN-LAST:event_botaoCancelarActionPerformed
-
+	/**
+	 * Botão que adiciona novo cadastro
+	 * Utilizando o método limparCampos os campos são limpados para inserção de novo cadastro
+	 * @param evt
+	 */
 	private void botaoOutroCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoOutroCadastroActionPerformed
 		if(novoUsuario()){
 			JOptionPane.showConfirmDialog(null, "Cadastro realizado com sucesso!","Confirmação de Cadastro",JOptionPane.CLOSED_OPTION);
 			limparCampos();
 		}
 	}//GEN-LAST:event_botaoOutroCadastroActionPerformed
-	
+	/**
+	 * Limpa campos preenchidos
+	 */
 	private void limparCampos() {
 		nome.setText("");
         nomeUsuario.setText("");
@@ -306,7 +323,12 @@ public class FrameCadastroUsuario extends javax.swing.JFrame {
         labelWarningPasswd.setText("");
         labelWarningPermissoes.setText("");
 	}
-
+	/**
+	 * Campo de preenchimento obrigatório
+	 * Limpa campo preenchido
+	 * Trata exceção de permissões de usuários
+	 * @return
+	 */
 	private boolean novoUsuario() {
 		int permitionLevel=0;
 		

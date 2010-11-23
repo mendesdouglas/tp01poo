@@ -24,7 +24,9 @@ import gui.Principal;
  */
 public class FrameCadastroItens extends javax.swing.JFrame {
     private Component principal;
-    /** Creates new form FrameCadastro */
+    /** 
+     * Creates new form FrameCadastro 
+     * */
     public FrameCadastroItens(Principal principal) {
         initComponents();
 		this.principal = principal;
@@ -270,7 +272,11 @@ public class FrameCadastroItens extends javax.swing.JFrame {
 		verificarCodigo();
 
 	}//GEN-LAST:event_botaoVerificarDisponibilidadeActionPerformed
-
+	/**
+	 * ativa painel de confirmação de cadastro
+     * ativa painel com a janela principal 
+	 * @param evt
+	 */
 	private void botaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoOkActionPerformed
 		if(novoItem()) {
 			JOptionPane.showConfirmDialog(null, "Cadastro realizado com sucesso!","Confirmação de Cadastro",JOptionPane.CLOSED_OPTION);
@@ -278,23 +284,37 @@ public class FrameCadastroItens extends javax.swing.JFrame {
 			this.dispose();	
 		}
 	}//GEN-LAST:event_botaoOkActionPerformed
-
+	/**
+	 *  Botão que cancela um cadastro
+	 * @param evt
+	 */
 	private void botaoCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelActionPerformed
 		this.principal.setEnabled(true);
 		this.dispose();
 	}//GEN-LAST:event_botaoCancelActionPerformed
-
+	/**
+	 *  botão que limpa os campos preenchidos
+	 * utiliza método limparCampos
+	 * @param evt
+	 */
 	private void botaoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparActionPerformed
 		limparCampos();
 	}//GEN-LAST:event_botaoLimparActionPerformed
-
+	/**
+	 * Botão que adiciona novo cadastro
+	 * Utilizando o método limparCampos os campos são limpados para inserção de novo cadastro
+	 * @param evt
+	 */
 	private void botaoOutroCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoOutroCadastroActionPerformed
 		if(novoItem()){
 			JOptionPane.showConfirmDialog(null, "Cadastro realizado com sucesso!","Confirmação de Cadastro",JOptionPane.CLOSED_OPTION);
 			limparCampos();
 		}
 	}//GEN-LAST:event_botaoOutroCadastroActionPerformed
-	
+	/**
+	 * trata exceção do campo código
+	 * @return
+	 */
 	private boolean verificarCodigo() {
 		try{
 			int cod = Integer.parseInt(codigo.getText());
@@ -312,7 +332,9 @@ public class FrameCadastroItens extends javax.swing.JFrame {
 		}
 		return true;
 	}
-
+	/** 
+	 * utiliza o método limparCampos para limpar os campos que estão preenchidos
+	 */
 	private void limparCampos() {
 		codigo.setText("");
 		lucro.setText("");
@@ -331,8 +353,10 @@ public class FrameCadastroItens extends javax.swing.JFrame {
 		float cost = -1;
 		float luc = -1;
 		int quant = -1;
+		/**
+		 *Trata exceção do campo nome 
+		 */
 		
-		//Tratando exceções do campo nome
 		if(nome.getText().length() == 0){
 			labelWarningNome.setText("A descrição do Item é um campo obrigatório.");
 			return false;
@@ -342,7 +366,9 @@ public class FrameCadastroItens extends javax.swing.JFrame {
 		
 
 		
-		//Tratando exceções no campo preço de custo.
+		/**
+		 * Trata exceção do campo preço de custo
+		 */
 		try{
 			cost = Float.parseFloat(precoCusto.getText());
 			labelWarningPrecoCusto.setText("");
@@ -355,7 +381,9 @@ public class FrameCadastroItens extends javax.swing.JFrame {
 			return false;
 		}
 				
-		//Tratando exceções no campo quantidade.
+		/**
+		 * Trata exceção do campo quantidade
+		 */
 		try{
 			quant = Integer.parseInt(quantidade.getText());
 			labelWarningQuantidade.setText("");
@@ -368,7 +396,9 @@ public class FrameCadastroItens extends javax.swing.JFrame {
 			return false;
 		}
 		
-		//Tratando exceções no campo margem de lucro.
+		/**
+		 * Trata exceção do campo margem de lucro
+		 */
 		try{
 			luc = Float.parseFloat(lucro.getText());
 			labelWarningLucro.setText("");
@@ -381,7 +411,9 @@ public class FrameCadastroItens extends javax.swing.JFrame {
 			return false;
 		}
 
-		//Tratando exceções no campo código.
+		/**
+		 * Trata exceções no campo código
+		 */
 		try{
 			cod = Integer.parseInt(codigo.getText());
 			labelWarningCodigo.setText("");

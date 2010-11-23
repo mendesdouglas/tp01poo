@@ -133,7 +133,12 @@ public class AlteraSenha extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    
+    /**
+     * Habilita a janela chamada e desabilita a que estava trabalhando
+     * @param evt
+     */
 	private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
 		principal.setEnabled(true);
 		this.dispose();

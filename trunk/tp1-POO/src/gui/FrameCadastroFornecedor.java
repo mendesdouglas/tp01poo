@@ -252,7 +252,11 @@ public class FrameCadastroFornecedor extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     *ativa painel de confirmação de cadastro
+    * ativa painel com a janela principal 
+     */
+    
 	private void botaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoOkActionPerformed
 		if(novoFornecedor()){
 			JOptionPane.showConfirmDialog(null, "Cadastro realizado com sucesso!","Confirmação de Cadastro",JOptionPane.CLOSED_OPTION);
@@ -260,19 +264,30 @@ public class FrameCadastroFornecedor extends javax.swing.JFrame {
 			this.dispose();
 		}
 	}//GEN-LAST:event_botaoOkActionPerformed
-
+/**
+ * botão que limpa os campos preenchidos
+	 * utiliza método limparCampos
+ * @param evt
+ */
 	private void botaoLimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparCamposActionPerformed
 		limparCampos();
 	}//GEN-LAST:event_botaoLimparCamposActionPerformed
 
-
+	/**
+	 * Botão que adiciona novo cadastro
+	 * Utilizando o método limparCampos os campos são limpados para inserção de novo cadastro
+	 * @param evt
+	 */
 	private void botaoOutroCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoOutroCadastroActionPerformed
 		if(novoFornecedor()){
 			JOptionPane.showConfirmDialog(null, "Cadastro realizado com sucesso!","Confirmação de Cadastro",JOptionPane.CLOSED_OPTION);
 			limparCampos();
 		}
 	}//GEN-LAST:event_botaoOutroCadastroActionPerformed
-
+	/**
+	 * Botão que cancela um cadastro
+	 * @param evt
+	 */
 	private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
 		this.principal.setEnabled(true);
 		this.dispose();

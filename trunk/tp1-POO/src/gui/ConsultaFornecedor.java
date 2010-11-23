@@ -426,7 +426,10 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Limpa os campos preenchidos
+     * @param evt
+     */
     private void jFPesquisaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFPesquisaFocusGained
         ConsultaFornecedorTextPesquisa.setText("");
 }//GEN-LAST:event_jFPesquisaFocusGained
@@ -434,7 +437,12 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
 //    private void jFPesquisaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFPesquisaFocusLost
 //        ConsultaFornecedorTextPesquisa.setText("Pesquisa");
 //}//GEN-LAST:event_jFPesquisaFocusLost
-
+    /**
+     *  Campo faz busca de Fornecedor através do CNPJ ou nome
+     * Não aceita quando o campo está vazio
+     * Se encontra o Fornecedor retorna seus dados 
+    
+     */
     private void jBBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscaActionPerformed
         String busca = null;
         busca = ConsultaFornecedorTextPesquisa.getText();
@@ -466,19 +474,28 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
             }     
         }	
 }//GEN-LAST:event_jBBuscaActionPerformed
-
+    /**
+     * Não aceita campo vazio
+     * @param evt
+     */
 	private void ConsultaFornecedorCnpjBotaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaFornecedorCnpjBotaoOkActionPerformed
 			principal.setEnabled(true);
 			enviar();
 			this.dispose();
 	}//GEN-LAST:event_ConsultaFornecedorCnpjBotaoOkActionPerformed
-
+	/**
+	 *  Não aceita campo vazio
+	 * @param evt
+	 */
 	private void ConsultaFornecedorNomeBotaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaFornecedorNomeBotaoOkActionPerformed
 			principal.setEnabled(true);
 			enviar();
 			this.dispose();
 	}//GEN-LAST:event_ConsultaFornecedorNomeBotaoOkActionPerformed
-
+	/**
+	 * Método que esconde o painel do nome e habilita o do CNPJ
+	 * @param evt
+	 */
 	private void jRCNPJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRCNPJActionPerformed
 		ConsultaFornecedorPanelCnpj.setVisible(true);
 		ConsultaFornecedorPanelNome.setVisible(false);
@@ -487,7 +504,10 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
 		ConsultaFornecedorNomeTextTelefone.setText("");
 		ConsultaFornecedorBotaoBusca.setEnabled(true);
 	}//GEN-LAST:event_jRCNPJActionPerformed
-
+/**
+ * Método que ativa o painel do nome e esconde o painel CNPJ
+ * @param evt
+ */
 	private void jRNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRNomeActionPerformed
 		ConsultaFornecedorPanelNome.setVisible(true);
 		ConsultaFornecedorPanelCnpj.setVisible(false);
@@ -496,13 +516,19 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
 		ConsultaFornecedorCnpjTextTelefone.setText("");
 		ConsultaFornecedorBotaoBusca.setEnabled(true);
 	}//GEN-LAST:event_jRNomeActionPerformed
-
+	/**
+	 * Método para listar todos os Fornecedores e seus dados
+	 * @param evt
+	 */
 	private void ConsultaFornecedorCnpjBotaoListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaFornecedorCnpjBotaoListarActionPerformed
 		ConsultaListar listar = new ConsultaListar(this);
 		listar.setVisible(true);
 		this.setEnabled(false);
 	}//GEN-LAST:event_ConsultaFornecedorCnpjBotaoListarActionPerformed
-
+	/**
+	 * Método para listar todos os Fornecedores e seus dados
+	 * @param evt
+	 */
 	private void ConsultaFornecedorNomeBotaListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaFornecedorNomeBotaListarActionPerformed
 		ConsultaListar listar = new ConsultaListar(this);
 		listar.setVisible(true);
@@ -512,15 +538,21 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
         private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
            
         }//GEN-LAST:event_formWindowActivated
-
+        /**
+         * Ao fechar a janela filha habilita a janela mãe
+         * @param evt
+         */
         private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
             this.principal.setEnabled(true);
         }//GEN-LAST:event_formWindowClosed
-
+        /**
+         * Ao fechar a janela filha habilita a janela mãe
+         * @param evt
+         */
         private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
             this.principal.setEnabled(true);
         }//GEN-LAST:event_formWindowClosing
-
+        
         private void ConsultaFornecedorNomeBotaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaFornecedorNomeBotaoCadastroActionPerformed
             FrameCadastroFornecedor fornecedor = new FrameCadastroFornecedor(this);
             fornecedor.setVisible(true);
