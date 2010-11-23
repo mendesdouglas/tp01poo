@@ -464,7 +464,7 @@ public class ConsultaItem extends javax.swing.JFrame {
 	                	else {
 		                    ConsultaItemNomeTextCodigo.setText(String.valueOf(item.getCodigo()));
 		                    ConsultaItemNomeTextMargemLucro.setText(((Float)item.getMargemLucro()).toString());
-		                    ConsultaItemNomeTextPrecoCusto.setText(((Float)item.getMargemLucro()).toString());
+		                    ConsultaItemNomeTextPrecoCusto.setText(((Float)item.getPrecoCusto()).toString());
 		                    ConsultaItemNomeTextQuantidade.setText(String.valueOf(item.getQuant()));
 	                	}    
 	                }
