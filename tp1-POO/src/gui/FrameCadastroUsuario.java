@@ -14,7 +14,7 @@ package gui;
 import javax.swing.JOptionPane;
 
 import persistencia.AccessControl;
-import gui.Principal2;
+import gui.Principal;
 
 
 /**
@@ -23,9 +23,9 @@ import gui.Principal2;
  */
 public class FrameCadastroUsuario extends javax.swing.JFrame {
 
-	private Principal2 principal;
+	private Principal principal;
     /** Creates new form FrameCadastroFornecedores */
-    public FrameCadastroUsuario(Principal2 principal) {
+    public FrameCadastroUsuario(Principal principal) {
         initComponents();
 		this.principal = principal;
     }

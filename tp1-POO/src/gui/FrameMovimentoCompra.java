@@ -31,11 +31,11 @@ import gui.*;
  * @author walkiria
  */
 public class FrameMovimentoCompra extends javax.swing.JFrame {
-	private Principal2 principal;
+	private Principal principal;
 	private Compra compra; 
 
     /** Creates new form Compra */
-    public FrameMovimentoCompra(Principal2 principal,Compra compra) {
+    public FrameMovimentoCompra(Principal principal,Compra compra) {
 		initComponents();
 		this.principal = principal;
 		if(compra == null ){

@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 
 import persistencia.PersistenciaCliente;
 import pessoas.Cliente;
-import gui.Principal2;
+import gui.Principal;
 
 /**
  *
@@ -27,7 +27,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
     private Component principal;
     private Cliente cliente;
     /** Creates new form Cliente */
-    public ConsultaCliente(Principal2 principal) {
+    public ConsultaCliente(Principal principal) {
         initComponents();
 		this.principal = principal;
 		ConsultaClienteOpcaoCpf.setSelected(true);

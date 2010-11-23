@@ -27,10 +27,10 @@ import gui.ConsultaCliente;
  * @author isac
  */
 public class FrameMovimentoPrePedido extends javax.swing.JFrame implements Communication{
-	private Principal2 principal;
+	private Principal principal;
 
     /** Creates new form FrameMovimentoPreCompra */
-    public FrameMovimentoPrePedido(Principal2 principal) {
+    public FrameMovimentoPrePedido(Principal principal) {
         initComponents();
 		this.principal=principal;
     }

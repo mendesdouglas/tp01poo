@@ -81,9 +81,10 @@ public class AccessControl {
 	 * @return true no caso da remoção ocorrer com sucesso
 	 * @return false caso da remoção não ocorrer com sucesso
 	 * @throws UserNotFoundException caso o usuário não estaja cadastrado
+	 * @throws PasswordsDontMatchException caso a senha nao bata com a senha no banco
 	 * @exception SQLException no caso de erro na conexão
 	 */
-	public static boolean RemoverUsuario(String username,String passwd) throws UserNotFoundException{
+	public static boolean RemoverUsuario(String username,String passwd) throws UserNotFoundException, PasswordsDontMatchException{
 		ResultSet rs;
 		try {
 			Statement stat = Conecta.getConnection().conn.createStatement();
@@ -95,14 +96,51 @@ public class AccessControl {
 					return true;
 				}
 				else{
-					throw new UserNotFoundException(username);
+					throw new PasswordsDontMatchException(passwd);
 				}
+			}
+			else{
+				throw new UserNotFoundException(username);
 			}
 		} catch (SQLException e) {
 			Log.getLoginstance(null).error(e.getMessage());
 			return false;
 		}
-		return false;
+	}
+	
+	/**
+	 * Altera a senha do Usuario
+	 * @param username Nome do usuário
+	 * @param oldPasswd Senha do usuário
+	 * @param newPasswd Senha do usuário
+	 * @return true no caso da remoção ocorrer com sucesso
+	 * @return false caso da remoção não ocorrer com sucesso
+	 * @throws UserNotFoundException caso o usuário não estaja cadastrado
+	 * @throws PasswordsDontMatchException caso a senha nao bata com a senha no banco
+	 * @exception SQLException no caso de erro na conexão
+	 */
+	public static boolean AlteraSenha(String username,String oldPasswd,String newPasswd) throws UserNotFoundException, PasswordsDontMatchException{
+		ResultSet rs;
+		try {
+			Statement stat = Conecta.getConnection().conn.createStatement();
+			rs = stat.executeQuery("select * from Users where name='"+username+"'");
+			if (rs.next()){
+				if (rs.getString("passwd").equals(processa(oldPasswd))){
+					stat.executeUpdate("alter table Users set passwd = '"+newPasswd+"' where name='"+username+"'");
+					Log.getLoginstance(null).info("Usuário "+username+" removido com sucesso");
+					return true;
+				}
+				else{
+					throw new PasswordsDontMatchException(passwd);
+				}
+			}
+			else{
+				throw new UserNotFoundException(username);
+			}
+		} catch (SQLException e) {
+			Log.getLoginstance(null).error(e.getMessage());
+			return false;
+		}
 	}
 	
 	/**

@@ -23,7 +23,7 @@ public class Main {
 	 * @throws SQLException 
 	 */
 	public static void main(String[] args) throws IOException, SQLException {
-		AccessControl.cadastroUsuario("isac","isac","senha",1);
+		AccessControl.cadastroUsuario("isac2","isac2","senha2",1);
 		//AccessControl.cadastroUsuario("vendedor","vendedor",false);
 		//AccessControl.cadastroUsuario("comprador","comprador",false);
 		Log.getLoginstance(null).info("info");
