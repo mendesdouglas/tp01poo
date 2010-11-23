@@ -176,7 +176,7 @@ public class FrameMovimentoPrePedido extends javax.swing.JFrame implements Commu
 	public void receber(Object o) {
 		if (o instanceof Cliente && o != null){
 			pedido = new Pedido((Cliente)o);
-			prePedidoLabelCpf.setText(((Cliente)o).getCpf());
+			prePedidoCampoCpf.setText(((Cliente)o).getCpf());
 		}
 		else {
 			JOptionPane.showConfirmDialog(null,"Cliente invalido","mensagem",JOptionPane.CLOSED_OPTION);
