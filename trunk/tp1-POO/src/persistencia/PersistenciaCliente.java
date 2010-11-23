@@ -15,32 +15,42 @@ public class PersistenciaCliente {
 	private static PersistenciaCliente ClienteInstance;
 	private Connection conn;
 	
+/**
+ * Conexão com o banco de dados
+ * 
+ */
 	private PersistenciaCliente () {
 		Conecta c = Conecta.getConnection();
 		this.conn = c.conn;
 	}
 	 
+/**
+ * 
+ * Singleton. Usado para que haja apenas uma conexão com o banco sendo usada no sistema
+ * 
+ */
 	public static PersistenciaCliente getInstance(){
 		if(ClienteInstance == null) {
 			ClienteInstance = new PersistenciaCliente();
 	    }
 	    return ClienteInstance;
 	 }
+	
 	/**
-	 * 
+	 * removido, pertencia a primeira parte do trabalho 
 	 */
 	public boolean save(){
 		return true;
 	}
-	/**
-	 *  
-	 * 
-	 */
+
 	public void getCliente(){
 	}
 	
 	/**
 	 * 
+	 * Busca um cliente pelo cpf ou pelo nome
+	 * @param query
+	 * @return informações sobre o cliente procurado
 	 */
 	public Cliente searchCliente (String query) {
 		Statement stat;
@@ -60,9 +70,12 @@ public class PersistenciaCliente {
 			return null;
 		}
 	}
-	/**
-	 * 
-	 */
+/**
+ * 
+ * Método para o cadastro de um cliente que ainda não foi cadastrado.
+ * @param cliente
+ * @return true se é possível realizar cadastro
+ */
 	public boolean cadastro (Cliente cliente) {
 		Statement stat;
 		//ResultSet rs;
@@ -78,6 +91,12 @@ public class PersistenciaCliente {
 		}
 	}
 	
+	/**
+	 * 
+	 * Remove um cliente se informado o cpf ou o nome do mesmo
+	 * @param query
+	 * @return true se é possível remover o cliente
+	 */
 	public boolean removerCliente(String query){
 		Statement stat;
 		try {
@@ -91,6 +110,10 @@ public class PersistenciaCliente {
 		}
 	}
 	
+	/**
+	 * 
+	 * Método que remove todos os clientes do banco de dados
+	 */
 	public void purge(){
 		Statement stat;
 		try {
@@ -101,10 +124,13 @@ public class PersistenciaCliente {
 			e.printStackTrace();
 		}
 	}
+	
 	/**
 	 * 
-	 * 
+	 * Método que retorna uma cópia do Array de clientes
+	 * @return  a lista de clientes
 	 */
+	
 	public ArrayList<Cliente> overview (){
 		ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 		Statement stat;

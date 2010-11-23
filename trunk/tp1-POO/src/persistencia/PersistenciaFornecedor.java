@@ -14,11 +14,19 @@ import pessoas.Fornecedor;
 		private static PersistenciaFornecedor FornecedorInstance;
 		public Connection conn;
 		
+		/**
+		 * Conexão com o banco de dados
+		 * 
+		 */
 		private PersistenciaFornecedor () {
 			Conecta c = Conecta.getConnection();
 			this.conn = c.conn;
 		}
 		 
+		/**
+		 * 
+		 * Singleton. Usado para que haja apenas uma conexão com o banco sendo usada no sistema
+		 */
 		public static PersistenciaFornecedor getInstance(){
 			if(FornecedorInstance == null) {
 				FornecedorInstance = new PersistenciaFornecedor();
@@ -26,19 +34,23 @@ import pessoas.Fornecedor;
 		    return FornecedorInstance;
 		 }
 	/**
-	 * 
+	 * Removido
 	 */
 	public boolean save (){
 		return true;
 	}
 	/**
-	 * 
+	 * Removido
 	 */
 	@SuppressWarnings("unused")
 	private void getFornecedor (){	
 	}
+	
 	/**
 	 * 
+	 * Busca por um fornecedor através do cnpj ou do nome
+	 * @param query
+	 * @return o fornecedor procurado
 	 */
 	public Fornecedor searchFornecedor (String query) {
 		Statement stat;
@@ -60,6 +72,9 @@ import pessoas.Fornecedor;
 	}
 	/**
 	 * 
+	 * Cadastra um fornecedor sendo necessário informar cnpj, nome, endereco e telefone
+	 * @param fornecedor
+	 * @return true se foi possível realizar o cadastro
 	 */
 	public boolean cadastro (Fornecedor fornecedor) {
 		Statement stat;
@@ -76,11 +91,17 @@ import pessoas.Fornecedor;
 		}
 	}
 	
+	/**
+	 * 
+	 * Remove um fornecedor se inserido o cnpj ou nome
+	 * @param query
+	 * @return true se é possível remover
+	 */
 	public boolean removerFornecedor(String query){
 		Statement stat;
 		try {
 			stat = conn.createStatement();
-			stat.executeUpdate("delete from Fornecedor wehre cpf = "+query+" or nome = "+query);
+			stat.executeUpdate("delete from Fornecedor where cnpj = "+query+" or nome = "+query);
 			stat.close();
 			return true;
 		} catch (SQLException e) {
@@ -89,6 +110,10 @@ import pessoas.Fornecedor;
 		}
 	}
 	
+	/**
+	 * Remove toda a tabela de fornecedor
+	 * 
+	 */
 	public void purge(){
 		Statement stat;
 		try {
@@ -102,6 +127,7 @@ import pessoas.Fornecedor;
 	
 	/**
 	 * 
+	 * Retorna uma cópia da lista de fornecedores
 	 */
 	public ArrayList<Fornecedor> overview () {
 		ArrayList<Fornecedor> fornecedores = new ArrayList<Fornecedor>();
