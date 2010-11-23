@@ -9,7 +9,14 @@
 
 package gui;
 
+import java.util.ArrayList;
+import java.util.Vector;
+
 import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
+import estoque.ItemCompra;
 
 /**
  *
@@ -51,12 +58,7 @@ public class ConsultaListar extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Cliente"));
 
         ConsultaClienteTabela.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
+            new Object [][] {},
             new String [] {
                 "Nome", "CPF", "Endereco", "Telefone"
             }
@@ -114,6 +116,33 @@ public class ConsultaListar extends javax.swing.JFrame {
 		this.dispose();
 	}//GEN-LAST:event_ConsultaClienteBotaoOKActionPerformed
 
+	private TableModel getData(ArrayList<Object> data,String[] colunas){
+		Vector<Vector<String>> dados = new Vector<Vector<String>>();
+		Vector<String> headers = new Vector<String>();
+		String [] headersName = new String[]{"linha","Código","Nome","Preço", "Quantidade", "subTotal"};
+
+		for (int i = 0; i < headersName.length; i++) {
+			headers.add(headersName[i]);
+		}
+		if (itens != null){
+			for (ItemCompra itensC : itens) {
+				Vector<String> vetor = new Vector<String>();
+				vetor.add(((Integer)linha).toString());
+				vetor.add(((Integer)itensC.getCodigoItem()).toString());
+				vetor.add(itensC.getNomeItem());
+				vetor.add(((Float)itensC.getPrecoCompra()).toString());
+				vetor.add(((Integer)itensC.getQuant()).toString());
+				vetor.add(subtotal.toString());
+				dados.add(linha,vetor);
+			}
+		}
+		else{
+			DefaultTableModel model = new DefaultTableModel(new String[][]{}, headersName);
+			return model;			
+		}
+		DefaultTableModel model = new DefaultTableModel(dados, headers);
+		return model;
+ 	}
     /**
     * @param args the command line arguments
     */
