@@ -61,14 +61,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuConsultaClientesActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="menuConsultaUsu&#xe1;rios">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Usu&#xe1;rios"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuConsultaUsu&#xe1;riosActionPerformed"/>
-              </Events>
-            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuConsultaItens">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Itens"/>
@@ -106,6 +98,14 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuCadastroItensActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuCadastroUsuarios">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Usuario"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuCadastroUsuariosActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -222,7 +222,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/home/isac/workspace/tp1-POO/src/gui/logo.png"/>
+          <Image iconType="3" name="/gui/logo.png"/>
         </Property>
       </Properties>
     </Component>
