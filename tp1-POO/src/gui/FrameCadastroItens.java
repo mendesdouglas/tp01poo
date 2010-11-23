@@ -11,6 +11,8 @@
 
 package gui;
 
+import javax.swing.JOptionPane;
+
 import estoque.Item;
 import persistencia.PersistenciaEstoque;
 import gui.Principal;
@@ -109,6 +111,8 @@ public class FrameCadastroItens extends javax.swing.JFrame {
                 botaoOutroCadastroActionPerformed(evt);
             }
         });
+
+        labelWarningCodigo.setForeground(new java.awt.Color(255, 0, 0));
 
         labelWarningQuantidade.setForeground(new java.awt.Color(255, 0, 0));
 
@@ -247,34 +251,23 @@ public class FrameCadastroItens extends javax.swing.JFrame {
             .addGap(0, 613, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 10, Short.MAX_VALUE)
+                    .addGap(0, 12, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 10, Short.MAX_VALUE)))
+                    .addGap(0, 13, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
 	private void botaoVerificarDisponibilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVerificarDisponibilidadeActionPerformed
+		verificarCodigo();
 
-		try{
-			int cod = Integer.parseInt(codigo.getText());
-			
-			Item item = PersistenciaEstoque.getInstance().searchItem(cod);
-			if(item != null){
-				labelWarningCodigo.setText("Código já existente, por favor, tente novamente.");
-			}else{
-				labelWarningCodigo.setText("Código válido.");
-			}
-		}catch (NumberFormatException e) {
-			labelWarningCodigo.setText("O código digitado precisa ser numérico.");
-		}
-		
 	}//GEN-LAST:event_botaoVerificarDisponibilidadeActionPerformed
 
 	private void botaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoOkActionPerformed
-		this.principal.setEnabled(true);
 		if(novoItem()) {
+			JOptionPane.showConfirmDialog(null, "Cadastro realizado com sucesso!","Confirmação de Cadastro",JOptionPane.CLOSED_OPTION);
+			this.principal.setEnabled(true);
 			this.dispose();	
 		}
 	}//GEN-LAST:event_botaoOkActionPerformed
@@ -289,9 +282,29 @@ public class FrameCadastroItens extends javax.swing.JFrame {
 	}//GEN-LAST:event_botaoLimparActionPerformed
 
 	private void botaoOutroCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoOutroCadastroActionPerformed
-		novoItem();
-		limparCampos();
+		if(novoItem()){
+			JOptionPane.showConfirmDialog(null, "Cadastro realizado com sucesso!","Confirmação de Cadastro",JOptionPane.CLOSED_OPTION);
+			limparCampos();
+		}
 	}//GEN-LAST:event_botaoOutroCadastroActionPerformed
+	
+	private boolean verificarCodigo() {
+		try{
+			int cod = Integer.parseInt(codigo.getText());
+			
+			Item item = PersistenciaEstoque.getInstance().searchItem(cod);
+			if(item != null){
+				labelWarningCodigo.setText("Código já existente, por favor, tente novamente.");
+				return false;
+			}else{
+				labelWarningCodigo.setText("Código válido.");
+			}
+		}catch (NumberFormatException e) {
+			labelWarningCodigo.setText("O código digitado precisa ser numérico.");
+			return false;
+		}
+		return true;
+	}
 
 	private void limparCampos() {
 		codigo.setText("");
@@ -299,6 +312,11 @@ public class FrameCadastroItens extends javax.swing.JFrame {
 		nome.setText("");
 		precoCusto.setText("");
 		quantidade.setText("");
+		labelWarningCodigo.setText("");
+		labelWarningLucro.setText("");
+		labelWarningNome.setText("");
+		labelWarningPrecoCusto.setText("");
+		labelWarningQuantidade.setText("");
 	}
 	
 	private boolean novoItem() {
@@ -307,7 +325,56 @@ public class FrameCadastroItens extends javax.swing.JFrame {
 		float luc = -1;
 		int quant = -1;
 		
-		//tratando exceções no campo código.
+		//Tratando exceções do campo nome
+		if(nome.getText().length() == 0){
+			labelWarningNome.setText("A descrição do Item é um campo obrigatório.");
+			return false;
+		}else{
+			labelWarningNome.setText("");
+		}	
+		
+
+		
+		//Tratando exceções no campo preço de custo.
+		try{
+			cost = Float.parseFloat(precoCusto.getText());
+			labelWarningPrecoCusto.setText("");
+			if(cost < 0){
+				labelWarningPrecoCusto.setText("O valor do custo precisa ser maior que 0.");
+				return false;
+			}
+		}catch (NumberFormatException e) {
+			labelWarningPrecoCusto.setText("O preço de custo precisa ser um número.");
+			return false;
+		}
+				
+		//Tratando exceções no campo quantidade.
+		try{
+			quant = Integer.parseInt(quantidade.getText());
+			labelWarningQuantidade.setText("");
+			if(quant < 0){
+				labelWarningQuantidade.setText("A quantidade precisa ser maior que 0.");
+				return false;
+			}
+		}catch (NumberFormatException e) {
+			labelWarningQuantidade.setText("A quantidade precisa ser um número.");
+			return false;
+		}
+		
+		//Tratando exceções no campo margem de lucro.
+		try{
+			luc = Float.parseFloat(lucro.getText());
+			labelWarningLucro.setText("");
+			if(luc < 0){
+				labelWarningLucro.setText("A margem de lucro precisa ser maior que 0.");
+				return false;
+			}
+		}catch (NumberFormatException e) {
+			labelWarningLucro.setText("A margem de lucro precisa ser um número.");
+			return false;
+		}
+
+		//Tratando exceções no campo código.
 		try{
 			cod = Integer.parseInt(codigo.getText());
 			labelWarningCodigo.setText("");
@@ -316,38 +383,12 @@ public class FrameCadastroItens extends javax.swing.JFrame {
 			return false;
 		}
 		
-		//Tratando exceções no campo preço de custo.
-		try{
-			cost = Float.parseFloat(precoCusto.getText());
-			labelWarningPrecoCusto.setText("");
-		}catch (NumberFormatException e) {
-			labelWarningPrecoCusto.setText("O preço de custo precisa ser um número.");
+		if(!verificarCodigo()){
 			return false;
 		}
 		
-		//Tratando exceções no campo margem de lucro.
-		try{
-			luc = Float.parseFloat(lucro.getText());
-			labelWarningLucro.setText("");
-		}catch (NumberFormatException e) {
-			labelWarningLucro.setText("A margem de lucro precisa ser um número.");
-			return false;
-		}
-		
-		//Tratando exceções no campo quantidade.
-		try{
-			quant = Integer.parseInt(quantidade.getText());
-			labelWarningQuantidade.setText("");
-		}catch (NumberFormatException e) {
-			labelWarningQuantidade.setText("A quantidade precisa ser um número.");
-			return false;
-		}
-		
-		if(cod>=0 && cost>=0 && luc>=0 && quant>=0){
-			Item item = new Item(nome.getText(),cod, cost,luc,quant);
-			PersistenciaEstoque.getInstance().cadastro(item);
-		}
-		return true;
+		Item item = new Item(nome.getText(),cod, cost,luc,quant);
+		return PersistenciaEstoque.getInstance().cadastro(item);
 	}
 
 

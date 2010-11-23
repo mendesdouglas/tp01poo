@@ -11,13 +11,15 @@
 
 package gui;
 
+import javax.swing.JOptionPane;
+
 import persistencia.AccessControl;
 import gui.Principal;
 
 
 /**
  *
- * @author isac
+ * @author luizcpo
  */
 public class FrameCadastroUsuario extends javax.swing.JFrame {
 
@@ -57,6 +59,10 @@ public class FrameCadastroUsuario extends javax.swing.JFrame {
         permissoesAdministrador = new javax.swing.JRadioButton();
         permissoesComprador = new javax.swing.JRadioButton();
         permissoesVendedor = new javax.swing.JRadioButton();
+        labelWarningNomeUsuario = new javax.swing.JLabel();
+        labelWarningPasswd = new javax.swing.JLabel();
+        labelWarningNome = new javax.swing.JLabel();
+        labelWarningPermissoes = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setModalExclusionType(java.awt.Dialog.ModalExclusionType.TOOLKIT_EXCLUDE);
@@ -119,6 +125,14 @@ public class FrameCadastroUsuario extends javax.swing.JFrame {
         permissoes.add(permissoesVendedor);
         permissoesVendedor.setText("Vendedor");
 
+        labelWarningNomeUsuario.setForeground(new java.awt.Color(255, 0, 0));
+
+        labelWarningPasswd.setForeground(new java.awt.Color(255, 0, 0));
+
+        labelWarningNome.setForeground(new java.awt.Color(255, 0, 0));
+
+        labelWarningPermissoes.setForeground(new java.awt.Color(255, 0, 0));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -128,9 +142,7 @@ public class FrameCadastroUsuario extends javax.swing.JFrame {
                 .addComponent(jSeparator4, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE)
-                    .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE)))
+                .addComponent(jSeparator3, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(71, 71, 71)
                 .addComponent(botaoOk, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -140,21 +152,6 @@ public class FrameCadastroUsuario extends javax.swing.JFrame {
                 .addComponent(botaoOutroCadastro)
                 .addGap(18, 18, 18)
                 .addComponent(botaoLimparCampos))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(labelNomeUsuario)
-                        .addGap(1, 1, 1)
-                        .addComponent(nomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(labelPasswd)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(passwd, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(labelNome)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nome, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(155, 155, 155)
                 .addComponent(labelTitulo))
@@ -169,13 +166,46 @@ public class FrameCadastroUsuario extends javax.swing.JFrame {
                             .addComponent(permissoesVendedor)))
                     .addComponent(labelPermissoes))
                 .addGap(391, 391, 391))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(labelWarningNomeUsuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(labelNomeUsuario)
+                        .addGap(1, 1, 1)
+                        .addComponent(nomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(labelPasswd)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(passwd, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE))
+                    .addComponent(labelWarningPasswd, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(labelWarningNome, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(labelNome)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nome, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelWarningPermissoes, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(135, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labelTitulo)
-                .addGap(31, 31, 31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -183,13 +213,19 @@ public class FrameCadastroUsuario extends javax.swing.JFrame {
                     .addComponent(nomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelPasswd)
                     .addComponent(passwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelWarningNomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelWarningPasswd, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelNome)
                     .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(labelWarningNome, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(labelPermissoes)
                 .addGap(26, 26, 26)
                 .addComponent(permissoesAdministrador)
@@ -197,7 +233,9 @@ public class FrameCadastroUsuario extends javax.swing.JFrame {
                 .addComponent(permissoesComprador)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(permissoesVendedor)
-                .addGap(115, 115, 115)
+                .addGap(18, 18, 18)
+                .addComponent(labelWarningPermissoes, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(69, 69, 69)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -233,14 +271,18 @@ public class FrameCadastroUsuario extends javax.swing.JFrame {
 	}//GEN-LAST:event_nomeActionPerformed
 
 	private void botaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoOkActionPerformed
-		novoUsuario();
-		this.dispose();
+		if(novoUsuario()) {
+			JOptionPane.showConfirmDialog(null, "Cadastro realizado com sucesso!","Confirmação de Cadastro",JOptionPane.CLOSED_OPTION);
+			this.principal.setEnabled(true);
+			this.dispose();	
+		}
 	}//GEN-LAST:event_botaoOkActionPerformed
 
 	private void botaoLimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparCamposActionPerformed
-		nome.setText("");
-        nomeUsuario.setText("");
-        passwd.setText("");
+		if(novoUsuario()){
+			JOptionPane.showConfirmDialog(null, "Cadastro realizado com sucesso!","Confirmação de Cadastro",JOptionPane.CLOSED_OPTION);
+			limparCampos();
+		}
 	}//GEN-LAST:event_botaoLimparCamposActionPerformed
 
 	private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
@@ -249,12 +291,52 @@ public class FrameCadastroUsuario extends javax.swing.JFrame {
 	}//GEN-LAST:event_botaoCancelarActionPerformed
 
 	private void botaoOutroCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoOutroCadastroActionPerformed
-		novoUsuario();
+		if(novoUsuario()){
+			JOptionPane.showConfirmDialog(null, "Cadastro realizado com sucesso!","Confirmação de Cadastro",JOptionPane.CLOSED_OPTION);
+			limparCampos();
+		}
 	}//GEN-LAST:event_botaoOutroCadastroActionPerformed
+	
+	private void limparCampos() {
+		nome.setText("");
+        nomeUsuario.setText("");
+        passwd.setText("");
+        labelWarningNome.setText("");
+        labelWarningNomeUsuario.setText("");
+        labelWarningPasswd.setText("");
+        labelWarningPermissoes.setText("");
+	}
 
-	private void novoUsuario() {
+	private boolean novoUsuario() {
 		int permitionLevel=0;
-		this.principal.setEnabled(true);
+		
+		if(nomeUsuario.getText().length() == 0) {
+			labelWarningNomeUsuario.setText("O Nome de usuário é um campo obrigatório.");
+			return false;
+		}else{
+			labelWarningNomeUsuario.setText("");
+		}
+		
+		if(passwd.getText().length() == 0) {
+			labelWarningPasswd.setText("A senha é um campo obrigatório.");
+			return false;
+		}else{
+			labelWarningPasswd.setText("");
+		}
+		
+		if(nome.getText().length() == 0) {
+			labelWarningNome.setText("O Nome é um campo obrigatório.");
+			return false;
+		}else{
+			labelWarningNome.setText("");
+		}
+		
+		if(!(permissoesAdministrador.isSelected() && permissoesComprador.isSelected() && permissoesVendedor.isSelected())){
+			labelWarningPermissoes.setText("Uma das opções de permissão precisam ser selecionadas.");
+			return false;
+		}else{
+			labelWarningPermissoes.setText("");
+		}
 		
 		if(permissoesAdministrador.isSelected()) {
 			permitionLevel=1;
@@ -267,8 +349,8 @@ public class FrameCadastroUsuario extends javax.swing.JFrame {
 		if(permissoesVendedor.isSelected()) {
 			permitionLevel=3;
 		}
-		
-		AccessControl.cadastroUsuario(nome.getText(), nomeUsuario.getText(), passwd.getText(), permitionLevel);
+				
+		return AccessControl.cadastroUsuario(nome.getText(), nomeUsuario.getText(), passwd.getText(), permitionLevel);
 	}
 
     /**
@@ -296,6 +378,10 @@ public class FrameCadastroUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel labelPasswd;
     private javax.swing.JLabel labelPermissoes;
     private javax.swing.JLabel labelTitulo;
+    private javax.swing.JLabel labelWarningNome;
+    private javax.swing.JLabel labelWarningNomeUsuario;
+    private javax.swing.JLabel labelWarningPasswd;
+    private javax.swing.JLabel labelWarningPermissoes;
     private javax.swing.JTextField nome;
     private javax.swing.JTextField nomeUsuario;
     private javax.swing.JPasswordField passwd;
