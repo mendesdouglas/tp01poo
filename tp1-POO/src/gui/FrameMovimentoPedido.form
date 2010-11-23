@@ -28,69 +28,74 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="434" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="FrameMovimentoPedidoLabelPreco" min="-2" pref="119" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel2" min="-2" pref="69" max="-2" attributes="1"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="FrameMovimentoPedidoLabelQuantidade" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jLabel4" pref="76" max="32767" attributes="1"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="FrameMovimentoPedidoLabelQuantidadeTotal" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Component id="jSeparator1" alignment="1" min="-2" pref="16" max="-2" attributes="0"/>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="FrameMovimentoPedidoLabelCodigo" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="FrameMovimentoPedidoTextFieldCodigo" min="-2" pref="70" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="FrameMovimentoPedidoLabelCliente" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="FrameMovimentoPedidoTextFieldPreco" min="-2" pref="67" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                                  <Component id="FrameMovimentoPedidoLabelPrecoTotal" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="FrameMovimentoPedidoTextFieldQuantidade" min="-2" pref="62" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                       <Component id="jSeparator3" min="-2" pref="411" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="434" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                      <Component id="FrameMovimentoPedidoLabelCodigo" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="campoCodigo" min="-2" pref="70" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="337" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="labelCliente" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="labelClienteValor" min="-2" pref="119" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="labelQuantidade" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="labelQuantidadeValor" min="-2" pref="69" max="-2" attributes="1"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="labelPreco" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="labelPrecoValor" pref="76" max="32767" attributes="1"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                              <Component id="FrameMovimentoPedidoLabelPrecoTotal" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="campoQuantidade" min="-2" pref="62" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="botaoSalvar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="botaoEditar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="botaoRemover" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jSeparator4" min="-2" pref="22" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="botaoAdicionar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jSeparator4" min="-2" pref="22" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                      <Component id="botaoFinalizar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="botaoLimpar" min="-2" pref="62" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                       <Component id="botaoSair" min="-2" pref="56" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace pref="500" max="32767" attributes="0"/>
+                      <Component id="jSeparator1" min="-2" pref="16" max="-2" attributes="0"/>
+                      <EmptySpace min="216" pref="216" max="216" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="62" pref="62" max="62" attributes="0"/>
+                      <Component id="FrameMovimentoPedidoLabelQuantidadeTotal" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="539" pref="539" max="539" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -99,7 +104,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" max="-2" attributes="0">
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
@@ -110,55 +115,55 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jScrollPane1" min="-2" pref="402" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jSeparator3" min="-2" pref="14" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="FrameMovimentoPedidoLabelQuantidadeTotal" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="FrameMovimentoPedidoLabelCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="FrameMovimentoPedidoLabelCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="FrameMovimentoPedidoTextFieldCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="FrameMovimentoPedidoTextFieldPreco" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="campoCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="campoQuantidade" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="FrameMovimentoPedidoLabelPrecoTotal" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="FrameMovimentoPedidoTextFieldQuantidade" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="FrameMovimentoPedidoLabelPreco" max="32767" attributes="1"/>
-                          <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="1"/>
+                          <Component id="labelClienteValor" max="32767" attributes="1"/>
+                          <Component id="labelCliente" alignment="0" min="-2" max="-2" attributes="1"/>
                       </Group>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel2" alignment="3" min="-2" pref="18" max="-2" attributes="0"/>
+                          <Component id="labelQuantidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelQuantidadeValor" alignment="3" min="-2" pref="18" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="FrameMovimentoPedidoLabelQuantidade" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel4" min="-2" pref="18" max="-2" attributes="0"/>
+                          <Component id="labelPreco" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelPrecoValor" min="-2" pref="18" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+              <EmptySpace pref="38" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                      <Component id="botaoSair" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="botaoLimpar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="botaoAdicionar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                      <Component id="botaoRemover" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="botaoEditar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="botaoSalvar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="botaoSair" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="botaoLimpar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="botaoFinalizar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="botaoRemover" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="botaoEditar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="botaoSalvar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="botaoAdicionar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <Component id="jSeparator4" alignment="0" min="-2" pref="48" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -217,11 +222,6 @@
         <Property name="text" type="java.lang.String" value="C&#xf3;digo:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="FrameMovimentoPedidoLabelCliente">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Pre&#xe7;o: R$"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JButton" name="botaoSair">
       <Properties>
         <Property name="text" type="java.lang.String" value="Sair"/>
@@ -247,23 +247,23 @@
         <Property name="orientation" type="int" value="1"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="FrameMovimentoPedidoLabelPreco">
+    <Component class="javax.swing.JLabel" name="labelClienteValor">
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="labelQuantidadeValor">
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
+    <Component class="javax.swing.JLabel" name="labelPrecoValor">
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel8">
+    <Component class="javax.swing.JLabel" name="labelCliente">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cliente:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel9">
+    <Component class="javax.swing.JLabel" name="labelQuantidade">
       <Properties>
         <Property name="text" type="java.lang.String" value="Quantidade total:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="FrameMovimentoPedidoLabelQuantidade">
+    <Component class="javax.swing.JLabel" name="labelPreco">
       <Properties>
         <Property name="text" type="java.lang.String" value="Pre&#xe7;o total: R$"/>
       </Properties>
@@ -284,19 +284,14 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoAdicionarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="FrameMovimentoPedidoTextFieldCodigo">
+    <Component class="javax.swing.JTextField" name="campoCodigo">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FrameMovimentoPedidoTextFieldCodigoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoCodigoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="FrameMovimentoPedidoTextFieldPreco">
+    <Component class="javax.swing.JTextField" name="campoQuantidade">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FrameMovimentoPedidoTextFieldPrecoActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="FrameMovimentoPedidoTextFieldQuantidade">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FrameMovimentoPedidoTextFieldQuantidadeActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoQuantidadeActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator4">
@@ -326,6 +321,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoSalvarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="botaoFinalizar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Finalizar Pedido"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoFinalizarActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

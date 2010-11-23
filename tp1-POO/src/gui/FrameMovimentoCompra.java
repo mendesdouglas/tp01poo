@@ -349,6 +349,68 @@ public class FrameMovimentoCompra extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 	private void botaoAdiconarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAdiconarActionPerformed
+		cadastrar();
+	}//GEN-LAST:event_botaoAdiconarActionPerformed
+
+	private void botaoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparActionPerformed
+		limpaCampos();
+	}//GEN-LAST:event_botaoLimparActionPerformed
+
+	private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
+	    this.principal.setEnabled(true);
+		this.dispose();
+	}//GEN-LAST:event_botaoSairActionPerformed
+
+	private void compraTextFieldCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compraTextFieldCodigoActionPerformed
+		//compraTextFieldCodigo.setText("");
+	}//GEN-LAST:event_compraTextFieldCodigoActionPerformed
+
+	private void compraTextFieldQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compraTextFieldQuantidadeActionPerformed
+		//compraTextFieldQuantidade.setText("");
+	}//GEN-LAST:event_compraTextFieldQuantidadeActionPerformed
+
+	private void compraTextFieldPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compraTextFieldPrecoActionPerformed
+		//compraTextFieldPreco.setText("");// TODO add your handling code here:
+	}//GEN-LAST:event_compraTextFieldPrecoActionPerformed
+
+	private void jTable3AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jTable3AncestorAdded
+		// TODO add your handling code here:
+	}//GEN-LAST:event_jTable3AncestorAdded
+
+	private void botaoRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRemoverActionPerformed
+		int selecionado = jTable3.getSelectedRow();
+		if(selecionado >= 0) {
+			compra.removeLinha(selecionado);
+			jTable3.setModel(getData());
+			}
+		else{
+			mensagem("nenhuma linha selecionada");
+			return;
+		}
+	}//GEN-LAST:event_botaoRemoverActionPerformed
+
+	private void botaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarActionPerformed
+		int selecionado = jTable3.getSelectedRow();
+		if(selecionado >= 0) {
+			compraTextFieldCodigo.setText(((Integer)compra.overview().get(selecionado).getCodigoItem()).toString());
+			compraTextFieldCodigo.setEditable(false);
+			compraTextFieldPreco.setText(((Float)compra.overview().get(selecionado).getPrecoCompra()).toString());
+			compraTextFieldQuantidade.setText(((Integer)compra.overview().get(selecionado).getQuant()).toString());
+			compra.removeLinha(selecionado);
+			jTable3.setModel(getData());
+			}
+		else{
+			mensagem("nenhuma linha selecionada");
+			return;
+		}
+	}//GEN-LAST:event_botaoEditarActionPerformed
+
+	private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
+		cadastrar();
+		compraTextFieldCodigo.setEditable(true);
+	}//GEN-LAST:event_botaoSalvarActionPerformed
+
+	private void cadastrar() {
 		Integer codigo = 0,quant = 0;
 		Float preco = (float)0.0;
 		String nome;
@@ -415,53 +477,7 @@ public class FrameMovimentoCompra extends javax.swing.JFrame {
 				mensagem("oops!nao adicionei");
 			}
 		}
-
-	}//GEN-LAST:event_botaoAdiconarActionPerformed
-
-	private void botaoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparActionPerformed
-		limpaCampos();
-	}//GEN-LAST:event_botaoLimparActionPerformed
-
-	private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
-	    this.principal.setEnabled(true);
-		this.dispose();
-	}//GEN-LAST:event_botaoSairActionPerformed
-
-	private void compraTextFieldCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compraTextFieldCodigoActionPerformed
-		compraTextFieldCodigo.setText("");
-	}//GEN-LAST:event_compraTextFieldCodigoActionPerformed
-
-	private void compraTextFieldQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compraTextFieldQuantidadeActionPerformed
-		compraTextFieldQuantidade.setText("");
-	}//GEN-LAST:event_compraTextFieldQuantidadeActionPerformed
-
-	private void compraTextFieldPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compraTextFieldPrecoActionPerformed
-		compraTextFieldPreco.setText("");// TODO add your handling code here:
-	}//GEN-LAST:event_compraTextFieldPrecoActionPerformed
-
-	private void jTable3AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jTable3AncestorAdded
-		// TODO add your handling code here:
-	}//GEN-LAST:event_jTable3AncestorAdded
-
-	private void botaoRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRemoverActionPerformed
-		int selecionado = jTable3.getSelectedRow();
-		if(selecionado >= 0) {
-			compra.removeLinha(selecionado);
-			jTable3.setModel(getData());
-			}
-		else{
-			mensagem("nenhuma linha selecionada");
-			return;
-		}
-	}//GEN-LAST:event_botaoRemoverActionPerformed
-
-	private void botaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarActionPerformed
-		// TODO add your handling code here:
-	}//GEN-LAST:event_botaoEditarActionPerformed
-
-	private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
-		// TODO add your handling code here:
-	}//GEN-LAST:event_botaoSalvarActionPerformed
+	}
 	
 	private TableModel getData(){
 		ArrayList<ItemCompra> itens = compra.overview();
@@ -507,7 +523,7 @@ public class FrameMovimentoCompra extends javax.swing.JFrame {
 	}
 	
 	private void mensagem(String mensagem) {
-		JOptionPane.showConfirmDialog(null,mensagem,"mensagem",JOptionPane.CLOSED_OPTION);
+		JOptionPane.showConfirmDialog(null,mensagem,"Mensagem",JOptionPane.CLOSED_OPTION);
 	}
 
 

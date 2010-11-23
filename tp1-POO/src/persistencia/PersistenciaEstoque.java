@@ -212,23 +212,23 @@ public class PersistenciaEstoque {
 		}
 	}
 
-	public void finalizarPedido(Pedido pedido) throws IOException {
+	public boolean finalizarPedido(Pedido pedido){
 		ArrayList<ItemPedido> listaPedido = pedido.overview();
 		if (listaPedido == null || listaPedido.size() == 0){
-			return;
+			return false;
 		}
 	    for (ItemPedido item : listaPedido) {
 	    	Item itemReferencia = this.searchItem(item.getCodigoItem());
 	    	itemReferencia.setQuant(itemReferencia.getQuant()-item.getQuant());
 	    }
-		this.save();
 		this.savePedido(pedido);
+		return true;
 	}
 	
-	public void finalizarCompra(Compra compra) throws IOException {
+	public boolean finalizarCompra(Compra compra){
 		ArrayList<ItemCompra> listaCompra = compra.overview();
 		if (listaCompra == null || listaCompra.size() == 0){
-			return;
+			return false;
 		}
 	    for (ItemCompra item : listaCompra) {
 	    	Item itemReferencia = this.searchItem(item.getCodigoItem());
@@ -236,5 +236,6 @@ public class PersistenciaEstoque {
 	    	itemReferencia.setPrecoCusto(Estoque.calculaPrecoMedioPonderado(item));
 	    }
 		this.saveCompra(compra);
+		return true;
 	}
 }
