@@ -35,7 +35,8 @@ public class Conecta {
 			Log.getLoginstance(null).fatal(e.getMessage());
 			System.exit(1);
 		} catch (SQLException e) {
-			Log.getLoginstance(null).error(e.getMessage());
+			Log.getLoginstance(null).fatal(e.getMessage());
+			System.exit(1);
 		}		
 	}
 	 

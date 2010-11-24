@@ -66,7 +66,7 @@ import pessoas.Fornecedor;
 			stat.close();
 			return fornecedor;
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Log.getLoginstance(null).error("Ocorreu um erro: "+e.getMessage());
 			return null;
 		}
 	}
@@ -84,9 +84,10 @@ import pessoas.Fornecedor;
 			stat.executeUpdate("insert into Fornecedor (cnpj,nome,endereco,telefone) " +
 					"values('"+fornecedor.getCnpj()+"','"+fornecedor.getNome()+"','"+fornecedor.getEndereco()+"','"+fornecedor.getTelefone()+"')");
 			stat.close();
+			Log.getLoginstance(null).info("Fornecedor de CNPJ "+fornecedor.getCnpj()+" cadastrado com sucesso.");
 			return true;
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Log.getLoginstance(null).error("Ocorreu um erro: "+e.getMessage());
 			return false;
 		}
 	}
@@ -103,9 +104,10 @@ import pessoas.Fornecedor;
 			stat = conn.createStatement();
 			stat.executeUpdate("delete from Fornecedor where cnpj = "+query+" or nome = "+query);
 			stat.close();
+			Log.getLoginstance(null).info("Fornecedor de CNPJ ou Razão Social "+query+" foi removido com sucesso.");
 			return true;
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Log.getLoginstance(null).error("Ocorreu um erro: "+e.getMessage());
 			return false;
 		}
 	}
@@ -120,8 +122,9 @@ import pessoas.Fornecedor;
 			stat = conn.createStatement();
 			stat.executeUpdate("delete from Fornecedor");
 			stat.close();
+			Log.getLoginstance(null).info("Todos os dados da tabela fornecedores foram excluidos com sucesso.");
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Log.getLoginstance(null).error("Ocorreu um erro: "+e.getMessage());
 		}
 	}
 	
@@ -144,7 +147,7 @@ import pessoas.Fornecedor;
 			stat.close();
 			return fornecedores;
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Log.getLoginstance(null).error("Ocorreu um erro: "+e.getMessage());
 			return null;
 		}
 	}
