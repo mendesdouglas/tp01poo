@@ -162,22 +162,25 @@ public class AlteraSenha extends javax.swing.JFrame {
 	private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
 		principal.setEnabled(true);
 		this.dispose();
-}//GEN-LAST:event_botaoCancelarActionPerformed
+	}//GEN-LAST:event_botaoCancelarActionPerformed
 
 	private void botaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoOkActionPerformed
 		try {
 			if (AccessControl.AlteraSenha(campoNome.getText(),new String(campoSenha.getPassword()),new String(campoNovaSenha.getPassword()))){
-
+				mensagem("Senha alterada com sucesso");
+				principal.setEnabled(true);
+				this.dispose();
+			}
+			else{
+				JOptionPane.showMessageDialog(null,"Houve um erro na conexão com o banco");
 			}
 		} catch (UserNotFoundException e) {
-			mensagem("Usuario nao encontrado");
+			mensagem("Usuario "+e.getUsername()+" nao encontrado");
 			return;
 		} catch (PasswordsDontMatchException e) {
-			mensagem("Password nao confere");
+			mensagem("Password não confere");
 			return;
-		}
-	
-		
+		}	
 	}//GEN-LAST:event_botaoOkActionPerformed
 
 	private void mensagem(String mensagem) {

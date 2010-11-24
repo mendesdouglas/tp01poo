@@ -93,6 +93,8 @@ public class AccessControl {
 				if (rs.getString("passwd").equals(processa(passwd))){
 					stat.executeUpdate("delete from Users where name='"+username+"'");
 					Log.getLoginstance(null).info("Usuário "+username+" removido com sucesso");
+					rs.close();
+					stat.close();
 					return true;
 				}
 				else{
@@ -126,8 +128,10 @@ public class AccessControl {
 			rs = stat.executeQuery("select * from Users where name='"+username+"'");
 			if (rs.next()){
 				if (rs.getString("passwd").equals(processa(oldPasswd))){
-					stat.executeUpdate("update Users set passwd = '"+processa(newPasswd)+"' where name='"+username+"'");
-					Log.getLoginstance(null).info("Usuário "+username+" removido com sucesso");
+					stat.executeUpdate("update Users set passwd ='"+processa(newPasswd)+"' where name='"+username+"'");
+					Log.getLoginstance(null).info("Senha do usuário "+username+" modificada com sucesso");
+					rs.close();
+					stat.close();
 					return true;
 				}
 				else{
@@ -158,7 +162,10 @@ public class AccessControl {
 			Statement stat = Conecta.getConnection().conn.createStatement();
 			rs = stat.executeQuery("select * from Users where name='"+username+"'");
 			if (rs.next()){
-				return rs.getInt("permition");
+				Integer permissao = rs.getInt("permition");
+				rs.close();
+				stat.close();
+				return permissao;
 			}
 			else{
 				return 0;
@@ -174,7 +181,7 @@ public class AccessControl {
 	 * Método para gerar uma hash da senha do usuário para armazenamento no banco de dados 
 	 * @param senha Senha do usuário
 	 * @return hash da senha passada como parâmetro
-	 * @exception SQLException no caso de erro na conexão
+	 * @exception NoSuchAlgorithmException no caso de nao haver o algoritmo de criptografia
 	 */
 	public static String processa(String senha){
 		String sen = "";

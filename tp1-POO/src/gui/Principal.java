@@ -17,6 +17,7 @@ import exceptions.PasswordsDontMatchException;
 import exceptions.UserNotFoundException;
 
 import persistencia.AccessControl;
+import persistencia.Conecta;
 import persistencia.Log;
 
 /**
@@ -37,23 +38,9 @@ public class Principal extends javax.swing.JFrame {
 			e.printStackTrace();
 		}
         initComponents();
-        menuAlterarSenha.setEnabled(false);
-        menuCadastroClientes.setEnabled(false);
-        menuCadastroFornecedores.setEnabled(false);
-        menuCadastroItens.setEnabled(false);
-        menuConsultaClientes.setEnabled(true);
-        menuConsultaFornecedor.setEnabled(true);
-        menuConsultaItens.setEnabled(true);
-        menuCadastroUsuarios.setEnabled(false);
-        menuIniciarCompra.setEnabled(false);
-        menuIniciarVenda.setEnabled(false);
-        menuLogin.setEnabled(true);
-        menuLogout.setEnabled(true);
-        menuRemoverUsuários.setEnabled(false);
-        menuSair.setEnabled(true);
-        painelLogin.setVisible(false);
+        inicial();
     }
-
+    
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -333,84 +320,31 @@ public class Principal extends javax.swing.JFrame {
 		login();
 	}//GEN-LAST:event_botaoOkActionPerformed
 
-	private void login() {
-		if(campoNome.getText().length() == 0){
-			mensagem("O campo nome não pode estar em branco");
-			return;
-		}
-		else{
-			try {
-				if(AccessControl.login(campoNome.getText(),new String(campoSenha.getPassword()))){
-					switch(AccessControl.getPermission(campoNome.getText())){
-					case 1:{
-						administrador();
-						break;
-						}
-					case 2:{
-						cliente();
-						break;
-					}
-					case 3:{
-						Fornecedor();
-						break;
-					}
-					default:{
-						painelLogin.setVisible(false);
-					}
-					
-				}
-				}
-			} catch (UserNotFoundException e) {
-				mensagem("Usuario nao encontrado");
-				return;
-			} catch (PasswordsDontMatchException e) {
-				mensagem("Password errado");
-				return;
-			}
-		}
-	}
-
-	private void Fornecedor() {
-		menuAlterarSenha.setEnabled(true);
-		menuCadastroItens.setEnabled(true);
-		menuIniciarCompra.setEnabled(true);
-		menuCadastroFornecedores.setEnabled(true);
-		painelLogin.setVisible(false);
-	}
-
-	private void cliente() {
-		menuAlterarSenha.setEnabled(true);
-		menuIniciarVenda.setEnabled(true);
-		menuCadastroClientes.setEnabled(true);
-		painelLogin.setVisible(false);
-	}
-
-	private void administrador() {
-		menuAlterarSenha.setEnabled(true);
-		menuCadastroClientes.setEnabled(true);
-		menuCadastroFornecedores.setEnabled(true);
-		menuCadastroItens.setEnabled(true);
-		menuCadastroUsuarios.setEnabled(true);
-		menuIniciarCompra.setEnabled(true);
-		menuIniciarVenda.setEnabled(true);
-		menuRemoverUsuários.setEnabled(true);
-		painelLogin.setVisible(false);
-	}
-
+	
 	private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
 		painelLogin.setVisible(false);
 	}//GEN-LAST:event_botaoCancelarActionPerformed
 
 	private void menuLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuLoginActionPerformed
 		painelLogin.setVisible(true);
+		limpaCampos();
 	}//GEN-LAST:event_menuLoginActionPerformed
 
 	private void menuLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuLogoutActionPerformed
-		Log.getLoginstance(null).info("Usuário "+AccessControl.nome+" deslogado com sucesso");
-		AccessControl.nome = "";
+		if (AccessControl.nome.length() == 0){
+			mensagem("Não existem usuários logados no momento");
+		}
+		else{
+			Log.getLoginstance(null).info("Usuário "+AccessControl.nome+" deslogado com sucesso");
+			inicial();
+			mensagem("Usuário "+AccessControl.nome+" deslogado com sucesso");
+			AccessControl.nome = "";
+		}
+
 	}//GEN-LAST:event_menuLogoutActionPerformed
 
 	private void menuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSairActionPerformed
+		Conecta.getConnection().Desconecta();
 		this.dispose();
 	}//GEN-LAST:event_menuSairActionPerformed
 
@@ -480,7 +414,92 @@ public class Principal extends javax.swing.JFrame {
 		this.setEnabled(false);
 	}//GEN-LAST:event_jMenuItem1ActionPerformed
 
-	@SuppressWarnings("unused")
+	private void login() {
+		if(campoNome.getText().length() == 0){
+			mensagem("O campo nome não pode estar em branco");
+			return;
+		}
+		else{
+			try {
+				if(AccessControl.login(campoNome.getText(),new String(campoSenha.getPassword()))){
+					switch(AccessControl.getPermission(campoNome.getText())){
+						case 1:{
+							administrador();
+							break;
+							}
+						case 2:{
+							cliente();
+							break;
+						}
+						case 3:{
+							Fornecedor();
+							break;
+						}
+						default:{
+							painelLogin.setVisible(false);
+							inicial();
+						}
+					
+					}
+					mensagem("Usuário "+campoNome.getText()+" logado com sucesso");
+					menuLogin.setEnabled(false);
+				}
+			} catch (UserNotFoundException e) {
+				mensagem("Usuario nao encontrado");
+				return;
+			} catch (PasswordsDontMatchException e) {
+				mensagem("Password errado");
+				return;
+			}
+		}
+	}
+	
+	private void inicial() {
+		menuAlterarSenha.setEnabled(false);
+        menuCadastroClientes.setEnabled(false);
+        menuCadastroFornecedores.setEnabled(false);
+        menuCadastroItens.setEnabled(false);
+        menuConsultaClientes.setEnabled(true);
+        menuConsultaFornecedor.setEnabled(true);
+        menuConsultaItens.setEnabled(true);
+        menuCadastroUsuarios.setEnabled(false);
+        menuIniciarCompra.setEnabled(false);
+        menuIniciarVenda.setEnabled(false);
+        menuLogin.setEnabled(true);
+        menuLogout.setEnabled(true);
+        menuRemoverUsuários.setEnabled(false);
+        menuSair.setEnabled(true);
+        painelLogin.setVisible(false);
+	}
+
+	private void Fornecedor() {
+		menuAlterarSenha.setEnabled(true);
+		menuCadastroItens.setEnabled(true);
+		menuIniciarCompra.setEnabled(true);
+		menuCadastroFornecedores.setEnabled(true);
+		painelLogin.setVisible(false);
+	}
+
+	private void cliente() {
+		menuAlterarSenha.setEnabled(true);
+		menuIniciarVenda.setEnabled(true);
+		menuCadastroClientes.setEnabled(true);
+		painelLogin.setVisible(false);
+	}
+
+	private void administrador() {
+		menuAlterarSenha.setEnabled(true);
+		menuCadastroClientes.setEnabled(true);
+		menuCadastroFornecedores.setEnabled(true);
+		menuCadastroItens.setEnabled(true);
+		menuCadastroUsuarios.setEnabled(true);
+		menuIniciarCompra.setEnabled(true);
+		menuIniciarVenda.setEnabled(true);
+		menuRemoverUsuários.setEnabled(true);
+		painelLogin.setVisible(false);
+	}
+
+	
 	private void limpaCampos() {
 		campoNome.setText("");
 		campoSenha.setText("");

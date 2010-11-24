@@ -1,11 +1,13 @@
 package cui;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import exceptions.PasswordsDontMatchException;
 import exceptions.UserNotFoundException;
 
 import persistencia.AccessControl;
+import persistencia.Conecta;
 import persistencia.Log;
 
 
@@ -21,13 +23,15 @@ public class Main {
 	 * @throws SQLException 
 	 */
 	public static void main(String[] args) throws IOException, SQLException {
-		AccessControl.cadastroUsuario("isac2","isac2","senha2",1);
-		//AccessControl.cadastroUsuario("vendedor","vendedor",false);
-		//AccessControl.cadastroUsuario("comprador","comprador",false);
-		Log.getLoginstance(null).info("info");
-		Log.getLoginstance(null).error("erro!");
-		Log.getLoginstance(null).warn("warning");
-		Log.getLoginstance(null).fatal("fatal");
+//Statement stat = Conecta.getConnection().conn.createStatement();
+//stat.executeUpdate("delete from Users");
+//AccessControl.cadastroUsuario("admin","admin","admin",1);
+//AccessControl.cadastroUsuario("cliente","cliente","cliente",2);
+//AccessControl.cadastroUsuario("fornecedor","fornecedor","fornecedor",3);
+//		Log.getLoginstance(null).info("info");
+//		Log.getLoginstance(null).error("erro!");
+//		Log.getLoginstance(null).warn("warning");
+//		Log.getLoginstance(null).fatal("fatal");
 		
 		System.out.println("Informe seu nome de usuario:");
 		String username = Console.readString();
