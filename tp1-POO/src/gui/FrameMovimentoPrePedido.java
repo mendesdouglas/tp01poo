@@ -51,7 +51,15 @@ public class FrameMovimentoPrePedido extends javax.swing.JFrame implements Commu
         prePedidoBotaoOK = new javax.swing.JButton();
         prePedidoBotaoCancelar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         prePedidoLabelCabecalho.setText("Insira o Cpf do Cliente que irá realizar o pedido:");
 
@@ -127,6 +135,18 @@ public class FrameMovimentoPrePedido extends javax.swing.JFrame implements Commu
 		this.dispose();
 	}//GEN-LAST:event_prePedidoBotaoCancelarActionPerformed
 
+	/**
+	 * 
+	 * @param evt
+	 */
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        this.principal.setEnabled(true);
+    }//GEN-LAST:event_formWindowClosed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        this.principal.setEnabled(true);
+    }//GEN-LAST:event_formWindowClosing
+	        
 	private void PrePedidoBotaoOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrePedidoBotaoOKActionPerformed
 		if (prePedidoCampoCpf.getText() == null || prePedidoCampoCpf.getText().length() == 0){
 			JOptionPane.showConfirmDialog(null,"O campo Cpf nao pode ser vazio","mensagem",JOptionPane.CLOSED_OPTION);

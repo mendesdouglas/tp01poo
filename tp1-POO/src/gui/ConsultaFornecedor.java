@@ -103,9 +103,6 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated(evt);
-            }
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
             }
@@ -539,19 +536,16 @@ public class ConsultaFornecedor extends javax.swing.JFrame implements Communicat
            
         }//GEN-LAST:event_formWindowActivated
         /**
-         * Ao fechar a janela filha habilita a janela mãe
+         * 
          * @param evt
          */
-        private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-            this.principal.setEnabled(true);
-        }//GEN-LAST:event_formWindowClosed
-        /**
-         * Ao fechar a janela filha habilita a janela mãe
-         * @param evt
-         */
-        private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-            this.principal.setEnabled(true);
-        }//GEN-LAST:event_formWindowClosing
+                private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+                    this.principal.setEnabled(true);
+                }//GEN-LAST:event_formWindowClosed
+
+                private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+                    this.principal.setEnabled(true);
+                }//GEN-LAST:event_formWindowClosing
         
         private void ConsultaFornecedorNomeBotaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaFornecedorNomeBotaoCadastroActionPerformed
             FrameCadastroFornecedor fornecedor = new FrameCadastroFornecedor(this);
