@@ -1,13 +1,11 @@
 package cui;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 import exceptions.PasswordsDontMatchException;
 import exceptions.UserNotFoundException;
 
 import persistencia.AccessControl;
-import persistencia.Conecta;
 import persistencia.Log;
 
 
