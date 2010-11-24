@@ -138,9 +138,18 @@ public class RemoveUsuarios extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 	private void botaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoOkActionPerformed
+		if(campoNome.getText() == AccessControl.nome){
+			mensagem("Você não pode remover um usuário que está atualmente logado");
+			return;
+		}
 		try {
 			if (AccessControl.RemoverUsuario(campoNome.getText(),new String(campoSenha.getPassword()))){
-				
+				mensagem("Usuário "+AccessControl.nome+" removido com sucesso");
+				principal.setEnabled(true);
+				this.dispose();
+			}
+			else{
+				JOptionPane.showMessageDialog(null,"Houve um erro na conexão com o banco");
 			}
 		} catch (UserNotFoundException e) {
 			mensagem("Usuario nao encontrado");

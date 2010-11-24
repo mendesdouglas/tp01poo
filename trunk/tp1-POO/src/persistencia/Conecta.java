@@ -40,6 +40,7 @@ public class Conecta {
 		}		
 	}
 	 
+
 	/**
 	 * Singleton. Usado para que haja apenas uma conexão com o banco sendo usada no sistema
 	 * @return uma instância desta classe
@@ -50,6 +51,14 @@ public class Conecta {
 	    }
 	    return connection;
 	 }
+	
+	public void Desconecta(){
+		try {
+			this.conn.close();
+		} catch (SQLException e) {
+			Log.getLoginstance(null).error(e.getMessage());
+		}
+	}
 	
 	/**
 	 * Configura uma nova conexão usando Banco de dados Sqlite
