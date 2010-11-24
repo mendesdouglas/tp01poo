@@ -119,9 +119,9 @@ public class Compra {
 	}
 	
 	/**
-	 * ???
+	 * Pesquisa por um item.
 	 * @param codigo
-	 * @return
+	 * @return retorna um item, caso ele exista. Retorna null, se o item não for encontrado.
 	 */
 	@SuppressWarnings("unused")
 	private ItemCompra search(int codigo){

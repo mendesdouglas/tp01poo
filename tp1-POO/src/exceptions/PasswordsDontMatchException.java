@@ -13,7 +13,10 @@ public class PasswordsDontMatchException extends Exception {
 		super("A senha "+passwd+" não bate com a armazenada no banco");
 		this.passwd = passwd;
 	}
-
+/**
+ * Retorna um senha.  
+ * @return  Retorna senha.
+ */
 	public String getPasswd() {
 		return this.passwd;
 	}

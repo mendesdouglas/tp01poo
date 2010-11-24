@@ -144,7 +144,7 @@ public class AlteraSenha extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     /**
-     * 
+     * Habilita o acesso nos menus da janeela Principal.
      * @param evt
      */
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed

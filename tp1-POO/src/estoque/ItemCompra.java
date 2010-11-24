@@ -61,7 +61,7 @@ public class ItemCompra {
 	/**
 	 * Altera o valor do preço de compra de um itemCompra.
 	 * 
-	 * @param precoCompra ????
+	 * @param precoCompra recebe o valor da Compra.
 	 */
 	public void setPrecoCompra ( float precoCompra  ) {
 		this.precoCompra = precoCompra;
