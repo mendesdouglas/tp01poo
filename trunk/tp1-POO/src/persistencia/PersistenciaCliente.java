@@ -42,7 +42,10 @@ public class PersistenciaCliente {
 	public boolean save(){
 		return true;
 	}
-
+	
+	/**
+	 * removido, pertencia a primeira parte do trabalho 
+	 */
 	public void getCliente(){
 	}
 	
@@ -66,7 +69,7 @@ public class PersistenciaCliente {
 			stat.close();
 			return cliente;
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Log.getLoginstance(null).error("Ocorreu um erro: "+e.getMessage());
 			return null;
 		}
 	}
@@ -84,9 +87,10 @@ public class PersistenciaCliente {
 			stat.executeUpdate("insert into Cliente (cpf,nome,endereco,telefone) " +
 					"values('"+cliente.getCpf()+"','"+cliente.getNome()+"','"+cliente.getEndereco()+"','"+cliente.getTelefone()+"')");
 			stat.close();
+			Log.getLoginstance(null).info("Cliente de CPF "+cliente.getCpf()+" cadastrado no banco de dados.");
 			return true;
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Log.getLoginstance(null).error("Ocorreu um erro: "+e.getMessage());
 			return false;
 		}
 	}
@@ -103,9 +107,10 @@ public class PersistenciaCliente {
 			stat = conn.createStatement();
 			stat.executeUpdate("delete from Cliente wehre cpf = "+query+" or nome = "+query);
 			stat.close();
+			Log.getLoginstance(null).info("Cliente de nome ou cpf "+query+" cadastrado no banco de dados.");
 			return true;
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Log.getLoginstance(null).error("Ocorreu um erro: "+e.getMessage());
 			return false;
 		}
 	}
@@ -120,8 +125,9 @@ public class PersistenciaCliente {
 			stat = conn.createStatement();
 			stat.executeUpdate("delete from Cliente");
 			stat.close();
+			Log.getLoginstance(null).info("Todos os dados da tabela cliente foram excluidos com sucesso.");
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Log.getLoginstance(null).error("Ocorreu um erro: "+e.getMessage());
 		}
 	}
 	
@@ -146,7 +152,7 @@ public class PersistenciaCliente {
 			stat.close();
 			return clientes;
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Log.getLoginstance(null).error("Ocorreu um erro: "+e.getMessage());
 			return null;
 		}
 	}

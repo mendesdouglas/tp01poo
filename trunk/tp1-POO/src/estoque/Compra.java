@@ -47,9 +47,9 @@ public class Compra {
 	}
 	
 	/**
-	 * ???
-	 * @param formato
-	 * @return
+	 * Converte um objeto do tipo Date para string.
+	 * @param formato Como a data deve ser mostrada.
+	 * @return Uma string com a data atual.
 	 */
 	public String getDataCompra(String formato){
 		  if (formato == null || formato.length() == 0){

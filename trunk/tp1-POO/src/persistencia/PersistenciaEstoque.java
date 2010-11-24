@@ -62,9 +62,10 @@ public class PersistenciaEstoque {
 					"values((select max(id) from Compra),'"+itemCompra.getCodigoItem()+"','"+itemCompra.getPrecoCompra()+"','"+itemCompra.getQuant()+"')");
 			}
 			stat.close();
+			Log.getLoginstance(null).info("Compra do fornecedor de CNPJ "+compra.getCnpjFornecedor()+" foi finalizada e registrada com sucesso em "+compra.getDataCompra(null));
 			return true;
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Log.getLoginstance(null).error("Ocorreu um erro: "+e.getMessage());
 			return false;
 		}
 	}
@@ -91,7 +92,7 @@ public class PersistenciaEstoque {
 			stat.close();
 			return true;
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Log.getLoginstance(null).error("Ocorreu um erro: "+e.getMessage());
 			return false;
 		}
 	}
@@ -123,7 +124,7 @@ public class PersistenciaEstoque {
 			stat.close();
 			return item;
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Log.getLoginstance(null).error("Ocorreu um erro: "+e.getMessage());
 			return null;
 		}
 	}
@@ -147,7 +148,7 @@ public class PersistenciaEstoque {
 			stat.close();
 			return item;
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Log.getLoginstance(null).error("Ocorreu um erro: "+e.getMessage());
 			return null;
 		}
 	}
@@ -166,7 +167,7 @@ public class PersistenciaEstoque {
 			stat.close();
 			return true;
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Log.getLoginstance(null).error("Ocorreu um erro: "+e.getMessage());
 			return false;
 		}
 	}
@@ -185,7 +186,7 @@ public class PersistenciaEstoque {
 			stat.close();
 			return true;
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Log.getLoginstance(null).error("Ocorreu um erro: "+e.getMessage());
 			return false;
 		}
 	}
@@ -206,7 +207,7 @@ public class PersistenciaEstoque {
 			stat.close();
 			return true;
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Log.getLoginstance(null).error("Ocorreu um erro: "+e.getMessage());
 			return false;
 		}
 	}
@@ -222,7 +223,7 @@ public class PersistenciaEstoque {
 			stat.executeUpdate("delete from Item");
 			stat.close();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Log.getLoginstance(null).error("Ocorreu um erro: "+e.getMessage());
 		}
 	}
 	
@@ -245,7 +246,7 @@ public class PersistenciaEstoque {
 			stat.close();
 			return itens;
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Log.getLoginstance(null).error("Ocorreu um erro: "+e.getMessage());
 			return null;
 		}
 	}

@@ -53,12 +53,13 @@ public class Pedido {
 		  SimpleDateFormat sdf1= new SimpleDateFormat(formato);
 		  return sdf1.format(this.dataPedido);
 	}
+	
 	/**
 	 * 
-	 * Retorna a possibilidade de um pedido dependendo da quant disponível
-	 * @param index
-	 * @param quant
-	 * @return true/false
+	 * Retorna a possibilidade de um pedido dependendo da quantidade disponível
+	 * @param index 
+	 * @param quant 
+	 * @return true/false 
 	 */
 	
 	public boolean setQuantidade(int index,int quant){
