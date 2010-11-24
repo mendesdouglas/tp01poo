@@ -353,7 +353,7 @@ public class FrameCadastroUsuario extends javax.swing.JFrame {
 			labelWarningNome.setText("");
 		}
 		
-		if(!(permissoesAdministrador.isSelected() && permissoesComprador.isSelected() && permissoesVendedor.isSelected())){
+		if(!(permissoesAdministrador.isSelected()) && !(permissoesComprador.isSelected()) && !(permissoesVendedor.isSelected())){
 			labelWarningPermissoes.setText("Uma das opções de permissão precisam ser selecionadas.");
 			return false;
 		}else{
