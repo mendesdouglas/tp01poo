@@ -287,10 +287,7 @@ public class FrameCadastroUsuario extends javax.swing.JFrame {
 	 * @param evt
 	 */
 	private void botaoLimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparCamposActionPerformed
-		if(novoUsuario()){
-			JOptionPane.showConfirmDialog(null, "Cadastro realizado com sucesso!","Confirmação de Cadastro",JOptionPane.CLOSED_OPTION);
-			limparCampos();
-		}
+		limparCampos();
 	}//GEN-LAST:event_botaoLimparCamposActionPerformed
 /**
  * Botão que cancela um cadastro
