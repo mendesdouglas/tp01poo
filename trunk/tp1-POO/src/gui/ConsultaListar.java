@@ -33,22 +33,41 @@ public class ConsultaListar extends javax.swing.JFrame {
     public ConsultaListar(ConsultaCliente cliente) {
         initComponents();
 		this.object = cliente;
-		ArrayList<Object> clientes = PersistenciaCliente.getInstance().overview();
+		ArrayList<Cliente> clientes = PersistenciaCliente.getInstance().overview();
+		ArrayList<Object> objetos = new ArrayList<Object>();
+		for (Cliente cli : clientes) {
+			objetos.add(cli);
+		}
 		String [] cabecalho = new String [] {"Cpf","Nome","Endereco","Telefone"};
-		ConsultaClienteTabela.setModel(getData(clientes,cabecalho));
+		ConsultaClienteTabela.setModel(getData(objetos,cabecalho));
 		
     }
 
 	public ConsultaListar(ConsultaFornecedor fornecedor) {
         initComponents();
 		this.object = fornecedor;
-		String [] cabecalho = new String [] {"Codigo","Nome","Telefone"};
+		ArrayList<Cliente> clientes = PersistenciaCliente.getInstance().overview();
+		ArrayList<Object> objetos = new ArrayList<Object>();
+		String [] cabecalho = new String [] {"Cpf","Nome","Endereco","Telefone"};
+		for (Cliente cli : clientes) {
+			objetos.add(cli);
+		}
+		cabecalho = new String [] {"Codigo","Nome","Telefone"};
+		ConsultaClienteTabela.setModel(getData(objetos,cabecalho));
     }
 
 	public ConsultaListar(ConsultaItem item) {
         initComponents();
 		this.object = item;
-		String [] cabecalho = new String [] {"Codigo","Nome","Preco custo","Margem lucro","Quantidade"};
+		ArrayList<Cliente> clientes = PersistenciaCliente.getInstance().overview();
+		ArrayList<Object> objetos = new ArrayList<Object>();
+		String [] cabecalho = new String [] {"Cpf","Nome","Endereco","Telefone"};
+		for (Cliente cli : clientes) {
+			objetos.add(cli);
+		}
+		cabecalho = new String [] {"Codigo","Nome","Preco custo","Margem lucro","Quantidade"};
+		ConsultaClienteTabela.setModel(getData(objetos,cabecalho));
+
     }
     /** This method is called from within the constructor to
      * initialize the form.
@@ -127,10 +146,9 @@ public class ConsultaListar extends javax.swing.JFrame {
 		this.dispose();
 	}//GEN-LAST:event_ConsultaClienteBotaoOKActionPerformed
 
-	private TableModel getData(ArrayList<Object> data,String[] colunas){
+	private TableModel getData(ArrayList<Object> data,String[] headersName){
 		Vector<Vector<String>> dados = new Vector<Vector<String>>();
 		Vector<String> headers = new Vector<String>();
-		String [] headersName = new String[]{"linha","Código","Nome","Preço", "Quantidade", "subTotal"};
 
 		for (int i = 0; i < headersName.length; i++) {
 			headers.add(headersName[i]);
