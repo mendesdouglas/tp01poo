@@ -72,6 +72,14 @@ public class FrameCadastroCliente extends javax.swing.JFrame {
         labelWarningCpf = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         setModalExclusionType(java.awt.Dialog.ModalExclusionType.TOOLKIT_EXCLUDE);
 
         jPanel1.setMaximumSize(new java.awt.Dimension(580, 580));
@@ -316,7 +324,17 @@ public class FrameCadastroCliente extends javax.swing.JFrame {
 			limparCampos();
 		}
 	}//GEN-LAST:event_BotaoOutroCadastroActionPerformed
+	/**
+	 * 
+	 * @param evt
+	 */
+	        private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+	            this.principal.setEnabled(true);
+	        }//GEN-LAST:event_formWindowClosed
 
+	        private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+	            this.principal.setEnabled(true);
+	        }//GEN-LAST:event_formWindowClosing
 	/**
 	 * Cadastra um cliente novo
 	 * campos: nome,cpf são obrigatórios 

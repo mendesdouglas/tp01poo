@@ -83,6 +83,14 @@ public class FrameMovimentoCompra extends javax.swing.JFrame {
         botaoFinalizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         compraJlabelFornecedor.setText("Fornecedor:");
 
@@ -495,6 +503,17 @@ public class FrameMovimentoCompra extends javax.swing.JFrame {
 		compraTextFieldCodigo.setText(" ");
 	}
 	
+	/**
+	 * 
+	 * @param evt
+	 */
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        this.principal.setEnabled(true);
+    }//GEN-LAST:event_formWindowClosed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        this.principal.setEnabled(true);
+    }//GEN-LAST:event_formWindowClosing
 	private void mensagem(String mensagem) {
 		JOptionPane.showConfirmDialog(null,mensagem,"Mensagem",JOptionPane.CLOSED_OPTION);
 	}

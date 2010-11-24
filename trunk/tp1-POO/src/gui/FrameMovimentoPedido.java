@@ -77,6 +77,14 @@ public class FrameMovimentoPedido extends javax.swing.JFrame {
         labelDataValor = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -409,6 +417,19 @@ public class FrameMovimentoPedido extends javax.swing.JFrame {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param evt
+	 */
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        this.principal.setEnabled(true);
+    }//GEN-LAST:event_formWindowClosed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        this.principal.setEnabled(true);
+    }//GEN-LAST:event_formWindowClosing	
+    
+    
 	private TableModel getData(){
 		ArrayList<ItemPedido> itens = pedido.overview();
 		Vector<Vector<String>> dados = new Vector<Vector<String>>();

@@ -50,6 +50,15 @@ public class RemoveUsuarios extends javax.swing.JFrame {
         botaoOk = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
+        
         setName(""); // NOI18N
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -138,16 +147,23 @@ public class RemoveUsuarios extends javax.swing.JFrame {
 			return;
 		}
 	}//GEN-LAST:event_botaoOkActionPerformed
+	
+	/**
+	 * 
+	 * @param evt
+	 */
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        this.principal.setEnabled(true);
+    }//GEN-LAST:event_formWindowClosed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        this.principal.setEnabled(true);
+    }//GEN-LAST:event_formWindowClosing
 
 	private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
 		principal.setEnabled(true);
 		this.dispose();
 	}//GEN-LAST:event_botaoCancelarActionPerformed
-
-	private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-		principal.setEnabled(true);
-		this.dispose();
-	}//GEN-LAST:event_formWindowClosing
 
 	
 	private void mensagem(String mensagem) {
