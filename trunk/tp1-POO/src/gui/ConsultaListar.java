@@ -17,6 +17,8 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 import persistencia.PersistenciaCliente;
+import persistencia.PersistenciaEstoque;
+import persistencia.PersistenciaFornecedor;
 import pessoas.Cliente;
 import pessoas.Fornecedor;
 
@@ -29,6 +31,7 @@ import estoque.ItemCompra;
  */
 public class ConsultaListar extends javax.swing.JFrame {
 	JFrame object;
+	ArrayList<Object> objetos;
     /** Creates new form ConsultaClienteListar */
     public ConsultaListar(ConsultaCliente cliente) {
         initComponents();
@@ -46,11 +49,11 @@ public class ConsultaListar extends javax.swing.JFrame {
 	public ConsultaListar(ConsultaFornecedor fornecedor) {
         initComponents();
 		this.object = fornecedor;
-		ArrayList<Cliente> clientes = PersistenciaCliente.getInstance().overview();
-		ArrayList<Object> objetos = new ArrayList<Object>();
+		ArrayList<Fornecedor> fornecedores = PersistenciaFornecedor.getInstance().overview();
 		String [] cabecalho = new String [] {"Cpf","Nome","Endereco","Telefone"};
-		for (Cliente cli : clientes) {
-			objetos.add(cli);
+		objetos = new ArrayList<Object>();
+		for (Fornecedor forn : fornecedores) {
+			objetos.add(forn);
 		}
 		cabecalho = new String [] {"Codigo","Nome","Telefone"};
 		ConsultaClienteTabela.setModel(getData(objetos,cabecalho));
@@ -59,11 +62,11 @@ public class ConsultaListar extends javax.swing.JFrame {
 	public ConsultaListar(ConsultaItem item) {
         initComponents();
 		this.object = item;
-		ArrayList<Cliente> clientes = PersistenciaCliente.getInstance().overview();
-		ArrayList<Object> objetos = new ArrayList<Object>();
+		ArrayList<Item> itens = PersistenciaEstoque.getInstance().overview();
+	    objetos = new ArrayList<Object>();
 		String [] cabecalho = new String [] {"Cpf","Nome","Endereco","Telefone"};
-		for (Cliente cli : clientes) {
-			objetos.add(cli);
+		for (Item it : itens) {
+			objetos.add(it);
 		}
 		cabecalho = new String [] {"Codigo","Nome","Preco custo","Margem lucro","Quantidade"};
 		ConsultaClienteTabela.setModel(getData(objetos,cabecalho));
@@ -145,7 +148,8 @@ public class ConsultaListar extends javax.swing.JFrame {
 		object.setEnabled(true);
 		this.dispose();
 	}//GEN-LAST:event_ConsultaClienteBotaoOKActionPerformed
-
+  
+    
 	private TableModel getData(ArrayList<Object> data,String[] headersName){
 		Vector<Vector<String>> dados = new Vector<Vector<String>>();
 		Vector<String> headers = new Vector<String>();
