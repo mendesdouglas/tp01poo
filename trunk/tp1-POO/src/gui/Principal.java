@@ -418,8 +418,8 @@ public class Principal extends javax.swing.JFrame {
 	}//GEN-LAST:event_menuConsultaFornecedorActionPerformed
 
 	private void menuConsultaClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuConsultaClientesActionPerformed
-		ConsultaFornecedor consultaFornecedor = new ConsultaFornecedor(this);
-		consultaFornecedor.setVisible(true);
+		ConsultaCliente consultaCliente = new ConsultaCliente(this);
+		consultaCliente.setVisible(true);
 		this.setEnabled(false);
 	}//GEN-LAST:event_menuConsultaClientesActionPerformed
 
